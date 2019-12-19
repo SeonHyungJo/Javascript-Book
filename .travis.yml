@@ -1,29 +1,18 @@
 language: rust
-
-# before_install:
-#   - curl -L https://github.com/rust-lang-nursery/mdBook/releases/download/v0.2.3/mdbook-v0.2.3-x86_64-unknown-linux-musl.tar.gz | tar xzf -
-#   - export PATH=$PATH:`pwd`
-
-# Temporarily disable using pre-built binaries until
-# https://github.com/rust-lang-nursery/mdBook/issues/820 is fixed.
 before_script:
-  - cargo install mdbook --version 0.2.3
-
+- cargo install mdbook --version 0.2.3
 script:
-  - mv _theme theme
-  - mdbook build
+- mv _theme theme
+- mdbook build
 
-# deploy:
-#   provider: script
-#   script: curl -LsSf https://git.io/fhJ8n | rustc - && (cd book && ../rust_out)
-#   skip_cleanup: true
-#   on:
-#     branch: master
+env:
+  global:
+    secure: nzgXP4sQYm+qOJbUmYLiPCS1grvGQxy1hk22cUgkKASscc25dnb5+HeStnsxiHV2yrBoSF2mOhBlkMeUH+2ExHy+0nOyMu8JoQ3IWK7HaShBOOQrabowgoJvBHiAKMTsZF0wshU6ZgF7sF1bFv/3oq88ZQIu/58D9jB3TTHy3jPuXjU7dFKKlFo3x2jjVQ7UrjHEJKmW3bQhekBtY9P/fmf1gIA6yXhiqTXXYB46OUNAEm4ThaU27R5CvwPqFeepj0KjgTm2UTjh1/neqgU/YcMAGoxeo9NopYBLqR8PoYnrYSRv/uxX9NTWOUQsOrsN6ElyiwQ5T3/O2aXP+RE2d3blcXf07B+4fwqMKfqdOXknuiX8fNt5Cq5Yx4w5Ka5IK5bmho88giBH5FnPaeTh3a29s9lVeuFyRxWmg9pd9W8s4hIcfQk19tEFGx3Tk44fFelPDUyQ4UkSQ+3i7zPEEjsJupuRxDRAQJ6e2WNOBsIPDM2VWmcstUJzphxwgvSQciFkNf3JnVNPKZRAKNcWXPElcs9EBCd/wVXTIOWk2zLGDHs41n86nHwzfegRIenwAOOcTOkcgx/fAYywfsg82upZnuoWTIHpUKw2KqyYyJQ3QrP54+vXDAPDYWi49N3gioXonagpx8Y7MDLNGC52O2uim8k4Q4DA8wenA3pbnBo=
 
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token: "$GITHUB_TOKEN"
   keep_history: true
   local_dir: book
   on:
