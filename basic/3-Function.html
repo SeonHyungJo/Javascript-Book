@@ -1,0 +1,612 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Function - Javascript Basic &amp; Detail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html" class="active"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <style>
+  header.warning {
+    background-color: rgb(242, 222, 222);
+    border-bottom-color: rgb(238, 211, 215);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.666667px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(238, 211, 215);
+    border-left-style: solid;
+    border-left-width: 0.666667px;
+    border-right-color: rgb(238, 211, 215);
+    border-right-style: solid;
+    border-right-width: 0.666667px;
+    border-top-color: rgb(238, 211, 215);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 0.666667px;
+    color: rgb(185, 74, 72);
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 35px;
+    padding-top: 8px;
+    text-align: center;
+  }
+</style>
+
+
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#function" id="function"><h1><strong>Function</strong></h1></a>
+<a class="header" href="#목차" id="목차"><h2><strong>목차</strong></h2></a>
+<ul>
+<li>[x] Global Scope</li>
+<li>[x] Local Scope</li>
+<li>[x] Functional Scope</li>
+<li>[x] Block Scope</li>
+<li>[x] Lexical Scope</li>
+<li>[x] Function
+<ul>
+<li>[x] Function Declaration</li>
+<li>[x] Function Expression</li>
+<li>[x] Named Function Expression</li>
+</ul>
+</li>
+<li>[x] IIFE(Immediately Invoked Function Expression)</li>
+</ul>
+<p>Function에 대해서 자세히 알아보기 전에 우리는 자바스크립트의 Scope에 대해서 알아보자
+자바스크립트에서의 Scope는 크게 2가지이다.</p>
+<ul>
+<li><strong>Global Scope</strong></li>
+<li><strong>Local Scope</strong></li>
+</ul>
+<p>함수 안에서 정의가 된 변수들은 기본적으로 <strong>Local Scope</strong> 에서 선언이 되었다고 하면, 함수 외부에 정의된 변수는 <strong>Global Scope</strong> 에서 선언이 되었다고 한다. 함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 <strong>함수 1개가 있다는 기준에서의 외부</strong> 이다. 이렇게 완전한 외부를 우리는 <strong>Window</strong> 라고 하자.</p>
+<p>또한 각각의 함수들은 실행이 되면 내부적으로 New Scope를 생성하고 가지게 된다.
+<br/></p>
+<a class="header" href="#global-scope" id="global-scope"><h2><strong>Global Scope</strong></h2></a>
+<p>우리가 자바스크립트를 실행하게 되면 이미 <strong>Global Scope</strong> 안에 있는 것이다. 그래서 우리가 Function 안쪽에서 선언하지 않고 기본적으로 선언하는 것들은 <strong>Global Scope</strong> 에서 선언하는 것이다.</p>
+<pre><code class="language-javascript">// 이 부분이 바로 기본값인 Global Scope이다.
+const name = 'sseon';
+const age = '27';
+</code></pre>
+<p>Global로 선언한 변수는 다른 Scope 어디에서든 접근이 가능하다.</p>
+<pre><code class="language-javascript">const name = 'sseon';
+    
+console.log(name); // 같은 Scope에서의 호출은 된다. =&gt; logs 'sseon'
+    
+function logName() {
+    console.log(name); // 'name' 이라는 변수가 어디서든 접근이 가능하다.
+}
+    
+logName(); // logs 'sseon'
+</code></pre>
+<p><br/></p>
+<a class="header" href="#local-scope" id="local-scope"><h2><strong>Local Scope</strong></h2></a>
+<p>함수안에 선언한 변수는 <strong>Local Scope</strong> 안에 있는 것이다. 우리는 같은 변수의 이름을 다른 함수안에서 각각 정의를 할 수 있는데, 해당 변수가 서로 다른 Scope에 바인딩이 되어 각각의 함수에서는 접근이 불가능하게 된다.</p>
+<pre><code class="language-javascript">// Global Scope
+function someFunction() {
+    // Local Scope #1
+    function someOtherFunction() {
+        // Local Scope #2
+    }
+}
+    
+// Global Scope
+function anotherFunction() {
+    // Local Scope #3
+}
+// Global Scope
+</code></pre>
+<p>위와 같이 코드가 짜였다고 한다면 <strong>Local Scope#1</strong> 에서 선언한 변수는 <strong>Local Scope#2</strong> 에서는 접근이 가능하지만 <strong>Local Scope#3</strong> 에서는 접근이 불가하다. 마찬가지로 <strong>Local Scope#3</strong> 에서 선언된 변수는 <strong>Local Scope#1</strong>, <strong>Local Scope#2</strong> 에서 접근이 불가하다. <strong>Local Scope#2</strong> 에서 <strong>Local Scope#1</strong> 접근이 가능한 이유는 뒤에서 다룰 것이다.
+<br/></p>
+<a class="header" href="#functional-scope" id="functional-scope"><h2><strong>Functional Scope</strong></h2></a>
+<p>자바스크립트는 위에서 본 것과 같이 <strong>함수를 단위로 Scope를 구분한다.</strong> 즉 같은 함수안에서 선언된 변수들은 같은 Level의 Scope를 가지게 되는 것이다. 각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근을 할 수 없다.</p>
+<pre><code class="language-javascript">// Global Scope
+function someFunction() {
+    if (true) {
+        var name = 'sseon'; 
+    }
+}
+</code></pre>
+<p>위와 같이 Global Scope에 <code>someFunction()</code> 을 선언하고 내부에 if문 괄호 안에 선언한 변수는 <strong>someFunction function Scope</strong> 에 붙게 되는 것이다.
+<br/></p>
+<a class="header" href="#block-scope" id="block-scope"><h2><strong>Block Scope</strong></h2></a>
+<p>Block Statement는 우리가 많이 보는 if문, switch문, for, while문이다. 이러한 문장들은 괄호로 감싸진 부분이 존재하지만 새로운 Scope를 만들지는 않는다. Block Statement 안에서 정의한 변수는 가장 가까운 함수의 Scope에 붙게 된다.</p>
+<pre><code class="language-javascript">if (true) {
+    // this 'if' conditional block doesn't create a new scope
+    var name = 'sseon'; // name is still in the global scope
+}
+    
+console.log(name); // logs 'sseon'
+</code></pre>
+<p>ECMAScript6에서 <code>let</code>, <code>const</code>가 추가 되었다. 이 2개는 <code>var</code> 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 들어간다. 바로 <strong>Block Level Scope</strong> 라는 것이다. 기존의 자바스크립트는 위에서 본 것처럼 <strong>Functional Scope</strong> 이다. 그러나 <code>let</code>, <code>const</code> 를 사용하게 되면 <strong>Block Level Scope</strong> 지원이 가능하다. 아래의 예제를 보자</p>
+<pre><code class="language-javascript">if (true) {
+    // this 'if' conditional block doesn't create a new scope
+    var name = 'sseon'; // name is still in the global scope
+    let likes = 'Coding';
+    const skills = 'Javascript';
+}
+    
+console.log(name); // logs 'sseon'
+console.log(likes); // Uncaught ReferenceError: likes is not defined
+console.log(skills); // Uncaught ReferenceError: skills is not defined
+</code></pre>
+<p><code>var</code>와는 다르게 <code>let</code>, <code>const</code>는 Block Statement내에서 <strong>Local Scope</strong> 를 지원한다. 즉 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block에 붙게 되는 것이다.</p>
+<p><strong>Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Local Scope은 함수가 호출되고 실행되는한 유지가 된다.</strong>
+<br/></p>
+<a class="header" href="#lexical-scope" id="lexical-scope"><h2><strong>Lexical Scope</strong></h2></a>
+<p><strong>Lexical Scope</strong> 는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩된다. <strong>Lexical scope</strong> 는 때때로 <strong>Static Scope</strong> 라고도 불린다.</p>
+<pre><code class="language-javascript">function grandfather() {
+    var name = 'sseon';
+        // likes is not accessible here
+    function parent() {
+            // name is accessible here
+            // likes is not accessible here
+        function child() {
+            // Innermost level of the scope chain
+            // name is also accessible here
+            var likes = 'Coding';
+        }
+    }
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#function-1" id="function-1"><h2><strong>Function</strong></h2></a>
+<p>함수는 자바스크립트에서 중요한 컨셉이다. 자바스크립트에서 함수는 1급 객체이다.</p>
+<ol>
+<li><strong>Function Declaration(함수 선언식)</strong></li>
+<li><strong>Function Expression(함수 표현식)</strong></li>
+<li><strong>Named Function Expression(이름이 있는 함수 표현식)</strong></li>
+</ol>
+<p><br/></p>
+<a class="header" href="#함수-선언식" id="함수-선언식"><h2><strong>함수 선언식</strong></h2></a>
+<pre><code class="language-javascript">function [name](param1, param2, ...param3) {
+    // Function Body &amp; Logic
+}
+</code></pre>
+<p><code>[function name]</code> 앞에 <code>[function keyword]</code> 를 붙인다. 항상 앞에 function으로 시작하며 함수의 이름을 지어주어야 한다. 그리고 선언식의 주요한 개념은 전체 기능이 <strong>호이스팅</strong> 이 된다는 것이다.</p>
+<p><strong>이러한 호이스팅으로 인해서 함수를 선언하기전에 함수를 실행하는 코드를 넣어도 작동하는 것이다.</strong></p>
+<p>이러한 선언 방법은 일부 논리를 함수 본문으로 추상화를 하고 나중에 실제 구현이 완료될때 유용하다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var result = add(num1, num2); // ==&gt; 30 [Executing before declaring]
+
+function add(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>그러나 이러한 코드는 좋지 못하다. 항상 호이스팅을 이용하는 것이 아닌 함수를 먼저 선언을 하고 실행하는 습관을 들이는 것이 좋다.
+<br/></p>
+<a class="header" href="#함수-표현식" id="함수-표현식"><h2><strong>함수 표현식</strong></h2></a>
+<p>어떤 값을 다른 변수에 할당하는 명령문은 표현식으로 간주된다.</p>
+<pre><code class="language-javascript">var a = 100;
+var b = 'Hello World';
+</code></pre>
+<p>함수 표현식의 경우 이름이 없이 함수를 작성을 하며 변수에 할당을 한다.</p>
+<pre><code class="language-javascript">var [name] = function(param1, param2, ...param3) {
+    // Function Body &amp; Logic
+}
+
+foo(1,3,4);
+</code></pre>
+<p>함수 선언식과 다르게 정의될 때까지 함수를 사용할 수 없다. 즉 호이스팅이 일어나지 않는다는 것을 의미한다. 정확하게 보면 변수는 호이스팅이 일어나지만 할당이 이루어지는 행위는 호이스팅이 안된다고 보는 것이 좋을 듯 하다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var result = add(num1, num2);  
+// Uncaught TypeError: add is not a function
+var add = function(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>위와 같은 코드는 작동하지 않는다. 아래와 같이 작성을 하여야한다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var add = function(param1, param2) {
+    return param1 + param2 ;
+}
+var result = add(num1, num2); // ==&gt; 30
+</code></pre>
+<p><br/></p>
+<a class="header" href="#함수-표현식의-장점" id="함수-표현식의-장점"><h3>함수 표현식의 장점</h3></a>
+<p>선언식보다 표현식이 더 유용하게 사용되는 몇가지 이유</p>
+<ul>
+<li>As closures</li>
+<li>As arguments to other functions</li>
+<li><strong>As Immediately Invoked Function Expressions (IIFE)</strong></li>
+</ul>
+<p><br/></p>
+<a class="header" href="#이름이-있는-함수-표현식---두-가지-접근-방식의-결합" id="이름이-있는-함수-표현식---두-가지-접근-방식의-결합"><h2><strong>이름이 있는 함수 표현식 - 두 가지 접근 방식의 결합</strong></h2></a>
+<p>선언식과 표현식의 차이점을 보고 두가지를 섞으면 어떻게 되는지 살펴보자.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var addVariable = function addFunction(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>위에 코드를 보게 되면 표현식이 더이상 익명이 아니고 <code>addFunction</code> 이라는 이름을 가지고 있다. 또한 <code>addVariable</code> 이라는 변수명에 할당을 하였다.</p>
+<p>우리가 함수의 이름으로 <code>addFunction</code> 을 추가했다고 실행할 수 있는 것은 아니다.</p>
+<pre><code class="language-javascript">var result = addFunction(num1, num2); 
+// ==&gt; Uncaught ReferenceError: addFunction is not defined
+</code></pre>
+<p>우리가 할당한 <code>addVariable</code> 변수로만 사용이 가능하다.</p>
+<pre><code class="language-javascript">var result = addVariable(num1, num2); 
+// ==&gt; 30
+</code></pre>
+<p><strong>고려해야할 사항</strong></p>
+<ol>
+<li><code>addFunction</code> 이 <code>addVariable</code> 보다 콜스택상 먼저 나오게 된다.</li>
+<li>외부에서 <code>addFunction</code> 을 호출하게 되면 에러가 나오게 된다.
+<ol>
+<li>그러나 내부에서는 <code>addFunction</code> 을 사용할 수 있다.</li>
+</ol>
+</li>
+</ol>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var addVariable = function addFunction(param1, param2) {
+    var res = param1 + param2;
+    if (res === 30) {
+        res = addFunction(res, 10);
+    }
+    return res;
+}
+var result = addVariable(num1, num2); // ==&gt; 40
+</code></pre>
+<p>결과가 30이 아니라 내부적으로 <code>addFunction</code> 이 한번 더 호출되어 40이 나오게 된다.</p>
+<ol start="3">
+<li>IE8이하에서는 이름이 있는 함수 표현식을 사용하게 되면 심각한 이슈가 발생하게 되는데, 바로 완전히 다른 두개의 함수객체를 생성한다는 것이다.(<strong>Double take</strong>).</li>
+</ol>
+<p><strong>IE8을 지원해야하는 일이 있으면 익명의 표현식을 사용하는 것을 추천한다.</strong></p>
+<p><br/></p>
+<a class="header" href="#statements-expressions" id="statements-expressions"><h2><strong>Statements, Expressions</strong></h2></a>
+<p><strong>Expressions</strong> 는 단일 값이 되는 자바스크립트 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일 값이다.</p>
+<pre><code class="language-javascript">2 + 2 * 3 / 2
+    
+(Math.random() * (100 - 20)) + 20
+    
+functionCall()
+    
+window.history ? useHistory() : noHistoryFallback()
+    
+1+1, 2+2, 3+3
+    
+declaredVariable
+    
+true &amp;&amp; functionCall()
+    
+true &amp;&amp; declaredVariable
+</code></pre>
+<p>위의 예제들은 모두 표현식이다. 흔히 값을 원할때 어디서든 사용하는 방법이다. 그래서 아래의 예제에서도 값이 단일값으로 나오게 된다.</p>
+<pre><code class="language-javascript">console.log(true &amp;&amp; 2 * 9) // 18
+</code></pre>
+<p><strong>표현식은 상태를 변경하지 않는다.</strong></p>
+<pre><code class="language-javascript">var assignedVariable = 2; //this is a statement, assignedVariable is state
+
+assignedVariable + 4 // expression
+assignedVariable * 10 // expression
+assignedVariable - 10 // expression
+
+console.log(assignedVariable) // 2
+</code></pre>
+<p>위의 예제들은 표현식임에도 할당된 값은 마지막까지 2로 남는다. 함수 호출은 표현식이지만 함수 상태를 변경할 수 있는 문장은 필수적이다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+    assignedVariable = 14
+}
+</code></pre>
+<p><code>foo()</code> 는 표현식이지만 undefined나 다른 값을 반환한다. 그러나 이렇게 사용하게 됨으로써 상태를 변화시킬 수 있다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+  return 14 //explicit return for readability
+}
+
+assignedVariable = foo()
+</code></pre>
+<p>더 좋은 방법은 아래와 같이 작성하는 것이다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+  return 14 //explicit return for readability
+}
+    
+assignedVariable = foo()
+</code></pre>
+<pre><code class="language-javascript">const foo = (n) =&gt; {
+    return n//explicit return for readability
+}
+
+assignedVariable = foo(14)
+</code></pre>
+<p>이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 자바스크립트의 근본이다.
+<br/></p>
+<a class="header" href="#statements" id="statements"><h2><strong>Statements</strong></h2></a>
+<p>기본적으로 문장은 행동을 수행한다.</p>
+<p>자바스크립트에서 값이 필요한 곳에서는 명령문을 사용할 수 없다. 그래서 함수의 인수, 할당의 오른쪽, 연산자, 피연산자, 반환값으로 사용할 수 없다.</p>
+<pre><code class="language-javascript">foo(if () {return 2}) 
+</code></pre>
+<p>명령문의 종류</p>
+<ol>
+<li>if</li>
+<li>if-else</li>
+<li>while</li>
+<li>do-while</li>
+<li>for</li>
+<li>switch</li>
+<li>for-in</li>
+<li>with (deprecated)</li>
+<li>debugger</li>
+<li>variable declaration</li>
+</ol>
+<p>브라우저 콘솔창에서 아래와 같이 입력을 치게 되면,</p>
+<pre><code class="language-javascript">if (true) { 9+9 }
+</code></pre>
+<p>18을 반환한다. 그러나 원하는 곳에 사용은 할 수 없다. 명령문은 아무것도 반환하지 않기를 바란다. 우리가 그것을 사용할 수 없다면 반환된 값은 쓸모가 없어지기 때문이다.
+<br/></p>
+<a class="header" href="#iifeimmediately-invoked-function-expression" id="iifeimmediately-invoked-function-expression"><h2><strong>IIFE(Immediately Invoked Function Expression)</strong></h2></a>
+<p>우리가 흔히 <strong>즉각 실행함수</strong> 라 부르는 패턴이다. 이것을 사용하면 함수는 새로운 Scope를 만들게 된다. <strong>IIFE</strong> 는 단순하게 함수 표현식이다. 인터프리터가 즉각적으로 실행한다.</p>
+<p>익명함수의 표현식과 비슷하게 생겼다.</p>
+<pre><code class="language-javascript">var foo = 'foo';
+    
+(function bar () {
+  console.log('in function bar');
+})()
+    
+console.log(foo);
+</code></pre>
+<p>위에서 간단하게 보면 <code>foo</code> 가 출력되기 전에 <code>bar()</code> 를 호출하지 않았는데 <strong>in function bar</strong> 가 출력이 되었다.</p>
+<ul>
+<li><code>(</code> 괄호를 사용해서 함수를 감싸서 선언식이 아닌 표현식이 된다.</li>
+<li>마지막에 <code>()</code> 괄호를 다시 써서 표현식을 즉시 실행하는 구문이 된다.</li>
+</ul>
+<p>ES6 이전에는 IIFE를 사용해서 외부에서 접근하지 못하도록 변수를 숨기고 제한하는데 사용이 되었다. 또한 비동기 작업을 실행하고 IIFE 범위에서 변수상태를 보존하려는 경우에도 매우 유용하다.</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+    setTimeout(function () {
+        console.log('index: ' + i);
+    }, 1000);
+}
+</code></pre>
+<p>위에 코드는 흔히 발생하는 잘못된 코드이다. 이와 같은 코드를 IIFE를 사용해서 해결할 수 있다.</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+    (function logIndex(index) {
+        setTimeout(function () {
+            console.log('index: ' + index);
+        }, 1000);
+    })(i)
+}
+</code></pre>
+<p>그러나 ES6+를 사용한다면 <strong>Block Level Scope</strong> 를 지원하는 <code>let</code> 또는 <code>const</code> 를 사용하면 된다.
+<br/></p>
+<a class="header" href="#부록" id="부록"><h2><strong>부록</strong></h2></a>
+<a class="header" href="#semi-colon-vs-comma-operator" id="semi-colon-vs-comma-operator"><h3><strong>Semi-colon vs Comma operator</strong></h3></a>
+<p>세미콜론을 사용함으로써 표현식을 표현식 문장으로 변환 시킬 수 있다. <code>2+2</code> 자체는 표현식이지만 완전한 라인은 문장이다.</p>
+<pre><code class="language-javascript">2+2 // on its own is an opposition
+    
+foo(2+2) //so you can use it anywhere a value is expected
+    
+true ? 2+2 : 1 + 1
+    
+function foo () {return 2+2}
+    
+2+2; //expression statement
+foo(2+2;) //syntaxError
+</code></pre>
+<p>세미콜론을 사용하면 여러 줄을 한 줄로 표현이 가능하다.</p>
+<pre><code class="language-javascript">const a; function foo () {}; const b = 2
+</code></pre>
+<p>쉼표 연산자를 사용하면 여러 표현식을 연결하여 마지막 표현식만 반환이 가능하다.</p>
+<pre><code class="language-javascript">console.log( (1+2,3,4) ) //4
+console.log( (2, 9/3, function () {}) ) // function (){}
+console.log( (3, true ? 2+2 : 1+1) ) // 4
+</code></pre>
+<p>모든 표현식은 왼쪽에서 오른쪽으로 계산이 되고 마지막 표현식이 반환된다.
+<br/></p>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://www.telerik.com/blogs/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://scotch.io/tutorials/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://www.telerik.com/blogs/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://css-tricks.com/javascript-scope-closures/">JavaScript Scope and Closures</a></li>
+<li><a href="https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99">JavaScript Functions — Understanding The Basics</a></li>
+<li><a href="https://dev.to/promhize/javascript-in-depth-all-you-need-to-know-about-expressions-statements-and-expression-statements-5k2">All you need to know about Javascript's Expressions, Statements and Expression Statements</a></li>
+<li><a href="https://www.sitepoint.com/function-expressions-vs-declarations/">Quick Tip: Function Expressions vs Function Declarations</a></li>
+<li><a href="https://medium.com/@raviroshan.talk/javascript-function-declaration-vs-expression-f5873b8c7b38">JavaScript Function — Declaration vs Expression</a></li>
+<li><a href="https://medium.com/@mandeep1012/function-declarations-vs-function-expressions-b43646042052">Function Declarations vs. Function Expressions</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../basic/2-Type.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../basic/4-Module.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../basic/2-Type.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../basic/4-Module.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

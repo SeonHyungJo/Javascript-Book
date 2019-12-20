@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Class - Javascript Basic &amp; Detail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html" class="active"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <style>
+  header.warning {
+    background-color: rgb(242, 222, 222);
+    border-bottom-color: rgb(238, 211, 215);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.666667px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(238, 211, 215);
+    border-left-style: solid;
+    border-left-width: 0.666667px;
+    border-right-color: rgb(238, 211, 215);
+    border-right-style: solid;
+    border-right-width: 0.666667px;
+    border-top-color: rgb(238, 211, 215);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 0.666667px;
+    color: rgb(185, 74, 72);
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 35px;
+    padding-top: 8px;
+    text-align: center;
+  }
+</style>
+
+
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#class" id="class"><h1>Class</h1></a>
+<p>ES6에 Class 문법이 추가되었다. Class는 특별하게 새로 만들어진 것이 아니다. 기존에 존재하고 있던 상속과 생성자 함수를 기본으로 한 <code>Proptotype</code>의 <strong>syntactic sugar</strong>이다.</p>
+<p>Class 문법이 나오기 전 사람들은 JavaScript를 OOP답게 사용하고 싶어 했다. 그래서 다양한 방법을 사용해서 구현했다.</p>
+<p><br/></p>
+<a class="header" href="#constructor-function" id="constructor-function"><h2>Constructor Function</h2></a>
+<p>Class 문법이 생기기 전에는 JavaScript에서는 모든 것을 Function으로 만들어야 했다. 그래서 사람들이 Class처럼 사용하기 위해서 Constructor function을 사용해서 비슷하게 사용하였다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make,
+    this.model = model,
+    this.color = color,
+    this.getName = function () {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p>위와 같이 함수를 선언함으로써 Java에서 사용하는 Class와는 모양새는 다르지만, Class에 좀 더 가까워졌다. 이제 우리는 <code>Vehicle</code>이라는 것을 선언했으니 인스턴스를 만들어보자</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+const car2 = new Vehicle(&quot;Honda&quot;, &quot;Civic&quot;, &quot;White&quot;);
+</code></pre>
+<p>위와 같이 <code>new</code> 키워드를 사용해서 인스턴스를 만들 수 있다.</p>
+<p><strong>그런데 문제가 있다.</strong></p>
+<p>새로운 <code>Vehicle()</code>을 만들 때 JavaScript 엔진은 두 객체의 각각에 대한 Vehicle Constructor 함수 사본을 만든다. 즉 각각의 인스턴스의 공간이 만들어지는 것이다. 또한 속성과 메소드는 <code>Vehicle()</code>의 모든 인스턴스에 복사가 된다.</p>
+<p>이게 왜 문제가 되는가? 라고 생각할 수 있다. 제일 문제는 Constructor 함수의 멤버 함수(메서드)가 <strong>모든 객체에서 반복된다.</strong> 계속 똑같은 멤버 함수를 만드는 것이다. 이것은 매우 불필요하게 낭비를 하기 때문이다.</p>
+<p>다른 문제는 <strong>기존의 만든 객체에 새로운 속성이나 메서드를 추가를 하지 못한다는 것이다.</strong></p>
+<pre><code class="language-js">car2.year = &quot;2019&quot;
+</code></pre>
+<p>위와 같이 추가를 하더라도 다른 인스턴스에는 새로운 속성이나 메서드는 따로따로 넣어주어야 한다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color, year) {
+    this.make = make,
+    this.model = model,
+    this.color = color,
+    this.year = year, // 위와 같이 추가를 해야한다.
+    this.getName = function () {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#prototype" id="prototype"><h2>Prototype</h2></a>
+<p>JavaScript는 내부적으로 새로운 함수가 만들어지면 엔진은 <code>prototype</code>이라는 기본 속성을 추가한다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58709477-3b804900-83f5-11e9-882d-f6dbddae0254.png" alt="image" /></p>
+<p><code>prototype</code> 중 <code>__proto__</code> 속성은 <strong>dunder proto</strong> 라고 불리고, Constructor 함수의 <code>prototype</code> 속성을 가리킨다.</p>
+<p>생성자 함수의 새로운 인스턴스를 만들어질 때마다 <strong>dunder proto</strong>는 다른 속성, 메서드와 함께 인스턴스에 복사가 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58709719-b5b0cd80-83f5-11e9-93fc-b5ac236dca0f.png" alt="image" /></p>
+<p><code>prototype</code> 객체는 아래와 같이 Constructor 함수의 속성, 메서드를 추가 가능하며 Constructor 함수의 모든 인스턴스에서 사용할 수 있다.</p>
+<pre><code class="language-js">car.prototype.year = &quot;2019&quot;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710008-569f8880-83f6-11e9-8754-071bc6f58d3c.png" alt="image" /></p>
+<p>이 접근법에는 몇 가지 주의 사항이 있는데 <code>prototype</code> 속성과 메서드는 Constructor 함수의 모든 인스턴스와 공유를 한다. 만약 인스턴스의 하나가 기본 속성에서 변경했다면 모든 인스턴스가 아닌 해당 인스턴스에서만 변경이 된다.</p>
+<p>다른 한 가지는 참조 유형 속성이 모든 인스턴스 간에 항상 공유된다. 하나의 인스턴스에서 수정하면 모든 인스턴스에 대해 수정이 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710329-0674f600-83f7-11e9-9d5d-6438ed6eec9c.png" alt="image" /></p>
+<p><br/></p>
+<a class="header" href="#class-1" id="class-1"><h2>Class</h2></a>
+<p>이제 Constructor 함수와 <code>prototype</code>에 대해 알아봤다. 이제 Class에 대해 알아보자. 위의 2개를 살펴봄으로써 좀 더 쉽게 이해할 수 있다. 이전의 것들과 크게 차이가 나는 것이 없기 때문이다.</p>
+<p>JavaScript 클래스는 <code>prototype</code> 기능을 활용하여 Constructor 함수를 작성하는 새로운 방법일 뿐이다.(<strong>syntactic sugar</strong>)</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p>생성 방법은 위처럼 만들면 된다. 위와 동일하게 인스턴스를 생성해보면 동일하게 <code>new</code> 키워드를 사용하면 된다.</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p>Class로 만든 것을 기존 방법으로 다시 작성한다면 아래와 같을 것이다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+
+Vehicle.prototype.getName = function () {
+    return this.make + &quot; &quot; + this.model;
+}
+    
+const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p>이것은 Class가 Constructor 함수를 수행하는 새로운 방법이라는 것을 증명한다. 더욱 실제 Class와 비슷하게 만들기 위해서 도입된 몇 가지 규칙이 있다.</p>
+<a class="header" href="#생성자가-작동하려면-new-키워드가-필요하다" id="생성자가-작동하려면-new-키워드가-필요하다"><h4>생성자가 작동하려면 <code>new</code> 키워드가 필요하다.</h4></a>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p><code>new</code>를 사용하지 않고 만들 경우 아래와 같은 에러가 발생한다.</p>
+<a class="header" href="#class의-메서드는-non-enumerable-하다" id="class의-메서드는-non-enumerable-하다"><h4>Class의 메서드는 non-enumerable 하다.</h4></a>
+<p>JavaScript에서 객체의 각 속성에는 해당 속성에 대해 <code>enumerable flag</code> 가 있다. Class는 <code>prototype</code>에 정의된 모든 메서드에 대해 이 <code>flag</code>를 <code>false</code>로 설정한다.</p>
+<a class="header" href="#class에-생성자를-추가하지-않으면-기본-빈-constructor가-자동으로-추가된다" id="class에-생성자를-추가하지-않으면-기본-빈-constructor가-자동으로-추가된다"><h4>Class에 생성자를 추가하지 않으면 기본 빈 <code>constructor()</code>가 자동으로 추가된다.</h4></a>
+<pre><code class="language-js">constructor(){ }
+</code></pre>
+<a class="header" href="#class-안의-코드는-항상-strict-모드-이다" id="class-안의-코드는-항상-strict-모드-이다"><h4>Class 안의 코드는 항상 <strong><code>strict</code> 모드</strong> 이다.</h4></a>
+<p>이것은 오류가 없는 코드를 작성하거나, 잘못된 입력 또는 코드 작성 중 구문 오류 또는 다른 곳에서 참조된 실수로 일부 코드를 제거하여 코드를 작성하는 데 도움을 준다.</p>
+<a class="header" href="#class는-호이스팅이-되지-않는다" id="class는-호이스팅이-되지-않는다"><h4>Class는 호이스팅이 되지 않는다.</h4></a>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710983-8059af00-83f8-11e9-91ae-f6b3fb887146.png" alt="image" /></p>
+<a class="header" href="#class는-constructor-함수나-객체-리터럴과-같은-속성-값-할당을-허용하지-않는다" id="class는-constructor-함수나-객체-리터럴과-같은-속성-값-할당을-허용하지-않는다"><h4>Class는 Constructor 함수나 객체 리터럴과 같은 속성 값 할당을 허용하지 않는다.</h4></a>
+<p>함수 또는 <code>getter/setter</code> 만 가질 수 있다. <code>property:value</code> 할당은 불가능하다.</p>
+<p><br/></p>
+<a class="header" href="#class-features" id="class-features"><h3>Class Features</h3></a>
+<a class="header" href="#constructor" id="constructor"><h4><code>constructor</code></h4></a>
+<p><code>constructor</code>는 Class 자체를 나타내는 함수 자체를 정의하는 <strong>Class 선언의 특수 함수</strong>이다. 인스턴스를 새로 만들면 <code>constructor()</code>가 자동으로 호출된다.</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;); // call constructor
+</code></pre>
+<p><code>constructor</code>는 <code>super</code> 키워드를 사용하여 확장된 Class <code>constructor</code>를 호출할 수 있다.</p>
+<p><strong>하나 이상의 생성자 함수를 가질 수 없다.</strong></p>
+<a class="header" href="#static-methods" id="static-methods"><h4>Static Methods</h4></a>
+<p>Static Methods는 <code>prototype</code> 에 정의된 Calss의 다른 메서드와는 다르게 <code>prototype</code>이 아닌 Class 자체의 함수이다.</p>
+<p>Static Methods는 <code>static</code> 키워드를 사용하여 선언하며 주로 유틸리티 함수를 만드는 데 사용된다. Class의 인스턴스를 만들지 않고 호출 가능하다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+
+    static getColor(v) {
+        return v.color;
+    }
+}
+
+let car = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+Vehicle.getColor(car); // &quot;purple&quot;
+</code></pre>
+<p><strong>정적 메서드는 Class 인스턴스에서 호출할 수 없다.</strong></p>
+<a class="header" href="#getter--setter" id="getter--setter"><h4>Getter / Setter</h4></a>
+<p>getter/setter를 사용하여 속성값을 가져오거나 속성값을 설정할 수 있다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(model) {
+        this.model = model;
+    }
+    
+    get model() {
+        return this._model;
+    }
+
+    set model(value) {
+        this._model = value;
+    }
+}
+</code></pre>
+<p>getter/setter는 Class <code>prototype</code>에 정의된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58711552-bb101700-83f9-11e9-8298-959c243f3989.png" alt="image" /></p>
+<a class="header" href="#subclassing" id="subclassing"><h4>Subclassing</h4></a>
+<p>Subclassing은 Javascript Class에서 상속을 구현할 수 있는 방법으로 <code>extends</code> 키워드는 Class의 하위 클래스를 만드는 방법이다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+
+class Car extends Vehicle{
+    getName(){
+        return this.make + &quot; &quot; + this.model +&quot; in child class.&quot;;
+    }
+}
+
+const car = new Car(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+car.getName(); // &quot;Honda Accord in child class.&quot;
+</code></pre>
+<p><code>getName()</code>를 호출하면 자식클래스의 함수가 호출된다.</p>
+<p>가끔 부모의 함수를 사용해야 할 때가 있다. 그럴 때는 <code>super</code> 키워드를 사용하면 된다.</p>
+<pre><code class="language-js">class Car extends Vehicle{
+    getName(){
+        return super.getName() +&quot;  - called base class function from child class.&quot;;
+    }
+}
+</code></pre>
+<ul>
+<li>옛날 방식인 <code>prototype</code>을 사용해서 상속 구현해보기</li>
+</ul>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+
+Vehicle.prototype.getName = function() {
+    return this.make + &quot; &quot; + this.model;
+};
+
+function Car(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+Object.setPrototypeOf(Car, Vehicle);
+Object.setPrototypeOf(Car.prototype, Vehicle.prototype);
+Car.prototype.getName = function() {    
+    return this.make + &quot; &quot; + this.model +&quot; in child class.&quot;;
+};
+
+const vehicle = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+const car = new Car(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+console.log(vehicle.getName()); // Honda Accord
+console.log(car.getName()); // Honda Accord in child class.
+</code></pre>
+<p><br/></p>
+<a class="header" href="#팩토리-디자인-패턴-간단히-살펴보기" id="팩토리-디자인-패턴-간단히-살펴보기"><h2>팩토리 디자인 패턴 간단히 살펴보기</h2></a>
+<p>위의 코드를 아래와 같이 변경을 함으로써 <code>new</code> 키워드를 사용하지 않고 매번 새로운 객체를 만들어서 전달받는다.</p>
+<pre><code class="language-js">const Vehicle = function(make, model, color){
+    const newVehicle = {};
+    newVehicle.make = make;
+    newVehicle.model = model;
+    newVehicle.color = color;
+    
+    newVehicle.getName = function(){
+        return this.make + &quot; &quot; + this.model;
+    }
+    return newVehicle;
+};
+
+const vehicle = Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+console.log(vehicle.getName()) //Honda Accord
+</code></pre>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-classes-in-javascript">Understanding Classes in JavaScript</a></li>
+<li><a href="https://medium.com/@robertgrosse/how-es6-classes-really-work-and-how-to-build-your-own-fd6085eb326a">How ES6 classes really work and how to build your own</a></li>
+<li><a href="https://medium.com/front-end-weekly/understand-the-factory-design-pattern-in-plain-javascript-20b348c832bd">Understand the Factory Design Pattern in plain JavaScript</a></li>
+<li><a href="https://medium.com/tech-tajawal/javascript-classes-under-the-hood-6b26d2667677">Javascript Classes — Under The Hood</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../basic/9-DOM.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../basic/11-Call-Apply-Bind.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../basic/9-DOM.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../basic/11-Call-Apply-Bind.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

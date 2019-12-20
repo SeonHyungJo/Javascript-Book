@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>To be continue - Javascript Basic &amp; Detail</title>
+        <title>Execution Contexts - Javascript Basic &amp; Detail</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html" class="active"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html" class="active"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html" class="active"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -177,20 +177,145 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#basic-javascript" id="basic-javascript"><h1>Basic Javascript</h1></a>
+                        <a class="header" href="#es3-execution-contexts" id="es3-execution-contexts"><h1>[ES3] Execution Contexts</h1></a>
+<a class="header" href="#도입" id="도입"><h2>도입</h2></a>
+<p>오늘은 ECMAScript의 실행 컨텍스트와 이와 관련된 코드 유형에 대해 알아보자.</p>
+<a class="header" href="#정의" id="정의"><h2>정의</h2></a>
+<p>Control이 ECMAScript 실행 코드로 이동될 때마다, Control은 실행 컨텍스트으로 들어가게 된다.</p>
+<blockquote>
+<p>실행 컨텍스트(EC)는 ECMA-262 specification(사양)에서 실행 코드의 유형화와 차별화를 위해 사용하는 추상적인 개념이다.</p>
+</blockquote>
+<p>이러한 표준은 기술적인 구현 관점에서 정확한 EC의 구조와 종류를 정의하지 않았다. 이는 결국 표준을 규현하는 ECMAScript 엔진의 달렸다.</p>
+<p>논리적으로, 활성 실행 컨텍스트 집합은 stack으로 형성된다. 이 stack의 맨 아래에는 항상 <em>global context</em>가 있고, 가장 위에는 현재(활성) 실행 컨텍스트가 있다. 다양한 종류의 EC가 드나드는동안 stack이 수정된다.(pulled/poped)</p>
+<a class="header" href="#실행-코드의-종류" id="실행-코드의-종류"><h2>실행 코드의 종류</h2></a>
+<p>실행 컨텍스트의 추상 개념으로 <em>실행 코드 유형</em>의 개념과 관련있다. 코드 유형에 대해 말하면 특정 순간의 실행 컨텍스트를 의미할 수 있다.</p>
+<p>예를 들어, 실행 컨텍스트 stack을 배열로 정의해보자.</p>
+<pre><code class="language-js">ECStack = [];
+</code></pre>
+<p>함수가 재귀적 또는 생성자로 호출되더라도 함수안으로 들어갈 때마다 stack에 push한다. 내장 <code>eval</code> 함수 작업에서도 그렇다.</p>
+<a class="header" href="#global-code" id="global-code"><h2>Global code</h2></a>
+<p>이 유형의 코드는 <code>Program</code> 수준에서 처리된다. 즉, 로드된 외부 <code>.js</code> 파일 또는 로컬 인라인 코드(<code>&lt;script&gt;&lt;/script&gt;</code> 태그 내부)이다. Global code는 함수 본문에 있는 코드 부분은 포함되어 있지 않다.</p>
+<p>초기화(프로그램 시작)시 <code>ECStack</code>은 다음과 같다.</p>
+<pre><code class="language-js">ECStack = [
+  globalContext
+];
+</code></pre>
+<a class="header" href="#function-code" id="function-code"><h2>Function code</h2></a>
+<p>Function code (모든 종류의 함수)안으로 들어가게 되면, <code>ECStack</code>에 새로운 요소가 추가된다. concrete Function의 Code에는 내부 Function Code가 포함되어 있지 않다.</p>
+<p>예를 들어, 한 번 재귀적으로 호출하는 함수를 보자.</p>
+<pre><code class="language-js">(function foo(flag) {
+  if (flag) {
+    return;
+  }
+  foo(true);
+})(false);
+</code></pre>
+<p>그러면 다음 ECStack이 다음과 같이 수정된다.</p>
+<pre><code class="language-js">// first activation of foo
+ECStack = [
+  &lt;foo&gt; functionContext
+  globalContext
+];
+  
+// recursive activation of foo
+ECStack = [
+  &lt;foo&gt; functionContext – recursively 
+  &lt;foo&gt; functionContext
+  globalContext
+];
+</code></pre>
+<p>함수에서 모든 리턴은 현재 실행 컨텍스트를 종료하고 이에 따라 <code>ECStack</code>은 stack의 자연스러운 구현에 따라 연속적으로 거꾸로 꺼내진다. 해당 코드의 작업이 완료되면, <code>ECStack</code>은 프로그램이 종료될 때까지 <code>globalContext</code>만 가지고 있는다.</p>
+<p>Throw 되었지만 catch 되지 않은 예외는 하나 이상의 실행 컨텍스트를 종료할 수 있다.</p>
+<pre><code class="language-js">(function foo() {
+  (function bar() {
+    throw 'Exit from bar and foo contexts';
+  })();
+})();
+</code></pre>
+<a class="header" href="#eval-code" id="eval-code"><h2>Eval code</h2></a>
+<p><code>eval</code> 코드는 매우 흥미롭다. 이 경우 <em>calling context</em>의 개념, 즉 <code>eval</code> 함수가 호출된 컨텍스트가 있다.</p>
+<p>변수 또는 함수 정의와 같이 <code>eval</code>에 의해 수핸된 작업은 <em>calling context</em>에 영향을 준다.</p>
+<pre><code class="language-js">// influence global context
+eval('var x = 10');
+ 
+(function foo() {
+  // and here, variable &quot;y&quot; is
+  // created in the local context
+  // of &quot;foo&quot; function
+  eval('var y = 20');
+})();
+  
+alert(x); // 10
+alert(y); // &quot;y&quot; is not defined
+</code></pre>
+<blockquote>
+<p>Note: ES5의 strict-mode에서 <code>eval</code>은 이미 호출 컨텍스트에 영향을 미치지 않지만 대신 로컬 <em>sandbox</em>의 코드를 평가한다.</p>
+</blockquote>
+<p>위의 예에서는 다음과 같은 <code>ECStack</code> 수정 사항이 있다.</p>
+<pre><code class="language-js">ECStack = [
+  globalContext
+];
+  
+// eval('var x = 10');
+ECStack.push({
+  context: evalContext,
+  callingContext: globalContext
+});
+ 
+// eval exited context
+ECStack.pop();
+ 
+// foo funciton call
+ECStack.push(&lt;foo&gt; functionContext);
+ 
+// eval('var y = 20');
+ECStack.push({
+  context: evalContext,
+  callingContext: &lt;foo&gt; functionContext
+});
+ 
+// return from eval 
+ECStack.pop();
+ 
+// return from foo
+ECStack.pop();
+</code></pre>
+<p>즉 아주 캐주얼하고 논리적인 <em>call-stack</em>이다.</p>
+<blockquote>
+<p>Note: 예전 SpiderMonkey(Firefox)에서 버전 1.7까지는 <code>eval</code> 함수의 두 번째 인수로 전달할 수 있었다. 따라서 컨텍스트가 여전히 존재하면 개인 변수에 영향을 줄 수 있었다.</p>
+</blockquote>
+<pre><code class="language-js">function foo() {
+  var x = 1;
+  return function () { alert(x); };
+};
+ 
+var bar = foo();
+ 
+bar(); // 1
+ 
+eval('x = 2', bar); // pass context, influence internal var &quot;x&quot;
+</code></pre>
+<blockquote>
+<p>하지만 최신 엔진에서는 보안상의 이유로 수정되어 더 이상 중요하지 않다.</p>
+</blockquote>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/">ECMA-262-3 in detail. Chapter 1. Execution Contexts</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ES3/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../basic/1-CallStack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../ES3/3-This.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -202,13 +327,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../ES3/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../basic/1-CallStack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../ES3/3-This.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
