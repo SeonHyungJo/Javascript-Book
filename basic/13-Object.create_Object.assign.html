@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Object.create Object.assign - Javascript Basic &amp; Detail</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +32,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -56,10 +58,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -75,50 +80,16 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html" class="active"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li class="expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li class="expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="expanded "><a href="../basic/13-Object.create_Object.assign.html" class="active"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
-
-
+                
                 <div id="menu-bar" class="menu-bar">
                     <div id="menu-bar-sticky-container">
                         <div class="left-buttons">
@@ -142,7 +113,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -177,14 +148,14 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#objectcreate--objectassign" id="objectcreate--objectassign"><h1>Object.create() &amp; Object.assign()</h1></a>
-<a class="header" href="#objectcreate" id="objectcreate"><h2>Object.create()</h2></a>
+                        <h1><a class="header" href="#objectcreate--objectassign" id="objectcreate--objectassign">Object.create() &amp; Object.assign()</a></h1>
+<h2><a class="header" href="#objectcreate" id="objectcreate">Object.create()</a></h2>
 <pre><code class="language-js">Object.create(prototype_object, propertiesObject)
 </code></pre>
 <p><code>Object.create()</code>는 기준이 되는 Object를 prototype으로 만들고 <strong>새로운 객체를 생성</strong>한다.</p>
 <p><code>Object.create()</code>는 주로 객체를 상속하기 위해 사용하는 메서드다. 첫 번째 인자를 상속하며, 두 번째 인자의 속성들을 추가로 구성한다.</p>
-<p><br/></p>
-<a class="header" href="#두번째-인자---속성의-구성요소" id="두번째-인자---속성의-구성요소"><h3>두번째 인자 - 속성의 구성요소</h3></a>
+<br/>
+<h3><a class="header" href="#두번째-인자---속성의-구성요소" id="두번째-인자---속성의-구성요소">두번째 인자 - 속성의 구성요소</a></h3>
 <p>공통의 구성요소는</p>
 <ol>
 <li><strong><code>configurable</code></strong> 속성의 값을 변경할 수 있고, 삭제할 수도 있다면 <code>true</code>로 설정한다. 기본값은 <code>false</code>.</li>
@@ -197,23 +168,23 @@
 </ol>
 <p>접근자 서술을 하는 데 사용되는 키는</p>
 <ol>
-<li><strong><code>get</code></strong> 속성 접근자로 사용할 함수, 접근자가 없다면 <code>undefined</code>.
+<li><strong><code>get</code></strong> 속성 접근자로 사용할 함수, 접근자가 없다면 <code>undefined</code>. 
 <ul>
 <li>속성에 접근하면 이 함수를 매개변수 없이 호출하고, 반환 값이 속성의 값이 된다. 이때 <code>this</code> 값은 이 속성을 가진 객체=이다. 기본값은 <code>undefined</code>.</li>
 </ul>
 </li>
-<li><strong><code>set</code></strong> 속성 설정자로 사용할 함수, 설정자가 없다면 <code>undefined</code>.
+<li><strong><code>set</code></strong> 속성 설정자로 사용할 함수, 설정자가 없다면 <code>undefined</code>. 
 <ul>
 <li>속성에 값을 할당하면 이 함수를 하나의 매개변수로 호출한다. 이때 <code>this</code> 값은 이 속성을 가진 객체이다. 기본값은 <code>undefined</code>.</li>
 </ul>
 </li>
 </ol>
 <p><strong><code>Object.create()</code>의 2번째 인자는 <code>Object.defineProperties()</code>를 따른다.</strong></p>
-<p><br/></p>
+<br/>
 <hr />
 <p>위의 구성요소는 이전에 사용하던 <code>Object.defineProperties()</code>에서 나오는 개념이다. 그 전에 <code>Object.defineProperties()</code>의 단일 설정 함수인 <code>Object.defineProperty()</code>를 살펴보자</p>
-<p><br/></p>
-<a class="header" href="#objectdefineproperty" id="objectdefineproperty"><h3>Object.defineProperty()</h3></a>
+<br/>
+<h3><a class="header" href="#objectdefineproperty" id="objectdefineproperty">Object.defineProperty()</a></h3>
 <p><code>Object.defineProperty()</code>는 객체에 직접 새로운 속성을 정의하거나 이미 존재하는 속성을 수정한 후, <strong>그 객체를 반환한다.</strong></p>
 <pre><code class="language-js">Object.defineProperty(obj, prop, descriptor)
 </code></pre>
@@ -253,8 +224,8 @@ newObj.country = 'Re Seoul'
 console.log('After newObj &amp;&amp; obj values are =&gt; ', obj, obj.age, obj.country) // After newObj &amp;&amp; obj values are =&gt;  {age: 28, name: &quot;sNyung&quot;} 28 ???
 console.log('oldCountry =&gt; ', oldCountry) // oldCountry =&gt;  Re Seoul
 </code></pre>
-<p><br/></p>
-<a class="header" href="#objectdefineproperties" id="objectdefineproperties"><h3>Object.defineProperties()</h3></a>
+<br/>
+<h3><a class="header" href="#objectdefineproperties" id="objectdefineproperties">Object.defineProperties()</a></h3>
 <pre><code class="language-js">Object.defineProperties(obj, props)
 </code></pre>
 <p><code>Object.defineProperty()</code>의 복수 버전이다.</p>
@@ -270,7 +241,7 @@ console.log('oldCountry =&gt; ', oldCountry) // oldCountry =&gt;  Re Seoul
 });
 </code></pre>
 <hr />
-<a class="header" href="#objectcreate---sample-1" id="objectcreate---sample-1"><h3>Object.create() - Sample 1</h3></a>
+<h3><a class="header" href="#objectcreate---sample-1" id="objectcreate---sample-1">Object.create() - Sample 1</a></h3>
 <pre><code class="language-js">const prototypeObject = {
   fullName: function(){
     return this.firstName + &quot; &quot; + this.lastName		
@@ -293,8 +264,8 @@ const person = Object.create(prototypeObject, {
 console.log(person) // {firstName: &quot;sNyung&quot;, lastName: &quot;jo&quot;}
 </code></pre>
 <p><img src="https://user-images.githubusercontent.com/24274424/59965008-b7c50280-9543-11e9-805e-4fcc55430d0e.png" alt="image" /></p>
-<p><br/></p>
-<a class="header" href="#new-vs-objectcreate" id="new-vs-objectcreate"><h3>New VS Object.create()</h3></a>
+<br/>
+<h3><a class="header" href="#new-vs-objectcreate" id="new-vs-objectcreate">New VS Object.create()</a></h3>
 <p><code>Object.create()</code>와 <code>new Constructor()</code>는 꽤 비슷하지만, 다른 점이 있다. 다음은 이 둘의 차이를 보여주는 예제이다.</p>
 <pre><code class="language-js">function Dog(){
   this.pupper = 'Pupper';
@@ -314,7 +285,7 @@ console.log(maddie.pupperino); // Pups.
 </code></pre>
 <p>성능상으로 new 생성자를 사용하는 것이 좋다고 한다. 확실히 성능 테스트를 해보면 알 수 있다.
 <br/></p>
-<a class="header" href="#성능-테스트" id="성능-테스트"><h3>성능 테스트</h3></a>
+<h3><a class="header" href="#성능-테스트" id="성능-테스트">성능 테스트</a></h3>
 <p><a href="https://jsperf.com/snyung-new-vs-object-create">https://jsperf.com/snyung-new-vs-object-create</a></p>
 <pre><code class="language-js">function Obj() {
   this.p = 1;
@@ -340,8 +311,8 @@ for (let i = 0; i &lt; 10000; i++) {
 console.timeEnd('constructor function');
 // new: 약 2.379150390625ms
 </code></pre>
-<p><br/></p>
-<a class="header" href="#polyfill" id="polyfill"><h3>Polyfill</h3></a>
+<br/>
+<h3><a class="header" href="#polyfill" id="polyfill">Polyfill</a></h3>
 <pre><code class="language-js">Object.create = (function () {
   function obj() {};
 
@@ -371,11 +342,11 @@ Vehicle.prototype.getWheel = function() {
 const Motorcycle = Object.create(Vehicle.prototype, {'wheel': {value: 3, writable: true}});
 console.log(Motorcycle)
 </code></pre>
-<p><br/></p>
-<a class="header" href="#compat-table" id="compat-table"><h3>Compat Table</h3></a>
+<br/>
+<h3><a class="header" href="#compat-table" id="compat-table">Compat Table</a></h3>
 <p><img src="https://user-images.githubusercontent.com/24274424/59957350-70525e00-94d2-11e9-97ea-a483763149d1.png" alt="image" /></p>
-<p><br/></p>
-<a class="header" href="#objectassign" id="objectassign"><h2>Object.assign()</h2></a>
+<br/>
+<h2><a class="header" href="#objectassign" id="objectassign">Object.assign()</a></h2>
 <p><code>Object.assign()</code> 메서드는 열거할 수 있는 하나 이상의 출처 객체로부터 대상 객체로 속성을 복사할 때 사용한다. 대상 객체를 반환한다.</p>
 <ul>
 <li><strong><code>target</code></strong> : 대상 객체.</li>
@@ -386,9 +357,9 @@ const copy = Object.assign({}, obj);
 
 console.log(copy); // { a: 1 }
 </code></pre>
-<p><code>Object.assign()</code>은 첫 번째 인자로 들어오는 target을 대상으로 두 번째 이후로 들어오는 인자를 병합할 때 사용한다.
+<p><code>Object.assign()</code>은 첫 번째 인자로 들어오는 target을 대상으로 두 번째 이후로 들어오는 인자를 병합할 때 사용한다. 
 <br/></p>
-<a class="header" href="#예시" id="예시"><h3>예시</h3></a>
+<h3><a class="header" href="#예시" id="예시">예시</a></h3>
 <p>같은 properties가 들어올 경우 마지막에 들어온 값이 덮어쓰게 된다.</p>
 <pre><code class="language-js">// app.js
 
@@ -420,7 +391,7 @@ console.log(a, b, rest)
 </code></pre>
 <p>위와 같이 <code>...</code>은 사용 방법에 따라 다양하게 사용될 수 있다. 더 많은 기능을 찾아보기를 바란다.
 <br/></p>
-<a class="header" href="#polyfill-1" id="polyfill-1"><h3>Polyfill</h3></a>
+<h3><a class="header" href="#polyfill-1" id="polyfill-1">Polyfill</a></h3>
 <pre><code class="language-js">Object.defineProperty(Object, &quot;assign&quot;, {
   value: function assign(target, varArgs) { // .length of function is 2
     'use strict';
@@ -448,11 +419,11 @@ console.log(a, b, rest)
   configurable: true
 });
 </code></pre>
-<p><br/></p>
-<a class="header" href="#compat-table-1" id="compat-table-1"><h3>Compat Table</h3></a>
+<br/>
+<h3><a class="header" href="#compat-table-1" id="compat-table-1">Compat Table</a></h3>
 <p><img src="https://user-images.githubusercontent.com/24274424/59957367-9ed03900-94d2-11e9-80af-cfcad4784f78.png" alt="image" /></p>
-<p><br/></p>
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<br/>
+<h4><a class="header" href="#reference" id="reference">Reference</a></h4>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create() - MDN</a></li>
 <li><a href="https://hackernoon.com/object-create-in-javascript-fa8674df6ed2">Object.create in JavaScript</a></li>
@@ -502,7 +473,30 @@ console.log(a, b, rest)
         </div>
 
         
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
 
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         

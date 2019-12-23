@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Type - Javascript Basic &amp; Detail</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +32,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -56,10 +58,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -75,50 +80,16 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html" class="active"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li class="expanded "><a href="../basic/2-Type.html" class="active"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li class="expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
-
-
+                
                 <div id="menu-bar" class="menu-bar">
                     <div id="menu-bar-sticky-container">
                         <div class="left-buttons">
@@ -142,7 +113,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -177,13 +148,13 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#type" id="type"><h1>Type</h1></a>
-<a class="header" href="#primitive-type" id="primitive-type"><h2>Primitive Type</h2></a>
+                        <h1><a class="header" href="#type" id="type">Type</a></h1>
+<h2><a class="header" href="#primitive-type" id="primitive-type">Primitive Type</a></h2>
 <p>한국말로 간단하게 말하면 원시 자료형이라고 하는 자바스크립트의 타입에 대해서 알아보자!</p>
-<p>자바스크립트는 자바나 C언어와는 다른게 동적 타입언어라고 불린다. 동적 타입 언어의 자료형은 컴파일시 자료형을 정하는 것이 아니고 실행시에 결정이 된다.</p>
+<p>자바스크립트는 자바나 C언어와는 다른게 동적 타입언어라고 불린다. 동적 타입 언어의 자료형은 컴파일시 자료형을 정하는 것이 아니고 실행시에 결정이 된다. </p>
 <p>자바스크립트의 타입의 종류와 사용법에 대해서 알아보자.
 <br/></p>
-<a class="header" href="#6가지의-기본-type" id="6가지의-기본-type"><h3>6가지의 기본 Type</h3></a>
+<h3><a class="header" href="#6가지의-기본-type" id="6가지의-기본-type">6가지의 기본 Type</a></h3>
 <p>ES6 이전에는 기본적으로 5가지의 타입이 있었다. 추가적으로 ES6에서 Symbol 타입이 추가되었다.</p>
 <ul>
 <li>String : 텍스트를 셋팅하는데 사용하는 타입.</li>
@@ -262,17 +233,17 @@ typeof a; //&quot;string&quot; (still a primitive)
 b; //&quot;abc&quot;
 typeof b; //&quot;object&quot;
 </code></pre>
-<p>위의 예제를 보게 되면 답이 나오게 된다. 우리가 사용하는 <code>var str</code> 를 사용하게 되면 Wrapper 객체로 임시변환이 이루어지고 <code>returnMe()</code> 와 같은 함수를 사용하면 다시 Wrapper 객체가 사라지게 된다.
+<p>위의 예제를 보게 되면 답이 나오게 된다. 우리가 사용하는 <code>var str</code> 를 사용하게 되면 Wrapper 객체로 임시변환이 이루어지고 <code>returnMe()</code> 와 같은 함수를 사용하면 다시 Wrapper 객체가 사라지게 된다. 
 <br/></p>
-<a class="header" href="#심화내용" id="심화내용"><h2>심화내용</h2></a>
+<h2><a class="header" href="#심화내용" id="심화내용">심화내용</a></h2>
 <p>자바스크립트에서는 신기하게도 숫자타입을 하나로 사용하고 있다. 어떻게 하나의 타입으로 모든 것을 표현할 수 있는 것일까? <strong>Number타입은 국제 표준 부동 소수점 IEEE 754를 따르고 있다.</strong> 기본적으로 컴퓨터가 실수를 표현하는 방식은 2진법에 따라서</p>
 <ul>
 <li>13 = 8 + 4 + 1 이므로 해당 자리 숫자를 1로 표현하고 나머지는 0으로 표현하게 되고 1101이 된다.</li>
 <li>0.75 = 0.5 + 0.25 이므로 0.11 로 표현할 수 있다.</li>
 </ul>
-<p>일반적으로 소수점을 표현하는 방법은 2가지 방법이 있다.
+<p>일반적으로 소수점을 표현하는 방법은 2가지 방법이 있다. 
 <br/></p>
-<a class="header" href="#고정-소수점" id="고정-소수점"><h3><strong>고정 소수점</strong></h3></a>
+<h3><a class="header" href="#고정-소수점" id="고정-소수점"><strong>고정 소수점</strong></a></h3>
 <ul>
 <li>정수를 표현하는 비트수와 소수를 표현하는 비트수를 미리 정해놓고 해당 비트만큼 사용해서 숫자를 표현하는 방식</li>
 <li>예) 실수 표현에 4byte(32bit)를 사용하고 그 중 <strong>부호1bit, 정수 16bit, 소수 15bit</strong> 를 사용하도록 약속해 놓은 시스템에 있다. 이렇게 약속된 시스템에서 263.3을 표현하면 (0)0000000100000111.010011001100110 이렇게 표현된다.</li>
@@ -280,7 +251,7 @@ typeof b; //&quot;object&quot;
 </ul>
 <p>이런 문제를 해결하기 위해서 소수점을 고정하지 않고 표현할 수 있는 <strong>부동 소수점(floating point)</strong> 을 사용하게 되었다.
 <br/></p>
-<a class="header" href="#부동소수점" id="부동소수점"><h3><strong>부동소수점</strong></h3></a>
+<h3><a class="header" href="#부동소수점" id="부동소수점"><strong>부동소수점</strong></a></h3>
 <p>부동 소수점을 표현하는 방식도 정하는 방식에 따라 다를 수 있지만 일반적으로 사용하고 있는 방식은 위에서 언급한 IEEE 754에서 표준으로 제안한 방식을 따른다.</p>
 <p>우선 고정 소수점으로 나타낸 263.3을 2진수 부동 소수점 방식으로 변환을 해보면, 100000111.010011001100110... 으로 표현되던 것을 맨 앞에 있는 1 바로 뒤로 소수점을 옮겨서 표현하도록 변환하게 되면 1.00000111010011001100110... * 2^8(2의 8승) 으로 표현된다.</p>
 <ul>
@@ -291,18 +262,18 @@ typeof b; //&quot;object&quot;
 <ul>
 <li>부호 비트(1 bit) : 0 (양수)</li>
 <li>지수 비트(8 bit) : 10000111 (127 + 8 = 135)</li>
-<li>가수 비트(23 bit) : 00000111010011001100110</li>
+<li>가수 비트(23 bit) : 00000111010011001100110 </li>
 </ul>
 <p>이렇게 표현하게 된다.</p>
 <p>하지만 여기서도 0.010011001100110은 정확히 0.3을 나타낼 수 없게 된다. 10진수로 나타내 보면 0.29998779296875로 나오게 된다. 그래서 자바스크립트에서 0.1 + 0.2를 하게 되면 0.30000000000000004가 나오는 이유이다.</p>
 <blockquote>
 <p>블록체인에서는 부동소수점에서 8자리까지를 사용한다고 한다.</p>
 </blockquote>
-<p><br/></p>
-<a class="header" href="#값타입과-참조타입" id="값타입과-참조타입"><h2>값타입과 참조타입</h2></a>
-<p>기본적으로 원시타입을 값타입이라고 한다면 Object를 참조타입이다.
+<br/>
+<h2><a class="header" href="#값타입과-참조타입" id="값타입과-참조타입">값타입과 참조타입</a></h2>
+<p>기본적으로 원시타입을 값타입이라고 한다면 Object를 참조타입이다. 
 <br/></p>
-<a class="header" href="#원시타입은-값타입이다" id="원시타입은-값타입이다"><h3>원시타입은 값타입이다.</h3></a>
+<h3><a class="header" href="#원시타입은-값타입이다" id="원시타입은-값타입이다">원시타입은 값타입이다.</a></h3>
 <pre><code class="language-javascript">var a = 13         // assign `13` to `a`
 var b = a          // copy the value of `a` to `b`
 
@@ -320,8 +291,8 @@ console.log(a); // 10
 console.log(b); // 5
 // string, boolean, null, undefined은 같은 결과가 나온다.
 </code></pre>
-<p><br/></p>
-<a class="header" href="#object는-참조타입이다" id="object는-참조타입이다"><h3>Object는 참조타입이다.</h3></a>
+<br/>
+<h3><a class="header" href="#object는-참조타입이다" id="object는-참조타입이다">Object는 참조타입이다.</a></h3>
 <pre><code class="language-javascript">var a = { c: 13 }  // assign the reference of a new object to `a`
 var b = a          // copy the reference of the object inside `a` to new variable `b`
 b.c = 37           // modify the contents of the object `b` refers to
@@ -374,8 +345,8 @@ var alexChanged = changeAgePure(alex);
 console.log(alex); // -&gt; { name: 'Alex', age: 30 }
 console.log(alexChanged); // -&gt; { name: 'Alex', age: 25 }
 </code></pre>
-<p><br/></p>
-<a class="header" href="#문제" id="문제"><h3>문제</h3></a>
+<br/>
+<h3><a class="header" href="#문제" id="문제">문제</a></h3>
 <pre><code class="language-javascript">function changeAgeAndReference(person) {
     person.age = 25;
     person = {
@@ -396,11 +367,11 @@ var personObj2 = changeAgeAndReference(personObj1);
 console.log(personObj1); // -&gt; ?
 console.log(personObj2); // -&gt; ?
 </code></pre>
-<a class="header" href="#답" id="답"><h3><strong>답</strong></h3></a>
+<h3><a class="header" href="#답" id="답"><strong>답</strong></a></h3>
 <p>:point_right: <a href="https://codepen.io/seonhyungjo/pen/qwXMNb">답 확인하기</a></p>
-<p><br/></p>
-<a class="header" href="#명시적-변환-암시적-변환-덕-타이핑" id="명시적-변환-암시적-변환-덕-타이핑"><h2>명시적 변환, 암시적 변환, 덕 타이핑</h2></a>
-<a class="header" href="#명시적-변환-vs-암묵적-변환" id="명시적-변환-vs-암묵적-변환"><h3>명시적 변환 vs 암묵적 변환</h3></a>
+<br/>
+<h2><a class="header" href="#명시적-변환-암시적-변환-덕-타이핑" id="명시적-변환-암시적-변환-덕-타이핑">명시적 변환, 암시적 변환, 덕 타이핑</a></h2>
+<h3><a class="header" href="#명시적-변환-vs-암묵적-변환" id="명시적-변환-vs-암묵적-변환">명시적 변환 vs 암묵적 변환</a></h3>
 <p>개발자가 <code>Number(value)</code> 와 같은 코드를 작성하여 변환할 의사를 명확하게 표현하는 것을 <strong>명시적 변환</strong>이라고 한다. JavaScript는 약타입 언어이므로 값을 자동으로 여러 유형간에 변환을 자동으로 한다. 이것을 <strong>암묵적 변환</strong> 이라고 한다.</p>
 <p>예를 들어 일반적으로 연산자를 다양한 유형의 값에 적용하면 <code>1 == null</code>, <code>2 / '5'</code>, <code>null + new Date ()</code> 또는 <code>if (value) {...}</code> 와 같이 문법에 의해 발생할 수 있다.</p>
 <p>우리가 가장 많이 사용하는 암시적 타입 변환을 하지 않는 연산자는 <code>===</code> 이며, <strong>완전 항등 연산자</strong> 라고 한다. 반면에 <strong>느슨한 항등 연산자</strong> <code>==</code> 는 필요하다면 <strong>비교와 타입 강제 변환을 수행</strong> 합니다.</p>
@@ -411,9 +382,9 @@ console.log(personObj2); // -&gt; ?
 <li><strong>to boolean</strong></li>
 <li><strong>to number</strong></li>
 </ul>
-<p><br/></p>
-<a class="header" href="#string-변환" id="string-변환"><h3>String 변환</h3></a>
-<p>명시적으로 값을 문자열로 변환하려면 <code>String()</code> 함수를 사용하면 된다. 암시적 강제 변환은 <code>binary</code> 연산자가 아닌것에 <code>+</code> 연산자를 사용하면 변환이 이루어진다.</p>
+<br/>
+<h3><a class="header" href="#string-변환" id="string-변환">String 변환</a></h3>
+<p>명시적으로 값을 문자열로 변환하려면 <code>String()</code> 함수를 사용하면 된다. 암시적 강제 변환은 <code>binary</code> 연산자가 아닌것에 <code>+</code> 연산자를 사용하면 변환이 이루어진다. </p>
 <pre><code class="language-javascript">String(123) // 명시적
 
 123 + ''    // 암시적
@@ -432,7 +403,7 @@ String(false)                 // 'false'
 </code></pre>
 <p><code>Symbol</code> 변환은 명시적으로만 변환될 수 있고, 암시적 변환은 되지 않는다.
 <br/></p>
-<a class="header" href="#boolean-변환" id="boolean-변환"><h3>Boolean 변환</h3></a>
+<h3><a class="header" href="#boolean-변환" id="boolean-변환">Boolean 변환</a></h3>
 <p>명시적으로 값을 Boolean으로 변환하려면 <code>Boolean()</code> 함수을 사용하면 된다. 암시적 변환은 논리 Context에서 발생하거나 논리 연산자에 의해 작동을 하게 된다.( <code>||</code>, <code>&amp;&amp;</code>, <code>!</code> )</p>
 <pre><code class="language-javascript">Boolean(2)          // 명시적
 if (2) { ... }      // 논리적 문맥 때문에 암시적
@@ -460,8 +431,8 @@ Boolean(Symbol())       // true
 !!Symbol()              // true
 Boolean(function() {})  // true
 </code></pre>
-<p><br/></p>
-<a class="header" href="#numeric-변환" id="numeric-변환"><h3>Numeric 변환</h3></a>
+<br/>
+<h3><a class="header" href="#numeric-변환" id="numeric-변환">Numeric 변환</a></h3>
 <p>명시적 변환의 경우 <code>Boolean()</code> 및 <code>String()</code> 에서와 마찬가지로 <code>Number()</code> 함수를 사용하면 된다. 암시적 변환은 많은 경우에서 작동이 되기 때문에 까다롭다.</p>
 <ul>
 <li>비교 연산자(<code>&gt;</code>, <code>&lt;</code>, <code>&lt;=</code>,<code>&gt;=</code>)</li>
@@ -515,15 +486,15 @@ null == undefined       // true
 </ol>
 <pre><code class="language-javascript">if (value !== value) { console.log(&quot;we're dealing with NaN here&quot;) }
 </code></pre>
-<p><br/></p>
+<br/>
 <hr />
-<a class="header" href="#object-강제-변환" id="object-강제-변환"><h2>Object 강제 변환</h2></a>
+<h2><a class="header" href="#object-강제-변환" id="object-강제-변환">Object 강제 변환</a></h2>
 <p>참고: <a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839</a></p>
 <hr />
-<p><br/></p>
-<a class="header" href="#심화" id="심화"><h2>심화</h2></a>
-<a class="header" href="#덕-타이핑duck-typing이란" id="덕-타이핑duck-typing이란"><h3><strong>덕 타이핑(Duck Typing)이란?</strong></h3></a>
-<p>쉽게 정의를 하자면 사람이 오리처럼 행동하면 오리로 봐도 무방하다라는게 덕 타이핑(Duck Typing)이다.</p>
+<br/>
+<h2><a class="header" href="#심화" id="심화">심화</a></h2>
+<h3><a class="header" href="#덕-타이핑duck-typing이란" id="덕-타이핑duck-typing이란"><strong>덕 타이핑(Duck Typing)이란?</strong></a></h3>
+<p>쉽게 정의를 하자면 사람이 오리처럼 행동하면 오리로 봐도 무방하다라는게 덕 타이핑(Duck Typing)이다. </p>
 <p>이것은 타입을 미리 정하는게 아니라 실행이 되었을 때 해당 Method들을 확인하여 타입을 정한다는 것으로  타입의 변화가 느슨하다.</p>
 <ul>
 <li>장점
@@ -540,8 +511,8 @@ null == undefined       // true
 </ul>
 </li>
 </ul>
-<p><br/></p>
-<a class="header" href="#reference" id="reference"><h3>Reference</h3></a>
+<br/>
+<h3><a class="header" href="#reference" id="reference">Reference</a></h3>
 <ul>
 <li><a href="http://2ality.com/2012/04/number-encoding.html">How numbers are encoded in JavaScript</a></li>
 <li><a href="https://blog.chewxy.com/2014/02/24/what-every-javascript-developer-should-know-about-floating-point-numbers/">What Every JavaScript Developer Should Know About Floating Point Numbers</a></li>
@@ -597,7 +568,30 @@ null == undefined       // true
         </div>
 
         
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
 
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         

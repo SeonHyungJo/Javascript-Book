@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Module - Javascript Basic &amp; Detail</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +32,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -56,10 +58,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -75,50 +80,16 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html" class="active"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li class="expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="expanded "><a href="../basic/4-Module.html" class="active"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li class="expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
-
-
+                
                 <div id="menu-bar" class="menu-bar">
                     <div id="menu-bar-sticky-container">
                         <div class="left-buttons">
@@ -142,7 +113,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -177,10 +148,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#module" id="module"><h1>Module</h1></a>
+                        <h1><a class="header" href="#module" id="module">Module</a></h1>
 <p><strong>Webpack</strong> 및 <strong>SystemJS</strong>와 같은 도구는 무엇일까? 또는 <strong>AMD</strong>, <strong>UMD</strong>, <strong>CommonJS</strong>는 또 무엇인가? 그것들은 어떻게 관련이 있는건가? 그리고 왜 그걸 왜 필요로 하게 되었을까?
 <br/></p>
-<a class="header" href="#모듈이란" id="모듈이란"><h2>모듈이란?</h2></a>
+<h2><a class="header" href="#모듈이란" id="모듈이란">모듈이란?</a></h2>
 <p>모듈은 구현사항을 캡슐화하고 기능에 따라 Public API로 노출하여 다른 곳에서 쉽게 불러서 사용하도록 하며 재사용이 가능하도록 한 코드의 뭉치이다.</p>
 <p>그렇다면 왜 모듈이 필요하게 되었을까?</p>
 <ul>
@@ -189,12 +160,12 @@
 <li>재사용 코드 : 같은 코드를 계속해서 사용하기 위해서</li>
 <li>의존성 관리 : 우리의 코드를 다시 작성하지 않고 쉽게 종속성을 변경하기 위해서</li>
 </ul>
-<p><br/></p>
-<a class="header" href="#module-patterns-in-es5" id="module-patterns-in-es5"><h2>Module patterns in ES5</h2></a>
+<br/>
+<h2><a class="header" href="#module-patterns-in-es5" id="module-patterns-in-es5">Module patterns in ES5</a></h2>
 <p>원래 자바스크립트라는 것은 모듈을 염두해두고 설계가 된 언어가 아니다. 시간이 지나면서 사람들이 필요에 따라 다양한 패턴을 만들게 된 것이다.</p>
 <p>우리가 간단하게 볼만한 패턴은 <strong>IIFE와 공개 모듈 패턴</strong>이 있다.
 <br/></p>
-<a class="header" href="#즉시-실행-함수-표현immediately-invoked-function-expression" id="즉시-실행-함수-표현immediately-invoked-function-expression"><h2>즉시 실행 함수 표현(Immediately-invoked Function Expression)</h2></a>
+<h2><a class="header" href="#즉시-실행-함수-표현immediately-invoked-function-expression" id="즉시-실행-함수-표현immediately-invoked-function-expression">즉시 실행 함수 표현(Immediately-invoked Function Expression)</a></h2>
 <p>IIFE는 ES5기준으로 가장 많이 사용되던 패턴 중 하나이다. <code>Scope Block</code> 을 만드는 유일한 방법은 함수이기 때문이다. 따라서 아래와 같은 예제는 <code>ReferenceError</code> 가 나온다.</p>
 <pre><code class="language-javascript">(function() {
     var scoped = 42;
@@ -229,7 +200,7 @@ console.log(scoped); // ReferenceError
 </code></pre>
 <p>또한 <code>void</code> 역시 기본적으로 함수가 표현식으로 취급되도록 한다.
 <br/></p>
-<a class="header" href="#전통적인-iife" id="전통적인-iife"><h2>전통적인 IIFE</h2></a>
+<h2><a class="header" href="#전통적인-iife" id="전통적인-iife">전통적인 IIFE</a></h2>
 <p>처음에 예제에서 보았듯이 IIFE 패턴의 핵심은 함수를 표현식으로 바꾸고 즉시 실행하는 것이다.</p>
 <pre><code class="language-javascript">(function() {
     alert(&quot;I am not an IIFE yet!&quot;);
@@ -271,7 +242,7 @@ function () {
 </code></pre>
 <p>위의 예제를 실행하게 되면서 우리가 왜 괄호가 필요한지 알게 될 것이다. IIFE를 만들려고 하면 우리는 표현식이 필요하다. 함수 선언, 함수 문장은 필요가 없다.
 <br/></p>
-<a class="header" href="#iifes-and-private-variables" id="iifes-and-private-variables"><h3>IIFEs and private variables</h3></a>
+<h3><a class="header" href="#iifes-and-private-variables" id="iifes-and-private-variables">IIFEs and private variables</a></h3>
 <pre><code class="language-javascript">(function IIFE_initGame() {
     // Private variables that no one has access to outside this IIFE
     var lives;
@@ -286,24 +257,24 @@ function () {
     }
 }());
 </code></pre>
-<p><br/></p>
-<a class="header" href="#iifes-with-a-return-value" id="iifes-with-a-return-value"><h3>IIFEs with a return value</h3></a>
+<br/>
+<h3><a class="header" href="#iifes-with-a-return-value" id="iifes-with-a-return-value">IIFEs with a return value</a></h3>
 <pre><code class="language-javascript">var result = (function() {
     return &quot;From IIFE&quot;;
 }());
     
 alert(result); // alerts &quot;From IIFE&quot;
 </code></pre>
-<p><br/></p>
-<a class="header" href="#iifes-with-parameters" id="iifes-with-parameters"><h3>IIFEs with parameters</h3></a>
+<br/>
+<h3><a class="header" href="#iifes-with-parameters" id="iifes-with-parameters">IIFEs with parameters</a></h3>
 <pre><code class="language-javascript">(function IIFE(msg, times) {
     for (var i = 1; i &lt;= times; i++) {
         console.log(msg);
     }
 }(&quot;Hello!&quot;, 5));
 </code></pre>
-<p><br/></p>
-<a class="header" href="#classical-javascript-module-pattern" id="classical-javascript-module-pattern"><h2>Classical JavaScript module pattern</h2></a>
+<br/>
+<h2><a class="header" href="#classical-javascript-module-pattern" id="classical-javascript-module-pattern">Classical JavaScript module pattern</a></h2>
 <p>우리는 전체 시퀀스를 손상시키지않도록 작동하는 싱글톤 객체를 구현해보려고 한다.</p>
 <pre><code class="language-javascript"> var Sequence = (function sequenceIIFE() {
         
@@ -345,7 +316,7 @@ console.log(Sequence.getCurrentValue()); // 2
 <p>위의 <code>current</code> 라는 변수는 IIFE의 전용이므로, 클로저를 통해 접근할 수 있는 함수 외에는 변수를 수정하거나 직접 접근은 불가능하다.</p>
 <p>이렇게 IIFE와 클로져를 같이 사용해서 구현을 해보았다. 이것은 모듈패턴에 대한 매우 기본적인 변형이다. 더 많은 패턴들이 존재하지만 거의 모든 패턴이 IIFE를 사용하여 폐쇄범위를 만든다.
 <br/></p>
-<a class="header" href="#when-you-can-omit-parentheses" id="when-you-can-omit-parentheses"><h2>When you can omit parentheses</h2></a>
+<h2><a class="header" href="#when-you-can-omit-parentheses" id="when-you-can-omit-parentheses">When you can omit parentheses</a></h2>
 <pre><code class="language-javascript">var result = function() {
     return &quot;From IIFE!&quot;;
 }();
@@ -372,8 +343,8 @@ var module = new Module();
 module.sayHello();  
 // =&gt; Hello
 </code></pre>
-<p><br/></p>
-<a class="header" href="#module-formats" id="module-formats"><h2>Module formats</h2></a>
+<br/>
+<h2><a class="header" href="#module-formats" id="module-formats">Module formats</a></h2>
 <p>기존의 ES6이전에는 자바스크립트에 모듈을 정의하는 공식문법이 존재하지 않았다. 그래서 다양한 모듈을 정의해왔었는데</p>
 <ul>
 <li>Asynchronous Module Definition (AMD)</li>
@@ -382,8 +353,8 @@ module.sayHello();
 <li>System.register</li>
 <li>ES6 module format</li>
 </ul>
-<p><br/></p>
-<a class="header" href="#asynchronous-module-definition-amd" id="asynchronous-module-definition-amd"><h3>Asynchronous Module Definition (AMD)</h3></a>
+<br/>
+<h3><a class="header" href="#asynchronous-module-definition-amd" id="asynchronous-module-definition-amd">Asynchronous Module Definition (AMD)</a></h3>
 <p>AMD 형식은 브라우저에서 사용되며 정의함수를 사용하여 모듈을 정의한다.</p>
 <pre><code class="language-javascript">//Calling define with a dependency array and a factory function
 define(['dep1', 'dep2'], function (dep1, dep2) {
@@ -392,8 +363,8 @@ define(['dep1', 'dep2'], function (dep1, dep2) {
     return function () {};
 });
 </code></pre>
-<p><br/></p>
-<a class="header" href="#commonjs-format" id="commonjs-format"><h3>CommonJS format</h3></a>
+<br/>
+<h3><a class="header" href="#commonjs-format" id="commonjs-format">CommonJS format</a></h3>
 <p>CommonJS 형식은 Node.js에서 사용되며 <code>require</code> 과 <code>module.exports</code> 를 사용하여 종속성 및 모듈을 정의한다.</p>
 <pre><code class="language-javascript">var dep1 = require('./dep1');  
 var dep2 = require('./dep2');
@@ -402,8 +373,8 @@ module.exports = function(){
   // ...
 }
 </code></pre>
-<p><br/></p>
-<a class="header" href="#universal-module-definition-umd" id="universal-module-definition-umd"><h3>Universal Module Definition (UMD)</h3></a>
+<br/>
+<h3><a class="header" href="#universal-module-definition-umd" id="universal-module-definition-umd">Universal Module Definition (UMD)</a></h3>
 <p>UMD는 브라우저와 Node에서 모두 사용이 가능하다.</p>
 <pre><code class="language-javascript">(function (root, factory) {
     if (typeof define === 'function' &amp;&amp; define.amd) {
@@ -427,8 +398,8 @@ module.exports = function(){
     return {};
 }));
 </code></pre>
-<p><br/></p>
-<a class="header" href="#systemregister" id="systemregister"><h3>System.register</h3></a>
+<br/>
+<h3><a class="header" href="#systemregister" id="systemregister">System.register</a></h3>
 <p><code>System.register</code> 형식은 ES5에서 ES6 모듈 구문을 지원하도록 설계되었습니다.</p>
 <pre><code class="language-javascript">import { p as q } from './dep';
     
@@ -441,8 +412,8 @@ export function func() {
 export class C {  
 }
 </code></pre>
-<p><br/></p>
-<a class="header" href="#es6-module-format" id="es6-module-format"><h3>ES6 module format</h3></a>
+<br/>
+<h3><a class="header" href="#es6-module-format" id="es6-module-format">ES6 module format</a></h3>
 <pre><code class="language-javascript">    // lib.js
     
     // Export the function
@@ -463,7 +434,7 @@ sayHello();
 </code></pre>
 <p>아직 브라우저는 ES6문법을 지원하지 않는다. 이미 ES6 모듈 포맷을 사용할 수 있지만 브라우저에서 코드를 실제로 실행하기 전에 코드를 <strong>AMD</strong> 나 <strong>CommonJS</strong> 와 같은 <strong>ES5 모듈 형식으로 바꾸기 위해 Babel과 같은 변환기가 필요하게 된다.</strong>
 <br/></p>
-<a class="header" href="#module-loaders" id="module-loaders"><h2>Module loaders</h2></a>
+<h2><a class="header" href="#module-loaders" id="module-loaders">Module loaders</a></h2>
 <p>모듈 로더는 특정 모듈 형식으로 작성된 모듈을 해석하고 load한다.</p>
 <p>런타임 시점에 loader를 실행한다.</p>
 <ul>
@@ -477,8 +448,8 @@ sayHello();
 <li>RequireJS : AMD 형식의 모듈 용 로더</li>
 <li>SystemJS : AMD, CommonJS, UMD 또는 System.register 형식의 모듈 용 로더</li>
 </ul>
-<p><br/></p>
-<a class="header" href="#module-bundlers" id="module-bundlers"><h2>Module bundlers</h2></a>
+<br/>
+<h2><a class="header" href="#module-bundlers" id="module-bundlers">Module bundlers</a></h2>
 <p>모듈 번들러는 모듈 로더를 대체한다. 그러나 로더와 차이점은 모듈 번들은 빌드시에 실행이 된다.</p>
 <ul>
 <li>빌드를 할 때 모듈 번들을 실행하여 번들파일을 생성한다.</li>
@@ -489,9 +460,9 @@ sayHello();
 <li>Browserify : CommonJS 모듈 용 bundler</li>
 <li>Webpack : AMD, CommonJS, ES6 모듈 용 bundler</li>
 </ul>
-<p><br/></p>
+<br/>
 <hr />
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<h4><a class="header" href="#reference" id="reference">Reference</a></h4>
 <ul>
 <li><a href="https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6">Essential JavaScript: Mastering Immediately-invoked Function Expressions</a></li>
 <li><a href="https://hashnode.com/post/do-es6-modules-make-the-case-of-iifes-obsolete-civ96wet80scqgc538un20es0">Do ES6 Modules make the case of IIFEs obsolete?</a></li>
@@ -539,7 +510,30 @@ sayHello();
         </div>
 
         
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
 
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         

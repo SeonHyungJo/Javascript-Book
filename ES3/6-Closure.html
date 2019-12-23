@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Closure - Javascript Basic &amp; Detail</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +32,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -56,10 +58,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -75,50 +80,16 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html" class="active"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> CallStack</a></li><li class="expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call-Apply-Bind</a></li><li class="expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create Object.assign</a></li><li class="expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="expanded "><a href="../ES3/6-Closure.html" class="active"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
-
-
+                
                 <div id="menu-bar" class="menu-bar">
                     <div id="menu-bar-sticky-container">
                         <div class="left-buttons">
@@ -142,7 +113,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -177,16 +148,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#es3ecma-262-3-closure" id="es3ecma-262-3-closure"><h1>[ES3]ECMA-262-3 Closure</h1></a>
-<p>프로그래밍 패터다임중에 하나로 함수형 프로그래밍이 있다.
+                        <h1><a class="header" href="#es3ecma-262-3-closure" id="es3ecma-262-3-closure">[ES3]ECMA-262-3 Closure</a></h1>
+<p>프로그래밍 패터다임중에 하나로 함수형 프로그래밍이 있다. 
 <br/></p>
-<p>흔히 함수형 언어에서 함수는 데이터다.
+<p>흔히 함수형 언어에서 함수는 데이터다. 
 <br/></p>
-<p>초기 <code>js</code>가 만들어질 때 함수형의 영향을 어느정도 받았다고 한다. 그래서 함수형과 비슷한점이 존재한다.
+<p>초기 <code>js</code>가 만들어질 때 함수형의 영향을 어느정도 받았다고 한다. 그래서 함수형과 비슷한점이 존재한다. 
 <br/></p>
 <p>즉 함수를 변수에 할당할 수 있고, 다른 함수에 인자로 전달할 수 있으며, 함수의 결과로 반환할 수 있다.
 <br/></p>
-<a class="header" href="#정의" id="정의"><h2>정의</h2></a>
+<h2><a class="header" href="#정의" id="정의">정의</a></h2>
 <blockquote>
 <p>함수 전달인자(Funarg)는 값이 함수인 전달인자다.
 <br/></p>
@@ -204,7 +175,7 @@ exampleFunc(function () {
 <br/></p>
 <p>리액트를 하다보면 <code>HOF</code>로 구현을 하는 방법론이 나온다. 그 이야기의 시작은 여기라고 생각한다.
 <br/></p>
-<p>고차함수(<code>HOF, High Order Function</code>)는 기능적, 수학적으로 연산자로 볼 수 있다.
+<p>고차함수(<code>HOF, High Order Function</code>)는 기능적, 수학적으로 연산자로 볼 수 있다. 
 <br/></p>
 <p>위 예제의 <code>exampleFunc</code> 함수는 <strong>고차 함수</strong> 이다.
 함수를 전달인자로 넘길 수 있을 뿐만 아니라, 다른 함수의 결과 값으로 함수를 반환할 수도 있다.</p>
@@ -218,7 +189,7 @@ exampleFunc(function () {
 <br/></p>
 <p>함수를 전달하고 함수를 전달자로 받을수 있으며, 함수 값을 반환할 수 있는 함수를 일급객체라 한다.
 <br/></p>
-<a class="header" href="#일급객체first-class" id="일급객체first-class"><h2>일급객체(First Class)</h2></a>
+<h2><a class="header" href="#일급객체first-class" id="일급객체first-class">일급객체(First Class)</a></h2>
 <p><code>ECMAScript</code> 의 모든 함수는 <strong>일급 객체</strong>다. 자기 자신을 전달인자로 받는 함수를 <strong>자기 응용 함수</strong>라고 부른다..</p>
 <pre><code class="language-js">(function selfApplicative(funArg) {
 
@@ -276,18 +247,18 @@ testFn(function (arg) {
     alert(arg + localVar);
 });
 </code></pre>
-<p>하지만 <code>Chapter 4. Scope Chain.</code> 에서 봤듯이, <code>ECMAScript</code> 의 함수는 부모 함수에 속해 <strong>부모 콘텍스트의 변수</strong>를 사용할 수 있다.
+<p>하지만 <code>Chapter 4. Scope Chain.</code> 에서 봤듯이, <code>ECMAScript</code> 의 함수는 부모 함수에 속해 <strong>부모 콘텍스트의 변수</strong>를 사용할 수 있다. 
 <br/></p>
 <p>이유는 당연히 <code>SC</code>에 의해서지 !!!
 <br/></p>
 <p>이러한 특징으로 인해서 <strong>함수 전달인자 문제(funarg problem)</strong> 가 발생하게 된다.
 <br/></p>
-<a class="header" href="#함수-전달인자-문제funarg-problem" id="함수-전달인자-문제funarg-problem"><h2>함수 전달인자 문제(Funarg problem)</h2></a>
-<p><code>Stack</code> 지향 프로그래밍 언어는 함수를 호출할 때마다 함수의 지역 변수와 전달인자를 <code>Stack</code>에 넣는다. 그리고 함수를 종료할 때 <code>Stack</code>에서 변수를 제거한다.
+<h2><a class="header" href="#함수-전달인자-문제funarg-problem" id="함수-전달인자-문제funarg-problem">함수 전달인자 문제(Funarg problem)</a></h2>
+<p><code>Stack</code> 지향 프로그래밍 언어는 함수를 호출할 때마다 함수의 지역 변수와 전달인자를 <code>Stack</code>에 넣는다. 그리고 함수를 종료할 때 <code>Stack</code>에서 변수를 제거한다. 
 <br/></p>
 <p>이 모델을 적용하면 함수를 값(예를 들어, 부모 함수가 반환하는 값으로서의 함수)으로 사용하기 어렵다. – <code>Stack</code>에서 제거되면 사라지기 때문 -. 대게 함수가 자유 변수를 사용할 때 이런 문제가 발생한다.
 <br/></p>
-<p>자유 변수는 함수가 사용하는 변수 중, 파라미터와 함수의 지역 변수를 제외한 변수를 말한다.
+<p>자유 변수는 함수가 사용하는 변수 중, 파라미터와 함수의 지역 변수를 제외한 변수를 말한다. 
 <br/></p>
 <pre><code class="language-js">function testFn() {
  var localVar = 10;
@@ -327,15 +298,15 @@ foo(); // 10 - 정적 스코프와 동적 스코프를 둘다 사용
  funArg(); // 10 – 정적 스코프, 30 – 동적 스코프
 })(foo);
 </code></pre>
-<p>동적 스코프인 경우에는 동적(활동적) 스택을 이용해 변수를 처리한다. 결국 함수를 생성할 때 함수에 저장한 정적(어휘적) 스코프 체인이 아닌, 현재 실행중인 함수의 동적 스코프 체인에서 자유 변수를 찾는다. 이는 모호한 상황을 만든다.
+<p>동적 스코프인 경우에는 동적(활동적) 스택을 이용해 변수를 처리한다. 결국 함수를 생성할 때 함수에 저장한 정적(어휘적) 스코프 체인이 아닌, 현재 실행중인 함수의 동적 스코프 체인에서 자유 변수를 찾는다. 이는 모호한 상황을 만든다. 
 <br/></p>
 <p>예를 들어 지역 변수를 스택에서 제거하는 이전 예제와는 달리  <code>z</code>가 계속해서 살아있는 경우, 콘텍스트의 <code>z</code>를 사용해야할지 아니면 스코프의 <code>z</code>를 사용해야할지 알 수 없다.
 <br/></p>
-<p>지금까지 함수가 함수를 값으로 반환하거나(<code>upward funarg</code>), 함수를 다른 함수에 전달인자로 전달할 때(<code>downward funarg</code>) 생기는 2가지 유형의 함수 전달인자 문제(<code>funarg problem</code>)를 알아봤다.
+<p>지금까지 함수가 함수를 값으로 반환하거나(<code>upward funarg</code>), 함수를 다른 함수에 전달인자로 전달할 때(<code>downward funarg</code>) 생기는 2가지 유형의 함수 전달인자 문제(<code>funarg problem</code>)를 알아봤다. 
 <br/></p>
 <p>클로저는 이러한 문제(및 서브타입)를 해결하기 위해 나온 개념이다.
 <br/></p>
-<a class="header" href="#클로저closure" id="클로저closure"><h2>클로저(Closure)</h2></a>
+<h2><a class="header" href="#클로저closure" id="클로저closure">클로저(Closure)</a></h2>
 <blockquote>
 <p>클로저는 코드 블럭과 이 코드 블럭을 생성한 콘텍스트가 갖고 있는 데이터의 조합이다.</p>
 </blockquote>
@@ -356,13 +327,13 @@ fooClosure = {
 <br/></p>
 <p>다음에 함수를 실행하면 저장한 콘텍스트 내에서 자유 변수를 검색한다. 위의 예제를 통해 <code>ECMAScript</code>에서는 변수 <code>z</code>가 항상 <code>10</code>인 것을 알 수 있다.
 <br/></p>
-<p>위에서 클로저를 정의할 때  코드 블록이라는 일반화 한 개념을 사용했지만, 보통 함수라는 용어를 사용한다.
+<p>위에서 클로저를 정의할 때  코드 블록이라는 일반화 한 개념을 사용했지만, 보통 함수라는 용어를 사용한다. 
 <br/></p>
-<p>하지만 오로지 함수만 클로저와 관련있는 것은 아니다.
+<p>하지만 오로지 함수만 클로저와 관련있는 것은 아니다. 
 <br/></p>
 <p>구현에 대해서 이야기를 해보자면, 콘텍스트가 종료된 후에도 지역 변수를 보존하고 싶다면 스택 기반의 아키텍처는 더이상 적합하지 않다. 따라서 이 경우에는 <strong>부모 콘텍스트의 데이터를 가비지 콜렉터(<code>GC</code>)와 참조 카운팅을 이용하는 동적 메모리 할당 방식으로 저장해야 한다(힙 기반 구현)</strong>. 이 방식은 스택 기반 보다 느리다. 하지만 함수 안에서 자유 변수를 사용할지 판단하고 이 결정에 따라 스택이나 힙에 데이터를 배치하는 과정을 스크립트 엔진이 해석 시점에 최적화 할 수 있다.
 <br/></p>
-<a class="header" href="#ecmascript의-클로저-구현ecmascript-closures-implementation" id="ecmascript의-클로저-구현ecmascript-closures-implementation"><h2>ECMAScript의 클로저 구현(ECMAScript closures implementation)</h2></a>
+<h2><a class="header" href="#ecmascript의-클로저-구현ecmascript-closures-implementation" id="ecmascript의-클로저-구현ecmascript-closures-implementation">ECMAScript의 클로저 구현(ECMAScript closures implementation)</a></h2>
 <p>앞에서 이론적인 이야기를 하면서 마지막에 <code>ECMAScript</code>의 클로저를 언급했다. <code>ECMAScript</code>는 오직 정적(어휘적) 스코프만 사용한다는 사실을 명심하자(Perl 같은 일부 언어는 변수를 정적, 동적 스코프 두 가지 방식으로 선언할 수 있음).
 <br/></p>
 <pre><code class="language-js">var x = 10;
@@ -400,10 +371,10 @@ foo: &lt;FunctionObject&gt; = {
  ... // 다른 프로퍼티들
 };
 </code></pre>
-<p>앞에서 언급했듯이, 함수가 자유 변수를 사용하지 않는 경우에는 성능 최적화를 위해 <code>JavaScript</code> 엔진이 부모 스코프 체인을 함수 내부에 저장하지 않을 수도 있다.</p>
+<p>앞에서 언급했듯이, 함수가 자유 변수를 사용하지 않는 경우에는 성능 최적화를 위해 <code>JavaScript</code> 엔진이 부모 스코프 체인을 함수 내부에 저장하지 않을 수도 있다. </p>
 <p>그러나 <code>ECMA-262-3</code> 스펙은 이에 대해서 언급하고 있지 않다. 따라서 공식적으로(그리고 기술적 알고리즘에 따라) 모든 함수는 생성 시점에 <code>[[Scope]]</code> 프로퍼티에 스코프 체인을 저장한다.</p>
 <p>일부 엔진은 사용자가 클로저 스코프에 직접 접근하는 것을 허용한다.</p>
-<a class="header" href="#scope-공유one-scope-value-for-them-all" id="scope-공유one-scope-value-for-them-all"><h2><code>[[Scope]]</code> 공유(One [[Scope]] value for “them all”)</h2></a>
+<h2><a class="header" href="#scope-공유one-scope-value-for-them-all" id="scope-공유one-scope-value-for-them-all"><code>[[Scope]]</code> 공유(One [[Scope]] value for “them all”)</a></h2>
 <p><code>ECMAScript</code>에서 같은 부모 콘텍스트에서 만들어진 여러 중첩 함수는 같은 클로저 <code>[[Scope]]</code> 객체를 사용한다. 이는 어떤 클로저가 클로저 변수를 수정하면, 변경한 내용을 다른 클로저가 읽을 수 있다는 의미다.
 <br/></p>
 <p>즉, 모든 중첩 함수는 같은 부모의 스코프를 공유한다.
@@ -448,7 +419,7 @@ data[1].[[Scope]] === Scope;
 data[2].[[Scope]] === Scope;
 </code></pre>
 <p>따라서 세 함수는 실행 시점에 변수 k에 마지막으로 할당한 값인 3을 사용한다.</p>
-<a class="header" href="#클로저의-실제적-사용practical-usage-of-closures" id="클로저의-실제적-사용practical-usage-of-closures"><h2>클로저의 실제적 사용(Practical usage of closures)</h2></a>
+<h2><a class="header" href="#클로저의-실제적-사용practical-usage-of-closures" id="클로저의-실제적-사용practical-usage-of-closures">클로저의 실제적 사용(Practical usage of closures)</a></h2>
 <p>실제로 클로저를 이용하면 다양한 계산을 사용자가 함수 전달인자로 정의할 수 있게 하는 우아한 설계를 할 수 있다. 예를 들어 정렬 조건를 함수 전달인자로 받는 배열 정렬 메소드가 있다.</p>
 <pre><code class="language-js">[1, 2, 3].sort(function (a, b) {
  ... // 정렬 조건
@@ -511,7 +482,7 @@ xmlHttpRequestObject.onreadystatechange = function () {
 alert(foo.getX()); // 클로저 변수 &quot;x&quot;의 값은 10
 </code></pre>
 <hr />
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<h4><a class="header" href="#reference" id="reference">Reference</a></h4>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-6-Closure/">chapter-6-closure</a></li>
 </ul>
@@ -554,7 +525,30 @@ alert(foo.getX()); // 클로저 변수 &quot;x&quot;의 값은 10
         </div>
 
         
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
 
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         
