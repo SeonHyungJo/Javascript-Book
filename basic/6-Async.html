@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Async - Javascript Basic &amp; Detail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html" class="active"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <style>
+  header.warning {
+    background-color: rgb(242, 222, 222);
+    border-bottom-color: rgb(238, 211, 215);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.666667px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(238, 211, 215);
+    border-left-style: solid;
+    border-left-width: 0.666667px;
+    border-right-color: rgb(238, 211, 215);
+    border-right-style: solid;
+    border-right-width: 0.666667px;
+    border-top-color: rgb(238, 211, 215);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 0.666667px;
+    color: rgb(185, 74, 72);
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 35px;
+    padding-top: 8px;
+    text-align: center;
+  }
+</style>
+
+
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#async" id="async"><h1>Async</h1></a>
+<p>자바스크립트는 기본적으로 싱글 쓰레드이다. 이 말을 쉽게 하면 한번에 1가지의 일을 할 수 밖에 없다. 간단한 예제를 들자면 우리가 요리를 한다고 하면, 야채를 썰면서 물을 끓이는 행위를 동시에 할 수 없다는 것을 뜻한다. 이러한 불편한 점을 알았는지 벤더들은 자바스크립트의 싱글 쓰레드를 확장 시켜줄 API를 만들어 주었다.</p>
+<ul>
+<li>[x] setInterval</li>
+<li>[x] setTimeout</li>
+<li>[x] requestAnimationFrame</li>
+<li>[ ] requestIdleCallback</li>
+</ul>
+<p><br/></p>
+<a class="header" href="#setinterval" id="setinterval"><h2><strong>setInterval</strong></h2></a>
+<p>자바스크립트는 브라우저 내에서 작동하며 기본 동작은 2번째 인자로 받은 <code>ms</code> 마다 1번째 인자로 받은 <code>CallBack Function</code> 을 실행하는 것을 전제로 한다.</p>
+<p><code>setInterval</code> 이 실행이 되면 WEB API에서 시간을 기다리고 있다가 특정시간 마다 큐에 넣게 된다. 그러나 이것은 <code>CallStack</code> 이 비어있어야 하며 다른 작업을 계속해서 하고 있다면 한 없이 기다리게 될 수도 있다.</p>
+<p>이렇게 <code>setInterval</code> 은 지연이 발생할 수 있으며 시간에 따라 증가하게 된다.</p>
+<p>이러한 이유는 3가지로 정리 할 수 있다.</p>
+<ul>
+<li>앱을 실행하는 기기의 하드웨어 제한사항</li>
+<li>브라우저의 비활성탭에서 실행되도록 앱남기기(멈추지 않고 계속해서 실행이 된다.)</li>
+<li>최적화되지 않은 전체 코드베이스</li>
+</ul>
+<p><img src="/assets/image/Async_1.png" alt="Async_1" /></p>
+<p>위의 사진을 간단하게 보면 <code>dummyMethod1()</code> 이 오래 걸리면 자바스크립트의 이벤트 루프는 본연의 특징으로 인해서 스택에 걸려버렸다. 이런 상황이 되면 실행하기 위해서 기다리는 방법밖에 없다.</p>
+<p>이렇게 우리가 조작을 할 수 없는 3번의 순간에 보낸다. 타이머라는게 이상적인 상황일 때는 우리가 생각하는 그 시간에 갈 수 있지만 브라우저와 자바스크립트는 그렇게 이상적이지 않다.</p>
+<p><br/></p>
+<a class="header" href="#settimeout" id="settimeout"><h2><strong>setTimeout</strong></h2></a>
+<p><code>setTimeout</code> 은 <code>setInterval</code> 을 한 번 실행하는 것과 동일하다.</p>
+<p><img src="/assets/image/Async_2.png" alt="Async_2" /></p>
+<p>위에서 했던 내용을 이번에는 <code>setTimeout</code> 의 재귀적 호출로 해보자 그렇게 된다면 결국 <code>setTimeout</code> 의  <code>CallBack Function</code> 에 <code>setTimeout</code> 이 다시 불리는 구조가 될 것이다. 이렇게 만들어서 실행을 한다면 우리가 생각했던 것과 더욱이 달라질 것이다. <code>setInterval</code> 은 내가 정한 시간에 맞춰서 CallBack을 실행 하려고 큐에 담았을 것이다. 그러나 <code>setTimeout</code> 은 <code>callback function</code>이 불려야 다음 <code>setTimeout</code> 이 실행이 될 수 있는 조건이 되어 <code>interval</code> 보다 지연이 더 심해 질 수 있다.</p>
+<a class="header" href="#지연예시" id="지연예시"><h3>지연예시</h3></a>
+<pre><code class="language-javascript">var counter = 0;
+    
+var fakeTimeIntensiveOperation = function() {
+    
+    for(var i =0; i&lt; 50000000; i++) {
+        document.getElementById('random');
+    }
+    
+    let insideTimeTakingFunction  = new Date().toLocaleTimeString();
+    console.log('insideTimeTakingFunction', insideTimeTakingFunction);
+}
+    
+    
+var timer = setInterval(function(){ 
+    
+    let insideSetInterval = new Date().toLocaleTimeString();
+    
+    console.log('insideSetInterval', insideSetInterval);
+    
+    counter++;
+    if(counter == 1){
+        fakeTimeIntensiveOperation();
+    }
+    
+    if (counter &gt;= 5) {
+        clearInterval(timer);
+    }
+}, 1000);
+    
+//insideSetInterval 13:50:53
+//insideTimeTakingFunction 13:50:55
+//insideSetInterval 13:50:55 &lt;---- not called after 1s
+//insideSetInterval 13:50:56
+//insideSetInterval 13:50:57
+//insideSetInterval 13:50:58 
+</code></pre>
+<p><br/></p>
+<a class="header" href="#requestanimationframe" id="requestanimationframe"><h2><strong>requestAnimationFrame</strong></h2></a>
+<p>기본적으로 브라우저는 <strong>60FPS</strong> 이다 그래서 1초에 60번을 실행하게 되면 애니메이션이 깔끔하게 보인다. 그렇다면 위에서 알게 된 <code>setInterval</code> 을 사용해서 표현을 하면</p>
+<pre><code class="language-javascript">setInterval(function() {
+    // animiate something
+}, 1000/60);
+</code></pre>
+<p>이런식으로 표현이 가능하다. 그러나 위에서 언급을 했지만 문제가 있다.
+이에 2017년 <code>requestAnimationFrame</code> 이라는 기능이 크롬의 <code>Paul Irish</code>에 의해서 추가가 되었다.</p>
+<p>Paul의 설명에 의하면</p>
+<ul>
+<li>브라우저가 애니메이션을 최적화 할 수 있으므로 애니메이션이 부드럽게 처리될 수 있다.</li>
+<li>비활성 탭의 애니메이션이 중지되어 CPU가 시원해진다.</li>
+<li>더욱이 배터리 친화적이다.</li>
+</ul>
+<p>가장 간단한 예제를 보면</p>
+<pre><code class="language-javascript">function repeatOften() {
+    // Do whatever
+    requestAnimationFrame(repeatOften);
+}
+
+requestAnimationFrame(repeatOften);
+</code></pre>
+<p>한번 실행하면 재귀적으로 호출한다.</p>
+<pre><code class="language-javascript">requestAnimationFrame 역시 취소하기 위햇 setTimeout setInterval과 마찬가지로 ID를 반환한다.
+
+globalID = requestAnimationFrame(repeatOften);
+
+cancelAnimationFrame(globalID);
+</code></pre>
+<p>그러나 아래의 링크를 보면 알게되지만 모든 브라우저가 지원하는 것은 아니다.</p>
+<blockquote>
+<p>브라우저 지원여부 확인하기(https://caniuse.com/#feat=requestanimationframe)</p>
+</blockquote>
+<a class="header" href="#예제" id="예제"><h3>예제</h3></a>
+<p><a href="https://codepen.io/seonhyungjo/pen/MRVPxL">https://codepen.io/seonhyungjo/pen/MRVPxL</a></p>
+<a class="header" href="#이외의-async" id="이외의-async"><h2>이외의 Async</h2></a>
+<a class="header" href="#requestidlecallback" id="requestidlecallback"><h3><strong>requestIdleCallback</strong></h3></a>
+<a class="header" href="#observer" id="observer"><h3><strong>Observer</strong></h3></a>
+<ul>
+<li>mutation</li>
+<li>resize</li>
+<li>intersection</li>
+<li>performance</li>
+</ul>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://javascript.info/settimeout-setinterval">https://javascript.info/settimeout-setinterval</a></li>
+<li><a href="https://dev.to/akanksha_9560/why-not-to-use-setinterval--2na9">https://dev.to/akanksha_9560/why-not-to-use-setinterval--2na9</a></li>
+<li><a href="https://develoger.com/settimeout-vs-setinterval-cff85142555b">https://develoger.com/settimeout-vs-setinterval-cff85142555b</a></li>
+<li><a href="https://www.amitmerchant.com/Handling-Time-Intervals-In-Javascript/">https://www.amitmerchant.com/Handling-Time-Intervals-In-Javascript/</a></li>
+<li><a href="https://css-tricks.com/using-requestanimationframe/">https://css-tricks.com/using-requestanimationframe/</a></li>
+<li><a href="http://www.javascriptkit.com/javatutors/requestanimationframe.shtml">http://www.javascriptkit.com/javatutors/requestanimationframe.shtml</a></li>
+<li><a href="https://yoiyoy.wordpress.com/">https://yoiyoy.wordpress.com/</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../basic/5-Event_Loop.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../basic/7-Engine.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../basic/5-Event_Loop.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../basic/7-Engine.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

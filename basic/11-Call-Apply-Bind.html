@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Module - Javascript Basic &amp; Detail</title>
+        <title>Call, Apply, Bind - Javascript Basic &amp; Detail</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../Basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../Basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../Basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../Basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../Basic/4-Module.html" class="active"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../Basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../Basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../Basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../Basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../Basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../Basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../Basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../Basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../Basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../Basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html" class="active"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -177,20 +177,173 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#module" id="module"><h1>Module</h1></a>
+                        <a class="header" href="#this-call-apply-bind" id="this-call-apply-bind"><h1>this call apply bind</h1></a>
+<a class="header" href="#function-vs-method" id="function-vs-method"><h2>Function vs Method</h2></a>
+<p>한가지 예제를 살펴보고 <code>console.log()</code>가 어떻게 출력이 되는지 확인해보자.</p>
+<pre><code class="language-js">// 함수
+const greeting = () =&gt; {
+  console.log(this);
+}
+
+const module = {
+  greeting() {
+    console.log(this);
+  }
+}
+
+greeting(); // window object
+
+module.greeting(); // module object
+</code></pre>
+<p>흔히 사람들이 실수하는 코드 중 하나이다.</p>
+<p>여기서 제일 유심히 보아야 하는 것은 <code>this</code>가 다르다는 것이다. Java나 다른 언어에서의 <code>this</code>와는 다르게 작동하고 있다는 것은 확실하다.</p>
+<p><code>this</code>에 대한 더 많은 내용은 아래의 참고 글을 읽어보길 바란다.</p>
+<blockquote>
+<p>참고 <br/>
+<a href="https://github.com/Im-D/Dev-Docs/blob/master/Javascript/scope_this.md">scope this</a> <br/>
+<a href="https://github.com/Im-D/Dev-Docs/blob/master/Javascript/JavaScript%EC%9D%98%20this.md">JavaScript의 this</a></p>
+</blockquote>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  var changeName = function() {
+    console.log(this); // window
+    return this.name + '입니다.';
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>위와 같이 메서드 내부에서 함수를 정의하고 <code>this</code>를 사용하게 되면 Module이라고 생각하지만 <code>window</code>를 바라보고 있다. 그리고 이걸 해결하는 방법은 흔히 <code>self</code> 또는 <code>that</code>을 사용해서 해결한다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const self = this;
+  // const that = this;
+  
+  const changeName = function() {
+    console.log(self); // Module
+    return self.name + '입니다.';
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>또는 ES6에서 추가가 된 화살표 함수(Arrow Function)를 사용해서 해결 가능하다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = () =&gt; {
+    console.log(this); // Module
+    return this.name + '입니다.';  
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p><br/></p>
+<a class="header" href="#call" id="call"><h2>call()</h2></a>
+<p>자바스크립트에서 object를 효율적으로 사용하면서 재사용 패턴까지 구현할 수 있는 유용한 방법으로 <code>Function.prototype.call()</code> 함수가 있다.</p>
+<p>call은 ES6에서 화살표 함수가 나오기 전 <code>self</code> 또는 <code>that</code>를 사용하지 않고 <code>this</code>까지 해결할 수 있는 방법이다.</p>
+<pre><code class="language-js"> function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  // return changeName.call(this, 1,2,3,4);
+  return changeName.call(this);
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>call은 호출하는 즉시 Function을 실행시킨다.</p>
+<pre><code class="language-js">fun.call(thisArg[, arg1[, arg2[, ...]]])
+</code></pre>
+<p><br/></p>
+<a class="header" href="#apply" id="apply"><h2>apply()</h2></a>
+<p>이번에는 call과 매우 유사한 apply를 보자.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  
+    // return changeName.apply(this, [1,2,3,4]);
+    return changeName.apply(this);
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>apply도 호출하는 즉시 Function을 실행시킨다.</p>
+<pre><code class="language-js">fun.apply(thisArg, [argsArray])
+</code></pre>
+<p>call과 apply는 첫 번째 인자의 <code>this</code>를 내부 함수에서 사용할 <code>this</code>로 설정한다. apply는 call과 같이 첫 번째 인자로 <code>this</code>를 받는 건 똑같지만 뒤에 넘겨줄 값을 <code>[1,2,3,4,5]</code>처럼 배열 형태로 넘겨준다. (<code>call</code>과 같은 경우에는 <code>1,2,3,4,5</code>처럼 배열이 아닌 <code>,</code>로 전달한다)</p>
+<p><br/></p>
+<a class="header" href="#bind" id="bind"><h2>bind()</h2></a>
+<p>call과 apply는 내부 함수에서 사용할 <code>this</code>를 설정하고 함수 바로 실행까지 해주지만, bind는 <code>this</code>만 설정해주고 함수 실행은 하지 않고 함수를 반환한다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  let bindChangeName = changeName.bind(this);
+    return bindChangeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://blog.feruden.com/blog/call-apply-bind-in-javascript">https://blog.feruden.com/blog/call-apply-bind-in-javascript</a></li>
+<li><a href="https://wayhome25.github.io/javascript/2017/02/18/js-oop-1/">https://wayhome25.github.io/javascript/2017/02/18/js-oop-1/</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../Basic/3-Function.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../basic/10-Class.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../Basic/5-Event_Loop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../basic/12-Prototype.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -202,13 +355,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../Basic/3-Function.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../basic/10-Class.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../Basic/5-Event_Loop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../basic/12-Prototype.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

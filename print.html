@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="Basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="Basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="Basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="Basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="Basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="Basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="Basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="Basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="Basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="Basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="Basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="Basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="Basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="Basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="Basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -179,21 +179,2833 @@
                     <main>
                         <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
 <p><sub>Built with <a href="https://github.com/SeonHyungJo/">sNyung</a></sub></p>
-<a class="header" href="#basic" id="basic"><h1>Basic</h1></a>
+<a class="header" href="#javascript란" id="javascript란"><h1>JavaScript란?</h1></a>
+<p><code>JavaScript(JS)</code>는 <strong>가벼운 인터프리터형</strong>, <strong>JIT-컴파일형 프로그래밍 언어</strong>, <code>first-class functions</code>를 지원한다.</p>
+<p>주로 웹 페이지를 위한 스크립팅 언어로 알려졌지만, <code>Node.js, Apache CouchDB, Adobe Acrobat</code>처럼 많은 비 브라우저 환경에서도 사용된다.</p>
+<p><code>JavaScript</code>는 <strong>프로토타입 기반의 다중 패러다임 스크립팅 언어</strong>로서, 역동적이고, 객체지향형, 명령형 및 선언형(가령 <strong>함수형 프로그래밍</strong>) 스타일을 지원한다.</p>
+<p>이 문서는 <code>JavaScript</code> 언어 자체만 다루며 웹 페이지를 비롯한 다른 사용 환경에 대해서는 다루지 않는다. 웹 페이지의 특정 API에 대하여 알고 싶다면 <code>웹 API</code>와 <code>DOM</code>을 참고하면 됩니다.</p>
+<a class="header" href="#javascript의-표준은-ecmascript입니다" id="javascript의-표준은-ecmascript입니다"><h2><code>JavaScript</code>의 표준은 <code>ECMAScript</code>입니다.</h2></a>
+<p>2012년 기준 최신 브라우저는 모두 <code>ECMAScript 5.1</code>을 전부 지원한다.</p>
+<p>이전 브라우저의 경우는 최소한 <code>ECMAScript 3</code>까지 지원한다.</p>
+<p>2015년 6월 17일 <code>ECMA International</code>에서는 ㄴ공식명 <code>ECMAScript 2015</code>로 불리는 <code>ECMAScript</code>의 6번째 주 버전을 발표했다(<code>ECMAScript 6</code> 혹은 <code>ES6</code>).</p>
+<p>그 이후 <code>ECMAScript</code> 표준은 출시가 <strong>1년 주기</strong>이다.</p>
+<a class="header" href="#javascript를-java-프로그래밍-언어와-혼동해서는-안된다" id="javascript를-java-프로그래밍-언어와-혼동해서는-안된다"><h2><code>JavaScript</code>를 <code>Java</code> 프로그래밍 언어와 혼동해서는 안된다.</h2></a>
+<p>&quot;Java&quot;와 &quot;JavaScript&quot; 두 가지 모두 Oracle이 미국 및 기타 국가에 등록한 상표이다. 하지만, 두 언어는 문법 체계와 사용방법이 전혀 다릅니다.</p>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">MDN-javascript</a></li>
+</ul>
 <a class="header" href="#call-stack" id="call-stack"><h1>Call Stack</h1></a>
+<a class="header" href="#intro" id="intro"><h2>Intro</h2></a>
+<p>먼저 들어가기에 앞서 우리가 사용하려는 언어는 스크립트 언어로 이름은 <strong>자바스크립트</strong>이다.</p>
+<p>우리가 사용할 언어가 어떻게 실행되는지 알아보기 위해서는 엔진에 대해서 알아야 한다.</p>
+<a class="header" href="#v8-engine" id="v8-engine"><h2>V8 Engine</h2></a>
+<p>최근 많이 사용하는 브라우저는 Chrome이다. Chrome에서 사용되는 자바스크립트 엔진은 구글의 <strong>V8 Engine</strong>이다.</p>
+<p>이 엔진에서의 2가지 Main Components가 있다.</p>
+<ol>
+<li>Memory Heap : 메모리의 할당이 일어나는 곳.</li>
+<li>Call Stack : Stack Frame이 실행되는 곳. 쉽게 말해서 우리가 작성한 코드가 실행되는 곳.</li>
+</ol>
+<a class="header" href="#call-stack-1" id="call-stack-1"><h2>Call Stack</h2></a>
+<p>Call Stack은 <strong>LIFO</strong> (Last In, First Out) 원리를 사용하여 함수 호출을 임시 저장하고 관리하는 데이터 구조</p>
+<blockquote>
+<p>LIFO : Last In, First Out의 데이터 구조 원칙에 따라 호출 스택이 작동한다. 스택으로 푸시 된 마지막 함수가 처음으로 튀어나옴을 의미한다.</p>
+</blockquote>
+<p>자바스크립트에서 Call Stack은 주로 함수 호출에 된다. Call Stack이 하나이기 때문에 함수 실행은 위에서 아래로 한 번에 하나씩 수행된다.</p>
+<p>기본적으로 자바스크립트는 싱글 쓰레드 프로그래밍 언어이다. 이 말은 싱글 Call Stack을 가지고 있다는 것을 의미한다. 다른 말로 하자면 한 번에 한 가지의 일만 한다는 것이다.</p>
+<pre><code class="language-javascript">function multiply(x, y) {
+    return x * y;
+}
+function printSquare(x) {
+    var s = multiply(x, x);
+    console.log(s);
+}
+printSquare(5);
+</code></pre>
+<p>위와 같은 코드가 있다고 한다면 <code>printSquare(5) ⇒ multiply(x, x) ⇒ console.log(s) ⇒ printSquare(5)</code>순으로 쌓이고 실행이 된다는 것을 의미한다.</p>
+<blockquote>
+<p>각각 한 줄을 <code>Stack Frame</code>이라고 한다.</p>
+</blockquote>
+<pre><code class="language-javascript">function foo() {
+    throw new Error('Session Stack will help you resolve crashes :)');
+}
+
+function bar() {
+    foo();
+}
+
+function start() {
+    bar();
+}
+
+start();
+</code></pre>
+<p>위와 같은 코드를 Chrome에서 실행한다면 당연하게 에러가 떨어지면서 Stack 형태를 자세히 볼 수 있다.</p>
+<p>다른 경우로는 Call Stack의 사이즈를 넘어서서 쌓이는 경우도 발생한다.</p>
+<pre><code class="language-javascript">function foo() {
+    foo();
+}
+
+foo();
+</code></pre>
+<p>위와 같은 코드를 사용하면 안되겠지만 위와 같은 경우는 브라우저에서 계속 쌓아가다가 <strong>16000개가</strong> 넘어가는 순간에 Stack Size가 넘쳤다고 나올 것이다.</p>
+<p>싱글 쓰레드는 멀티 쓰레드보다 다루기는 쉽다. (Deadlock(교착상태) 같은 일이 발생하지 않음으로)</p>
+<p>그러나 역시 제한적이다.</p>
+<p>예시로 내가 버튼을 눌러서 서버에서 사진을 가져오려고 할 때. 버튼을 누르고 사진을 가져올 때까지 브라우저는 멈춘 상태가 되어 버린다.</p>
+<p>이에 대안으로 <strong>Asynchronous Callbacks</strong> 이다.</p>
+<a class="header" href="#web-api" id="web-api"><h2>Web API</h2></a>
+<p>우리가 사용하는 자바스크립트에도 제공이 되지 않는 것들이 있다. 가령 우리가 비동기를 사용하기 위해서 사용하는 <code>setTimeOut()</code>, <code>setInterval()</code> 등등 브라우저에서 제공하는 API라고 생각하면 된다.</p>
+<p>간략하게 지원하는 API로는</p>
+<ol>
+<li>DOM</li>
+<li>AJAX(==XMLHttpRequest)</li>
+<li>setTimeOut</li>
+<li>등등</li>
+</ol>
+<p>이 있다.</p>
+<blockquote>
+<p>브라우저 웹 API : DOM 이벤트, XMLHttpRequest, setTimeout 등과 같은 비동기 이벤트를 처리하기 위해 C ++로 구현된 <strong>브라우저로 만든 쓰레드</strong></p>
+</blockquote>
+<a class="header" href="#queuemessage-queue--callback-queue" id="queuemessage-queue--callback-queue"><h2>Queue(Message Queue || CallBack Queue)</h2></a>
+<p>자바스크립트 런타임에는 처리할 메시지 목록과 콜백 함수인 메시지 Queue가 있다. 현재 Stack의 용량이 충분하다면 Queue에서 메시지를 가져와서 처리된 것의 CallBack function을 실행한다.</p>
+<p>기본적으로 이러한 메시지는 콜백 기능이 제공되면 외부 비동기 이벤트에 대해 응답을 한다. 예를 들어 사용자가 버튼을 클릭하고 콜백 함수가 제공되지 않으면 아무런 메시지도 Queue에 추가되지 않게 되는 것이다.</p>
+<a class="header" href="#event-loop" id="event-loop"><h2>Event Loop</h2></a>
+<p>네크워크는 느리다. 그래서 사진을 불러오는 것은 느리다. 이에 사용하는 것이 우리가 흔히 <code>AJAX</code>라고 부르는 <strong>비동기 함수</strong>이다. 만약 이러한 작업이 동기라면 위와 같이 멈추는 현상이 일어날 것이다.</p>
+<p>가장 쉬운 해결책이 <strong>비동기 Callbacks</strong>이다. 위에서 언급한 <strong>Web API</strong>에서 제공하는 것에 <strong>비동기 Callbacks</strong>이다.</p>
+<p><code>console.log()</code>와 다르게 바로 실행이 되지 않는다. 그렇다면 이런 것들은 어떻게 되는 것인가?</p>
+<p>응답에서 호출자를 분리하면 비동기 작업이 완료되고 콜백이 시작될때까지 기다리는 시간 동안 자바스크립트 런타임에서는 다른 작업을 할 수 있다.</p>
+<p>Web API에서 요청한 작업을 완료한 후 Callbacks을 실행해야한다. 그러나 만약 작업이 완료되고 직접 Web API 쪽에서 Call Stack에 실행 코드를 넣을 수 있다면 마음대로 바로 나타날 것이다.</p>
+<p>그래서 있는 것이 <strong>Queue</strong>이다. Web API에서 요청한 작업을 완료한 후에 <strong>Queue</strong>에 넣어 준다.</p>
+<p><strong>Event Loop는 이제 Call Stack이 비었을 때 Queue에서 들어온 Callbacks를 수행한다.</strong></p>
+<a class="header" href="#execute-context" id="execute-context"><h2>Execute Context</h2></a>
+<p>실행 컨텍스트는 자바스크립트 코드가 평가되고 실행되는 환경의 추상적인 개념이다. 자바스크립트에서 코드를 실행할 때마다 실행 컨텍스트 내에서 실행된다.</p>
+<p>기본적으로 자바스크립트 내에는 3가지 타입의 실행컨텍스트가 있다고 한다.</p>
+<ol>
+<li>Global</li>
+<li>Functional</li>
+<li>~~Eval Function~~</li>
+</ol>
+<p>그러나 중요한 것은 <strong>1번과 2번</strong>이다.</p>
+<a class="header" href="#execution-stack" id="execution-stack"><h3>Execution Stack</h3></a>
+<p>실행 스택은 우리가 위에서 보았다. Call Stack의 개념이다.</p>
+<blockquote>
+<p>LIFO (Last In, First Out) 원리를 사용하여 함수 호출을 임시 저장하고 관리하는 데이터 구조이다.</p>
+</blockquote>
+<p>실행컨텍스트를 만드는데 2개의 단계가 있다.</p>
+<ol>
+<li>Creation 단계</li>
+<li>Execute 단계</li>
+</ol>
+<a class="header" href="#creation-단계" id="creation-단계"><h4>Creation 단계</h4></a>
+<p>한국말로는 만드는 단계이다. 먼저 2가지를 만든다.</p>
+<ol>
+<li><strong>LexicalEnvironment</strong></li>
+<li>VariableEnvironment</li>
+</ol>
+<p>기본적인 형태는 아래와 같다.</p>
+<pre><code class="language-javascript">ExecutionContext = {
+  LexicalEnvironment = &lt;ref. to LexicalEnvironment in memory&gt;,
+  VariableEnvironment = &lt;ref. to VariableEnvironment in  memory&gt;,
+}
+</code></pre>
+<a class="header" href="#lexical-environment" id="lexical-environment"><h4>Lexical Environment</h4></a>
+<p>Lexical Environment은 <strong>식별자, 변수 맵핑</strong>을 가지고 있는 구조이다.</p>
+<blockquote>
+<p>여기서 식별자는 변수/함수의 이름을 가리키며 변수는 실제 객체 [함수 객체 및 배열 객체 포함] 대한 참조입니다.</p>
+</blockquote>
+<pre><code class="language-javascript">var a = 20;
+var b = 40;
+
+function foo() {
+  console.log('bar');
+}
+</code></pre>
+<p>위와 같은 코드가 있다고 하면 Lexical Environment은</p>
+<pre><code class="language-javascript">lexicalEnvironment = {
+  a: 20,
+  b: 40,
+  foo: &lt;ref. to foo function&gt;
+}
+</code></pre>
+<p>위와 같이 만들어질 것이다.</p>
+<p>여기에는 3가지의 정보를 가지고 있다.</p>
+<ol>
+<li><strong>Environment Record</strong> : 변수 및 함수 선언이 Lexical Environment 내에 저장되는 장소</li>
+<li><strong>Reference to the outer environment</strong> : 외부 환경에 대한 참조</li>
+<li><strong>This binding</strong> : <code>this</code>가 결정되거나 설정된다.</li>
+</ol>
+<a class="header" href="#environment-record" id="environment-record"><h4>Environment Record</h4></a>
+<p>기본적으로 2가지 정보를 담고 있다.</p>
+<ul>
+<li><strong>Declarative environment record</strong>(선언적 환경 정보) : 변수 및 함수 선언을 저장합니다.</li>
+<li><strong>Object environment record</strong>(객체 환경 정보) :  전역 코드의 Lexical Environment에는 객체 환경 레코드가 포함되어 있다. 변수 및 함수 선언 외에 객체 환경 레코드는 전역 바인딩 개체 (브라우저의 창 개체)도 저장합니다. 따라서 각 바인딩 객체의 속성에 대해 새 항목이 레코드에 만들어진다.</li>
+</ul>
+<p>함수 코드의 경우 Environment Record에는 함수에 전달된 인덱스와 인수 사이의 매핑과 함수에 전달된 인수의 길이가 포함된 <code>arguments</code> 객체도 포함이 된다.</p>
+<p>예를 들어, 아래 함수에 대한 인수 객체는 다음과 같습니다.</p>
+<pre><code class="language-javascript">function foo(a, b) {
+  var c = a + b;
+}
+
+foo(2, 3);
+
+// argument object
+Arguments: {0: 2, 1: 3, length: 2},
+</code></pre>
+<a class="header" href="#reference-to-the-outer-environment" id="reference-to-the-outer-environment"><h4>Reference to the Outer Environment</h4></a>
+<p>외부 환경에 대한 참조는 outer environment에 액세스 할 수 있음을 의미한다. 즉, 자바스크립트 엔진은 현재 lexical environment에서 찾을 수 없는 경우 outer environment에서 변수를 찾을 수 있다.</p>
+<a class="header" href="#this-binding" id="this-binding"><h4>This Binding</h4></a>
+<p>여기에는 어렵고도 중요한 개념인 <code>this</code>가 결정되거나 설정된다.</p>
+<p>전역 실행 컨텍스트에서이 값은 전역 개체를 참조합니다.</p>
+<p>함수 실행 컨텍스트에서이 값은 함수가 호출되는 방식에 따라 다르게 <code>this</code>가 나온다. 객체 참조 때문에 호출되면 <code>this</code> 값은 해당 객체로 설정되고, 그렇지 않으면이 값은 전역 객체로 설정되거나 정의되지 않는다.</p>
+<pre><code class="language-javascript">const person = {
+  name: 'peter',
+  birthYear: 1994,
+  
+  calcAge: function() {
+    console.log(2018 - this.birthYear);
+  }
+}
+
+person.calcAge(); 
+// 'this' refers to 'person', because 'calcAge' was called with //'person' object reference
+
+const calculateAge = person.calcAge;
+calculateAge();
+// 'this' refers to the global window object, because no object reference was given
+</code></pre>
+<a class="header" href="#variable-environment" id="variable-environment"><h4>Variable Environment</h4></a>
+<p>이것은 위에서 봐왔던 LexicalEnvironment와 같다.</p>
+<p>ES6에서 LexicalEnvironment 구성 요소와 VariableEnvironment 구성 요소의 차이점 중 하나는 함수 선언과 변수 (<code>let</code> 및 <code>const</code>)바인딩을 저장하는데 사용되는 반면, 후자는 변수 (<code>var</code>)바인딩만 저장하는 데 사용된다.</p>
+<a class="header" href="#execute-단계" id="execute-단계"><h4>Execute 단계</h4></a>
+<p>이 단계에서 모든 변수에 대한 할당이 완료되고 코드가 최종적으로 실행된다.</p>
+<pre><code class="language-javascript">let a = 20;
+const b = 30;
+var c;
+
+function multiply(e, f) {
+  var g = 20;
+  return e * f * g;
+}
+
+c = multiply(20, 30);
+</code></pre>
+<pre><code class="language-javascript">GlobalExectionContext = {
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Object&quot;,
+      // Identifier bindings go here
+      a: &lt; uninitialized &gt;,
+      b: &lt; uninitialized &gt;,
+      multiply: &lt; func &gt;
+    }
+    outer: &lt;null&gt;,
+    ThisBinding: &lt;Global Object&gt;
+  },
+  
+  VariableEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Object&quot;,
+      // Identifier bindings go here
+      c: undefined,
+    }
+    outer: &lt;null&gt;,
+    ThisBinding: &lt;Global Object&gt;
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">GlobalExectionContext = {
+    
+  LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Object&quot;,
+      // Identifier bindings go here
+      a: 20,
+      b: 30,
+      multiply: &lt; func &gt;
+    }
+    outer: &lt;null&gt;,
+    ThisBinding: &lt;Global Object&gt;
+  },
+    
+  VariableEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Object&quot;,
+      // Identifier bindings go here
+      c: undefined,
+    }
+    outer: &lt;null&gt;,
+    ThisBinding: &lt;Global Object&gt;
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">FunctionExectionContext = {
+LexicalEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Declarative&quot;,
+      // Identifier bindings go here
+      Arguments: {0: 20, 1: 30, length: 2},
+    },
+    outer: &lt;GlobalLexicalEnvironment&gt;,
+    ThisBinding: &lt;Global Object or undefined&gt;,
+  },
+  VariableEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Declarative&quot;,
+      // Identifier bindings go here
+      g: undefined
+    },
+    outer: &lt;GlobalLexicalEnvironment&gt;,
+    ThisBinding: &lt;Global Object or undefined&gt;
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">FunctionExectionContext = {
+  LexicalEnvironment: {
+      EnvironmentRecord: {
+        Type: &quot;Declarative&quot;,
+        // Identifier bindings go here
+        Arguments: {0: 20, 1: 30, length: 2},
+      },
+      outer: &lt;GlobalLexicalEnvironment&gt;,
+      ThisBinding: &lt;Global Object or undefined&gt;,
+    },
+  VariableEnvironment: {
+    EnvironmentRecord: {
+      Type: &quot;Declarative&quot;,
+      // Identifier bindings go here
+      g: 20
+    },
+    outer: &lt;GlobalLexicalEnvironment&gt;,
+    ThisBinding: &lt;Global Object or undefined&gt;
+  }
+}
+</code></pre>
+<p>함수가 완료된 후 반환 값은 c 안에 저장된다. 그래서 글로벌 Variable Environment이 업데이트된다. 그 후, 전역 코드가 완료되고 프로그램이 완료된다.</p>
+<p><code>let</code> 및 <code>const</code> 정의 변수는 생성 단계에서 연관된 값이 없지만 <code>var</code> 정의 변수는 <code>undefined</code>로 설정된다.</p>
+<p>이는 생성 단계에서 함수 선언이 환경에 전체적으로 저장되는 동안 변수 및 함수 선언에 대해 코드가 검색되고 변수가 초기에 <code>undefined</code>(<code>var</code>의 경우)로 설정되거나 초기화되지 않은 상태로 유지되기 때문이다. <code>let</code>과 <code>const</code>의 경우).</p>
+<p>이것이 <code>var</code> 정의 변수가 선언되기 전에 (정의되지는 않았지만) <code>var</code> 정의 변수에 액세스할 수 있지만 <code>let</code> 및 <code>const</code> 변수가 선언되기 전에 액세스 할 때 참조 오류가 발생하는 이유이다.</p>
+<p>실행 단계에서 자바스크립트 엔진이 <code>let</code> 변수의 값을 소스 코드에서 선언된 실제 위치에서 찾지 못하면 정의되지 않은 값을 할당한다.</p>
 <a class="header" href="#type" id="type"><h1>Type</h1></a>
-<a class="header" href="#function" id="function"><h1>Function</h1></a>
+<a class="header" href="#primitive-type원시-타입" id="primitive-type원시-타입"><h2>Primitive Type(원시 타입)</h2></a>
+<p>한국말로 간단하게 말하면 <strong>원시 자료형</strong>이라고 하는 자바스크립트의 타입에 대해서 알아보자.</p>
+<p>자바스크립트는 자바나 C언어와는 다르게 동적 타입언어라 불린다. 동적 타입 언어의 자료형은 컴파일시 자료형을 정하는 것이 아니고 실행시에 결정된다.</p>
+<p>자바스크립트의 타입의 종류와 사용법에 대해서 알아보자.</p>
+<a class="header" href="#6가지의-기본-type" id="6가지의-기본-type"><h3>6가지의 기본 Type</h3></a>
+<p>ES6 이전에는 기본적으로 5가지의 타입이었으나, ES6에서 <em>Symbol</em> 타입이 추가되었다.</p>
+<ul>
+<li>String : 텍스트를 셋팅할 때 사용하는 타입.</li>
+<li>Number : 숫자를 셋팅할 때 사용하는 타입. 기본적으로 소수점도 가능하다(<code>infinity</code>, <code>-inifinity</code>, <code>NaN</code> 표현이 가능하다.).</li>
+<li>Null : null 타입은 정확히는 1개의 값은 가지고 있지만, 비어있다는 뜻이다.</li>
+<li>Undefined : 값이 할당되지 않은 것을 나타내는 타입.</li>
+<li>Boolean : <code>true</code> 또는 <code>false</code> 로 나타내는 타입.</li>
+<li>Symbol : 새로 추가된 타입으로 <strong>unique하고 immutable한 원시값</strong> 으로 사용된다.</li>
+</ul>
+<p>위에서 보이듯이 기본적으로 6가지의 형태를 가지고 있으며, 나머지는 <strong>Object형</strong>이라고 통칭한다.</p>
+<ul>
+<li>Array : 배열, 리스트의 형태를 가지고 있다.</li>
+<li>Function : Javascript에서 Function Object가 존재하지만 결국, Function도 Object이다.</li>
+<li>Object : Map처럼 사용하는 즉, key : value의 형태로 사용하고 있는 Object.</li>
+</ul>
+<p>위에서 보았던 6가지 기본타입을 생성하는 방법은 크게 2가지이다.</p>
+<ol>
+<li>Literal로 생성하기</li>
+</ol>
+<p>Literal로 생성한다고 하면 우리가 가장 많이 사용하는 방법이다. 단순하게 변수를 초기화 후 할당하는 방법과 초기화를 하고 나중에 할당을 하는 방법으로 구분을 지을 수 있다.</p>
+<pre><code class="language-javascript">// 초기화와 할당을 동시에 진행
+var bol = true;
+var str = &quot;hello&quot;;
+var num = 3.14;
+var nullType = null;
+var undef = undefined;
+
+// 초기화 후 할당진행
+var bol2;
+var str2;
+bo2 = false
+str2 = &quot;world&quot;
+</code></pre>
+<ol>
+<li>Wrapper Object를 사용해서 만들기</li>
+</ol>
+<p>Wrapper Object를 사용해서 만든다고 하면 Constructor를 사용해서 만드는 것을 말한다. 쉽게 말하자면 <code>new</code>를 사용해서 만드는 것을 말한다.</p>
+<pre><code class="language-javascript">new Boolean(false);
+new String(&quot;world&quot;);
+new Number(42);
+
+Symbol(&quot;foo&quot;); //Symbol 타입의 생성방법
+</code></pre>
+<p>Literal로 생성하는 방법과 Wrapper Object를 사용해서 만드는 방법은 차이점이 존재한다.</p>
+<pre><code class="language-javascript">typeof true; //&quot;boolean&quot;
+typeof Boolean(true); //&quot;boolean&quot;
+typeof new Boolean(true); //&quot;object&quot;
+typeof (new Boolean(true)).valueOf(); //&quot;boolean&quot;
+     
+typeof &quot;abc&quot;; //&quot;string&quot;
+typeof String(&quot;abc&quot;); //&quot;string&quot;
+typeof new String(&quot;abc&quot;); //&quot;object&quot;
+typeof (new String(&quot;abc&quot;)).valueOf(); //&quot;string&quot;
+     
+typeof 123; //&quot;number&quot;
+typeof Number(123); //&quot;number&quot;
+typeof new Number(123); //&quot;object&quot;
+typeof (new Number(123)).valueOf(); //&quot;number&quot;
+</code></pre>
+<p>중간중간 이상하게 <code>new</code>를 사용하지 않고 사용하는 것들은 <code>window.Boolean</code>,  <code>window.String</code> 이런것으로 생각하면 되며, 이러한 Function은 해당 타입으로 변환하는 작업을 할 때 사용이 된다.</p>
+<p>위에서 보게 되면 Literal로 생성한 것의 타입은 6가지 중 하나로 나오게 된다. 그런데 <code>new</code>를 사용하여 Wrapper Object로 만들게 되면 Object타입이 나오게 된다. 사용을 하려면 valueOf라는 Function을 사용해야만 입력한 값이 나오게 된다.</p>
+<p>아래의 예제를 보자. 어떻게 결과가 어떻게 6이 나올 수 있는 것인가?</p>
+<pre><code class="language-javascript">var str = 'string'
+
+str.length // 6
+</code></pre>
+<p>위의 예제는 단순하게 str 변수안에 'string'이라는 String 타입의 값을 할당을 했다. 그런데 해당 변수는 Wrapper 객체가 아닌데 어떻게 갯수를 세는 Method를 사용하고 있는 것인가?</p>
+<pre><code class="language-javascript">String.prototype.returnMe= function() {
+    return this;
+}
+     
+var a = &quot;abc&quot;;
+var b = a.returnMe();  
+     
+a; //&quot;abc&quot; 
+typeof a; //&quot;string&quot; (still a primitive)
+
+b; //&quot;abc&quot;
+typeof b; //&quot;object&quot;
+</code></pre>
+<p>위의 예제를 보게 되면 답이 나오게 된다. 우리가 사용하는 <code>var str</code>를 사용하게 되면 Wrapper 객체로 임시변환이 이루어지고 <code>returnMe()</code> 와 같은 함수를 사용하면 다시 Wrapper 객체가 사라지게 된다.</p>
+<a class="header" href="#심화내용" id="심화내용"><h2>심화내용</h2></a>
+<p>자바스크립트에서는 신기하게도 숫자타입을 하나로 사용하고 있다. 어떻게 하나의 타입으로 모든 것을 표현할 수 있는 것일까? <strong>Number타입은 국제 표준 부동 소수점 IEEE 754를 따르고 있다.</strong> 기본적으로 컴퓨터가 실수를 표현하는 방식은 2진법에 따라서</p>
+<ul>
+<li><code>13 = 8 + 4 + 1</code> 이므로 해당 자리 숫자를 1로 표현하고 나머지는 0으로 표현하게 되고 1101이 된다.</li>
+<li><code>0.75 = 0.5 + 0.25</code> 이므로 0.11 로 표현할 수 있다.</li>
+</ul>
+<p>일반적으로 소수점을 표현하는 방법은 2가지 방법이 있다.</p>
+<a class="header" href="#고정-소수점" id="고정-소수점"><h3><strong>고정 소수점</strong></h3></a>
+<ul>
+<li>정수를 표현하는 비트수와 소수를 표현하는 비트수를 미리 정해놓고 해당 비트만큼 사용해서 숫자를 표현하는 방식.</li>
+<li>예) 실수 표현에 4byte(32bit)를 사용하고 그 중 <strong>부호1bit, 정수 16bit, 소수 15bit</strong> 를 사용하도록 약속해 놓은 시스템에 있다. 이렇게 약속된 시스템에서 263.3을 표현하면 (0)0000000100000111.010011001100110 이렇게 표현된다.</li>
+<li>정수를 표현하는 비트수를 늘리면 큰 숫자를 표현할 수 있지만 정밀한 숫자를 표현하긴 힘들다. 그래서 소수를 표현하는 bit를 늘릴 경우 정밀한 숫자를 표현할 수 있지만 큰 숫자를 표현하지 못한다.</li>
+</ul>
+<p>이런 문제를 해결하기 위해서 소수점을 고정하지 않고 표현할 수 있는 <strong>부동 소수점(floating point)</strong> 을 사용하게 되었다.</p>
+<a class="header" href="#부동소수점" id="부동소수점"><h3><strong>부동소수점</strong></h3></a>
+<p>부동 소수점을 표현하는 방식도 정하는 방식에 따라 다를 수 있지만 일반적으로 사용하고 있는 방식은 위에서 언급한 IEEE 754에서 표준으로 제안한 방식을 따른다.</p>
+<p>우선 고정 소수점으로 나타낸 263.3을 2진수 부동 소수점 방식으로 변환을 해보면, 100000111.010011001100110... 으로 표현되던 것을 맨 앞에 있는 1 바로 뒤로 소수점을 옮겨서 표현하도록 변환하게 되면 1.00000111010011001100110... * 2^8(2의 8승) 으로 표현된다.</p>
+<ul>
+<li>2^8의 8을 지수라고 하고 지수 부분에 기록을 하고(IEEE 754 표현 방식에서는 <strong>127 + 지수를 기록한다.</strong> )</li>
+<li>소수점 이후 숫자열 전체를 가수라고 하고 가수 부분에 기록을 한다.</li>
+</ul>
+<p>최종적인 모양을 아래와 같다.</p>
+<ul>
+<li>부호 비트(1 bit) : 0 (양수)</li>
+<li>지수 비트(8 bit) : 10000111 (127 + 8 = 135)</li>
+<li>가수 비트(23 bit) : 00000111010011001100110</li>
+</ul>
+<p>이렇게 표현하게 된다.</p>
+<p>하지만 여기서도 0.010011001100110은 정확히 0.3을 나타낼 수 없게 된다. 10진수로 나타내 보면 0.29998779296875로 나오게 된다. 그래서 자바스크립트에서 0.1 + 0.2를 하게 되면 0.30000000000000004가 나오는 이유이다.</p>
+<blockquote>
+<p>블록체인에서는 부동소수점에서 8자리까지를 사용한다고 한다.</p>
+</blockquote>
+<a class="header" href="#값타입과-참조타입" id="값타입과-참조타입"><h2>값타입과 참조타입</h2></a>
+<p>기본적으로 원시타입을 값타입이라고 한다면 Object를 참조타입이다.</p>
+<a class="header" href="#원시타입은-값타입이다" id="원시타입은-값타입이다"><h3>원시타입은 값타입이다.</h3></a>
+<pre><code class="language-javascript">var a = 13         // assign `13` to `a`
+var b = a          // copy the value of `a` to `b`
+
+b = 37             // assign `37` to `b`
+
+console.log(a)     // =&gt; 13
+</code></pre>
+<p>위에서 b에 a의 값을 복사를 했다. 그리고 b의 값을 변경을 했는데 a에는 영향이 가지 않았다. 이유는 당연하게 2개의 값이 저장된 공간이 다르기 때문이다.</p>
+<pre><code class="language-javascript">var a = 5;
+var b = a;
+
+a = 10;
+
+console.log(a); // 10
+console.log(b); // 5
+// string, boolean, null, undefined은 같은 결과가 나온다.
+</code></pre>
+<a class="header" href="#object는-참조타입이다" id="object는-참조타입이다"><h3>Object는 참조타입이다.</h3></a>
+<pre><code class="language-javascript">var a = { c: 13 }  // assign the reference of a new object to `a`
+var b = a          // copy the reference of the object inside `a` to new variable `b`
+b.c = 37           // modify the contents of the object `b` refers to
+console.log(a)     // =&gt; { c: 37 }
+</code></pre>
+<p>원시타입과는 다르게 복사한 것을 변경을 했더니 a에도 영향이 간다. 이유는 당연하게 같은 값의 주소를 복사를 하여서 a에 들어있는 주소의 공간이 바뀌었으므로 a로 바뀐값을 불러오는 것이다.</p>
+<pre><code class="language-javascript">var a = {};
+var b = a;
+
+a.a = 1;
+
+console.log(a); // {a: 1}
+console.log(b); // {a: 1}
+</code></pre>
+<p>array의 경우에 있어도 예외는 없다.</p>
+<pre><code class="language-javascript">var a = [];
+var b = a;
+
+a.push(1);
+
+console.log(a); // [1]
+console.log(b); // [1]
+console.log(a === b); // true
+</code></pre>
+<pre><code class="language-javascript">function changeAgeImpure(person) {
+    person.age = 25;
+    return person;
+}
+var alex = {
+    name: 'Alex',
+    age: 30
+};
+var changedAlex = changeAgeImpure(alex);
+
+console.log(alex); // -&gt; { name: 'Alex', age: 25 }
+console.log(changedAlex); // -&gt; { name: 'Alex', age: 25 }
+</code></pre>
+<pre><code class="language-javascript">function changeAgePure(person) {
+    var newPersonObj = JSON.parse(JSON.stringify(person));
+    newPersonObj.age = 25;
+    return newPersonObj;
+}
+    
+var alex = {
+    name: 'Alex',
+    age: 30
+};
+var alexChanged = changeAgePure(alex);
+
+console.log(alex); // -&gt; { name: 'Alex', age: 30 }
+console.log(alexChanged); // -&gt; { name: 'Alex', age: 25 }
+</code></pre>
+<a class="header" href="#문제" id="문제"><h3>문제</h3></a>
+<pre><code class="language-javascript">function changeAgeAndReference(person) {
+    person.age = 25;
+    person = {
+        name: 'John',
+        age: 50
+    };
+        
+    return person;
+}
+    
+var personObj1 = {
+    name: 'Alex',
+    age: 30
+};
+    
+var personObj2 = changeAgeAndReference(personObj1);
+
+console.log(personObj1); // -&gt; ?
+console.log(personObj2); // -&gt; ?
+</code></pre>
+<a class="header" href="#답" id="답"><h3><strong>답</strong></h3></a>
+<p>👉 <a href="https://codepen.io/seonhyungjo/pen/qwXMNb">답 확인하기</a></p>
+<a class="header" href="#명시적-변환-암시적-변환-덕-타이핑" id="명시적-변환-암시적-변환-덕-타이핑"><h2>명시적 변환, 암시적 변환, 덕 타이핑</h2></a>
+<a class="header" href="#명시적-변환-vs-암묵적-변환" id="명시적-변환-vs-암묵적-변환"><h3>명시적 변환 vs 암묵적 변환</h3></a>
+<p>개발자가 <code>Number(value)</code> 와 같은 코드를 작성하여 변환할 의사를 명확하게 표현하는 것을 <strong>명시적 변환</strong>이라고 한다. JavaScript는 약타입 언어이므로 값을 자동으로 여러 유형간에 변환을 자동으로 한다. 이것을 <strong>암묵적 변환</strong> 이라고 한다.</p>
+<p>예를 들어 일반적으로 연산자를 다양한 유형의 값에 적용하면 <code>1 == null</code>, <code>2 / '5'</code>, <code>null + new Date ()</code> 또는 <code>if (value) {...}</code> 와 같이 문법에 의해 발생할 수 있다.</p>
+<p>우리가 가장 많이 사용하는 암시적 타입 변환을 하지 않는 연산자는 <code>===</code> 이며, <strong>완전 항등 연산자</strong> 라고 한다. 반면에 <strong>느슨한 항등 연산자</strong> <code>==</code> 는 필요하다면 <strong>비교와 타입 강제 변환을 수행</strong> 합니다.</p>
+<p>암시적 타입 변환으로 <code>==</code> 을 사용하게 되면, 가독성을 잃지 않으면서 적은 코드로 작성할 수있는 유용한 매커니즘이다. 그러나 ES6+를 사용한다면 느슨한 항등 연산자는 사용하지 않는 것을 추천한다. 완전하게 항등연산자를 이해하고 결과값을 예상할 수 있는 경우가 아니라면 내가 생각한 것과 다른 결과가 나올 확률이 매우 높다.</p>
+<p>기본적으로 변환은 3가지 유형의 전환이 있다.</p>
+<ul>
+<li><strong>to string</strong></li>
+<li><strong>to boolean</strong></li>
+<li><strong>to number</strong></li>
+</ul>
+<a class="header" href="#string-변환" id="string-변환"><h3>String 변환</h3></a>
+<p>명시적으로 값을 문자열로 변환하려면 <code>String()</code> 함수를 사용하면 된다. 암시적 강제 변환은 <code>binary</code> 연산자가 아닌것에 <code>+</code> 연산자를 사용하면 변환이 이루어진다.</p>
+<pre><code class="language-javascript">String(123) // 명시적
+
+123 + ''    // 암시적
+</code></pre>
+<p>아래의 예제를 보면 예상대로 다 문자열로 변환이 잘 이루어지고 있다.</p>
+<pre><code class="language-javascript">String(123)                   // '123'
+String(-12.3)                 // '-12.3'
+String(null)                  // 'null'
+String(undefined)             // 'undefined'
+String(true)                  // 'true'
+String(false)                 // 'false'
+</code></pre>
+<p>Symbol에 대해서는 생각과는 다르게 나온다.</p>
+<pre><code class="language-javascript">String(Symbol('my symbol'))   // 'Symbol(my symbol)'
+'' + Symbol('my symbol')      // TypeError is thrown
+</code></pre>
+<p><code>Symbol</code> 변환은 명시적으로만 변환될 수 있고, 암시적 변환은 되지 않는다.</p>
+<a class="header" href="#boolean-변환" id="boolean-변환"><h3>Boolean 변환</h3></a>
+<p>명시적으로 값을 Boolean으로 변환하려면 <code>Boolean()</code> 함수을 사용하면 된다. 암시적 변환은 논리 Context에서 발생하거나 논리 연산자에 의해 작동을 하게 된다.( <code>||</code>, <code>&amp;&amp;</code>, <code>!</code> )</p>
+<pre><code class="language-javascript">Boolean(2)          // 명시적
+if (2) { ... }      // 논리적 문맥 때문에 암시적
+!!2                 // 논리적 문맥 때문에 암시적
+2 || 'hello'        // 논리적 문맥 때문에 암시적
+</code></pre>
+<p>논리 연산자(예 : <code>||</code> 및 <code>&amp;&amp;</code> )에 따른 Boolean 변환을 내부적으로 수행하지만 Boolean값이 아니더라도 원래 피연산자의 값을 실제로 반환한다. 아래를 보게 되면 Boolean 변환을 해서 검사는 하지만 실제로는 123도  반환되고 있다.</p>
+<pre><code class="language-javascript">// true를 반환하는 것이 아닌 123를 반환하고 있다.
+// 'hello' and 123 은 표현식을 계산하기 위해서 Boolean으로 강제 변환을 한다.
+let x = 'hello' &amp;&amp; 123;   // x === 123
+</code></pre>
+<p>Boolean 변환의 결과는  <code>true</code>, <code>false</code> 2개만 있다. <code>false</code> 값 목록은 쉽게 기억이 가능하다.</p>
+<pre><code class="language-javascript">Boolean('')           // false
+Boolean(0)            // false     
+Boolean(-0)           // false
+Boolean(NaN)          // false
+Boolean(null)         // false
+Boolean(undefined)    // false
+Boolean(false)        // false
+</code></pre>
+<p>목록에 없는 값 <code>object</code>, <code>function</code>, <code>Array</code>, <code>Date</code>, 사용자 정의 유형등은 <code>true</code> 로 변환한다.</p>
+<pre><code class="language-javascript">Boolean({})             // true
+Boolean([])             // true
+Boolean(Symbol())       // true
+!!Symbol()              // true
+Boolean(function() {})  // true
+</code></pre>
+<a class="header" href="#numeric-변환" id="numeric-변환"><h3>Numeric 변환</h3></a>
+<p>명시적 변환의 경우 <code>Boolean()</code> 및 <code>String()</code> 에서와 마찬가지로 <code>Number()</code> 함수를 사용하면 된다. 암시적 변환은 많은 경우에서 작동이 되기 때문에 까다롭다.</p>
+<ul>
+<li>비교 연산자(<code>&gt;</code>, <code>&lt;</code>, <code>&lt;=</code>,<code>&gt;=</code>)</li>
+<li>비트 연산자( <code>|</code> <code>&amp;</code> <code>^</code> <code>~</code>)</li>
+<li>산수 연산자 (<code>-</code> <code>+</code> <code>*</code> <code>/</code> <code>%</code> ).
+<ul>
+<li>참고로, <code>+</code>는 피연산자가 문자열일 때 숫자 변환을 하지 않고 문자열 변환을 한다.</li>
+</ul>
+</li>
+<li>단항 연산자(기호로 사용하는) <code>+</code></li>
+<li>느슨한 비교 연산자 <code>==</code> (<code>!=</code>).
+<ul>
+<li>두 피연산자가 모두 문자열 인 경우 <code>==</code> 는 숫자 변환을 하지 않는다.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">Number('123')   // 명시적
++'123'          // 암시적
+123 != '456'    // 암시적
+4 &gt; '5'         // 암시적
+5 / null        // 암시적
+true | 0        // 암시적
+</code></pre>
+<pre><code class="language-javascript">Number(null)                   // 0
+Number(undefined)              // NaN
+Number(true)                   // 1
+Number(false)                  // 0
+Number(&quot; 12 &quot;)                 // 12
+Number(&quot;-12.34&quot;)               // -12.34
+Number(&quot;\n&quot;)                   // 0
+Number(&quot; 12s &quot;)                // NaN
+Number(123)                    // 123
+</code></pre>
+<p>문자열을 숫자로 변환할 때 엔진은 먼저 앞뒤의 공백, <code>\ n</code>, <code>\ t</code> 문자를 제거하고, 문자열이 유효한 숫자를 나타내지 않으면 <code>NaN</code> 을 반환한다. <code>string</code>이 비어 있으면 0을 반환합니다.</p>
+<p><code>null</code>와 <code>undefined</code>는 다르게 처리가 되는데 <code>null</code>은 0으로 <code>undefined</code>는 <code>NaN</code>으로 된다.</p>
+<p>Symbol은 명시적 또는 암시적으로 숫자로 변환될 수 없다. 또한 <code>TypeError</code>는 <code>undefined</code>로 발생하는 것처럼 <code>NaN</code>으로 자동 변환하는 대신 <code>throw</code> 된다.</p>
+<pre><code class="language-javascript">Number(Symbol('my symbol'))    // TypeError is thrown
++Symbol('123')                 // TypeError is thrown
+</code></pre>
+<p>기억해야 할 두 가지 특별한 규칙이 있는데</p>
+<ol>
+<li><code>==</code> 를 <code>null</code> 또는 <code>undefined</code> 에 적용하면 숫자 변환이 발생하지 않는다. <code>null</code> 는 <code>null</code>, <code>undefined</code>과 동일하다.</li>
+</ol>
+<pre><code class="language-javascript">null == 0               // false, null is not converted to 0
+null == null            // true
+undefined == undefined  // true
+null == undefined       // true
+</code></pre>
+<ol start="2">
+<li><code>NaN</code>은 그 자체가 동등하지 않다.</li>
+</ol>
+<pre><code class="language-javascript">if (value !== value) { 
+    console.log(&quot;we're dealing with NaN here&quot;) 
+}
+</code></pre>
+<hr />
+<a class="header" href="#object-강제-변환" id="object-강제-변환"><h2>Object 강제 변환</h2></a>
+<p>참고: <a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">JavaScript type coercion explained</a></p>
+<hr />
+<a class="header" href="#심화" id="심화"><h2>심화</h2></a>
+<a class="header" href="#덕-타이핑duck-typing이란" id="덕-타이핑duck-typing이란"><h3><strong>덕 타이핑(Duck Typing)이란?</strong></h3></a>
+<p>쉽게 정의를 하자면 사람이 오리처럼 행동하면 오리로 봐도 무방하다라는게 덕 타이핑(Duck Typing)이다.</p>
+<p>이것은 타입을 미리 정하는게 아니라 실행이 되었을 때 해당 Method들을 확인하여 타입을 정한다는 것으로 타입의 변화가 느슨하다.</p>
+<ul>
+<li>장점
+<ul>
+<li>타입에 대해 매우 자유롭다.</li>
+<li>런타임 데이터를 기반으로 한 기능과 자료형을 만들어 내는 것</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>런타임 자료형 오류가 발생할 수 있다. 런타임에서, 값은 예상치 못한 유형이 있을 수 있고, 그 자료형에 대한 무의미한 작업이 적용된다.</li>
+<li>이런 오류가 프로그래밍 실수 구문에서 오랜 시간 후에 발생할 수 있다</li>
+<li>데이터의 잘못된 자료형의 장소로 전달되는 구문은 작성하지 않아야 한다. 이것은 버그를 찾기 어려울 수도 있다.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<a class="header" href="#reference-1" id="reference-1"><h3>Reference</h3></a>
+<ul>
+<li><a href="http://2ality.com/2012/04/number-encoding.html">How numbers are encoded in JavaScript</a></li>
+<li><a href="https://blog.chewxy.com/2014/02/24/what-every-javascript-developer-should-know-about-floating-point-numbers/">What Every JavaScript Developer Should Know About Floating Point Numbers</a></li>
+<li><a href="https://blog.angularindepth.com/javascripts-number-type-8d59199db1b6">Here is what you need to know about JavaScript’s Number type</a></li>
+<li><a href="https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/">The Secret Life of JavaScript Primitives</a></li>
+<li><a href="https://flow.org/en/docs/types/primitives/">Primitive Types</a></li>
+<li><a href="http://blog.brew.com.hk/not-everything-in-javascript-is-an-object/">(Not) Everything in JavaScript is an Object</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values">JavaScript data types and data structures - MDN</a></li>
+<li><a href="https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0">Explaining Value vs. Reference in Javascript</a></li>
+<li><a href="https://gist.github.com/branneman/7fb06d8a74d7e6d4cbcf75c50fec599c">Primitive Types &amp; Reference Types in JavaScript</a></li>
+<li><a href="https://medium.com/@benastontweet/lesson-1b-javascript-fundamentals-380f601ba851">Value types, reference types and scope in JavaScript</a></li>
+<li><a href="https://medium.com/dailyjs/back-to-roots-javascript-value-vs-reference-8fb69d587a18">Back to roots: JavaScript Value vs Reference</a></li>
+<li><a href="https://hackernoon.com/grasp-by-value-and-by-reference-in-javascript-7ed75efa1293">JavaScript Reference and Copy Variables</a></li>
+<li><a href="http://blog.brew.com.hk/not-everything-in-javascript-is-an-object/">(Not) Everything in JavaScript is an Object</a></li>
+<li><a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">JavaScript type coercion explained</a></li>
+</ul>
+<a class="header" href="#function" id="function"><h1><strong>Function</strong></h1></a>
+<a class="header" href="#목차" id="목차"><h2><strong>목차</strong></h2></a>
+<ul>
+<li>[x] Global Scope</li>
+<li>[x] Local Scope</li>
+<li>[x] Functional Scope</li>
+<li>[x] Block Scope</li>
+<li>[x] Lexical Scope</li>
+<li>[x] Function
+<ul>
+<li>[x] Function Declaration</li>
+<li>[x] Function Expression</li>
+<li>[x] Named Function Expression</li>
+</ul>
+</li>
+<li>[x] IIFE(Immediately Invoked Function Expression)</li>
+</ul>
+<p>Function에 대해서 자세히 알아보기 전에 우리는 자바스크립트의 Scope에 대해서 알아보자
+자바스크립트에서의 Scope는 크게 2가지이다.</p>
+<ul>
+<li><strong>Global Scope</strong></li>
+<li><strong>Local Scope</strong></li>
+</ul>
+<p>함수 안에서 정의가 된 변수들은 기본적으로 <strong>Local Scope</strong> 에서 선언이 되었다고 하면, 함수 외부에 정의된 변수는 <strong>Global Scope</strong> 에서 선언이 되었다고 한다. 함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 <strong>함수 1개가 있다는 기준에서의 외부</strong> 이다. 이렇게 완전한 외부를 우리는 <strong>Window</strong> 라고 하자.</p>
+<p>또한 각각의 함수들은 실행이 되면 내부적으로 New Scope를 생성하고 가지게 된다.
+<br/></p>
+<a class="header" href="#global-scope" id="global-scope"><h2><strong>Global Scope</strong></h2></a>
+<p>우리가 자바스크립트를 실행하게 되면 이미 <strong>Global Scope</strong> 안에 있는 것이다. 그래서 우리가 Function 안쪽에서 선언하지 않고 기본적으로 선언하는 것들은 <strong>Global Scope</strong> 에서 선언하는 것이다.</p>
+<pre><code class="language-javascript">// 이 부분이 바로 기본값인 Global Scope이다.
+const name = 'sseon';
+const age = '27';
+</code></pre>
+<p>Global로 선언한 변수는 다른 Scope 어디에서든 접근이 가능하다.</p>
+<pre><code class="language-javascript">const name = 'sseon';
+    
+console.log(name); // 같은 Scope에서의 호출은 된다. =&gt; logs 'sseon'
+    
+function logName() {
+    console.log(name); // 'name' 이라는 변수가 어디서든 접근이 가능하다.
+}
+    
+logName(); // logs 'sseon'
+</code></pre>
+<p><br/></p>
+<a class="header" href="#local-scope" id="local-scope"><h2><strong>Local Scope</strong></h2></a>
+<p>함수안에 선언한 변수는 <strong>Local Scope</strong> 안에 있는 것이다. 우리는 같은 변수의 이름을 다른 함수안에서 각각 정의를 할 수 있는데, 해당 변수가 서로 다른 Scope에 바인딩이 되어 각각의 함수에서는 접근이 불가능하게 된다.</p>
+<pre><code class="language-javascript">// Global Scope
+function someFunction() {
+    // Local Scope #1
+    function someOtherFunction() {
+        // Local Scope #2
+    }
+}
+    
+// Global Scope
+function anotherFunction() {
+    // Local Scope #3
+}
+// Global Scope
+</code></pre>
+<p>위와 같이 코드가 짜였다고 한다면 <strong>Local Scope#1</strong> 에서 선언한 변수는 <strong>Local Scope#2</strong> 에서는 접근이 가능하지만 <strong>Local Scope#3</strong> 에서는 접근이 불가하다. 마찬가지로 <strong>Local Scope#3</strong> 에서 선언된 변수는 <strong>Local Scope#1</strong>, <strong>Local Scope#2</strong> 에서 접근이 불가하다. <strong>Local Scope#2</strong> 에서 <strong>Local Scope#1</strong> 접근이 가능한 이유는 뒤에서 다룰 것이다.
+<br/></p>
+<a class="header" href="#functional-scope" id="functional-scope"><h2><strong>Functional Scope</strong></h2></a>
+<p>자바스크립트는 위에서 본 것과 같이 <strong>함수를 단위로 Scope를 구분한다.</strong> 즉 같은 함수안에서 선언된 변수들은 같은 Level의 Scope를 가지게 되는 것이다. 각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근을 할 수 없다.</p>
+<pre><code class="language-javascript">// Global Scope
+function someFunction() {
+    if (true) {
+        var name = 'sseon'; 
+    }
+}
+</code></pre>
+<p>위와 같이 Global Scope에 <code>someFunction()</code> 을 선언하고 내부에 if문 괄호 안에 선언한 변수는 <strong>someFunction function Scope</strong> 에 붙게 되는 것이다.
+<br/></p>
+<a class="header" href="#block-scope" id="block-scope"><h2><strong>Block Scope</strong></h2></a>
+<p>Block Statement는 우리가 많이 보는 if문, switch문, for, while문이다. 이러한 문장들은 괄호로 감싸진 부분이 존재하지만 새로운 Scope를 만들지는 않는다. Block Statement 안에서 정의한 변수는 가장 가까운 함수의 Scope에 붙게 된다.</p>
+<pre><code class="language-javascript">if (true) {
+    // this 'if' conditional block doesn't create a new scope
+    var name = 'sseon'; // name is still in the global scope
+}
+    
+console.log(name); // logs 'sseon'
+</code></pre>
+<p>ECMAScript6에서 <code>let</code>, <code>const</code>가 추가 되었다. 이 2개는 <code>var</code> 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 들어간다. 바로 <strong>Block Level Scope</strong> 라는 것이다. 기존의 자바스크립트는 위에서 본 것처럼 <strong>Functional Scope</strong> 이다. 그러나 <code>let</code>, <code>const</code> 를 사용하게 되면 <strong>Block Level Scope</strong> 지원이 가능하다. 아래의 예제를 보자</p>
+<pre><code class="language-javascript">if (true) {
+    // this 'if' conditional block doesn't create a new scope
+    var name = 'sseon'; // name is still in the global scope
+    let likes = 'Coding';
+    const skills = 'Javascript';
+}
+    
+console.log(name); // logs 'sseon'
+console.log(likes); // Uncaught ReferenceError: likes is not defined
+console.log(skills); // Uncaught ReferenceError: skills is not defined
+</code></pre>
+<p><code>var</code>와는 다르게 <code>let</code>, <code>const</code>는 Block Statement내에서 <strong>Local Scope</strong> 를 지원한다. 즉 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block에 붙게 되는 것이다.</p>
+<p><strong>Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Local Scope은 함수가 호출되고 실행되는한 유지가 된다.</strong>
+<br/></p>
+<a class="header" href="#lexical-scope" id="lexical-scope"><h2><strong>Lexical Scope</strong></h2></a>
+<p><strong>Lexical Scope</strong> 는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩된다. <strong>Lexical scope</strong> 는 때때로 <strong>Static Scope</strong> 라고도 불린다.</p>
+<pre><code class="language-javascript">function grandfather() {
+    var name = 'sseon';
+        // likes is not accessible here
+    function parent() {
+            // name is accessible here
+            // likes is not accessible here
+        function child() {
+            // Innermost level of the scope chain
+            // name is also accessible here
+            var likes = 'Coding';
+        }
+    }
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#function-1" id="function-1"><h2><strong>Function</strong></h2></a>
+<p>함수는 자바스크립트에서 중요한 컨셉이다. 자바스크립트에서 함수는 1급 객체이다.</p>
+<ol>
+<li><strong>Function Declaration(함수 선언식)</strong></li>
+<li><strong>Function Expression(함수 표현식)</strong></li>
+<li><strong>Named Function Expression(이름이 있는 함수 표현식)</strong></li>
+</ol>
+<p><br/></p>
+<a class="header" href="#함수-선언식" id="함수-선언식"><h2><strong>함수 선언식</strong></h2></a>
+<pre><code class="language-javascript">function [name](param1, param2, ...param3) {
+    // Function Body &amp; Logic
+}
+</code></pre>
+<p><code>[function name]</code> 앞에 <code>[function keyword]</code> 를 붙인다. 항상 앞에 function으로 시작하며 함수의 이름을 지어주어야 한다. 그리고 선언식의 주요한 개념은 전체 기능이 <strong>호이스팅</strong> 이 된다는 것이다.</p>
+<p><strong>이러한 호이스팅으로 인해서 함수를 선언하기전에 함수를 실행하는 코드를 넣어도 작동하는 것이다.</strong></p>
+<p>이러한 선언 방법은 일부 논리를 함수 본문으로 추상화를 하고 나중에 실제 구현이 완료될때 유용하다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var result = add(num1, num2); // ==&gt; 30 [Executing before declaring]
+
+function add(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>그러나 이러한 코드는 좋지 못하다. 항상 호이스팅을 이용하는 것이 아닌 함수를 먼저 선언을 하고 실행하는 습관을 들이는 것이 좋다.
+<br/></p>
+<a class="header" href="#함수-표현식" id="함수-표현식"><h2><strong>함수 표현식</strong></h2></a>
+<p>어떤 값을 다른 변수에 할당하는 명령문은 표현식으로 간주된다.</p>
+<pre><code class="language-javascript">var a = 100;
+var b = 'Hello World';
+</code></pre>
+<p>함수 표현식의 경우 이름이 없이 함수를 작성을 하며 변수에 할당을 한다.</p>
+<pre><code class="language-javascript">var [name] = function(param1, param2, ...param3) {
+    // Function Body &amp; Logic
+}
+
+foo(1,3,4);
+</code></pre>
+<p>함수 선언식과 다르게 정의될 때까지 함수를 사용할 수 없다. 즉 호이스팅이 일어나지 않는다는 것을 의미한다. 정확하게 보면 변수는 호이스팅이 일어나지만 할당이 이루어지는 행위는 호이스팅이 안된다고 보는 것이 좋을 듯 하다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var result = add(num1, num2);  
+// Uncaught TypeError: add is not a function
+var add = function(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>위와 같은 코드는 작동하지 않는다. 아래와 같이 작성을 하여야한다.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var add = function(param1, param2) {
+    return param1 + param2 ;
+}
+var result = add(num1, num2); // ==&gt; 30
+</code></pre>
+<p><br/></p>
+<a class="header" href="#함수-표현식의-장점" id="함수-표현식의-장점"><h3>함수 표현식의 장점</h3></a>
+<p>선언식보다 표현식이 더 유용하게 사용되는 몇가지 이유</p>
+<ul>
+<li>As closures</li>
+<li>As arguments to other functions</li>
+<li><strong>As Immediately Invoked Function Expressions (IIFE)</strong></li>
+</ul>
+<p><br/></p>
+<a class="header" href="#이름이-있는-함수-표현식---두-가지-접근-방식의-결합" id="이름이-있는-함수-표현식---두-가지-접근-방식의-결합"><h2><strong>이름이 있는 함수 표현식 - 두 가지 접근 방식의 결합</strong></h2></a>
+<p>선언식과 표현식의 차이점을 보고 두가지를 섞으면 어떻게 되는지 살펴보자.</p>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var addVariable = function addFunction(param1, param2) {
+    return param1 + param2 ;
+}
+</code></pre>
+<p>위에 코드를 보게 되면 표현식이 더이상 익명이 아니고 <code>addFunction</code> 이라는 이름을 가지고 있다. 또한 <code>addVariable</code> 이라는 변수명에 할당을 하였다.</p>
+<p>우리가 함수의 이름으로 <code>addFunction</code> 을 추가했다고 실행할 수 있는 것은 아니다.</p>
+<pre><code class="language-javascript">var result = addFunction(num1, num2); 
+// ==&gt; Uncaught ReferenceError: addFunction is not defined
+</code></pre>
+<p>우리가 할당한 <code>addVariable</code> 변수로만 사용이 가능하다.</p>
+<pre><code class="language-javascript">var result = addVariable(num1, num2); 
+// ==&gt; 30
+</code></pre>
+<p><strong>고려해야할 사항</strong></p>
+<ol>
+<li><code>addFunction</code> 이 <code>addVariable</code> 보다 콜스택상 먼저 나오게 된다.</li>
+<li>외부에서 <code>addFunction</code> 을 호출하게 되면 에러가 나오게 된다.
+<ol>
+<li>그러나 내부에서는 <code>addFunction</code> 을 사용할 수 있다.</li>
+</ol>
+</li>
+</ol>
+<pre><code class="language-javascript">var num1 = 10;
+var num2 = 20;
+var addVariable = function addFunction(param1, param2) {
+    var res = param1 + param2;
+    if (res === 30) {
+        res = addFunction(res, 10);
+    }
+    return res;
+}
+var result = addVariable(num1, num2); // ==&gt; 40
+</code></pre>
+<p>결과가 30이 아니라 내부적으로 <code>addFunction</code> 이 한번 더 호출되어 40이 나오게 된다.</p>
+<ol start="3">
+<li>IE8이하에서는 이름이 있는 함수 표현식을 사용하게 되면 심각한 이슈가 발생하게 되는데, 바로 완전히 다른 두개의 함수객체를 생성한다는 것이다.(<strong>Double take</strong>).</li>
+</ol>
+<p><strong>IE8을 지원해야하는 일이 있으면 익명의 표현식을 사용하는 것을 추천한다.</strong></p>
+<p><br/></p>
+<a class="header" href="#statements-expressions" id="statements-expressions"><h2><strong>Statements, Expressions</strong></h2></a>
+<p><strong>Expressions</strong> 는 단일 값이 되는 자바스크립트 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일 값이다.</p>
+<pre><code class="language-javascript">2 + 2 * 3 / 2
+    
+(Math.random() * (100 - 20)) + 20
+    
+functionCall()
+    
+window.history ? useHistory() : noHistoryFallback()
+    
+1+1, 2+2, 3+3
+    
+declaredVariable
+    
+true &amp;&amp; functionCall()
+    
+true &amp;&amp; declaredVariable
+</code></pre>
+<p>위의 예제들은 모두 표현식이다. 흔히 값을 원할때 어디서든 사용하는 방법이다. 그래서 아래의 예제에서도 값이 단일값으로 나오게 된다.</p>
+<pre><code class="language-javascript">console.log(true &amp;&amp; 2 * 9) // 18
+</code></pre>
+<p><strong>표현식은 상태를 변경하지 않는다.</strong></p>
+<pre><code class="language-javascript">var assignedVariable = 2; //this is a statement, assignedVariable is state
+
+assignedVariable + 4 // expression
+assignedVariable * 10 // expression
+assignedVariable - 10 // expression
+
+console.log(assignedVariable) // 2
+</code></pre>
+<p>위의 예제들은 표현식임에도 할당된 값은 마지막까지 2로 남는다. 함수 호출은 표현식이지만 함수 상태를 변경할 수 있는 문장은 필수적이다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+    assignedVariable = 14
+}
+</code></pre>
+<p><code>foo()</code> 는 표현식이지만 undefined나 다른 값을 반환한다. 그러나 이렇게 사용하게 됨으로써 상태를 변화시킬 수 있다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+  return 14 //explicit return for readability
+}
+
+assignedVariable = foo()
+</code></pre>
+<p>더 좋은 방법은 아래와 같이 작성하는 것이다.</p>
+<pre><code class="language-javascript">const foo = () =&gt; {
+  return 14 //explicit return for readability
+}
+    
+assignedVariable = foo()
+</code></pre>
+<pre><code class="language-javascript">const foo = (n) =&gt; {
+    return n//explicit return for readability
+}
+
+assignedVariable = foo(14)
+</code></pre>
+<p>이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 자바스크립트의 근본이다.
+<br/></p>
+<a class="header" href="#statements" id="statements"><h2><strong>Statements</strong></h2></a>
+<p>기본적으로 문장은 행동을 수행한다.</p>
+<p>자바스크립트에서 값이 필요한 곳에서는 명령문을 사용할 수 없다. 그래서 함수의 인수, 할당의 오른쪽, 연산자, 피연산자, 반환값으로 사용할 수 없다.</p>
+<pre><code class="language-javascript">foo(if () {return 2}) 
+</code></pre>
+<p>명령문의 종류</p>
+<ol>
+<li>if</li>
+<li>if-else</li>
+<li>while</li>
+<li>do-while</li>
+<li>for</li>
+<li>switch</li>
+<li>for-in</li>
+<li>with (deprecated)</li>
+<li>debugger</li>
+<li>variable declaration</li>
+</ol>
+<p>브라우저 콘솔창에서 아래와 같이 입력을 치게 되면,</p>
+<pre><code class="language-javascript">if (true) { 9+9 }
+</code></pre>
+<p>18을 반환한다. 그러나 원하는 곳에 사용은 할 수 없다. 명령문은 아무것도 반환하지 않기를 바란다. 우리가 그것을 사용할 수 없다면 반환된 값은 쓸모가 없어지기 때문이다.
+<br/></p>
+<a class="header" href="#iifeimmediately-invoked-function-expression" id="iifeimmediately-invoked-function-expression"><h2><strong>IIFE(Immediately Invoked Function Expression)</strong></h2></a>
+<p>우리가 흔히 <strong>즉각 실행함수</strong> 라 부르는 패턴이다. 이것을 사용하면 함수는 새로운 Scope를 만들게 된다. <strong>IIFE</strong> 는 단순하게 함수 표현식이다. 인터프리터가 즉각적으로 실행한다.</p>
+<p>익명함수의 표현식과 비슷하게 생겼다.</p>
+<pre><code class="language-javascript">var foo = 'foo';
+    
+(function bar () {
+  console.log('in function bar');
+})()
+    
+console.log(foo);
+</code></pre>
+<p>위에서 간단하게 보면 <code>foo</code> 가 출력되기 전에 <code>bar()</code> 를 호출하지 않았는데 <strong>in function bar</strong> 가 출력이 되었다.</p>
+<ul>
+<li><code>(</code> 괄호를 사용해서 함수를 감싸서 선언식이 아닌 표현식이 된다.</li>
+<li>마지막에 <code>()</code> 괄호를 다시 써서 표현식을 즉시 실행하는 구문이 된다.</li>
+</ul>
+<p>ES6 이전에는 IIFE를 사용해서 외부에서 접근하지 못하도록 변수를 숨기고 제한하는데 사용이 되었다. 또한 비동기 작업을 실행하고 IIFE 범위에서 변수상태를 보존하려는 경우에도 매우 유용하다.</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+    setTimeout(function () {
+        console.log('index: ' + i);
+    }, 1000);
+}
+</code></pre>
+<p>위에 코드는 흔히 발생하는 잘못된 코드이다. 이와 같은 코드를 IIFE를 사용해서 해결할 수 있다.</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+    (function logIndex(index) {
+        setTimeout(function () {
+            console.log('index: ' + index);
+        }, 1000);
+    })(i)
+}
+</code></pre>
+<p>그러나 ES6+를 사용한다면 <strong>Block Level Scope</strong> 를 지원하는 <code>let</code> 또는 <code>const</code> 를 사용하면 된다.
+<br/></p>
+<a class="header" href="#부록" id="부록"><h2><strong>부록</strong></h2></a>
+<a class="header" href="#semi-colon-vs-comma-operator" id="semi-colon-vs-comma-operator"><h3><strong>Semi-colon vs Comma operator</strong></h3></a>
+<p>세미콜론을 사용함으로써 표현식을 표현식 문장으로 변환 시킬 수 있다. <code>2+2</code> 자체는 표현식이지만 완전한 라인은 문장이다.</p>
+<pre><code class="language-javascript">2+2 // on its own is an opposition
+    
+foo(2+2) //so you can use it anywhere a value is expected
+    
+true ? 2+2 : 1 + 1
+    
+function foo () {return 2+2}
+    
+2+2; //expression statement
+foo(2+2;) //syntaxError
+</code></pre>
+<p>세미콜론을 사용하면 여러 줄을 한 줄로 표현이 가능하다.</p>
+<pre><code class="language-javascript">const a; function foo () {}; const b = 2
+</code></pre>
+<p>쉼표 연산자를 사용하면 여러 표현식을 연결하여 마지막 표현식만 반환이 가능하다.</p>
+<pre><code class="language-javascript">console.log( (1+2,3,4) ) //4
+console.log( (2, 9/3, function () {}) ) // function (){}
+console.log( (3, true ? 2+2 : 1+1) ) // 4
+</code></pre>
+<p>모든 표현식은 왼쪽에서 오른쪽으로 계산이 되고 마지막 표현식이 반환된다.
+<br/></p>
+<hr />
+<a class="header" href="#reference-2" id="reference-2"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://www.telerik.com/blogs/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://scotch.io/tutorials/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://www.telerik.com/blogs/understanding-scope-in-javascript">Understanding Scope in JavaScript</a></li>
+<li><a href="https://css-tricks.com/javascript-scope-closures/">JavaScript Scope and Closures</a></li>
+<li><a href="https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99">JavaScript Functions — Understanding The Basics</a></li>
+<li><a href="https://dev.to/promhize/javascript-in-depth-all-you-need-to-know-about-expressions-statements-and-expression-statements-5k2">All you need to know about Javascript's Expressions, Statements and Expression Statements</a></li>
+<li><a href="https://www.sitepoint.com/function-expressions-vs-declarations/">Quick Tip: Function Expressions vs Function Declarations</a></li>
+<li><a href="https://medium.com/@raviroshan.talk/javascript-function-declaration-vs-expression-f5873b8c7b38">JavaScript Function — Declaration vs Expression</a></li>
+<li><a href="https://medium.com/@mandeep1012/function-declarations-vs-function-expressions-b43646042052">Function Declarations vs. Function Expressions</a></li>
+</ul>
 <a class="header" href="#module" id="module"><h1>Module</h1></a>
-<a class="header" href="#event-loop" id="event-loop"><h1>Event Loop</h1></a>
+<p><strong>Webpack</strong> 및 <strong>SystemJS</strong>와 같은 도구는 무엇일까? 또는 <strong>AMD</strong>, <strong>UMD</strong>, <strong>CommonJS</strong>는 또 무엇인가? 그것들은 어떻게 관련이 있는건가? 그리고 왜 그걸 왜 필요로 하게 되었을까?
+<br/></p>
+<a class="header" href="#모듈이란" id="모듈이란"><h2>모듈이란?</h2></a>
+<p>모듈은 구현사항을 캡슐화하고 기능에 따라 Public API로 노출하여 다른 곳에서 쉽게 불러서 사용하도록 하며 재사용이 가능하도록 한 코드의 뭉치이다.</p>
+<p>그렇다면 왜 모듈이 필요하게 되었을까?</p>
+<ul>
+<li>추상적인 코드 : 전문 라이브러리에 기능을 위임하여 실제 구현의 복잡성을 이해할 필요가 없도록 하기 위해서</li>
+<li>코드 캡슐화 : 코드를 변경하지 못하도록 하기 위해 모듈 내부의 코드를 숨기기 위해서</li>
+<li>재사용 코드 : 같은 코드를 계속해서 사용하기 위해서</li>
+<li>의존성 관리 : 우리의 코드를 다시 작성하지 않고 쉽게 종속성을 변경하기 위해서</li>
+</ul>
+<p><br/></p>
+<a class="header" href="#module-patterns-in-es5" id="module-patterns-in-es5"><h2>Module patterns in ES5</h2></a>
+<p>원래 자바스크립트라는 것은 모듈을 염두해두고 설계가 된 언어가 아니다. 시간이 지나면서 사람들이 필요에 따라 다양한 패턴을 만들게 된 것이다.</p>
+<p>우리가 간단하게 볼만한 패턴은 <strong>IIFE와 공개 모듈 패턴</strong>이 있다.
+<br/></p>
+<a class="header" href="#즉시-실행-함수-표현immediately-invoked-function-expression" id="즉시-실행-함수-표현immediately-invoked-function-expression"><h2>즉시 실행 함수 표현(Immediately-invoked Function Expression)</h2></a>
+<p>IIFE는 ES5기준으로 가장 많이 사용되던 패턴 중 하나이다. <code>Scope Block</code> 을 만드는 유일한 방법은 함수이기 때문이다. 따라서 아래와 같은 예제는 <code>ReferenceError</code> 가 나온다.</p>
+<pre><code class="language-javascript">(function() {
+    var scoped = 42;
+}());
+    
+console.log(scoped); // ReferenceError
+</code></pre>
+<p>IIFE는 오픈소스라이브러리에서 Block scope를 만드는데 사용이 되었다. 이렇게 하게 되면 우리가 만들면서 공개하는 것과 아닌것을 구분할 수 있게 된다.</p>
+<pre><code class="language-javascript">var myModule = (function() {
+    // private variable, accessible only inside the IIFE
+    var counter = 0;
+    
+    function increment() {
+        counter++;
+    }
+    
+    // publicly exposed logic
+    return {    
+        increment: increment
+    }
+}());
+</code></pre>
+<p>ES6에서는 modules라는 스펙이 추가가 되어 modules를 사용할 수 있다. 현재 이 모듈은 자신의 범위를 선언하고 모듈 내부에서 생성된 변수는 전역객체에서 부를 수 없도록 한다.</p>
+<pre><code class="language-javascript">!function() {
+    alert(&quot;Hello from IIFE!&quot;);
+}();
+</code></pre>
+<p>위의 예제는 놀랍게도 IIFE이다. 우리가 흔히 알고 있는 모양새와 다르다고 생각해서 아니라고 할 수 있다.  그러나 우리가 사용하는 IIFE에서의 괄호는 표현식으로 나타내는 것에 불가하다. 그래서 표현식으로 나타낼 수 있는 어떤 것이든 생성후 바로 실행이 되도록하는 문장이 될 수 있는 것이다.</p>
+<pre><code class="language-javascript">void function() {
+    alert(&quot;Hello from IIFE!&quot;);
+}();
+</code></pre>
+<p>또한 <code>void</code> 역시 기본적으로 함수가 표현식으로 취급되도록 한다.
+<br/></p>
+<a class="header" href="#전통적인-iife" id="전통적인-iife"><h2>전통적인 IIFE</h2></a>
+<p>처음에 예제에서 보았듯이 IIFE 패턴의 핵심은 함수를 표현식으로 바꾸고 즉시 실행하는 것이다.</p>
+<pre><code class="language-javascript">(function() {
+    alert(&quot;I am not an IIFE yet!&quot;);
+});
+</code></pre>
+<p>위의 코드는 단순하게 함수를 괄호로 감싸고 있다. 그러나 이 함수식은 실행이 바로 되지 않으므로 즉시 실행 함수가 아니다. 이걸 IIFE로 바꾸기 위해서는 2가지의 스타일을 변환이 필요하다.</p>
+<pre><code class="language-javascript">// Variation 1
+(function() {
+    alert(&quot;I am an IIFE!&quot;);
+}());
+    
+// Variation 2
+(function() {
+    alert(&quot;I am an IIFE, too!&quot;);
+})();
+</code></pre>
+<p>위의 예제에는 익숙한 문법이 있기도 하고 문법이 이상하다고 생각되는 것도 있다. 이걸 간단하게 살펴보면</p>
+<ol>
+<li>Variation 1의 4행에서 호출을 위한 괄호를 안쪽에 넣었다. 다시 바깥 괄호는 함수 밖의 함수 표현식을 만드는데 필요하게 된다.</li>
+<li>Variation 2에서 마지막줄의 괄호는 함수 표현식을 호출하기 위한 괄호가 밖에 위치하고 있다.</li>
+</ol>
+<p>두가지 방법은 널리 사용되고 있다. 나중에 핵심부분으로 들어가게되면 2가지의 작동이 다르다. 그러나 상관없이 자신이 원하는 방법을 사용하면 된다.</p>
+<p>작동하는 예제와 작동하지 않는 두가지 예제를 보자 익명의 함수를 사용하는 것은 좋은 방법이 아니므로 지금부터는 IIFE의 이름을 적어주자</p>
+<pre><code class="language-javascript">// Valid IIFE
+(function initGameIIFE() {
+    // All your magical code to initalize the game!
+}());
+    
+// Following two are invalid IIFE examples
+function nonWorkingIIFE() {
+    // Now you know why you need those parentheses around me!
+    // Without those parentheses, I am a function definition, not an expression.
+    // You will get a syntax error!
+}();
+    
+function () {
+    // You will get a syntax error here as well!
+}();
+</code></pre>
+<p>위의 예제를 실행하게 되면서 우리가 왜 괄호가 필요한지 알게 될 것이다. IIFE를 만들려고 하면 우리는 표현식이 필요하다. 함수 선언, 함수 문장은 필요가 없다.
+<br/></p>
+<a class="header" href="#iifes-and-private-variables" id="iifes-and-private-variables"><h3>IIFEs and private variables</h3></a>
+<pre><code class="language-javascript">(function IIFE_initGame() {
+    // Private variables that no one has access to outside this IIFE
+    var lives;
+    var weapons;
+        
+    init();
+    
+    // Private function that no one has access to outside this IIFE
+    function init() {
+        lives = 5;
+        weapons = 10;
+    }
+}());
+</code></pre>
+<p><br/></p>
+<a class="header" href="#iifes-with-a-return-value" id="iifes-with-a-return-value"><h3>IIFEs with a return value</h3></a>
+<pre><code class="language-javascript">var result = (function() {
+    return &quot;From IIFE&quot;;
+}());
+    
+alert(result); // alerts &quot;From IIFE&quot;
+</code></pre>
+<p><br/></p>
+<a class="header" href="#iifes-with-parameters" id="iifes-with-parameters"><h3>IIFEs with parameters</h3></a>
+<pre><code class="language-javascript">(function IIFE(msg, times) {
+    for (var i = 1; i &lt;= times; i++) {
+        console.log(msg);
+    }
+}(&quot;Hello!&quot;, 5));
+</code></pre>
+<p><br/></p>
+<a class="header" href="#classical-javascript-module-pattern" id="classical-javascript-module-pattern"><h2>Classical JavaScript module pattern</h2></a>
+<p>우리는 전체 시퀀스를 손상시키지않도록 작동하는 싱글톤 객체를 구현해보려고 한다.</p>
+<pre><code class="language-javascript"> var Sequence = (function sequenceIIFE() {
+        
+    // Private variable to store current counter value.
+    var current = 0;
+        
+    // Object that's returned from the IIFE.
+    return {
+    };
+        
+}());
+    
+alert(typeof Sequence); // alerts &quot;object&quot;
+</code></pre>
+<p>위의 예제를 간단하게 설명하면 <code>sequenceIIFE</code> 라는 이름을 가진 함수를 표현식으로 나타내어 IIFE 패턴을 적용하였으며 private 변수로 <code>current</code> 를 선언해서 0을 담았으며 <code>return</code> 으로 <code>Object</code> 를 반환해서 <code>Sequence</code> 라는 변수에 담고 있다. 그러므로 당연하게 그것의 타입은 <code>object</code> 가 나오게 된다.</p>
+<pre><code class="language-javascript">var Sequence = (function sequenceIIFE() {
+        
+    // Private variable to store current counter value.
+    var current = 0;
+        
+    // Object that's returned from the IIFE.
+    return {
+        getCurrentValue: function() {
+            return current;
+        },
+            
+        getNextValue: function() {
+            current = current + 1;
+            return current;
+        }
+    };
+}());
+    
+console.log(Sequence.getNextValue()); // 1
+console.log(Sequence.getNextValue()); // 2
+console.log(Sequence.getCurrentValue()); // 2
+</code></pre>
+<p>좀 더 그럴듯하게 꾸며보자. 위의 예제에서 <code>return Object</code> 에 <code>getCurrentValue</code>, <code>getNextValue</code> 2가지의 함수를 만들어서 반환하고 있다. 그리고 후에 반환된 <code>Object</code> 의 함수를 실행시켜서 IIFE안쪽에 <code>current</code> 값을 바꾸거나 가져오고 있다.</p>
+<p>위의 <code>current</code> 라는 변수는 IIFE의 전용이므로, 클로저를 통해 접근할 수 있는 함수 외에는 변수를 수정하거나 직접 접근은 불가능하다.</p>
+<p>이렇게 IIFE와 클로져를 같이 사용해서 구현을 해보았다. 이것은 모듈패턴에 대한 매우 기본적인 변형이다. 더 많은 패턴들이 존재하지만 거의 모든 패턴이 IIFE를 사용하여 폐쇄범위를 만든다.
+<br/></p>
+<a class="header" href="#when-you-can-omit-parentheses" id="when-you-can-omit-parentheses"><h2>When you can omit parentheses</h2></a>
+<pre><code class="language-javascript">var result = function() {
+    return &quot;From IIFE!&quot;;
+}();
+</code></pre>
+<p>함수 표현식 주위의 괄호는 기본적으로 함수가 명령문이 아닌 표현식이 되도록 한다. 위의 예에서 <code>function</code> 키워드는 명령문의 첫 단어가 아니라서 자바스크립트가 이걸 선언문이나 정의로 취급하지 않는다. 마찬가지로 표현식이라는 것을 알 경우 괄호를 생략할 수 있다.</p>
+<p>그러나 다른 개발자들분들도 그렇게 생각할지 모르지만 항상 괄호를 붙이는 것이 가독성에 좋다.</p>
+<p>싱글톤 대신 모듈로 구현하여 생성자 함수를 노출할 수도 있다.</p>
+<pre><code class="language-javascript">// Expose module as global variable
+var Module = function(){
+    
+    // Inner logic
+    function sayHello(){
+        console.log('Hello');
+    }
+    
+    // Expose API
+    return {
+        sayHello: sayHello
+    }
+}
+
+var module = new Module();
+
+module.sayHello();  
+// =&gt; Hello
+</code></pre>
+<p><br/></p>
+<a class="header" href="#module-formats" id="module-formats"><h2>Module formats</h2></a>
+<p>기존의 ES6이전에는 자바스크립트에 모듈을 정의하는 공식문법이 존재하지 않았다. 그래서 다양한 모듈을 정의해왔었는데</p>
+<ul>
+<li>Asynchronous Module Definition (AMD)</li>
+<li>CommonJS</li>
+<li>Universal Module Definition (UMD)</li>
+<li>System.register</li>
+<li>ES6 module format</li>
+</ul>
+<p><br/></p>
+<a class="header" href="#asynchronous-module-definition-amd" id="asynchronous-module-definition-amd"><h3>Asynchronous Module Definition (AMD)</h3></a>
+<p>AMD 형식은 브라우저에서 사용되며 정의함수를 사용하여 모듈을 정의한다.</p>
+<pre><code class="language-javascript">//Calling define with a dependency array and a factory function
+define(['dep1', 'dep2'], function (dep1, dep2) {
+    
+    //Define the module value by returning a value.
+    return function () {};
+});
+</code></pre>
+<p><br/></p>
+<a class="header" href="#commonjs-format" id="commonjs-format"><h3>CommonJS format</h3></a>
+<p>CommonJS 형식은 Node.js에서 사용되며 <code>require</code> 과 <code>module.exports</code> 를 사용하여 종속성 및 모듈을 정의한다.</p>
+<pre><code class="language-javascript">var dep1 = require('./dep1');  
+var dep2 = require('./dep2');
+    
+module.exports = function(){  
+  // ...
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#universal-module-definition-umd" id="universal-module-definition-umd"><h3>Universal Module Definition (UMD)</h3></a>
+<p>UMD는 브라우저와 Node에서 모두 사용이 가능하다.</p>
+<pre><code class="language-javascript">(function (root, factory) {
+    if (typeof define === 'function' &amp;&amp; define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['b'], factory);
+    } else if (typeof module === 'object' &amp;&amp; module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory(require('b'));
+    } else {
+        // Browser globals (root is window)
+        root.returnExports = factory(root.b);
+    }
+}(this, function (b) {
+    //use b in some fashion.
+    
+    // Just return a value to define the module export.
+    // This example returns an object, but the module
+    // can return a function as the exported value.
+    return {};
+}));
+</code></pre>
+<p><br/></p>
+<a class="header" href="#systemregister" id="systemregister"><h3>System.register</h3></a>
+<p><code>System.register</code> 형식은 ES5에서 ES6 모듈 구문을 지원하도록 설계되었습니다.</p>
+<pre><code class="language-javascript">import { p as q } from './dep';
+    
+var s = 'local';
+    
+export function func() {  
+    return q;
+}
+    
+export class C {  
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#es6-module-format" id="es6-module-format"><h3>ES6 module format</h3></a>
+<pre><code class="language-javascript">    // lib.js
+    
+    // Export the function
+    export function sayHello(){  
+      console.log('Hello');
+    }
+    
+    // Do not export the function
+    function somePrivateFunction(){  
+      // ...
+    }
+</code></pre>
+<p>사용하려면 import로 불러서 사용한다.</p>
+<pre><code class="language-javascript">import { sayHello } from './lib';
+    
+sayHello();  
+// =&gt; Hell
+</code></pre>
+<p>아직 브라우저는 ES6문법을 지원하지 않는다. 이미 ES6 모듈 포맷을 사용할 수 있지만 브라우저에서 코드를 실제로 실행하기 전에 코드를 <strong>AMD</strong> 나 <strong>CommonJS</strong> 와 같은 <strong>ES5 모듈 형식으로 바꾸기 위해 Babel과 같은 변환기가 필요하게 된다.</strong>
+<br/></p>
+<a class="header" href="#module-loaders" id="module-loaders"><h2>Module loaders</h2></a>
+<p>모듈 로더는 특정 모듈 형식으로 작성된 모듈을 해석하고 load한다.</p>
+<p>런타임 시점에 loader를 실행한다.</p>
+<ul>
+<li>브라우저에서 모듈 로더를 로드한다.</li>
+<li>모듈로더에게 어느 파일을 로드할 것인지 알려준다.</li>
+<li>모듈로더가 주파일을 다운로드해서 해석한다.</li>
+<li>필요한 경우에는 모듈 로더가 파일을 다운로드한다.</li>
+</ul>
+<p>널리 사용되는 모듈 로더는 아래와 같이 있다.</p>
+<ul>
+<li>RequireJS : AMD 형식의 모듈 용 로더</li>
+<li>SystemJS : AMD, CommonJS, UMD 또는 System.register 형식의 모듈 용 로더</li>
+</ul>
+<p><br/></p>
+<a class="header" href="#module-bundlers" id="module-bundlers"><h2>Module bundlers</h2></a>
+<p>모듈 번들러는 모듈 로더를 대체한다. 그러나 로더와 차이점은 모듈 번들은 빌드시에 실행이 된다.</p>
+<ul>
+<li>빌드를 할 때 모듈 번들을 실행하여 번들파일을 생성한다.</li>
+<li>브라우저에서 번들을 로드한다.</li>
+</ul>
+<p>널리 사용되는 모듈 번들러는 아래와 같이 있다.</p>
+<ul>
+<li>Browserify : CommonJS 모듈 용 bundler</li>
+<li>Webpack : AMD, CommonJS, ES6 모듈 용 bundler</li>
+</ul>
+<p><br/></p>
+<hr />
+<a class="header" href="#reference-3" id="reference-3"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6">Essential JavaScript: Mastering Immediately-invoked Function Expressions</a></li>
+<li><a href="https://hashnode.com/post/do-es6-modules-make-the-case-of-iifes-obsolete-civ96wet80scqgc538un20es0">Do ES6 Modules make the case of IIFEs obsolete?</a></li>
+<li><a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc">JavaScript Modules: A Beginner’s Guide</a></li>
+<li><a href="https://medium.com/dailyjs/es6-modules-node-js-and-the-michael-jackson-solution-828dc244b8b">ES6 modules, Node.js and the Michael Jackson Solution</a></li>
+<li><a href="https://www.jvandemo.com/a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers/">A 10 minute primer to JavaScript modules, module formats, module loaders and module bundlers</a></li>
+<li><a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc">JavaScript Modules: A Beginner’s Guide</a></li>
+</ul>
+<a class="header" href="#event-loop-1" id="event-loop-1"><h1>Event Loop</h1></a>
+<p>자바스크립트는 싱글 쓰레드이다. 그래서 비동기를 처리하기 위해서는 다른 누군가의 도움이 필요하다.</p>
+<p>우리가 자바스크립트를 기본적으로 브라우저에서 사용을 한다. 그렇다면 당연하게 자바스크립트의 한계를 보완해주는 역할은 브라우저가 해준다는 것이다. 브라우저가 해주는 많은 역할 중 하나는 비동기처리를 도와주는 것이다.</p>
+<p>오늘은 비동기를 처리하는데 있어서 큰 역할을 하고 있는 것을 알아보도록 하자.
+<br/></p>
+<a class="header" href="#목차-1" id="목차-1"><h2>목차</h2></a>
+<ul>
+<li>[x]  Heap</li>
+<li>[x]  Stack</li>
+<li>[x]  Browser or Web APIs</li>
+<li>[x]  Event Table</li>
+<li>[x]  Event Loop</li>
+</ul>
+<p>자바스크립트는 스크립트가 실행이 되는 엔진이 있다. 크롬을 기준으로 본다면 엔진은 V8이 된다. 이 엔진을 구성하는 요소는 크게보면 Heap과 Stack으로 구성이 되어있다.
+<br/></p>
+<a class="header" href="#heap" id="heap"><h3>Heap</h3></a>
+<p>객체는 Heap에 할당이 된다. Heap은 메모리에서 대부분 구조화되지 않은 영역을 나타낸다.
+<br/></p>
+<a class="header" href="#stack" id="stack"><h3>Stack</h3></a>
+<p>자바스크립트 코드 실행을 위해 제공된 단일 쓰레드이다. 함수를 호출하게 되면 하나의 Stack Frame이 형성이 된다.</p>
+<p>더이상의 자세한 내용은 CallStack에 대해서 작성한 글을 참고 해주세요.</p>
+<blockquote>
+<p><a href="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/Javascript/Basic_1_CallStack.md">CallStack 알아보기</a></p>
+</blockquote>
+<p><br/></p>
+<a class="header" href="#browser-or-web-apis" id="browser-or-web-apis"><h3>Browser or Web APIs</h3></a>
+<p>흔히 WebAPI라 불리는 API들은 웹 브라우저에 내장되어 있으며 브라우저 및 이외 컴퓨터 환경에서 데이터를 노출 할 수 있으며 복잡한 환경에서 유용하게 사용할 수 있다.(ex. 위치정보등등)</p>
+<p>이것은 자바스크립트에 포함되는 것이 아니며 자바스크립트 언어를 사용하는데 있어 강력한 성능을 제공한다.
+<br/></p>
+<a class="header" href="#예제로-살펴보기" id="예제로-살펴보기"><h2>예제로 살펴보기</h2></a>
+<pre><code class="language-javascript">function main(){
+    console.log('A');
+    setTimeout(
+    function display(){ console.log('B'); }
+    ,0);
+    console.log('C');
+}
+main();
+//	Output
+//	A
+//	C
+//  B
+</code></pre>
+<p><img src="/assets/image/basic_event_loop.png" alt="event_loop" /></p>
+<ol>
+<li>main함수가 실행이 되어서 처음에 들어가게 된다. main함수 안에 있는 <code>console.log</code> 가 스택에 쌓이게 된다. 함수가 실행이 되면 알파벳이 콘솔창에 출력이 된다.</li>
+<li>다음으로 <code>setTimeout</code> 이 들어오면서 실행이 된다. <code>setTimeout</code> 은 <code>browserAPI</code> 의 콜백을 지연하는 함수를 사용한다.</li>
+<li>브라우저에서 타이머가 이루어지는 동안 <code>console.log</code> 가 실행이 되고 C가 출력이 된다. 여기서 초가 0이더라도 콜백은 메시지 큐에 담기게 되어 브라우저는 그것을 받는다.</li>
+<li>main함수가 모두 다 끝나게 되면 스택이 비게 된다. 그러면 브라우저가 큐에 쌓았던 콜백을 실행하게 된다.</li>
+</ol>
+<p>스택이 비었을때 자바스크립트 엔진은 메시지 큐가 비었는지 확인을 한다. 만약에 비었다면 엔진은 첫번째 메시지를 지우고 함수의 안을 실행한다. 이때 새로운 스택프레임(inital frame)이 생성이 되고 스택에 쌓인다.  함수가 끝났다면 initial 프레임이 스택에서 제거가 된다. 이러한 과정은 메시지 큐가 없을 때까지 이루어진다.
+<br/></p>
+<a class="header" href="#the-event-loop" id="the-event-loop"><h2>The Event Loop</h2></a>
+<p>위에서 언급을 했던 끊임없이 비었는지 검사하는 것이 바로 이벤트 루프이다. 이벤트 큐에 대기중인 항목이 있으면 호출 스택으로 이동한다. 그렇지 않으면 아무일도 일어나지 않는다.</p>
+<pre><code class="language-javascript">setTimeout(() =&gt; console.log('first'), 0)
+
+console.log('second')
+</code></pre>
+<p>위의 경우는 second가 찍히고 first가 찍히게 된다.</p>
+<p>멀티쓰레드라면 하나의 일을 하고 있을 때 다른 쓰레드를 사용해서 일을 처리할 수 있지만 자바스크립트는 싱글쓰레드이기 때문에 불가능하다. 그래서 비동기를 하는데 있어서 이벤트 루프는 필수적이다.</p>
+<pre><code class="language-javascript">while (await messageQueue.nextMessage()) {
+  let message = messageQueue.shift();
+  message.run();
+}
+</code></pre>
+<p>이벤트 루프는 메시지 큐에 메시지가 더 있는지 확인하는 루프이다.</p>
+<p>메시지 큐에 메시지가 있으면 메시지 큐에서 다음 메시지를 제거하고 그 메시지와 연관된 기능을 실행한다. 그렇지 않으면 새 메시지가 메시지 대기열에 추가 될때까지 대기를 한다. 이벤트루프가 자바스크립트에게 비동기를 허용하는 기본 모델이다.</p>
+<hr />
+<a class="header" href="#reference-4" id="reference-4"><h4>Reference</h4></a>
+<ul>
+<li><a href="%5Bhttps://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4%5D(https://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4)">JavaScript Event Loop Explained</a></li>
+<li><a href="%5Bhttps://www.wptutor.io/web/js/javascript-event-loop%5D(https://www.wptutor.io/web/js/javascript-event-loop)">What is the Event Loop in Javascript</a></li>
+<li><a href="%5Bhttps://hackernoon.com/understanding-js-the-event-loop-959beae3ac40%5D(https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40)">Understanding JS: The Event Loop</a></li>
+<li><a href="%5Bhttps://code.likeagirl.io/what-the-heck-is-event-loop-1e414fccef49%5D(https://code.likeagirl.io/what-the-heck-is-event-loop-1e414fccef49)">Event loop in javascript</a></li>
+<li><a href="%5Bhttps://flaviocopes.com/javascript-event-loop/%5D(https://flaviocopes.com/javascript-event-loop/)">The JavaScript Event Loop</a></li>
+<li><a href="%5Bhttps://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/%5D(https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)">Tasks, microtasks, queues and schedules</a></li>
+</ul>
 <a class="header" href="#async" id="async"><h1>Async</h1></a>
-<a class="header" href="#engine" id="engine"><h1>Engine</h1></a>
+<p>자바스크립트는 기본적으로 싱글 쓰레드이다. 이 말을 쉽게 하면 한번에 1가지의 일을 할 수 밖에 없다. 간단한 예제를 들자면 우리가 요리를 한다고 하면, 야채를 썰면서 물을 끓이는 행위를 동시에 할 수 없다는 것을 뜻한다. 이러한 불편한 점을 알았는지 벤더들은 자바스크립트의 싱글 쓰레드를 확장 시켜줄 API를 만들어 주었다.</p>
+<ul>
+<li>[x] setInterval</li>
+<li>[x] setTimeout</li>
+<li>[x] requestAnimationFrame</li>
+<li>[ ] requestIdleCallback</li>
+</ul>
+<p><br/></p>
+<a class="header" href="#setinterval" id="setinterval"><h2><strong>setInterval</strong></h2></a>
+<p>자바스크립트는 브라우저 내에서 작동하며 기본 동작은 2번째 인자로 받은 <code>ms</code> 마다 1번째 인자로 받은 <code>CallBack Function</code> 을 실행하는 것을 전제로 한다.</p>
+<p><code>setInterval</code> 이 실행이 되면 WEB API에서 시간을 기다리고 있다가 특정시간 마다 큐에 넣게 된다. 그러나 이것은 <code>CallStack</code> 이 비어있어야 하며 다른 작업을 계속해서 하고 있다면 한 없이 기다리게 될 수도 있다.</p>
+<p>이렇게 <code>setInterval</code> 은 지연이 발생할 수 있으며 시간에 따라 증가하게 된다.</p>
+<p>이러한 이유는 3가지로 정리 할 수 있다.</p>
+<ul>
+<li>앱을 실행하는 기기의 하드웨어 제한사항</li>
+<li>브라우저의 비활성탭에서 실행되도록 앱남기기(멈추지 않고 계속해서 실행이 된다.)</li>
+<li>최적화되지 않은 전체 코드베이스</li>
+</ul>
+<p><img src="/assets/image/Async_1.png" alt="Async_1" /></p>
+<p>위의 사진을 간단하게 보면 <code>dummyMethod1()</code> 이 오래 걸리면 자바스크립트의 이벤트 루프는 본연의 특징으로 인해서 스택에 걸려버렸다. 이런 상황이 되면 실행하기 위해서 기다리는 방법밖에 없다.</p>
+<p>이렇게 우리가 조작을 할 수 없는 3번의 순간에 보낸다. 타이머라는게 이상적인 상황일 때는 우리가 생각하는 그 시간에 갈 수 있지만 브라우저와 자바스크립트는 그렇게 이상적이지 않다.</p>
+<p><br/></p>
+<a class="header" href="#settimeout" id="settimeout"><h2><strong>setTimeout</strong></h2></a>
+<p><code>setTimeout</code> 은 <code>setInterval</code> 을 한 번 실행하는 것과 동일하다.</p>
+<p><img src="/assets/image/Async_2.png" alt="Async_2" /></p>
+<p>위에서 했던 내용을 이번에는 <code>setTimeout</code> 의 재귀적 호출로 해보자 그렇게 된다면 결국 <code>setTimeout</code> 의  <code>CallBack Function</code> 에 <code>setTimeout</code> 이 다시 불리는 구조가 될 것이다. 이렇게 만들어서 실행을 한다면 우리가 생각했던 것과 더욱이 달라질 것이다. <code>setInterval</code> 은 내가 정한 시간에 맞춰서 CallBack을 실행 하려고 큐에 담았을 것이다. 그러나 <code>setTimeout</code> 은 <code>callback function</code>이 불려야 다음 <code>setTimeout</code> 이 실행이 될 수 있는 조건이 되어 <code>interval</code> 보다 지연이 더 심해 질 수 있다.</p>
+<a class="header" href="#지연예시" id="지연예시"><h3>지연예시</h3></a>
+<pre><code class="language-javascript">var counter = 0;
+    
+var fakeTimeIntensiveOperation = function() {
+    
+    for(var i =0; i&lt; 50000000; i++) {
+        document.getElementById('random');
+    }
+    
+    let insideTimeTakingFunction  = new Date().toLocaleTimeString();
+    console.log('insideTimeTakingFunction', insideTimeTakingFunction);
+}
+    
+    
+var timer = setInterval(function(){ 
+    
+    let insideSetInterval = new Date().toLocaleTimeString();
+    
+    console.log('insideSetInterval', insideSetInterval);
+    
+    counter++;
+    if(counter == 1){
+        fakeTimeIntensiveOperation();
+    }
+    
+    if (counter &gt;= 5) {
+        clearInterval(timer);
+    }
+}, 1000);
+    
+//insideSetInterval 13:50:53
+//insideTimeTakingFunction 13:50:55
+//insideSetInterval 13:50:55 &lt;---- not called after 1s
+//insideSetInterval 13:50:56
+//insideSetInterval 13:50:57
+//insideSetInterval 13:50:58 
+</code></pre>
+<p><br/></p>
+<a class="header" href="#requestanimationframe" id="requestanimationframe"><h2><strong>requestAnimationFrame</strong></h2></a>
+<p>기본적으로 브라우저는 <strong>60FPS</strong> 이다 그래서 1초에 60번을 실행하게 되면 애니메이션이 깔끔하게 보인다. 그렇다면 위에서 알게 된 <code>setInterval</code> 을 사용해서 표현을 하면</p>
+<pre><code class="language-javascript">setInterval(function() {
+    // animiate something
+}, 1000/60);
+</code></pre>
+<p>이런식으로 표현이 가능하다. 그러나 위에서 언급을 했지만 문제가 있다.
+이에 2017년 <code>requestAnimationFrame</code> 이라는 기능이 크롬의 <code>Paul Irish</code>에 의해서 추가가 되었다.</p>
+<p>Paul의 설명에 의하면</p>
+<ul>
+<li>브라우저가 애니메이션을 최적화 할 수 있으므로 애니메이션이 부드럽게 처리될 수 있다.</li>
+<li>비활성 탭의 애니메이션이 중지되어 CPU가 시원해진다.</li>
+<li>더욱이 배터리 친화적이다.</li>
+</ul>
+<p>가장 간단한 예제를 보면</p>
+<pre><code class="language-javascript">function repeatOften() {
+    // Do whatever
+    requestAnimationFrame(repeatOften);
+}
+
+requestAnimationFrame(repeatOften);
+</code></pre>
+<p>한번 실행하면 재귀적으로 호출한다.</p>
+<pre><code class="language-javascript">requestAnimationFrame 역시 취소하기 위햇 setTimeout setInterval과 마찬가지로 ID를 반환한다.
+
+globalID = requestAnimationFrame(repeatOften);
+
+cancelAnimationFrame(globalID);
+</code></pre>
+<p>그러나 아래의 링크를 보면 알게되지만 모든 브라우저가 지원하는 것은 아니다.</p>
+<blockquote>
+<p>브라우저 지원여부 확인하기(https://caniuse.com/#feat=requestanimationframe)</p>
+</blockquote>
+<a class="header" href="#예제" id="예제"><h3>예제</h3></a>
+<p><a href="https://codepen.io/seonhyungjo/pen/MRVPxL">https://codepen.io/seonhyungjo/pen/MRVPxL</a></p>
+<a class="header" href="#이외의-async" id="이외의-async"><h2>이외의 Async</h2></a>
+<a class="header" href="#requestidlecallback" id="requestidlecallback"><h3><strong>requestIdleCallback</strong></h3></a>
+<a class="header" href="#observer" id="observer"><h3><strong>Observer</strong></h3></a>
+<ul>
+<li>mutation</li>
+<li>resize</li>
+<li>intersection</li>
+<li>performance</li>
+</ul>
+<hr />
+<a class="header" href="#reference-5" id="reference-5"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://javascript.info/settimeout-setinterval">https://javascript.info/settimeout-setinterval</a></li>
+<li><a href="https://dev.to/akanksha_9560/why-not-to-use-setinterval--2na9">https://dev.to/akanksha_9560/why-not-to-use-setinterval--2na9</a></li>
+<li><a href="https://develoger.com/settimeout-vs-setinterval-cff85142555b">https://develoger.com/settimeout-vs-setinterval-cff85142555b</a></li>
+<li><a href="https://www.amitmerchant.com/Handling-Time-Intervals-In-Javascript/">https://www.amitmerchant.com/Handling-Time-Intervals-In-Javascript/</a></li>
+<li><a href="https://css-tricks.com/using-requestanimationframe/">https://css-tricks.com/using-requestanimationframe/</a></li>
+<li><a href="http://www.javascriptkit.com/javatutors/requestanimationframe.shtml">http://www.javascriptkit.com/javatutors/requestanimationframe.shtml</a></li>
+<li><a href="https://yoiyoy.wordpress.com/">https://yoiyoy.wordpress.com/</a></li>
+</ul>
+<a class="header" href="#javascript-engine" id="javascript-engine"><h1>JavaScript Engine</h1></a>
+<a class="header" href="#목차-2" id="목차-2"><h2>목차</h2></a>
+<ul>
+<li>[x] 자바스크립트 엔진 파이프라인</li>
+<li>[x] V8
+<ul>
+<li>[x] 이그니션</li>
+<li>[x] 터보팬</li>
+<li>[x] 이전의 엔진</li>
+</ul>
+</li>
+<li>[x] 히든 클래스</li>
+<li>[x] 인라인 캐싱</li>
+<li>[x] 최적화</li>
+</ul>
+<a class="header" href="#javascript-engine이란" id="javascript-engine이란"><h2>JavaScript Engine이란?</h2></a>
+<p>JS코드를 실행하는 <strong>프로그램(가령 브라우저) 또는 인터프리터</strong> 를 말한다.
+<br/></p>
+<a class="header" href="#v8" id="v8"><h3>V8</h3></a>
+<p>제일 유명하고 사람들이 많이 사용하는 크롬에 들어가있는 <code>V8</code> 이 있다. 현재 <code>Electron, Nodejs</code> 에서도 사용이 되고 있고 CEF의 안에도 들어있다.
+<br/></p>
+<a class="header" href="#spidermonkey" id="spidermonkey"><h3>SpiderMonkey</h3></a>
+<p><strong>최초의 자바스크립트 엔진</strong> 으로, JS의 창시자인 브랜던 아이크가 넷스케이프 브라우저를 위해 개발이 되었다. 지금은 <code>Mozilla</code> 재단에서 관리하며, <code>FireFox</code> 에서 사용되는 엔진이다.
+<br/></p>
+<a class="header" href="#chakra" id="chakra"><h3>Chakra</h3></a>
+<p><strong>마이크로소프트가 개발한 엔진</strong> 이며, <code>Edge</code> 브라우저에 사용되고 있고 앞으로는 V8로 바꾼다는 말이 있다.
+<br/></p>
+<p><code>Chakra</code> 엔진의 중요 부분은 <code>Chakra Core</code> 라는 오픈 소스로 구성되어있다.
+<br/></p>
+<a class="header" href="#javascript-core" id="javascript-core"><h3>Javascript Core</h3></a>
+<p>애플에서 개발한 JavaScriptCore는 처음에 <strong>WebKit 프레임워크</strong> 를 위해 개발. 최근에는 <code>Safari와 React Native App</code>에서 사용된다고 한다.
+<br/></p>
+<a class="header" href="#자바스크립트-엔진-파이프라인" id="자바스크립트-엔진-파이프라인"><h2>자바스크립트 엔진 파이프라인</h2></a>
+<p>소스코드를 기계어로 만드는 과정에 대해서 알아보려고 한다.
+<br/></p>
+<ol>
+<li>자바스크립트 <strong>소스를 파싱해서 AST로 만든다.</strong></li>
+<li><strong>AST를 토대로 인터프리터는 바이트코드로 만들어준다.</strong></li>
+</ol>
+<p>코드를 더 빨리 실행하기 위해서, 바이트코드는 프로파일링 된 데이터와 함께 <code>optimizing compiler</code> 로 보내지고 여기서는 <strong>프로파일된 데이터를 기반으로 하여 최적의 기계어를 생성</strong> 하게 된다.</p>
+<blockquote>
+<p>바이트 코드  + 프로파일된 데이터 =&gt; 최적의 기계어</p>
+</blockquote>
+<p>그러나 정확하지 않은 결과가 나왔다면 다시 <code>deoptimizes</code>하여 바이트코드로 되돌린다.</p>
+<p><img src="/assets/image/B_Engine_1.png" alt="B_Engine_1.png" /></p>
+<p>위의 파이프라인 작동하는 방식은 Chrome 및 Node.js에서 사용되는 JavaScript 엔진이 작동하는 방식과 거의 동일하다.</p>
+<p><img src="/assets/image/B_Engine_2.png" alt="B_Engine_2.png" /></p>
+<p>V8의 인터프린터 <strong>Ignition</strong> 이라고 불리며, <strong>bytecode</strong> 를 생성하고 실행하는 역할을 한다. <strong>Bytecode</strong> 를 실행하는 동안, 실행 속도를 높이기 위해서 <strong>profiling data</strong> 를 수집한다. 예를 들어, 종종 실행되는 기능에 부하가 걸리면, 생성된 <strong>bytecode</strong> 와 <strong>profiling data</strong> 는 <strong>TurboFan</strong>(최적화된 컴파일러)으로 전달되어 <strong>profiling data</strong> 를 기반으로 최적화 머신 코드( <strong>optimized code</strong> )를 생성합니다.</p>
+<a class="header" href="#v8-살펴보기" id="v8-살펴보기"><h2>V8 살펴보기</h2></a>
+<a class="header" href="#v859-이전" id="v859-이전"><h3>V8.5.9 이전</h3></a>
+<p>내용이 많아 자세히 설명해주신 블로그 링크를 넣었습니다.</p>
+<blockquote>
+<p><a href="https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-v8-%EC%97%94%EC%A7%84%EC%9D%98-%EB%82%B4%EB%B6%80-%EC%B5%9C%EC%A0%81%ED%99%94%EB%90%9C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8B%A4%EC%84%AF-%EA%B0%80%EC%A7%80-%ED%8C%81-6c6f9832c1d9">https://engineering.huiseoul.com/자바스크립트는-어떻게-작동하는가-v8-엔진의-내부-최적화된-코드를-작성을-위한-다섯-가지-팁-6c6f9832c1d9</a></p>
+</blockquote>
+<p><br/></p>
+<a class="header" href="#javascript-engine이-객체-모델을-구현하는-방법" id="javascript-engine이-객체-모델을-구현하는-방법"><h2>JavaScript Engine이 객체 모델을 구현하는 방법</h2></a>
+<p>객체는 JavaScript 명세에 따르면 String으로 된 키와 이것으로 접근할 수 있는 값들을 가지고 있는 딕셔너리(Key-Value)이다. 키는 단순히 <code>[[value]]</code> 에 맵핑되는 것 뿐만 아니라 속성 값(property attributes) 이라고 하는 스펙에도 매핑이된다.</p>
+<p><img src="/assets/image/B_Engine_3.png" alt="B_Engine_3.png" /></p>
+<p>객체는 기본적인 속성 값으로 <code>[[Writable]]</code>, <code>[[Enumerable]]</code>, <code>[[Configurable]]</code> 상태가 있다.</p>
+<ul>
+<li><strong>Writable</strong> : 할당연산자를 통해 값을 <strong>바꿀</strong> 수 있는지</li>
+<li><strong>Enumerable</strong> : 해당 객체의 키가 <strong>열거</strong> 가능한지</li>
+<li><strong>Configurable</strong> : 이 속성 기술자는 해당 객체로부터 그 속성을 <strong>제거</strong> 할 수 있는지</li>
+</ul>
+<p>어떤 객체나 속성이든 <code>Object.getOwnPropertyDescriptor</code> API를 이용해 이 값들에 접근할 수 있습니다.</p>
+<pre><code class="language-javascript">const object = { foo: 42 };
+    Object.getOwnPropertyDescriptor(object, 'foo');
+    // =&gt; {value: 42, writable: true, enumerable: true, configurable: true}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#javascript-배열" id="javascript-배열"><h2>JavaScript 배열</h2></a>
+<p>배열은 조금 다르게 처리하는 특별한 객체라고 생각하면 됩니다.객체와 다른 배열만의 특징은 다음과 같습니다.</p>
+<ol>
+<li><strong>인덱스(index)가 존재한다.</strong></li>
+</ol>
+<p>인덱스는 제한된 범위가 있는 정수로. JavaScript 명세에 따르면, 배열은 <code>2³²−1</code> 개 까지의 아이템을 가질 수 있다. 따라서 배열 인덱스는 <code>0</code> 부터 <code>2³²−2</code> 까지의 범위에서만 인덱스로 유요한 정수라는 것이다.</p>
+<ol start="2">
+<li><strong>길이(length) 정보를 가집니다.</strong></li>
+</ol>
+<p><code>length property</code> 는 배열에 추가하면 <code>length property</code> 는 저절로 늘어난다. 사실 엔진에서 자동으로 해주는 것이다.</p>
+<pre><code class="language-javascript">const array = ['a', 'b'];
+    array.length; // 2
+    array[2] = 'c';
+    array.length; // 3
+</code></pre>
+<p><br/></p>
+<a class="header" href="#javascript-엔진에서-배열을-다루기" id="javascript-엔진에서-배열을-다루기"><h3>JavaScript 엔진에서 배열을 다루기</h3></a>
+<p>객체와 비슷하다. 배열은 인덱스를 포함하여 모두 <code>string</code> 키를 가진다. 아래 그림을 보면 인덱스인 <code>0</code> 은 <code>a</code> 라는 값을 가지며, 값을 바꿀 수 있고(Writable), 열거 가능하고(Enumerable), 삭제 가능(Configurable) 하다. 또 다른 프로퍼티인 <code>length</code> 의 값은 1이며, 값을 바꿀 수 있지만 열거와 삭제가 불가능 하다.</p>
+<p><img src="/assets/image/B_Engine_4.png" alt="B_Engine_4.png" /></p>
+<p>배열에 Item을 추가하게 되면, JavaScript 엔진은 <code>length</code>의 속성 값 중 <code>[[value]]</code>를 자동으로 증가시킨다.</p>
+<p><img src="/assets/image/B_Engine_5.png" alt="B_Engine_5.png" /></p>
+<p><br/></p>
+<a class="header" href="#hidden-classshape" id="hidden-classshape"><h2>Hidden Class(Shape)</h2></a>
+<pre><code class="language-javascript">function logX(obj){
+        console.log(obj.x);
+}
+
+const obj1 = { x:1, y:2 };
+const obj2 = { x:3, y:4 };
+
+logX(obj1);
+logX(obj2);
+</code></pre>
+<p>동일한 프로퍼티 <code>x</code>와 <code>y</code>를 <code>string</code> 키로 가지는 두 객체가 있다면. 이 두 객체의 <code>모양(shapes)</code>은 똑같다.</p>
+<p>함수 <code>logX</code>를 통해 두 객체 각각에서 같은 프로퍼티 <code>x</code> 에 접근한다. JavaScript 엔진은 프로퍼티 접근 시에 모양이 같은 점을 이용하여 최적화를 한다.</p>
+<p><img src="/assets/image/B_Engine_6.png" alt="B_Engine_6.png" /></p>
+<p>객체의 키 <code>x</code>, <code>y</code>는 각각의 속성 값(property attributes)을 가리킨다. 예를 들어 <code>x</code> 프로퍼티에 접근하게 되면 엔진은 <code>Object</code> 에서 <code>x</code> 키를 찾은 다음, 해당하는 속성 값을 불러오고 <code>[[Value]]</code> 값을 반환한다.</p>
+<p>여기서 5와 6 같은 데이터는 어디에 저장되나?</p>
+<p>모든 객체 별로 정보를 저장하게 되면 낭비가 된다. 비슷한 모양의 객체가 더 많이 생긴다면, 그만큼의 중복할 발생할 것이고 필요없는 메모리 사용이 늘어나게 되는 것이다.</p>
+<p>그래서 엔진은 직접 값을 저장하는 방법 아래와 같은 방법을 사용하게 된다.</p>
+<p><img src="/assets/image/B_Engine_7.png" alt="B_Engine_7.png" /></p>
+<p>우선 엔진은 따로 <code>Shape</code> 라는 곳에 프로퍼티 이름과 속성 값들을 저장한다. 여기에 <code>[[value]]</code> 값 대신 <code>JSObject</code> 의 어디에 값이 저장되어 있는지에 대한 정보인 <code>Offset</code> 을 <code>Property information</code>으로 가지고 있는다.</p>
+<p><img src="/assets/image/B_Engine_8.png" alt="B_Engine_8.png" /></p>
+<p>즉, 같은 모양을 가진 모든 JSObject는 동일한 <code>Shape</code> 인스턴스를 가리키게 되고, 각 객체에는 고유한 값만 저장되므로, 더 이상 중복되지 않는 것이다. 같은 모양으로 생긴 더 많은 오브젝트가 있다 하더라도 오로지 하나의 <code>Shape</code> 만 존재하게 된다.</p>
+<p><br/></p>
+<a class="header" href="#shape에-새로운-객체를-추가하기-transition-chains" id="shape에-새로운-객체를-추가하기-transition-chains"><h3>Shape에 새로운 객체를 추가하기 (Transition chains)</h3></a>
+<p>이런 Shape가 있다고 합시다.</p>
+<pre><code class="language-javascript">const o = {};
+o.x = 5;
+o.y = 6;
+</code></pre>
+<p>새로운 프로퍼티를 추가할 때, 엔진은 어떻게 새로운 Shape를 찾을수 있는 것일까? 엔진은 내부에 <code>transition chains</code>라고 하는 Shape를 만든다.</p>
+<p>먼저, 비어있는 객체인 <code>o</code>가 있으며, 이는 비어있는 Shape를 가리킨다.</p>
+<p><img src="/assets/image/B_Engine_9.png" alt="B_Engine_9.png" /></p>
+<p>여기에 5라는 값을 가진 <code>x</code> 라는 프로퍼티를 추가하게 되면, 비어있던 Shape에서 <code>x</code> 를 프로퍼티로 가지고 있는 새로운 Shape로 <strong>이동</strong>(transition)하게 된다. 다음과 같이 <code>JSObject</code> 의 값이 추가되고, <code>offset</code> 은 0이다.</p>
+<p><img src="/assets/image/B_Engine_10.png" alt="B_Engine_10.png" /></p>
+<p>새로운 프로퍼티 y를 추가해도 똑같이 작동하게 된다. <code>Shape(x,y)</code> 로 이동한 다음 값을 추가한다.</p>
+<p><img src="/assets/image/B_Engine_11.png" alt="B_Engine_11.png" /></p>
+<p>하지만 이런 방법을 모든 테이블에 항상 적용했다가는 많은 메모리 낭비를 일으키겠지요. 그래서 실제로 엔진은 이렇게 동작하지 않습니다.</p>
+<p><br/></p>
+<a class="header" href="#실제로-엔진에서-동작하는-방법" id="실제로-엔진에서-동작하는-방법"><h3>실제로 엔진에서 동작하는 방법</h3></a>
+<p>엔진은 추가되는 새로운 프로퍼티 정보를 저장하고, 이전 Shape로 가는 <strong>링크</strong>를 제공한다. 만약 <code>o.x</code>를 찾을 때 값이 <code>Shape(x,y)</code> 에 없다면 이전의 <code>Shape(x)</code>에 가서 찾는 것이다.</p>
+<p><img src="/assets/image/B_Engine_12.png" alt="B_Engine_12.png" /></p>
+<p><br/></p>
+<a class="header" href="#두-객체에서-동일한-shape를-사용하는-경우-transition-tree" id="두-객체에서-동일한-shape를-사용하는-경우-transition-tree"><h3>두 객체에서 동일한 Shape를 사용하는 경우 (Transition Tree)</h3></a>
+<p>만약에 두 객체에서 동일한 Shape를 사용한다면 어떻게 될까? 먼저 하나의 객체 <code>a</code> 에 <code>x = 5</code> 라는 값을 가진 프로퍼티가 있다고 하면</p>
+<p><img src="/assets/image/B_Engine_13.png" alt="B_Engine_13.png" /></p>
+<p>이번엔 객체 <code>b</code> 에서 <code>y</code> 라는 프로퍼티를 추가할 경우 <code>Shape(empty)</code>에서 가지를 뻗어 새로운 <code>Shape(y)</code>를 만든다. 결국 2개의 체인에 3개의 Shape를 가진 트리 체인이 생성되는 것이다.</p>
+<p><img src="/assets/image/B_Engine_14.png" alt="B_Engine_14.png" /></p>
+<p>java의 Object처럼 모든 객체의 트리를 거슬러 올라가면 무조건 <code>Shape(empty)</code>에 도달하게 되는 것은 아니다.</p>
+<pre><code class="language-javascript">const obj1 = {};
+obj1.x = 6;
+
+const ob2 = {x: 6};
+</code></pre>
+<p><code>ojb2</code> 와 같이, JS에서는 <strong>Object Literal</strong> 을 사용하여 시작부터 프로퍼티를 가지고 생성하도록 할 수 있기 때문이다. 따라서 <code>Shape(empty)</code>가 아닌, 서로 다른 <strong>Root Shape</strong>가 생성된다.</p>
+<p><img src="/assets/image/B_Engine_15.png" alt="B_Engine_15.png" /></p>
+<p>이 방법은 <strong>transition chain</strong> 을 짧게 하고, 객체를 리터럴로부터 생성하여 더욱 효율적이다. point는 <code>x,y,z</code> 를 3차원 공간의 좌표로 가지는 객체이다.</p>
+<pre><code class="language-javascript">const point = {};
+
+point.x = 4;
+point.y = 5;
+point.z = 6;
+</code></pre>
+<p>앞서 배운 것에 따르면, 총 3개의 Shape가 메모리에 생성 될 것입니다. (empty Shape 제외)</p>
+<p><img src="/assets/image/B_Engine_16.png" alt="B_Engine_16.png" /></p>
+<p>만약 이걸 사용하는 프로그램에서 <code>x</code> 프로퍼티에 접근한다고 하면, 엔진은 가장 마지막에 생성된 <code>Shape(x,y,z)</code> 부터 링크드 리스트를 따라올라가 맨 위에 있을 <code>x</code> 를 찾는다.</p>
+<p>객체의 프로퍼티가 더 많을수록, 그리고 이 과정을 자주 반복한다면 프로그램은 상당히 느려질 것이다.</p>
+<p>그래서 엔진은 탐색 속도를 높이기 위해 내부적으로 <code>ShapeTable</code> 이라는 자료구조를 추가한다. 이는 딕셔너리 형태로, 각각의 Shape를 가리키는 프로퍼티 키를 저장하고 있다.</p>
+<p><img src="/assets/image/B_Engine_17.png" alt="B_Engine_17.png" /></p>
+<p>그렇다면 기껏 Shape가 나온 이유가 없어지는 것인가? 사실 엔진은 최적화를 위해 또 다른 방법인 <code>Inline Cache</code>(IC) 라는 것을 Shape에 적용한다. </p>
+<blockquote>
+<p>Chrome dev_tool Memory Tab에서 예제를 확인해보자!!!</p>
+</blockquote>
+<p>:point_right: 예제</p>
+<pre><code class="language-javascript">function Person(name) {
+    this.name = name;
+}
+
+var foo = new Person(&quot;yonehara&quot;);
+var bar = new Person(&quot;suzuki&quot;);
+</code></pre>
+<p>:point_right: 예제2</p>
+<pre><code class="language-javascript">function Person(name) {
+    this.name = name;
+}
+
+var foo = new Person(&quot;yonehara&quot;);
+var bar = new Person(&quot;suzuki&quot;);
+foo.job = &quot;frontend&quot;;
+</code></pre>
+<p><br/></p>
+<a class="header" href="#inline-cacheics" id="inline-cacheics"><h2>Inline Cache(ICs)</h2></a>
+<p>Shape를 사용하는 주된 이유는 <strong>Inline Caches(ICs)</strong> 때문이다. ICs 는 JavaScript를 신속하게 실행할 수 있게하는 핵심 요소이다. JavaScript 엔진은 ICs를 사용하여 object에서 property를 찾을 수 있는 위치에 대한 정보를 암기하여, 높은 cost를 가지는 조회 횟수를 줄인다.</p>
+<pre><code class="language-javascript">function getX(o) {	
+    return o.x;
+}
+</code></pre>
+<p>위의 함수를 <code>JSC</code> 에서 실행한다면, 아래의 그림과 같은 <code>bytecode</code> 를 생성할 것이다.</p>
+<p><img src="/assets/image/B_Engine_18.png" alt="B_Engine_18.png" /></p>
+<p>첫 번째 명령문 <code>get_by_id</code>는 첫 번째 <code>argument (arg1)</code> 에서 <code>property 'x'</code> 를 로드하여 결과를 <code>loc0</code> 에 저장한다.</p>
+<p>두 번째 명령문은 <code>loc0</code> 에 저장한 것을 반환한다.</p>
+<p>또한 <code>JSC</code> 는 <code>get_by_id</code> 명령문에 초기화되지 않은 두 개의 슬롯으로 구성된 <code>Inline Cache</code> 를 포함한다.</p>
+<p><img src="/assets/image/B_Engine_19.png" alt="B_Engine_19.png" /></p>
+<p>이제 위의 그림과 같이 <code>{x: 'a'} object</code> 가 <code>getX</code> 함수에서 실행될 때를 보게 되면, <code>object</code> 는 <code>property 'x'</code> 가 있는 shape를 가지며, 이 Shape는 <code>property x</code> 에 대한 <code>offset</code> 과 <code>attribute</code> 들을 가집니다. 이 함수를 처음 실행하면, <code>get_by_id 함수</code> 는 <code>property 'x'</code> 를 검색하고 value는 <code>offset 0</code> 에 저장되어 있다는 것도 찾게된다.</p>
+<p><img src="/assets/image/B_Engine_20.png" alt="B_Engine_20.png" /></p>
+<p>위의 그림에서 처럼 <code>get_by_id</code> 명령문에 포함된 IC는 <code>property</code> 가 발견된 shape와 offset을 기억하게 된다.</p>
+<p><img src="/assets/image/B_Engine_21.png" alt="B_Engine_21.png" /></p>
+<p>위의 그림을 보게되면, 다음 명령문을 실행할 때, IC는 shape만 비교하면 되며, 이전과 같다면 저장되어있는 offset을 보고 value를 가져오면 된다. 구체적으로 말하면, 엔진이 IC가 이전에 기록한 shape의 object를 볼 경우, 더 이상 property 정보에 접근할 필요가 없다. 그리고 비용이 많이 들어가는 property 정보 조회를 완전히 생략하게 된다. 이 방법은 매번 property를 조회하는 것 보다 훨씬 더 빠르다.</p>
+<p><br/></p>
+<a class="header" href="#어떻게-최적화된-자바스크립트-코드를-작성할-것인가" id="어떻게-최적화된-자바스크립트-코드를-작성할-것인가"><h2><strong>어떻게 최적화된 자바스크립트 코드를 작성할 것인가</strong></h2></a>
+<ol>
+<li><strong>객체 속성의 순서</strong> : 객체 속성을 항상 같은 순서로 초기화해서 히든클래스 및 이후에 생성되는 최적화 코드가 공유될 수 있도록 한다.</li>
+<li><strong>동적 속성</strong>: 객체 생성 이후에 속성을 추가하는 것은 히든 클래스가 변하도록 강제하고 이전의 히든클래스를 대상으로 최적화되었던 모든 메소드를 느리게 만든다. 대신에 모든 객체의 속성을 생성자에서 할당한다.</li>
+<li><strong>메소드</strong> : 동일한 메소드를 반복적으로 수행하는 코드가 서로 다른 메소드를 한 번씩만 수행하는 코드 보다 더 빠르게 동작합니다(인라인 캐싱 때문)</li>
+<li><strong>배열</strong> : 값이 띄엄띄엄 있어서 키가 계속해서 증가하는 숫자가 되지 않는 배열은 피하는게 좋다. 모든 요소를 가지지는 않는 배열은 <strong>해시테이블</strong>이다. 이와 같은 배열의 요소들은 접근하기에 많은 비용이 든다. 또한 커다란 배열을 미리 할당하지 않도록 하는 것이 좋다. 사용하면서 크기가 커지도록 하는 게 좋다. 마지막으로 배열의 요소를 삭제하지 말아야한다. 그 배열의 키가 띄엄띄엄 배치된다.</li>
+<li><strong>태깅된 값</strong> : V8은 객체와 숫자를 32비트로 표현한다. 어떤 값이 오브젝트(flag = 1)인지 혹은 정수(flag = 0)인지는 <code>SMI(Small Integer)</code> 라는 하나의 비트에 저장하고 이 때문에 31비트가 남는다. 따라서 어떤 숫자가 31비트 보다 크면 V8은 이 숫자를 분리해서 더블 타입으로 전환한 다음 이 숫자를 넣을 새로운 객체를 생성한다. 이러한 동작은 비용이 높으므로 가능한한 31비트의 숫자를 사용하자.</li>
+</ol>
+<hr />
+<a class="header" href="#reference-6" id="reference-6"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553">JavaScript essentials: why you should know how the engine works</a></li>
+<li><a href="https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-v8-%EC%97%94%EC%A7%84%EC%9D%98-%EB%82%B4%EB%B6%80-%EC%B5%9C%EC%A0%81%ED%99%94%EB%90%9C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8B%A4%EC%84%AF-%EA%B0%80%EC%A7%80-%ED%8C%81-6c6f9832c1d9">자바스크립트는 어떻게 작동하는가: V8 엔진의 내부 + 최적화된 코드를 작성을 위한 다섯 가지 팁</a></li>
+<li><a href="https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775">Understanding V8’s Bytecode</a></li>
+<li><a href="https://medium.freecodecamp.org/understanding-the-core-of-nodejs-the-powerful-chrome-v8-engine-79e7eb8af964">Understanding How the Chrome V8 Engine Translates JavaScript into Machine Code</a>)</li>
+<li><a href="https://engineering.linecorp.com/ko/blog/v8-hidden-class/">V8의 히든 클래스 이야기</a></li>
+<li><a href="https://shlrur.github.io//javascripts/javascript-engine-fundamentals-shapes-and-Inline-caches/">https://shlrur.github.io//javascripts/javascript-engine-fundamentals-shapes-and-Inline-caches/</a></li>
+</ul>
 <a class="header" href="#bitwise-operator" id="bitwise-operator"><h1>Bitwise Operator</h1></a>
-<a class="header" href="#dom" id="dom"><h1>DOM</h1></a>
+<p>우리가 흔히 AND를 표현할 때 <code>&amp;&amp;</code> 를 사용하며 OR을 표현할때 <code>||</code> 를 사용한다. 왜 두 개씩 사용해서 표현을 하는 것일까? 하나로는 표현이 안되는 것인가?</p>
+<p>이유는 한 개를 사용하는 <code>&amp;</code>, <code>|</code>는 비트연산자에서 사용이 되고 있기 때문이다.
+<br/></p>
+<a class="header" href="#bits비트란" id="bits비트란"><h2>Bits(비트)란?</h2></a>
+<p>비트는 숫자나 문자 또는 문자열과 함께 작동하지 않으며 이진 숫자만 사용한다. 쉽게 말하면 모든 것이 이진 형식으로 저장된다. 저장된 이진형식은 컴퓨터에서 <strong>UTF-8</strong>과 같은 인코딩을 사용하여 저장된 비트 조합을 문자, 숫자 또는 다른 기호에 Mapping한다.</p>
+<p>당연히 가지고 있는 비트가 많을수록 더 많은 순열과 더 많은 것을 표현할 수 있다.</p>
+<p>자바스크립트에서 우리가 비트를 얻는 방법은 간단하다. 가령 숫자 하나가 있다면 <code>(Number).toString(2)</code> 를 하게 되면 얻어오게 된다. 자바스크립트에서 바이너리를 직접 입력 할 수 있는 방법이 없다 이진수를 10진수로 변환하려면 <code>parseInt(111,2)</code> 를 해야한다.</p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt">parseInt - MDN</a></p>
+</blockquote>
+<p><br/></p>
+<a class="header" href="#bitwise-operator비트연산자란" id="bitwise-operator비트연산자란"><h2>Bitwise Operator(비트연산자)란?</h2></a>
+<p>비트 수준에서 변수와 상호 작용하는 방법이다. 비트는 부동소수점, 정수로 변환되므로 정보를 쉽게 소화가능하다. 속도와 효율성을 중요시한다면 비트로 직접 처리, 변환하는 것이 유용하다.</p>
+<p>비트 연산자(AND, OR, XOR)는 일반 논리연산자와 비슷하게 동작한다. 비트 수준에서는 일반적으로 논리를 해석하는 방식이 아니라 비트 수준에서 평가를 한다.</p>
+<p>비트 연산자를 사용하면 어떤 이점이 있을까? 비트 수준에서의 평가는 일반적인 논리연산자보다 빠르기 때문에 큰 샘플에 대한 평가 또는 반복은 비트 연산이 더욱 효율적이다.
+<br/></p>
+<a class="header" href="#and" id="and"><h2>&amp; (AND)</h2></a>
+<p><code>&amp;&amp;</code> 논리 연산자와 매우 비슷하다. <strong>비교되는 비트가 둘 다 1인 경우 1을 반환한다.</strong> 가령 12와 15가 있다면 각각 <code>1100</code>과 <code>1111</code> 이다. 그것을 <code>&amp;</code>연산자를 사용한다면 <code>1100</code>을 얻는다. 결과는 12가 나오게 된다.</p>
+<p>하나의 <strong>Trick(트릭)으로 숫자가 짝수인지 홀수인지를 알아낼 수 있다.</strong> 숫자가 홀수인 경우 첫번째 비트는 항상 1이다. 따라서 <code>&amp;</code>를 사용하여 1과 비교할 수 있다. 그러나 실제로는 사용하지 않는 것을 추천한다.
+<br/></p>
+<a class="header" href="#-or" id="-or"><h2>| (OR)</h2></a>
+<p><code>||</code> 논리 연산자와 매우 비슷하다. <strong>비교되는 비트가 모두 0이거나 0과 1이 하나씩 있을 경우 1을 반환한다.</strong> 비트별로 이진수를 비교하는데 사용이 된다. 예제에 <code>|</code>연산자를 사용하면 15가 반환된다.</p>
+<p><code>1100 | 1111</code>는 비교를 하면 각각에 대해 1를 반환하여 15이 된다.
+<br/></p>
+<a class="header" href="#-not" id="-not"><h2>~ (NOT)</h2></a>
+<p>모든 비트를 1은 0으로 0은 1로 바꾼다. 즉 무엇이든 반대로 되돌린다는 것이다. 그런데 <code>~15</code> 를 하게 되면 이상하게 결과가 <code>-16</code>이 나오게 된다. 이유는 <strong>2의 보수연산</strong>에서 숫자의 음수 표현을 얻으려면 먼저 비트를 뒤집어서 1을 더해야 하기 때문이다.
+<br/></p>
+<a class="header" href="#-xor" id="-xor"><h2>^ (XOR)</h2></a>
+<p>이 연산자는 XOR 연산자 또는 배타적 OR연산자라고 불린다. <code>&amp;</code>과 <code>|</code> 같은 연산자는 양측의 숫자를 가져와서 비교하는 방식으로 이 연산자와는 차별화된다. 해당 비트를 비교하여 하나의 1이 있을 때만 1을 반환한다. 즉, <code>1 ^ 0</code> 은 1을 반환하지만 <code>1 ^ 1</code>은 0을 반환한다.
+<br/></p>
+<a class="header" href="#shifting-operators" id="shifting-operators"><h2>Shifting operators</h2></a>
+<p>Shifting 비트(<code>&lt;&lt;</code>, <code>&gt;&gt;</code>)를 다루는 두 개의 연산자가 있다. 추측할 수 있듯이 차이점은 숫자의 비트를 이동시킨다는 것이다.</p>
+<ul>
+<li><code>&lt;&lt;</code> : 숫자의 모든 비트를 왼쪽으로 n번 이동한다. <strong>이동을 할 때 발생하는 빈 공간은 0으로 채워진다.</strong></li>
+<li><code>&gt;&gt;</code> : 숫자의 모든 비트를 오른쪽으로 n번 이동한다. <strong>이 연산자는 양수 비트를 0으로 채우고 음수 비트를 1로 채운다.</strong></li>
+</ul>
+<p>보통 숫자의 첫 번째 비트가 기호를 나타내는데 사용이 된다. 1이면 음수 0이면 양수이다. 따라서 오른쪽 이동에서 위에 있는 추론은 우리가 이동하는 숫자의 부호를 유지하려고 저런식으로 작동하는 것이다.
+<br/></p>
+<a class="header" href="#bit-manipulation" id="bit-manipulation"><h2>Bit manipulation</h2></a>
+<p>이제 연산자가 하는 일을 알았으니 비트를 조작하기 위해 연산자를 활용하는 방법을 살펴보자.
+<br/></p>
+<a class="header" href="#마스킹masking" id="마스킹masking"><h3>마스킹(Masking)</h3></a>
+<p><strong>마스킹이라는 것은 단순하게 간단한 문자열을 보내고 다른 숫자를 할당하여 플래그를 나타내는 방법이다.</strong> 일련의 예 또는 아니오 질문을 신속하게 요청하는 방법이다.</p>
+<p>우리가 웹사이트를 가지고 있고 4개의 Flag가 있다고 가정을 해보자</p>
+<ol>
+<li>A : 유저권한인가?</li>
+<li>B : 올바른 지역에 있나?</li>
+<li>C : 아이스크림을 먹을 수 있나?</li>
+<li>D : 로봇인가?</li>
+</ol>
+<p>이렇게 4개의 Flag가 있다고 생각하면 4자리의 이진문자열로 표현해서 보낼 수 있다.</p>
+<p><code>0000 = DCBA</code></p>
+<p>어떤 위치에 1을 넣으면 플래그를 변경할 수 있다.</p>
+<ul>
+<li><em>1000 (binary) = Flag D = 8 (integer)</em></li>
+<li><em>0100 (binary) = Flag C = 4 (integer)</em></li>
+<li><em>0010 (binary) = Flag B = 2 (integer)</em></li>
+<li><em>0001 (binary) = Flag A = 1 (integer)</em></li>
+</ul>
+<p>이렇게 되면 한 번에 2가지 이상의 Flag의 변경이 가능하다.</p>
+<ul>
+<li><em>1010 (binary) = Flag D and Flag B = 10 (integer)</em></li>
+<li><em>0111 (binary) = Flag C, B and A = 7 (integer)</em></li>
+</ul>
+<pre><code class="language-javascript">function changeFlag(binary){
+    const flagD = 8
+    const flagC = 4
+    const flagB = 2
+    const flagA = 1
+    let flags = []
+    
+    if(binary &amp; flagD){
+        flags.push(&quot;Change flagD&quot;)
+    }
+    if(binary &amp; flagC){
+        flags.push(&quot;Change flagC&quot;)
+    }
+    if(binary &amp; flagB){
+        flags.push(&quot;Change flagB&quot;)
+    }
+    if(binary &amp; flagA){
+        flags.push(&quot;Change flagA&quot;)
+    }
+    return flags
+}
+
+// 최대는 15
+changeFlag(8)
+changeFlag(11)
+changeFlag(1)
+changeFlag(15)
+</code></pre>
+<p><br/></p>
+<a class="header" href="#cheat-sheet" id="cheat-sheet"><h2>Cheat Sheet</h2></a>
+<blockquote>
+<p><a href="https://cdn-images-1.medium.com/max/1600/1*6jimeIdYjNXn8oGKW0TMew.png">이미지로 확인하기</a></p>
+</blockquote>
+<table><thead><tr><th> Operator </th><th> Usage </th><th> Description </th></tr></thead><tbody>
+<tr><td> Bitwise AND </td><td> a &amp; b </td><td> 왼쪽 피연산자와 오른쪽 피연산자의 비트가 모두 1 인 경우 1을 반환한다.</td></tr>
+<tr><td> Bitwise OR </td><td> a | b </td><td> 왼쪽 또는 오른쪽 피연산자의 비트가 하나인 경우 각 비트에서 하나를 반환한다.</td></tr>
+<tr><td> Bitwise XOR </td><td> a ^ b </td><td> 왼쪽 피연산자와 오른쪽 피연산자 둘 다 아닌 경우 비트 위치의 1을 반환한다.</td></tr>
+<tr><td> Bitwise NOT </td><td> ~a </td><td> 피연산자의 비트를 뒤집는다. </td></tr>
+<tr><td> Left shift </td><td> a &lt;&lt; b </td><td> a를 이진수 표현 b 비트를 왼쪽으로 shift하고 오른쪽에 0을 shift한다.</td></tr>
+<tr><td> Sign-propagating right shift </td><td> a &gt;&gt; b </td><td> a를 이진수로 b 비트를 오른쪽으로 shift하고, 오른쪽으로 나온 비트를 제거한다.</td></tr>
+<tr><td> Zero-fill right shift </td><td> a &gt;&gt;&gt; b </td><td> a를 이진수로 b 비트를 오른쪽으로 shift하고, shift off 한 비트를 버리고, 왼쪽에서 0을 shift한다.</td></tr>
+</tbody></table>
+<p><br/></p>
+<a class="header" href="#reference-7" id="reference-7"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://hackernoon.com/programming-with-js-bitwise-operations-393eb0745dc4">Programming with JS: Bitwise Operations</a></li>
+<li><a href="https://www.w3resource.com/javascript/operators/bitwise-operator.php">JavaScript: Bitwise Operators</a></li>
+<li><a href="https://codeburst.io/using-javascript-bitwise-operators-in-real-life-f551a731ff5">Using JavaScript’s Bitwise Operators in Real Life</a></li>
+<li><a href="https://medium.com/bother7-blog/bitwise-operators-in-javascript-65c4c69be0d3">Bitwise Operators in Javascript</a></li>
+<li><a href="https://medium.com/techtrument/a-comprehensive-primer-on-binary-computation-and-bitwise-operators-in-javascript-81acf8341f04">A Comprehensive Primer on Binary Computation and Bitwise Operators in Javascript</a></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984686-291f1a80-7a99-11e9-9fbc-b2bbcc663209.png" alt="DOM" /></p>
+<p>들어가기에 앞서 먼저 BOM에 대해서 알아보자.</p>
+<p>당연하게 웹은 브라우저에서 돌아가기 때문에 웹 개발을 하다 보면 브라우저와 밀접한 관계를 가지게 된다. 브라우저와 관련된 객체들의 집합을 브라우저 객체 모델(BOM : Browser Object Model)이라고 부른다. BOM을 사용하면 창을 이동하고 상태 표시줄의 텍스트를 변경하는 페이지 내용과 직접 관련이 없는 브라우저와 관련된 기능을 사용할 수 있다. <strong>DOM은 이 BOM 중 하나이다.</strong></p>
+<blockquote>
+<p>예시)  <code>history</code>, <code>location</code>, <code>navigator</code>,  <code>screen</code></p>
+</blockquote>
+<p>BOM의 최상위 객체는 window라는 객체이고, DOM은 window 객체의 하위 객체이다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984688-291f1a80-7a99-11e9-8926-09a8b8adb39c.gif" alt="GIF_window document" />
+<br/></p>
+<a class="header" href="#dom이란" id="dom이란"><h2>DOM이란?</h2></a>
+<blockquote>
+<p>문서 객체 모델(The Document Object Model(DOM)) 은 HTML, XML 문서의 프로그래밍 interface 이다. - MDN</p>
+</blockquote>
+<p>HTML에는 <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>와 같은 많은 태그가 있는데 이를 JavaScript로 사용할 수 있도록 객체로 만들면 그것을 <strong>Document Object하고 한다.</strong></p>
+<p>DOM은 문서의 구조화된 표현을 제공하며 <strong>프로그래밍 언어(JavaScript 등)가 DOM 구조에 접근할 수 있는 방법을 제공하여 문서 구조, 스타일, 내용 등을 변경할 수 있도록 해준다.</strong>
+<br/></p>
+<a class="header" href="#dom은-어떻게-생겼나" id="dom은-어떻게-생겼나"><h3>DOM은 어떻게 생겼나?</h3></a>
+<p>DOM의 모양을 이해하는데 선행되는 자료구조는 <strong>Tree 구조</strong>이다. DOM이 바로 Tree 형식의 자료구조를 가지고 있기 때문이다.</p>
+<p>이름 그대로 Tree 구조는 나무가 땅에서 솟아 위로 뻗어 나가면서 가지를 치면서 나가는 모양으로, DOM은 거꾸로 있는 모양이다.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984687-291f1a80-7a99-11e9-811b-bc9b3b1dfef5.png" alt="DOM_Tree"/>
+</p>
+> The HTML DOM Tree of Object(by w3school)
+<br/>
+<p>DOM은...</p>
+<ul>
+<li>문서의 구조화된 표현을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공한다.</li>
+<li>문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다.</li>
+</ul>
+<p>우리가 위와같이 조작을 할 수 있는 이유는 DOM API를 제공하기 때문이다.
+아래의 사진은 Node 하위 구조를 보여주고 있다.</p>
+<p><img src="https://web.stanford.edu/class/cs98si/img/dom_types.png" alt="DOM 계층" /></p>
+<p>출처: <a href="http://www.stanford.edu/class/cs98si/slides/the-document-object-model.html">http://www.stanford.edu/class/cs98si/slides/the-document-object-model.html</a></p>
+<p>프로토타입 기반으로 본다면 아래와 같은 구조를 가진다.</p>
+<pre><code class="language-js">Object &lt; EventTarget &lt; Node &lt; DocumentType &lt; &lt;!DOCTYPE html&gt;(ElementNode)
+
+Object &lt; EventTarget &lt; Node &lt; Element &lt; HtmlElement &lt; HtmlhtmlElement &lt; html(ElementNode)
+</code></pre>
+<ul>
+<li>아래 코드와 같이 HTML Element Node는 상속(Object, EventTarget, Node, Element, HtmlElement, HTMLhtmlElement) 받은 모든 객체의 속성 및 메서드들을 사용할 수 있게 된다.</li>
+</ul>
+<pre><code class="language-js">const html = document.querySelector('html');
+
+console.log(html); // html
+console.log(html.__proto__); // HTMLhtmlElement
+console.log(html.__proto__.__proto__); // HtmlElement
+console.log(html.__proto__.__proto__.__proto__); // Elemenet
+console.log(html.__proto__.__proto__.__proto__.__proto__); // Node
+console.log(html.__proto__.__proto__.__proto__.__proto__.__proto__); // EventTarget
+console.log(html.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__); // Object
+</code></pre>
+<p><br/></p>
+<a class="header" href="#dom과-html-코드의-차이점" id="dom과-html-코드의-차이점"><h2>DOM과 HTML 코드의 차이점</h2></a>
+<p>우리가 웹페이지를 만들 때 HTML을 작성한다. 그렇다면 우리가 작성하는 이 소스가 DOM과 똑같을까?</p>
+<p>우리가 작성한 소스는 브라우저가 읽어서 DOM Tree를 만든다.</p>
+<blockquote>
+<p>참고) Im-D/Dev-Docs <a href="https://github.com/Im-D/Dev-Docs/blob/master/Browser/%EC%9B%B9%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%20%EC%9E%91%EB%8F%99%20%EC%9B%90%EB%A6%AC.md"> 브라우저의 작동 원리</a></p>
+</blockquote>
+<p>HTML 코드는 DOM과 똑같은 것으로 예상되지만 브라우저에서 생성한 DOM과는 엄연히 다르다. 예시로 우리가 작성한 코드 중 중대한 오류가 아닌 이상 브라우저가 자동으로 소스 코드의 오류를 수정한다. (Ex. tbody)</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984677-27eded80-7a99-11e9-8a67-62516944a1ab.png" alt="code1" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984678-27eded80-7a99-11e9-8ebb-45d120464b0f.png" alt="code1_devtool" width="400"/></p>
+</p>
+위의 사진을 비교하게 되면 왼쪽은 실제 코드를 작성한 것이고 오른쪽은 실제 DOM으로 만들어진 모양이다. 실제로 tbody 태그를 작성하지 않았지만 만들어주는 것을 보여준다.
+<p>이외</p>
+<ul>
+<li>HTML 파일에 단어 하나라도 존재하더라도 브라우저는 이를 <code>html</code>과 <code>body</code> 으로 감싸고 <code>head</code>를 필수적으로 추가한다.</li>
+</ul>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984679-27eded80-7a99-11e9-87bd-acc9fbafd3e3.png" alt="code2" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984680-28868400-7a99-11e9-8dbb-0bb56a3ad599.png" alt="code2_devtool" width="400"/></p>
+</p>
+<ul>
+<li>DOM을 생성하는 과정에서 여는 태그는 작성을 하고 닫는 태그를 작성하지 않는 경우 자동 생성하여 맞춰서 오류가 발생하지 않는다.</li>
+</ul>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984681-28868400-7a99-11e9-95e4-f0c8797dfceb.png" alt="code3" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984682-28868400-7a99-11e9-93f5-68542db5cf5e.png" alt="code3_devtool" width="400"/></p>
+</p>
+<p>그렇다면 우리가 작성한 코드가 실제 DOM으로 만들어진 것을 어디서 볼 수 있나?
+<br/></p>
+<a class="header" href="#devtools" id="devtools"><h2>DevTools</h2></a>
+<p>우리가 브라우저로 소스를 열어서 <code>F12</code>버튼 또는 <code>Ctrl + Shift + i</code>를 누르게 되면 브라우저 DevTools이 나오게 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984683-28868400-7a99-11e9-8d75-64216c78a9c7.gif" alt="dev_tools" />
+<br/></p>
+<a class="header" href="#element-tab" id="element-tab"><h3>Element Tab</h3></a>
+<p>Element가 실제로 그려진 DOM Tree를 볼 수 있는 곳으로 <strong>Element의 스타일 이벤트 등을 볼 수 있으며 실제로 조작을 하면서 변화를 확인해 볼 수 있다.</strong>
+<br/></p>
+<a class="header" href="#console-tab" id="console-tab"><h3>Console Tab</h3></a>
+<p>JavaScript를 사용해서 DOM을 조작할 수 있다. 실제로 JavaScript 엔진을 사용해서 테스트를 해보고 싶을 때 많이 사용하는 공간으로 IntelliSense를 보는 공간으로도 사용이 가능하다.</p>
+<p>브라우저에서 테스트할 때 원하는 Element를 JavaScript로 찾기 힘들 때 Element Tab에서 해당 Element를 클릭 후 Console 창에서 <code>$0</code>으로 호출해서 바로 사용이 가능하다.</p>
+<p>기본적으로 브라우저에서 클릭 된 history를 보관하고 있어 이전에 선택한 Element를 다시 가져올 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984684-291f1a80-7a99-11e9-95a2-24a9d55afe10.gif" alt="devtools2" /></p>
+<hr />
+<a class="header" href="#reference-8" id="reference-8"><h4>Reference</h4></a>
+<ul>
+<li><a href="http://mohwaproject.tistory.com/">무하프로젝트</a></li>
+<li><a href="https://shldhee.github.io/2018/04/08/DOM/">힘내서 공부해보자</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/introduction-to-the-dom">introduction to the dom</a></li>
+<li><a href="https://medium.freecodecamp.org/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d">What’s the Document Object Model, and why you should know how to use it.</a></li>
+<li><a href="https://css-tricks.com/dom/">What is the DOM?</a></li>
+<li>W3C: <a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html">What is the Document Object Model?</a></li>
+<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">Introduction - Document Object Model</a></li>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a></li>
+</ul>
 <a class="header" href="#class" id="class"><h1>Class</h1></a>
-<a class="header" href="#call-apply-bind" id="call-apply-bind"><h1>Call, Apply, Bind</h1></a>
-<a class="header" href="#prototype" id="prototype"><h1>Prototype</h1></a>
-<a class="header" href="#objectcreate-objectassign" id="objectcreate-objectassign"><h1>Object.create, Object.assign</h1></a>
-<a class="header" href="#basic-1" id="basic-1"><h1>Basic</h1></a>
+<p>ES6에 Class 문법이 추가되었다. Class는 특별하게 새로 만들어진 것이 아니다. 기존에 존재하고 있던 상속과 생성자 함수를 기본으로 한 <code>Proptotype</code>의 <strong>syntactic sugar</strong>이다.</p>
+<p>Class 문법이 나오기 전 사람들은 JavaScript를 OOP답게 사용하고 싶어 했다. 그래서 다양한 방법을 사용해서 구현했다.</p>
+<p><br/></p>
+<a class="header" href="#constructor-function" id="constructor-function"><h2>Constructor Function</h2></a>
+<p>Class 문법이 생기기 전에는 JavaScript에서는 모든 것을 Function으로 만들어야 했다. 그래서 사람들이 Class처럼 사용하기 위해서 Constructor function을 사용해서 비슷하게 사용하였다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make,
+    this.model = model,
+    this.color = color,
+    this.getName = function () {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p>위와 같이 함수를 선언함으로써 Java에서 사용하는 Class와는 모양새는 다르지만, Class에 좀 더 가까워졌다. 이제 우리는 <code>Vehicle</code>이라는 것을 선언했으니 인스턴스를 만들어보자</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+const car2 = new Vehicle(&quot;Honda&quot;, &quot;Civic&quot;, &quot;White&quot;);
+</code></pre>
+<p>위와 같이 <code>new</code> 키워드를 사용해서 인스턴스를 만들 수 있다.</p>
+<p><strong>그런데 문제가 있다.</strong></p>
+<p>새로운 <code>Vehicle()</code>을 만들 때 JavaScript 엔진은 두 객체의 각각에 대한 Vehicle Constructor 함수 사본을 만든다. 즉 각각의 인스턴스의 공간이 만들어지는 것이다. 또한 속성과 메소드는 <code>Vehicle()</code>의 모든 인스턴스에 복사가 된다.</p>
+<p>이게 왜 문제가 되는가? 라고 생각할 수 있다. 제일 문제는 Constructor 함수의 멤버 함수(메서드)가 <strong>모든 객체에서 반복된다.</strong> 계속 똑같은 멤버 함수를 만드는 것이다. 이것은 매우 불필요하게 낭비를 하기 때문이다.</p>
+<p>다른 문제는 <strong>기존의 만든 객체에 새로운 속성이나 메서드를 추가를 하지 못한다는 것이다.</strong></p>
+<pre><code class="language-js">car2.year = &quot;2019&quot;
+</code></pre>
+<p>위와 같이 추가를 하더라도 다른 인스턴스에는 새로운 속성이나 메서드는 따로따로 넣어주어야 한다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color, year) {
+    this.make = make,
+    this.model = model,
+    this.color = color,
+    this.year = year, // 위와 같이 추가를 해야한다.
+    this.getName = function () {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p><br/></p>
+<a class="header" href="#prototype" id="prototype"><h2>Prototype</h2></a>
+<p>JavaScript는 내부적으로 새로운 함수가 만들어지면 엔진은 <code>prototype</code>이라는 기본 속성을 추가한다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58709477-3b804900-83f5-11e9-882d-f6dbddae0254.png" alt="image" /></p>
+<p><code>prototype</code> 중 <code>__proto__</code> 속성은 <strong>dunder proto</strong> 라고 불리고, Constructor 함수의 <code>prototype</code> 속성을 가리킨다.</p>
+<p>생성자 함수의 새로운 인스턴스를 만들어질 때마다 <strong>dunder proto</strong>는 다른 속성, 메서드와 함께 인스턴스에 복사가 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58709719-b5b0cd80-83f5-11e9-93fc-b5ac236dca0f.png" alt="image" /></p>
+<p><code>prototype</code> 객체는 아래와 같이 Constructor 함수의 속성, 메서드를 추가 가능하며 Constructor 함수의 모든 인스턴스에서 사용할 수 있다.</p>
+<pre><code class="language-js">car.prototype.year = &quot;2019&quot;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710008-569f8880-83f6-11e9-8754-071bc6f58d3c.png" alt="image" /></p>
+<p>이 접근법에는 몇 가지 주의 사항이 있는데 <code>prototype</code> 속성과 메서드는 Constructor 함수의 모든 인스턴스와 공유를 한다. 만약 인스턴스의 하나가 기본 속성에서 변경했다면 모든 인스턴스가 아닌 해당 인스턴스에서만 변경이 된다.</p>
+<p>다른 한 가지는 참조 유형 속성이 모든 인스턴스 간에 항상 공유된다. 하나의 인스턴스에서 수정하면 모든 인스턴스에 대해 수정이 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710329-0674f600-83f7-11e9-9d5d-6438ed6eec9c.png" alt="image" /></p>
+<p><br/></p>
+<a class="header" href="#class-1" id="class-1"><h2>Class</h2></a>
+<p>이제 Constructor 함수와 <code>prototype</code>에 대해 알아봤다. 이제 Class에 대해 알아보자. 위의 2개를 살펴봄으로써 좀 더 쉽게 이해할 수 있다. 이전의 것들과 크게 차이가 나는 것이 없기 때문이다.</p>
+<p>JavaScript 클래스는 <code>prototype</code> 기능을 활용하여 Constructor 함수를 작성하는 새로운 방법일 뿐이다.(<strong>syntactic sugar</strong>)</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+</code></pre>
+<p>생성 방법은 위처럼 만들면 된다. 위와 동일하게 인스턴스를 생성해보면 동일하게 <code>new</code> 키워드를 사용하면 된다.</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p>Class로 만든 것을 기존 방법으로 다시 작성한다면 아래와 같을 것이다.</p>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+
+Vehicle.prototype.getName = function () {
+    return this.make + &quot; &quot; + this.model;
+}
+    
+const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p>이것은 Class가 Constructor 함수를 수행하는 새로운 방법이라는 것을 증명한다. 더욱 실제 Class와 비슷하게 만들기 위해서 도입된 몇 가지 규칙이 있다.</p>
+<a class="header" href="#생성자가-작동하려면-new-키워드가-필요하다" id="생성자가-작동하려면-new-키워드가-필요하다"><h4>생성자가 작동하려면 <code>new</code> 키워드가 필요하다.</h4></a>
+<pre><code class="language-js">const car = new Vehicle(&quot;Toyota&quot;, &quot;Corolla&quot;, &quot;Black&quot;);
+</code></pre>
+<p><code>new</code>를 사용하지 않고 만들 경우 아래와 같은 에러가 발생한다.</p>
+<a class="header" href="#class의-메서드는-non-enumerable-하다" id="class의-메서드는-non-enumerable-하다"><h4>Class의 메서드는 non-enumerable 하다.</h4></a>
+<p>JavaScript에서 객체의 각 속성에는 해당 속성에 대해 <code>enumerable flag</code> 가 있다. Class는 <code>prototype</code>에 정의된 모든 메서드에 대해 이 <code>flag</code>를 <code>false</code>로 설정한다.</p>
+<a class="header" href="#class에-생성자를-추가하지-않으면-기본-빈-constructor가-자동으로-추가된다" id="class에-생성자를-추가하지-않으면-기본-빈-constructor가-자동으로-추가된다"><h4>Class에 생성자를 추가하지 않으면 기본 빈 <code>constructor()</code>가 자동으로 추가된다.</h4></a>
+<pre><code class="language-js">constructor(){ }
+</code></pre>
+<a class="header" href="#class-안의-코드는-항상-strict-모드-이다" id="class-안의-코드는-항상-strict-모드-이다"><h4>Class 안의 코드는 항상 <strong><code>strict</code> 모드</strong> 이다.</h4></a>
+<p>이것은 오류가 없는 코드를 작성하거나, 잘못된 입력 또는 코드 작성 중 구문 오류 또는 다른 곳에서 참조된 실수로 일부 코드를 제거하여 코드를 작성하는 데 도움을 준다.</p>
+<a class="header" href="#class는-호이스팅이-되지-않는다" id="class는-호이스팅이-되지-않는다"><h4>Class는 호이스팅이 되지 않는다.</h4></a>
+<p><img src="https://user-images.githubusercontent.com/24274424/58710983-8059af00-83f8-11e9-91ae-f6b3fb887146.png" alt="image" /></p>
+<a class="header" href="#class는-constructor-함수나-객체-리터럴과-같은-속성-값-할당을-허용하지-않는다" id="class는-constructor-함수나-객체-리터럴과-같은-속성-값-할당을-허용하지-않는다"><h4>Class는 Constructor 함수나 객체 리터럴과 같은 속성 값 할당을 허용하지 않는다.</h4></a>
+<p>함수 또는 <code>getter/setter</code> 만 가질 수 있다. <code>property:value</code> 할당은 불가능하다.</p>
+<p><br/></p>
+<a class="header" href="#class-features" id="class-features"><h3>Class Features</h3></a>
+<a class="header" href="#constructor" id="constructor"><h4><code>constructor</code></h4></a>
+<p><code>constructor</code>는 Class 자체를 나타내는 함수 자체를 정의하는 <strong>Class 선언의 특수 함수</strong>이다. 인스턴스를 새로 만들면 <code>constructor()</code>가 자동으로 호출된다.</p>
+<pre><code class="language-js">const car = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;); // call constructor
+</code></pre>
+<p><code>constructor</code>는 <code>super</code> 키워드를 사용하여 확장된 Class <code>constructor</code>를 호출할 수 있다.</p>
+<p><strong>하나 이상의 생성자 함수를 가질 수 없다.</strong></p>
+<a class="header" href="#static-methods" id="static-methods"><h4>Static Methods</h4></a>
+<p>Static Methods는 <code>prototype</code> 에 정의된 Calss의 다른 메서드와는 다르게 <code>prototype</code>이 아닌 Class 자체의 함수이다.</p>
+<p>Static Methods는 <code>static</code> 키워드를 사용하여 선언하며 주로 유틸리티 함수를 만드는 데 사용된다. Class의 인스턴스를 만들지 않고 호출 가능하다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+
+    static getColor(v) {
+        return v.color;
+    }
+}
+
+let car = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+Vehicle.getColor(car); // &quot;purple&quot;
+</code></pre>
+<p><strong>정적 메서드는 Class 인스턴스에서 호출할 수 없다.</strong></p>
+<a class="header" href="#getter--setter" id="getter--setter"><h4>Getter / Setter</h4></a>
+<p>getter/setter를 사용하여 속성값을 가져오거나 속성값을 설정할 수 있다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(model) {
+        this.model = model;
+    }
+    
+    get model() {
+        return this._model;
+    }
+
+    set model(value) {
+        this._model = value;
+    }
+}
+</code></pre>
+<p>getter/setter는 Class <code>prototype</code>에 정의된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/58711552-bb101700-83f9-11e9-8298-959c243f3989.png" alt="image" /></p>
+<a class="header" href="#subclassing" id="subclassing"><h4>Subclassing</h4></a>
+<p>Subclassing은 Javascript Class에서 상속을 구현할 수 있는 방법으로 <code>extends</code> 키워드는 Class의 하위 클래스를 만드는 방법이다.</p>
+<pre><code class="language-js">class Vehicle {
+    constructor(make, model, color) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    getName() {
+        return this.make + &quot; &quot; + this.model;
+    }
+}
+
+class Car extends Vehicle{
+    getName(){
+        return this.make + &quot; &quot; + this.model +&quot; in child class.&quot;;
+    }
+}
+
+const car = new Car(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+car.getName(); // &quot;Honda Accord in child class.&quot;
+</code></pre>
+<p><code>getName()</code>를 호출하면 자식클래스의 함수가 호출된다.</p>
+<p>가끔 부모의 함수를 사용해야 할 때가 있다. 그럴 때는 <code>super</code> 키워드를 사용하면 된다.</p>
+<pre><code class="language-js">class Car extends Vehicle{
+    getName(){
+        return super.getName() +&quot;  - called base class function from child class.&quot;;
+    }
+}
+</code></pre>
+<ul>
+<li>옛날 방식인 <code>prototype</code>을 사용해서 상속 구현해보기</li>
+</ul>
+<pre><code class="language-js">function Vehicle(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+
+Vehicle.prototype.getName = function() {
+    return this.make + &quot; &quot; + this.model;
+};
+
+function Car(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+}
+Object.setPrototypeOf(Car, Vehicle);
+Object.setPrototypeOf(Car.prototype, Vehicle.prototype);
+Car.prototype.getName = function() {    
+    return this.make + &quot; &quot; + this.model +&quot; in child class.&quot;;
+};
+
+const vehicle = new Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+const car = new Car(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+console.log(vehicle.getName()); // Honda Accord
+console.log(car.getName()); // Honda Accord in child class.
+</code></pre>
+<p><br/></p>
+<a class="header" href="#팩토리-디자인-패턴-간단히-살펴보기" id="팩토리-디자인-패턴-간단히-살펴보기"><h2>팩토리 디자인 패턴 간단히 살펴보기</h2></a>
+<p>위의 코드를 아래와 같이 변경을 함으로써 <code>new</code> 키워드를 사용하지 않고 매번 새로운 객체를 만들어서 전달받는다.</p>
+<pre><code class="language-js">const Vehicle = function(make, model, color){
+    const newVehicle = {};
+    newVehicle.make = make;
+    newVehicle.model = model;
+    newVehicle.color = color;
+    
+    newVehicle.getName = function(){
+        return this.make + &quot; &quot; + this.model;
+    }
+    return newVehicle;
+};
+
+const vehicle = Vehicle(&quot;Honda&quot;, &quot;Accord&quot;, &quot;Purple&quot;);
+
+console.log(vehicle.getName()) //Honda Accord
+</code></pre>
+<hr />
+<a class="header" href="#reference-9" id="reference-9"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-classes-in-javascript">Understanding Classes in JavaScript</a></li>
+<li><a href="https://medium.com/@robertgrosse/how-es6-classes-really-work-and-how-to-build-your-own-fd6085eb326a">How ES6 classes really work and how to build your own</a></li>
+<li><a href="https://medium.com/front-end-weekly/understand-the-factory-design-pattern-in-plain-javascript-20b348c832bd">Understand the Factory Design Pattern in plain JavaScript</a></li>
+<li><a href="https://medium.com/tech-tajawal/javascript-classes-under-the-hood-6b26d2667677">Javascript Classes — Under The Hood</a></li>
+</ul>
+<a class="header" href="#this-call-apply-bind" id="this-call-apply-bind"><h1>this call apply bind</h1></a>
+<a class="header" href="#function-vs-method" id="function-vs-method"><h2>Function vs Method</h2></a>
+<p>한가지 예제를 살펴보고 <code>console.log()</code>가 어떻게 출력이 되는지 확인해보자.</p>
+<pre><code class="language-js">// 함수
+const greeting = () =&gt; {
+  console.log(this);
+}
+
+const module = {
+  greeting() {
+    console.log(this);
+  }
+}
+
+greeting(); // window object
+
+module.greeting(); // module object
+</code></pre>
+<p>흔히 사람들이 실수하는 코드 중 하나이다.</p>
+<p>여기서 제일 유심히 보아야 하는 것은 <code>this</code>가 다르다는 것이다. Java나 다른 언어에서의 <code>this</code>와는 다르게 작동하고 있다는 것은 확실하다.</p>
+<p><code>this</code>에 대한 더 많은 내용은 아래의 참고 글을 읽어보길 바란다.</p>
+<blockquote>
+<p>참고 <br/>
+<a href="https://github.com/Im-D/Dev-Docs/blob/master/Javascript/scope_this.md">scope this</a> <br/>
+<a href="https://github.com/Im-D/Dev-Docs/blob/master/Javascript/JavaScript%EC%9D%98%20this.md">JavaScript의 this</a></p>
+</blockquote>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  var changeName = function() {
+    console.log(this); // window
+    return this.name + '입니다.';
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>위와 같이 메서드 내부에서 함수를 정의하고 <code>this</code>를 사용하게 되면 Module이라고 생각하지만 <code>window</code>를 바라보고 있다. 그리고 이걸 해결하는 방법은 흔히 <code>self</code> 또는 <code>that</code>을 사용해서 해결한다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const self = this;
+  // const that = this;
+  
+  const changeName = function() {
+    console.log(self); // Module
+    return self.name + '입니다.';
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>또는 ES6에서 추가가 된 화살표 함수(Arrow Function)를 사용해서 해결 가능하다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = () =&gt; {
+    console.log(this); // Module
+    return this.name + '입니다.';  
+  }
+    return changeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p><br/></p>
+<a class="header" href="#call" id="call"><h2>call()</h2></a>
+<p>자바스크립트에서 object를 효율적으로 사용하면서 재사용 패턴까지 구현할 수 있는 유용한 방법으로 <code>Function.prototype.call()</code> 함수가 있다.</p>
+<p>call은 ES6에서 화살표 함수가 나오기 전 <code>self</code> 또는 <code>that</code>를 사용하지 않고 <code>this</code>까지 해결할 수 있는 방법이다.</p>
+<pre><code class="language-js"> function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  // return changeName.call(this, 1,2,3,4);
+  return changeName.call(this);
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>call은 호출하는 즉시 Function을 실행시킨다.</p>
+<pre><code class="language-js">fun.call(thisArg[, arg1[, arg2[, ...]]])
+</code></pre>
+<p><br/></p>
+<a class="header" href="#apply" id="apply"><h2>apply()</h2></a>
+<p>이번에는 call과 매우 유사한 apply를 보자.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  
+    // return changeName.apply(this, [1,2,3,4]);
+    return changeName.apply(this);
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<p>apply도 호출하는 즉시 Function을 실행시킨다.</p>
+<pre><code class="language-js">fun.apply(thisArg, [argsArray])
+</code></pre>
+<p>call과 apply는 첫 번째 인자의 <code>this</code>를 내부 함수에서 사용할 <code>this</code>로 설정한다. apply는 call과 같이 첫 번째 인자로 <code>this</code>를 받는 건 똑같지만 뒤에 넘겨줄 값을 <code>[1,2,3,4,5]</code>처럼 배열 형태로 넘겨준다. (<code>call</code>과 같은 경우에는 <code>1,2,3,4,5</code>처럼 배열이 아닌 <code>,</code>로 전달한다)</p>
+<p><br/></p>
+<a class="header" href="#bind" id="bind"><h2>bind()</h2></a>
+<p>call과 apply는 내부 함수에서 사용할 <code>this</code>를 설정하고 함수 바로 실행까지 해주지만, bind는 <code>this</code>만 설정해주고 함수 실행은 하지 않고 함수를 반환한다.</p>
+<pre><code class="language-js">function Module(name) {
+    this.name = name;
+}
+
+Module.prototype.getName = function() {
+  const changeName = function() {
+    console.log(this);
+    return this.name + '입니다.';
+  }
+  let bindChangeName = changeName.bind(this);
+    return bindChangeName();
+}
+
+const module = new Module('sNyung');
+
+console.log(module.getName());
+</code></pre>
+<hr />
+<a class="header" href="#reference-10" id="reference-10"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://blog.feruden.com/blog/call-apply-bind-in-javascript">https://blog.feruden.com/blog/call-apply-bind-in-javascript</a></li>
+<li><a href="https://wayhome25.github.io/javascript/2017/02/18/js-oop-1/">https://wayhome25.github.io/javascript/2017/02/18/js-oop-1/</a></li>
+</ul>
+<a class="header" href="#prototype-1" id="prototype-1"><h1>Prototype</h1></a>
+<div align=center>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototypeLogo.png?raw=true" alt="Main" /></p>
+</div>
+<p>Javascript는 Proptotype기반의 언어라고 한다.
+<br/>
+그렇다면 js를 공부한다면 알아야한다.
+<br/></p>
+<p>Javascript의 기본을 익힐때 Object, Function 이렇게 2가지를 먼저 생각하고 알고 있으면 된다.</p>
+<p><br/>
+<br/></p>
+<a class="header" href="#새로운-function-생성" id="새로운-function-생성"><h2>새로운 function 생성</h2></a>
+<p>먼저 새로운 function을 생성한다고 가정하자.
+<br/></p>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototype_1.png?raw=true" alt="prototype" /></p>
+<pre><code class="language-javascript">
+// 기본 function 생성
+function Animal(){
+    this.name = &quot;동물&quot;;
+}
+
+</code></pre>
+<p>프로토타입에 있어서 크게 2가지로 나누게 된다면</p>
+<ol>
+<li>function(생성자)</li>
+<li>prototype Object</li>
+</ol>
+<p>prototype object는 말그대로 object이면서 인자로 가지고 있는 constructor는 object function을 가르킨다.
+여기서 가르키는 functions이 1번의 function이다.
+function의 prototype은 prototype object를 가르키고 있다.
+즉 서로를 바라보고 있다.</p>
+<p><br/>
+<br/></p>
+<a class="header" href="#function생성자" id="function생성자"><h3>Function(생성자)</h3></a>
+<p>위에서 생성된 function은 생성자의 역할을 한다. 우리가 만약
+<br/></p>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototype_2.png?raw=true" alt="prototype" /></p>
+<pre><code class="language-javascript">
+// cat 생성
+var cat = new Animal();
+
+</code></pre>
+<p>위와 같이 고양이를 생성하게 된다면 function Animal인 생성자를 실행하는 것이다.
+<br/>
+또한 function Animal안을 보게 되면 prototype이라는 인자가 있다. 이것은 Animal.prototype하고 연결이 되있는 것이다.
+<br/>
+<br/></p>
+<a class="header" href="#prototype-object" id="prototype-object"><h3>Prototype Object</h3></a>
+<p>그렇다면 이녀석?은 무엇일까?
+<br/>
+기본적인 Animal의 prototype을 추가하게 되면 들어가는 객체이다.
+<br/>
+추가적으로 constructor 역시 이 곳으로 들어가게 되고 function Animal하고 연결이 되어있어 생성을 한다면 여기의 생성자를 타게 된다.</p>
+<pre><code class="language-javascript">
+Animal.prototype.constuctor / Animal(){this.name = &quot;동물&quot;;}
+
+</code></pre>
+<p>이렇게 function Animal과 Animal.prototype(Object)를 서로 연결이 되어있다.</p>
+<a class="header" href="#prototype-link" id="prototype-link"><h2>Prototype Link</h2></a>
+<p><code>[[Prototype]]]</code>, <code>__proto__</code> 2개는 의미가 똑같다 그거 표기법이 다른 것이다.
+<br/>
+그렇다면 위의 2개는 무엇일까:question:
+<br/>
+먼저 위에서 생성한 <code>cat</code>을 살펴보면</p>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototype_3.png?raw=true" alt="prototype" /></p>
+<pre><code class="language-javascript">
+cat
+//result
+//animal {name: &quot;test&quot;}
+//  name: &quot;test&quot;
+//  __proto__: Object
+
+</code></pre>
+<p><code>cat</code>의 내역에는 당연하게 생성자로 생성된 name이 있다.
+<br/>
+그런데 그 아래는?? 들어보지 못한 것이 하나 더 생겼다.
+<br/>
+이것이 바로 Javascript에서 중요한 역할을 하게 된다.</p>
+<pre><code class="language-javascript">
+cat.hasOwnProperty(&quot;name&quot;) //true
+
+</code></pre>
+<p>위의 예제를 보게 되면 나는 <code>hasOwnPropert</code>이런 함수를 생성한 적이 없다. 이 함수는 어디서 오게된 것일까:question:
+<br/>
+<br/></p>
+<p><strong>바로 최상의 Object인 Object.prototype에서 온 것이다.</strong>
+<br/>
+<br/></p>
+<p>어떻게 해서 그것까지 갈 수가 있던걸까:question: 라고 생각할 수 있다.
+<br/>
+바로 그역할을 하는 것이 <code>__proto__</code>이다.
+<br/>
+<br/></p>
+<p><code>__proto__</code>안을 보게 되면 <code>constructor : Animal()</code>이 있는 것을 볼 수 있다. 즉, <code>cat</code>을 생성한 <code>function</code>의 <code>prototype</code>이 <code>__proto__</code>에 연결이 되어 있다는 것을 알게 되는 것이다.
+<br/></p>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototype_4.png?raw=true" alt="prototype" /></p>
+<p>또한 Animal.prototype.__proto__에는 Object.prototype에 연결이 되어있다. 그리고 그 안에는 우리가 사용한 <code>hasOwnPropert</code>이 있어서 사용을 하는 것이다.
+<br/>
+<br/></p>
+<p>그렇다면 <code>Object.prototype.__proto__</code>는 무엇일까:question: 아무것도 없다. 그냥 <code>null</code>이 나온다. 모든 마지막은 <code>Object.prototype</code>에서 끝이 나는 것이다.</p>
+<pre><code class="language-javascript">
+Object.prototype.__proto__ // null
+
+</code></pre>
+<p><br/>
+<br/></p>
+<a class="header" href="#참고" id="참고"><h2>참고</h2></a>
+<ul>
+<li><a href="https://poiemaweb.com/js-prototype">poiemaweb</a></li>
+<li><a href="http://kenneth-kin-lum.blogspot.com/2012/10/javascripts-pseudo-classical.html">kenneth-kin-lum.blogs</a></li>
+</ul>
+<p><br/>
+<br/></p>
+<a class="header" href="#간단한-심화" id="간단한-심화"><h2>간단한 심화</h2></a>
+<p>심화적으로 최종적으로 Object로 모든것이 연결이 되는 것도 있지만 Object function.__proto__가  f(){}에 연결이 되어있다. f(){}의 constructor는 Function function이다.
+<br/></p>
+<p><img src="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/assets/image/prototype_5.png?raw=true" alt="prototype" /></p>
+<p>또한
+<br/></p>
+<p>Function.prototype Object의 __proto__는 Object.prototype Object에 연결이 되어있다.
+<br/></p>
+<p>즉,<br/>
+이런걸로 봐서는 Function.prototype.__proto__는 당연히 객체임으로 최상위 Object.prototype에 연결이 되는 것이고, 추가적으론 Object function의 __proro__는 함수라고 생각을 하여 Function.prototype에 연결이 되는 것이다.</p>
+<a class="header" href="#objectcreate--objectassign" id="objectcreate--objectassign"><h1>Object.create() &amp; Object.assign()</h1></a>
+<a class="header" href="#objectcreate" id="objectcreate"><h2>Object.create()</h2></a>
+<pre><code class="language-js">Object.create(prototype_object, propertiesObject)
+</code></pre>
+<p><code>Object.create()</code>는 기준이 되는 Object를 prototype으로 만들고 <strong>새로운 객체를 생성</strong>한다.</p>
+<p><code>Object.create()</code>는 주로 객체를 상속하기 위해 사용하는 메서드다. 첫 번째 인자를 상속하며, 두 번째 인자의 속성들을 추가로 구성한다.</p>
+<p><br/></p>
+<a class="header" href="#두번째-인자---속성의-구성요소" id="두번째-인자---속성의-구성요소"><h3>두번째 인자 - 속성의 구성요소</h3></a>
+<p>공통의 구성요소는</p>
+<ol>
+<li><strong><code>configurable</code></strong> 속성의 값을 변경할 수 있고, 삭제할 수도 있다면 <code>true</code>로 설정한다. 기본값은 <code>false</code>.</li>
+<li><strong><code>enumerable</code></strong> 속성이 대상 객체의 속성 열거 시 노출이 되게 하려면 <code>true</code>로 설정한다. 기본값은 <code>false</code>.</li>
+</ol>
+<p>데이터 서술을 하는 데 사용되는 키는</p>
+<ol>
+<li><strong><code>value</code></strong> 속성값. 아무 JavaScript 값(숫자, 객체, 함수 등)이나 가능하다. 기본값은 <code>undefined</code></li>
+<li><strong><code>writable</code></strong> 할당 연산자로 속성의 값을 바꿀 수 있다면 <code>true</code>로 설정한다. 기본값은 <code>false</code>.</li>
+</ol>
+<p>접근자 서술을 하는 데 사용되는 키는</p>
+<ol>
+<li><strong><code>get</code></strong> 속성 접근자로 사용할 함수, 접근자가 없다면 <code>undefined</code>.
+<ul>
+<li>속성에 접근하면 이 함수를 매개변수 없이 호출하고, 반환 값이 속성의 값이 된다. 이때 <code>this</code> 값은 이 속성을 가진 객체=이다. 기본값은 <code>undefined</code>.</li>
+</ul>
+</li>
+<li><strong><code>set</code></strong> 속성 설정자로 사용할 함수, 설정자가 없다면 <code>undefined</code>.
+<ul>
+<li>속성에 값을 할당하면 이 함수를 하나의 매개변수로 호출한다. 이때 <code>this</code> 값은 이 속성을 가진 객체이다. 기본값은 <code>undefined</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>Object.create()</code>의 2번째 인자는 <code>Object.defineProperties()</code>를 따른다.</strong></p>
+<p><br/></p>
+<hr />
+<p>위의 구성요소는 이전에 사용하던 <code>Object.defineProperties()</code>에서 나오는 개념이다. 그 전에 <code>Object.defineProperties()</code>의 단일 설정 함수인 <code>Object.defineProperty()</code>를 살펴보자</p>
+<p><br/></p>
+<a class="header" href="#objectdefineproperty" id="objectdefineproperty"><h3>Object.defineProperty()</h3></a>
+<p><code>Object.defineProperty()</code>는 객체에 직접 새로운 속성을 정의하거나 이미 존재하는 속성을 수정한 후, <strong>그 객체를 반환한다.</strong></p>
+<pre><code class="language-js">Object.defineProperty(obj, prop, descriptor)
+</code></pre>
+<ul>
+<li><strong><code>obj</code></strong> : 속성을 정의할 객체.</li>
+<li><strong><code>prop</code></strong> : 새로 정의하거나 수정하려는 속성의 이름 또는 <code>Symbol</code>.</li>
+<li><strong><code>descriptor</code></strong> : 새로 정의하거나 수정하려는 속성을 기술하는 객체.</li>
+</ul>
+<p>아래의 예제는 자세히 보아야 한다. 여러 개념이 들어가 있는 예제이다.</p>
+<pre><code class="language-js">const obj = {
+  age: 27, 
+  country : 'seoul'
+}
+let oldCountry = 'Yongin'
+
+console.log('init str', obj) // init str {age: 27, country: &quot;seoul&quot;}
+
+const descriptor = {
+  enumerable: true,
+  configurable: true,
+  get: function(){
+    return '???'
+  },
+  set: function(value){
+    oldCountry = value
+  }
+}
+
+const newObj = Object.defineProperty(obj, 'country', descriptor) // 기존의 속성에서 새로운 속성을 정의
+console.log('obj values =&gt; ',obj, obj.age, obj.country) // obj values =&gt;  {age: 27} 27 ???
+console.log('newObj values =&gt; ',newObj, newObj.age, newObj.country) // newObj values =&gt;  {age: 27} 27 ???
+console.log('oldCountry =&gt; ', oldCountry) // oldCountry =&gt;  Yongin
+
+newObj.age = 28
+newObj.name = 'sNyung'
+newObj.country = 'Re Seoul'
+console.log('After newObj &amp;&amp; obj values are =&gt; ', obj, obj.age, obj.country) // After newObj &amp;&amp; obj values are =&gt;  {age: 28, name: &quot;sNyung&quot;} 28 ???
+console.log('oldCountry =&gt; ', oldCountry) // oldCountry =&gt;  Re Seoul
+</code></pre>
+<p><br/></p>
+<a class="header" href="#objectdefineproperties" id="objectdefineproperties"><h3>Object.defineProperties()</h3></a>
+<pre><code class="language-js">Object.defineProperties(obj, props)
+</code></pre>
+<p><code>Object.defineProperty()</code>의 복수 버전이다.</p>
+<pre><code class="language-js">Object.defineProperties(obj, {
+  'property1': {
+    value: true,
+    writable: true
+  },
+  'property2': {
+    value: 'Hello',
+    writable: false
+  }
+});
+</code></pre>
+<hr />
+<a class="header" href="#objectcreate---sample-1" id="objectcreate---sample-1"><h3>Object.create() - Sample 1</h3></a>
+<pre><code class="language-js">const prototypeObject = {
+  fullName: function(){
+    return this.firstName + &quot; &quot; + this.lastName		
+  }
+}
+
+const person = Object.create(prototypeObject, {
+  'firstName': {
+    value: &quot;sNyung&quot;, 
+    writable: true, 
+    enumerable: true
+  },
+  'lastName': {
+    value: &quot;jo&quot;,
+    writable: true,
+    enumerable: true
+  }
+})
+    
+console.log(person) // {firstName: &quot;sNyung&quot;, lastName: &quot;jo&quot;}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/59965008-b7c50280-9543-11e9-805e-4fcc55430d0e.png" alt="image" /></p>
+<p><br/></p>
+<a class="header" href="#new-vs-objectcreate" id="new-vs-objectcreate"><h3>New VS Object.create()</h3></a>
+<p><code>Object.create()</code>와 <code>new Constructor()</code>는 꽤 비슷하지만, 다른 점이 있다. 다음은 이 둘의 차이를 보여주는 예제이다.</p>
+<pre><code class="language-js">function Dog(){
+  this.pupper = 'Pupper';
+};
+Dog.prototype.pupperino = 'Pups.';
+
+const maddie = new Dog();
+const buddy = Object.create(Dog.prototype);
+
+// Object.create()
+console.log(buddy.pupper); // undefined
+console.log(buddy.pupperino); // Pups.
+
+// New
+console.log(maddie.pupper); // Pupper
+console.log(maddie.pupperino); // Pups.
+</code></pre>
+<p>성능상으로 new 생성자를 사용하는 것이 좋다고 한다. 확실히 성능 테스트를 해보면 알 수 있다.
+<br/></p>
+<a class="header" href="#성능-테스트" id="성능-테스트"><h3>성능 테스트</h3></a>
+<p><a href="https://jsperf.com/snyung-new-vs-object-create">https://jsperf.com/snyung-new-vs-object-create</a></p>
+<pre><code class="language-js">function Obj() {
+  this.p = 1;
+}
+
+Obj.prototype.chageP = function(){
+  this.p = 2
+};
+
+console.time('Object.create()');
+var obj;
+for (let i = 0; i &lt; 10000; i++) {
+  obj = Object.create(propObj);
+}
+console.timeEnd('Object.create()');
+// Object.create(): 약 12.994140625ms
+
+console.time('constructor function');
+var obj2;
+for (let i = 0; i &lt; 10000; i++) {
+  obj2 = new Obj();
+}
+console.timeEnd('constructor function');
+// new: 약 2.379150390625ms
+</code></pre>
+<p><br/></p>
+<a class="header" href="#polyfill" id="polyfill"><h3>Polyfill</h3></a>
+<pre><code class="language-js">Object.create = (function () {
+  function obj() {};
+
+  return function (prototype, propertiesObject) {
+    // 첫 번째 인자를 상속하게 한다.
+    obj.prototype = prototype || {};
+
+    if (propertiesObject) {
+      // 두 번째 인자를 통해 속성을 정의한다.
+      Object.defineProperties(obj.prototype, propertiesObject);
+    }
+
+    return new obj();
+  };
+})();
+
+//--------------TEST---------------
+
+const Vehicle = function(){
+  this.wheel = 4
+}
+
+Vehicle.prototype.getWheel = function() {
+  return this.wheel
+}
+
+const Motorcycle = Object.create(Vehicle.prototype, {'wheel': {value: 3, writable: true}});
+console.log(Motorcycle)
+</code></pre>
+<p><br/></p>
+<a class="header" href="#compat-table" id="compat-table"><h3>Compat Table</h3></a>
+<p><img src="https://user-images.githubusercontent.com/24274424/59957350-70525e00-94d2-11e9-97ea-a483763149d1.png" alt="image" /></p>
+<p><br/></p>
+<a class="header" href="#objectassign" id="objectassign"><h2>Object.assign()</h2></a>
+<p><code>Object.assign()</code> 메서드는 열거할 수 있는 하나 이상의 출처 객체로부터 대상 객체로 속성을 복사할 때 사용한다. 대상 객체를 반환한다.</p>
+<ul>
+<li><strong><code>target</code></strong> : 대상 객체.</li>
+<li><strong><code>sources</code></strong> : 하나 이상의 출처 객체.</li>
+</ul>
+<pre><code class="language-js">const obj = { a: 1 };
+const copy = Object.assign({}, obj);
+
+console.log(copy); // { a: 1 }
+</code></pre>
+<p><code>Object.assign()</code>은 첫 번째 인자로 들어오는 target을 대상으로 두 번째 이후로 들어오는 인자를 병합할 때 사용한다.
+<br/></p>
+<a class="header" href="#예시" id="예시"><h3>예시</h3></a>
+<p>같은 properties가 들어올 경우 마지막에 들어온 값이 덮어쓰게 된다.</p>
+<pre><code class="language-js">// app.js
+
+let o1 = { a: 21, b: 22, c: 24 };
+let o2 = { b: 23, c: 25 };
+let o3 = { c: 26 };
+
+let finalObj = Object.assign({}, o1, o2, o3);
+console.log(finalObj); // {a: 21, b: 23, c: 26}
+</code></pre>
+<p>그러나 안타깝게도 <code>Object.assign()</code>는 ES6 문법의 Spread Operator가 나오면서 관심이 많이 줄어들게 되었다.
+같은 기능을 포함하고 있는 ES6 문법의 Spread는 숙련도에 따라 다양하게 사용될 수 있다.</p>
+<p>가장 많이 사용되는 기능 3가지를 포함하고 있는 예시를 보게 되면,</p>
+<pre><code class="language-js">// Create Function with REST
+const add = function(...arg){
+  console.log('arg', arg)
+  arg.map(e =&gt; console.log(e))
+}
+
+// Create Object
+const obj = { a : 1, b : 2, c: 3, d: 4}
+// Create Arr + Spread
+const arr = ['a', ...Object.values(obj), 'b', 'c']
+console.log(...arr)
+add(...arr)
+
+const {a,b, ...rest} = obj
+console.log(a, b, rest)
+</code></pre>
+<p>위와 같이 <code>...</code>은 사용 방법에 따라 다양하게 사용될 수 있다. 더 많은 기능을 찾아보기를 바란다.
+<br/></p>
+<a class="header" href="#polyfill-1" id="polyfill-1"><h3>Polyfill</h3></a>
+<pre><code class="language-js">Object.defineProperty(Object, &quot;assign&quot;, {
+  value: function assign(target, varArgs) { // .length of function is 2
+    'use strict';
+    if (target == null) { // TypeError if undefined or null
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+
+    var to = Object(target);
+
+    for (var index = 1; index &lt; arguments.length; index++) {
+      var nextSource = arguments[index];
+
+      if (nextSource != null) { // Skip over if undefined or null
+        for (var nextKey in nextSource) {
+          // Avoid bugs when hasOwnProperty is shadowed
+          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+            to[nextKey] = nextSource[nextKey];
+          }
+        }
+      }
+    }
+    return to;
+  },
+  writable: true,
+  configurable: true
+});
+</code></pre>
+<p><br/></p>
+<a class="header" href="#compat-table-1" id="compat-table-1"><h3>Compat Table</h3></a>
+<p><img src="https://user-images.githubusercontent.com/24274424/59957367-9ed03900-94d2-11e9-80af-cfcad4784f78.png" alt="image" /></p>
+<p><br/></p>
+<a class="header" href="#reference-11" id="reference-11"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create() - MDN</a></li>
+<li><a href="https://hackernoon.com/object-create-in-javascript-fa8674df6ed2">Object.create in JavaScript</a></li>
+<li><a href="https://www.htmlgoodies.com/beyond/javascript/object.create-the-new-way-to-create-objects-in-javascript.html">Object.create(): the New Way to Create Objects in JavaScript</a></li>
+<li><a href="http://adripofjavascript.com/blog/drips/basic-inheritance-with-object-create.html">Basic Inheritance with Object.create</a></li>
+<li><a href="https://medium.com/@jonathanvox01/understanding-the-difference-between-object-create-and-the-new-operator-b2a2f4749358">Understanding the difference between Object.create() and the new operator.</a></li>
+<li><a href="https://www.sitepoint.com/javascript-object-creation-patterns-best-practises/">JavaScript Object Creation: Patterns and Best Practices</a></li>
+<li><a href="https://github.com/wonism/TIL/blob/master/front-end/javascript/object-create.md">object-create.md - wonism</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() = MDN</a></li>
+</ul>
+<a class="header" href="#javascript란-1" id="javascript란-1"><h1>JavaScript란?</h1></a>
+<p><code>JavaScript(JS)</code>는 <strong>가벼운 인터프리터형</strong>, <strong>JIT-컴파일형 프로그래밍 언어</strong>, <code>first-class functions</code>를 지원한다.</p>
+<p>주로 웹 페이지를 위한 스크립팅 언어로 알려졌지만, <code>Node.js, Apache CouchDB, Adobe Acrobat</code>처럼 많은 비 브라우저 환경에서도 사용된다.</p>
+<p><code>JavaScript</code>는 <strong>프로토타입 기반의 다중 패러다임 스크립팅 언어</strong>로서, 역동적이고, 객체지향형, 명령형 및 선언형(가령 <strong>함수형 프로그래밍</strong>) 스타일을 지원한다.</p>
+<p>이 문서는 <code>JavaScript</code> 언어 자체만 다루며 웹 페이지를 비롯한 다른 사용 환경에 대해서는 다루지 않는다. 웹 페이지의 특정 API에 대하여 알고 싶다면 <code>웹 API</code>와 <code>DOM</code>을 참고하면 됩니다.</p>
+<a class="header" href="#javascript의-표준은-ecmascript입니다-1" id="javascript의-표준은-ecmascript입니다-1"><h2><code>JavaScript</code>의 표준은 <code>ECMAScript</code>입니다.</h2></a>
+<p>2012년 기준 최신 브라우저는 모두 <code>ECMAScript 5.1</code>을 전부 지원한다.</p>
+<p>이전 브라우저의 경우는 최소한 <code>ECMAScript 3</code>까지 지원한다.</p>
+<p>2015년 6월 17일 <code>ECMA International</code>에서는 ㄴ공식명 <code>ECMAScript 2015</code>로 불리는 <code>ECMAScript</code>의 6번째 주 버전을 발표했다(<code>ECMAScript 6</code> 혹은 <code>ES6</code>).</p>
+<p>그 이후 <code>ECMAScript</code> 표준은 출시가 <strong>1년 주기</strong>이다.</p>
+<a class="header" href="#javascript를-java-프로그래밍-언어와-혼동해서는-안된다-1" id="javascript를-java-프로그래밍-언어와-혼동해서는-안된다-1"><h2><code>JavaScript</code>를 <code>Java</code> 프로그래밍 언어와 혼동해서는 안된다.</h2></a>
+<p>&quot;Java&quot;와 &quot;JavaScript&quot; 두 가지 모두 Oracle이 미국 및 기타 국가에 등록한 상표이다. 하지만, 두 언어는 문법 체계와 사용방법이 전혀 다릅니다.</p>
+<hr />
+<a class="header" href="#reference-12" id="reference-12"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">MDN-javascript</a></li>
+</ul>
 <a class="header" href="#es3" id="es3"><h1>ES3</h1></a>
 <a class="header" href="#es3-execution-contexts" id="es3-execution-contexts"><h1>[ES3] Execution Contexts</h1></a>
 <a class="header" href="#도입" id="도입"><h2>도입</h2></a>
@@ -317,7 +3129,7 @@ eval('x = 2', bar); // pass context, influence internal var &quot;x&quot;
 <p>하지만 최신 엔진에서는 보안상의 이유로 수정되어 더 이상 중요하지 않다.</p>
 </blockquote>
 <hr />
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<a class="header" href="#reference-13" id="reference-13"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/">ECMA-262-3 in detail. Chapter 1. Execution Contexts</a></li>
 </ul>
@@ -689,7 +3501,7 @@ a.call({b: 20}, 30); // this === {b: 20}, this.b == 20, c == 30
 a.apply({b: 30}, [40]) // this === {b: 30}, this.b == 30, c == 40
 </code></pre>
 <p><br/></p>
-<a class="header" href="#reference-1" id="reference-1"><h4>Reference</h4></a>
+<a class="header" href="#reference-14" id="reference-14"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/">Dmitry Soshnikov  in ECMAScript</a></li>
 <li><a href="http://huns.me/development/258">김코딩님이 코딩 잘하고 싶어서 만든 블로그</a></li>
@@ -1002,7 +3814,7 @@ Scope = catchObject + AO|VO + [[Scope]]
 </code></pre>
 <p><code>catch</code>절 내의 작업이 종료된 후에, 스코프 체인은 이전 상태로 돌아온다.</p>
 <hr />
-<a class="header" href="#reference-2" id="reference-2"><h4>Reference</h4></a>
+<a class="header" href="#reference-15" id="reference-15"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/">scope-chain</a></li>
 </ul>
@@ -1022,7 +3834,7 @@ function foo() {...}
 <a class="header" href="#함수의-종류" id="함수의-종류"><h2>함수의 종류</h2></a>
 <p><code>ECMAScript</code> 에는 세가지 종류의 함수가 있고, 각각의 고유한 특징을 갖는다.
 <br/></p>
-<a class="header" href="#함수-선언식" id="함수-선언식"><h3>함수 선언식</h3></a>
+<a class="header" href="#함수-선언식-1" id="함수-선언식-1"><h3>함수 선언식</h3></a>
 <p>함수 선언식(줄여서 FD)은 다음과 같은 특징을 갖는다.</p>
 <ul>
 <li>반드시 이름을 가진다.</li>
@@ -1053,7 +3865,7 @@ function globalFD() {
 </code></pre>
 <p>함수를 선언할 수 있는 위치는 결국 두 군데가 있는 것이다.
 <br/></p>
-<a class="header" href="#함수-표현식" id="함수-표현식"><h3>함수 표현식</h3></a>
+<a class="header" href="#함수-표현식-1" id="함수-표현식-1"><h3>함수 표현식</h3></a>
 <p>함수 표현식(줄여서 FE)은 다음과 같은 함수다.</p>
 <ul>
 <li><strong>표현식 위치</strong>에만 정의할 수 있다.</li>
@@ -1271,7 +4083,7 @@ delete Scope[0]; // 스코프 체인의 가장 앞에 있는 specialObject를 �
 <a class="header" href="#마무리" id="마무리"><h2>마무리</h2></a>
 <p>생각보다 내용이 많아졌다. 나도 선언식, 표현식을 비교하면서 보여주는 블로그들은 많이 봤지만 정확히 왜 그렇게 되고 즉시실행은 왜 저렇게 될 수 밖에 없는 것인가에 대해서 정리를 해보았다. 자꾸자꾸 보면서 쉬운말로 고쳐봐야겠다.</p>
 <hr />
-<a class="header" href="#reference-3" id="reference-3"><h4>Reference</h4></a>
+<a class="header" href="#reference-16" id="reference-16"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/">chapter-5-functions</a></li>
 </ul>
@@ -1609,7 +4421,7 @@ xmlHttpRequestObject.onreadystatechange = function () {
 alert(foo.getX()); // 클로저 변수 &quot;x&quot;의 값은 10
 </code></pre>
 <hr />
-<a class="header" href="#reference-4" id="reference-4"><h4>Reference</h4></a>
+<a class="header" href="#reference-17" id="reference-17"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-6-Closure/">chapter-6-closure</a></li>
 </ul>

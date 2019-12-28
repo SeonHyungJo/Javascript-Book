@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DOM - Javascript Basic &amp; Detail</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html" class="active"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <style>
+  header.warning {
+    background-color: rgb(242, 222, 222);
+    border-bottom-color: rgb(238, 211, 215);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.666667px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(238, 211, 215);
+    border-left-style: solid;
+    border-left-width: 0.666667px;
+    border-right-color: rgb(238, 211, 215);
+    border-right-style: solid;
+    border-right-width: 0.666667px;
+    border-top-color: rgb(238, 211, 215);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid;
+    border-top-width: 0.666667px;
+    color: rgb(185, 74, 72);
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 35px;
+    padding-top: 8px;
+    text-align: center;
+  }
+</style>
+
+
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><img src="https://user-images.githubusercontent.com/24274424/57984686-291f1a80-7a99-11e9-9fbc-b2bbcc663209.png" alt="DOM" /></p>
+<p>들어가기에 앞서 먼저 BOM에 대해서 알아보자.</p>
+<p>당연하게 웹은 브라우저에서 돌아가기 때문에 웹 개발을 하다 보면 브라우저와 밀접한 관계를 가지게 된다. 브라우저와 관련된 객체들의 집합을 브라우저 객체 모델(BOM : Browser Object Model)이라고 부른다. BOM을 사용하면 창을 이동하고 상태 표시줄의 텍스트를 변경하는 페이지 내용과 직접 관련이 없는 브라우저와 관련된 기능을 사용할 수 있다. <strong>DOM은 이 BOM 중 하나이다.</strong></p>
+<blockquote>
+<p>예시)  <code>history</code>, <code>location</code>, <code>navigator</code>,  <code>screen</code></p>
+</blockquote>
+<p>BOM의 최상위 객체는 window라는 객체이고, DOM은 window 객체의 하위 객체이다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984688-291f1a80-7a99-11e9-8926-09a8b8adb39c.gif" alt="GIF_window document" />
+<br/></p>
+<a class="header" href="#dom이란" id="dom이란"><h2>DOM이란?</h2></a>
+<blockquote>
+<p>문서 객체 모델(The Document Object Model(DOM)) 은 HTML, XML 문서의 프로그래밍 interface 이다. - MDN</p>
+</blockquote>
+<p>HTML에는 <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>와 같은 많은 태그가 있는데 이를 JavaScript로 사용할 수 있도록 객체로 만들면 그것을 <strong>Document Object하고 한다.</strong></p>
+<p>DOM은 문서의 구조화된 표현을 제공하며 <strong>프로그래밍 언어(JavaScript 등)가 DOM 구조에 접근할 수 있는 방법을 제공하여 문서 구조, 스타일, 내용 등을 변경할 수 있도록 해준다.</strong>
+<br/></p>
+<a class="header" href="#dom은-어떻게-생겼나" id="dom은-어떻게-생겼나"><h3>DOM은 어떻게 생겼나?</h3></a>
+<p>DOM의 모양을 이해하는데 선행되는 자료구조는 <strong>Tree 구조</strong>이다. DOM이 바로 Tree 형식의 자료구조를 가지고 있기 때문이다.</p>
+<p>이름 그대로 Tree 구조는 나무가 땅에서 솟아 위로 뻗어 나가면서 가지를 치면서 나가는 모양으로, DOM은 거꾸로 있는 모양이다.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984687-291f1a80-7a99-11e9-811b-bc9b3b1dfef5.png" alt="DOM_Tree"/>
+</p>
+> The HTML DOM Tree of Object(by w3school)
+<br/>
+<p>DOM은...</p>
+<ul>
+<li>문서의 구조화된 표현을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공한다.</li>
+<li>문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다.</li>
+</ul>
+<p>우리가 위와같이 조작을 할 수 있는 이유는 DOM API를 제공하기 때문이다.
+아래의 사진은 Node 하위 구조를 보여주고 있다.</p>
+<p><img src="https://web.stanford.edu/class/cs98si/img/dom_types.png" alt="DOM 계층" /></p>
+<p>출처: <a href="http://www.stanford.edu/class/cs98si/slides/the-document-object-model.html">http://www.stanford.edu/class/cs98si/slides/the-document-object-model.html</a></p>
+<p>프로토타입 기반으로 본다면 아래와 같은 구조를 가진다.</p>
+<pre><code class="language-js">Object &lt; EventTarget &lt; Node &lt; DocumentType &lt; &lt;!DOCTYPE html&gt;(ElementNode)
+
+Object &lt; EventTarget &lt; Node &lt; Element &lt; HtmlElement &lt; HtmlhtmlElement &lt; html(ElementNode)
+</code></pre>
+<ul>
+<li>아래 코드와 같이 HTML Element Node는 상속(Object, EventTarget, Node, Element, HtmlElement, HTMLhtmlElement) 받은 모든 객체의 속성 및 메서드들을 사용할 수 있게 된다.</li>
+</ul>
+<pre><code class="language-js">const html = document.querySelector('html');
+
+console.log(html); // html
+console.log(html.__proto__); // HTMLhtmlElement
+console.log(html.__proto__.__proto__); // HtmlElement
+console.log(html.__proto__.__proto__.__proto__); // Elemenet
+console.log(html.__proto__.__proto__.__proto__.__proto__); // Node
+console.log(html.__proto__.__proto__.__proto__.__proto__.__proto__); // EventTarget
+console.log(html.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__); // Object
+</code></pre>
+<p><br/></p>
+<a class="header" href="#dom과-html-코드의-차이점" id="dom과-html-코드의-차이점"><h2>DOM과 HTML 코드의 차이점</h2></a>
+<p>우리가 웹페이지를 만들 때 HTML을 작성한다. 그렇다면 우리가 작성하는 이 소스가 DOM과 똑같을까?</p>
+<p>우리가 작성한 소스는 브라우저가 읽어서 DOM Tree를 만든다.</p>
+<blockquote>
+<p>참고) Im-D/Dev-Docs <a href="https://github.com/Im-D/Dev-Docs/blob/master/Browser/%EC%9B%B9%20%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%20%EC%9E%91%EB%8F%99%20%EC%9B%90%EB%A6%AC.md"> 브라우저의 작동 원리</a></p>
+</blockquote>
+<p>HTML 코드는 DOM과 똑같은 것으로 예상되지만 브라우저에서 생성한 DOM과는 엄연히 다르다. 예시로 우리가 작성한 코드 중 중대한 오류가 아닌 이상 브라우저가 자동으로 소스 코드의 오류를 수정한다. (Ex. tbody)</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984677-27eded80-7a99-11e9-8a67-62516944a1ab.png" alt="code1" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984678-27eded80-7a99-11e9-8ebb-45d120464b0f.png" alt="code1_devtool" width="400"/></p>
+</p>
+위의 사진을 비교하게 되면 왼쪽은 실제 코드를 작성한 것이고 오른쪽은 실제 DOM으로 만들어진 모양이다. 실제로 tbody 태그를 작성하지 않았지만 만들어주는 것을 보여준다.
+<p>이외</p>
+<ul>
+<li>HTML 파일에 단어 하나라도 존재하더라도 브라우저는 이를 <code>html</code>과 <code>body</code> 으로 감싸고 <code>head</code>를 필수적으로 추가한다.</li>
+</ul>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984679-27eded80-7a99-11e9-87bd-acc9fbafd3e3.png" alt="code2" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984680-28868400-7a99-11e9-8dbb-0bb56a3ad599.png" alt="code2_devtool" width="400"/></p>
+</p>
+<ul>
+<li>DOM을 생성하는 과정에서 여는 태그는 작성을 하고 닫는 태그를 작성하지 않는 경우 자동 생성하여 맞춰서 오류가 발생하지 않는다.</li>
+</ul>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/24274424/57984681-28868400-7a99-11e9-95e4-f0c8797dfceb.png" alt="code3" width="400"/>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984682-28868400-7a99-11e9-93f5-68542db5cf5e.png" alt="code3_devtool" width="400"/></p>
+</p>
+<p>그렇다면 우리가 작성한 코드가 실제 DOM으로 만들어진 것을 어디서 볼 수 있나?
+<br/></p>
+<a class="header" href="#devtools" id="devtools"><h2>DevTools</h2></a>
+<p>우리가 브라우저로 소스를 열어서 <code>F12</code>버튼 또는 <code>Ctrl + Shift + i</code>를 누르게 되면 브라우저 DevTools이 나오게 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984683-28868400-7a99-11e9-8d75-64216c78a9c7.gif" alt="dev_tools" />
+<br/></p>
+<a class="header" href="#element-tab" id="element-tab"><h3>Element Tab</h3></a>
+<p>Element가 실제로 그려진 DOM Tree를 볼 수 있는 곳으로 <strong>Element의 스타일 이벤트 등을 볼 수 있으며 실제로 조작을 하면서 변화를 확인해 볼 수 있다.</strong>
+<br/></p>
+<a class="header" href="#console-tab" id="console-tab"><h3>Console Tab</h3></a>
+<p>JavaScript를 사용해서 DOM을 조작할 수 있다. 실제로 JavaScript 엔진을 사용해서 테스트를 해보고 싶을 때 많이 사용하는 공간으로 IntelliSense를 보는 공간으로도 사용이 가능하다.</p>
+<p>브라우저에서 테스트할 때 원하는 Element를 JavaScript로 찾기 힘들 때 Element Tab에서 해당 Element를 클릭 후 Console 창에서 <code>$0</code>으로 호출해서 바로 사용이 가능하다.</p>
+<p>기본적으로 브라우저에서 클릭 된 history를 보관하고 있어 이전에 선택한 Element를 다시 가져올 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/24274424/57984684-291f1a80-7a99-11e9-95a2-24a9d55afe10.gif" alt="devtools2" /></p>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="http://mohwaproject.tistory.com/">무하프로젝트</a></li>
+<li><a href="https://shldhee.github.io/2018/04/08/DOM/">힘내서 공부해보자</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/introduction-to-the-dom">introduction to the dom</a></li>
+<li><a href="https://medium.freecodecamp.org/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d">What’s the Document Object Model, and why you should know how to use it.</a></li>
+<li><a href="https://css-tricks.com/dom/">What is the DOM?</a></li>
+<li>W3C: <a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html">What is the Document Object Model?</a></li>
+<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">Introduction - Document Object Model</a></li>
+<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../basic/8-Bitwise_Operator.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../basic/10-Class.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../basic/8-Bitwise_Operator.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../basic/10-Class.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

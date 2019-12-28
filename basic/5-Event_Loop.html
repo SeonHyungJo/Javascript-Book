@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>DOM - Javascript Basic &amp; Detail</title>
+        <title>Event Loop - Javascript Basic &amp; Detail</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../Basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../Basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../Basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../Basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../Basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../Basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../Basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../Basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../Basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../Basic/9-DOM.html" class="active"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../Basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../Basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../Basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../Basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../Basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html" class="active"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -177,20 +177,96 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#dom" id="dom"><h1>DOM</h1></a>
+                        <a class="header" href="#event-loop" id="event-loop"><h1>Event Loop</h1></a>
+<p>자바스크립트는 싱글 쓰레드이다. 그래서 비동기를 처리하기 위해서는 다른 누군가의 도움이 필요하다.</p>
+<p>우리가 자바스크립트를 기본적으로 브라우저에서 사용을 한다. 그렇다면 당연하게 자바스크립트의 한계를 보완해주는 역할은 브라우저가 해준다는 것이다. 브라우저가 해주는 많은 역할 중 하나는 비동기처리를 도와주는 것이다.</p>
+<p>오늘은 비동기를 처리하는데 있어서 큰 역할을 하고 있는 것을 알아보도록 하자.
+<br/></p>
+<a class="header" href="#목차" id="목차"><h2>목차</h2></a>
+<ul>
+<li>[x]  Heap</li>
+<li>[x]  Stack</li>
+<li>[x]  Browser or Web APIs</li>
+<li>[x]  Event Table</li>
+<li>[x]  Event Loop</li>
+</ul>
+<p>자바스크립트는 스크립트가 실행이 되는 엔진이 있다. 크롬을 기준으로 본다면 엔진은 V8이 된다. 이 엔진을 구성하는 요소는 크게보면 Heap과 Stack으로 구성이 되어있다.
+<br/></p>
+<a class="header" href="#heap" id="heap"><h3>Heap</h3></a>
+<p>객체는 Heap에 할당이 된다. Heap은 메모리에서 대부분 구조화되지 않은 영역을 나타낸다.
+<br/></p>
+<a class="header" href="#stack" id="stack"><h3>Stack</h3></a>
+<p>자바스크립트 코드 실행을 위해 제공된 단일 쓰레드이다. 함수를 호출하게 되면 하나의 Stack Frame이 형성이 된다.</p>
+<p>더이상의 자세한 내용은 CallStack에 대해서 작성한 글을 참고 해주세요.</p>
+<blockquote>
+<p><a href="https://github.com/SeonHyungJo/FrontEnd-Dev/blob/master/Javascript/Basic_1_CallStack.md">CallStack 알아보기</a></p>
+</blockquote>
+<p><br/></p>
+<a class="header" href="#browser-or-web-apis" id="browser-or-web-apis"><h3>Browser or Web APIs</h3></a>
+<p>흔히 WebAPI라 불리는 API들은 웹 브라우저에 내장되어 있으며 브라우저 및 이외 컴퓨터 환경에서 데이터를 노출 할 수 있으며 복잡한 환경에서 유용하게 사용할 수 있다.(ex. 위치정보등등)</p>
+<p>이것은 자바스크립트에 포함되는 것이 아니며 자바스크립트 언어를 사용하는데 있어 강력한 성능을 제공한다.
+<br/></p>
+<a class="header" href="#예제로-살펴보기" id="예제로-살펴보기"><h2>예제로 살펴보기</h2></a>
+<pre><code class="language-javascript">function main(){
+    console.log('A');
+    setTimeout(
+    function display(){ console.log('B'); }
+    ,0);
+    console.log('C');
+}
+main();
+//	Output
+//	A
+//	C
+//  B
+</code></pre>
+<p><img src="/assets/image/basic_event_loop.png" alt="event_loop" /></p>
+<ol>
+<li>main함수가 실행이 되어서 처음에 들어가게 된다. main함수 안에 있는 <code>console.log</code> 가 스택에 쌓이게 된다. 함수가 실행이 되면 알파벳이 콘솔창에 출력이 된다.</li>
+<li>다음으로 <code>setTimeout</code> 이 들어오면서 실행이 된다. <code>setTimeout</code> 은 <code>browserAPI</code> 의 콜백을 지연하는 함수를 사용한다.</li>
+<li>브라우저에서 타이머가 이루어지는 동안 <code>console.log</code> 가 실행이 되고 C가 출력이 된다. 여기서 초가 0이더라도 콜백은 메시지 큐에 담기게 되어 브라우저는 그것을 받는다.</li>
+<li>main함수가 모두 다 끝나게 되면 스택이 비게 된다. 그러면 브라우저가 큐에 쌓았던 콜백을 실행하게 된다.</li>
+</ol>
+<p>스택이 비었을때 자바스크립트 엔진은 메시지 큐가 비었는지 확인을 한다. 만약에 비었다면 엔진은 첫번째 메시지를 지우고 함수의 안을 실행한다. 이때 새로운 스택프레임(inital frame)이 생성이 되고 스택에 쌓인다.  함수가 끝났다면 initial 프레임이 스택에서 제거가 된다. 이러한 과정은 메시지 큐가 없을 때까지 이루어진다.
+<br/></p>
+<a class="header" href="#the-event-loop" id="the-event-loop"><h2>The Event Loop</h2></a>
+<p>위에서 언급을 했던 끊임없이 비었는지 검사하는 것이 바로 이벤트 루프이다. 이벤트 큐에 대기중인 항목이 있으면 호출 스택으로 이동한다. 그렇지 않으면 아무일도 일어나지 않는다.</p>
+<pre><code class="language-javascript">setTimeout(() =&gt; console.log('first'), 0)
+
+console.log('second')
+</code></pre>
+<p>위의 경우는 second가 찍히고 first가 찍히게 된다.</p>
+<p>멀티쓰레드라면 하나의 일을 하고 있을 때 다른 쓰레드를 사용해서 일을 처리할 수 있지만 자바스크립트는 싱글쓰레드이기 때문에 불가능하다. 그래서 비동기를 하는데 있어서 이벤트 루프는 필수적이다.</p>
+<pre><code class="language-javascript">while (await messageQueue.nextMessage()) {
+  let message = messageQueue.shift();
+  message.run();
+}
+</code></pre>
+<p>이벤트 루프는 메시지 큐에 메시지가 더 있는지 확인하는 루프이다.</p>
+<p>메시지 큐에 메시지가 있으면 메시지 큐에서 다음 메시지를 제거하고 그 메시지와 연관된 기능을 실행한다. 그렇지 않으면 새 메시지가 메시지 대기열에 추가 될때까지 대기를 한다. 이벤트루프가 자바스크립트에게 비동기를 허용하는 기본 모델이다.</p>
+<hr />
+<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<ul>
+<li><a href="%5Bhttps://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4%5D(https://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4)">JavaScript Event Loop Explained</a></li>
+<li><a href="%5Bhttps://www.wptutor.io/web/js/javascript-event-loop%5D(https://www.wptutor.io/web/js/javascript-event-loop)">What is the Event Loop in Javascript</a></li>
+<li><a href="%5Bhttps://hackernoon.com/understanding-js-the-event-loop-959beae3ac40%5D(https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40)">Understanding JS: The Event Loop</a></li>
+<li><a href="%5Bhttps://code.likeagirl.io/what-the-heck-is-event-loop-1e414fccef49%5D(https://code.likeagirl.io/what-the-heck-is-event-loop-1e414fccef49)">Event loop in javascript</a></li>
+<li><a href="%5Bhttps://flaviocopes.com/javascript-event-loop/%5D(https://flaviocopes.com/javascript-event-loop/)">The JavaScript Event Loop</a></li>
+<li><a href="%5Bhttps://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/%5D(https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)">Tasks, microtasks, queues and schedules</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../Basic/8-Bitwise_Operator.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../basic/4-Module.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../Basic/10-Class.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../basic/6-Async.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -202,13 +278,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../Basic/8-Bitwise_Operator.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../basic/4-Module.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../Basic/10-Class.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../basic/6-Async.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
