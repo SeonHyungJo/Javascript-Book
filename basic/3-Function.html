@@ -177,53 +177,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#function" id="function"><h1><strong>Function</strong></h1></a>
-<a class="header" href="#목차" id="목차"><h2><strong>목차</strong></h2></a>
+                        <a class="header" href="#function" id="function"><h1>Function</h1></a>
+<p>Function에 대해 알아보기 전, 자바스크립트의 Scope를 배워보자.
+자바스크립트에서의 Scope는 그게 나누면 2개로 나뉘게 된다.</p>
+<p>함수 안에서 정의가 된 변수들은 기본적으로 <strong>Local Scope</strong>에서 선언되었다고 하며, 함수 외부에 정의된 변수는 <strong>Global Scope</strong>에서 선언되었다고 한다. 함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 함수 1개가 있다는 기준에서의 외부이다. 이렇게 완전한 외부를 **Window(Global)**라고 하자.</p>
 <ul>
-<li>[x] Global Scope</li>
-<li>[x] Local Scope</li>
-<li>[x] Functional Scope</li>
-<li>[x] Block Scope</li>
-<li>[x] Lexical Scope</li>
-<li>[x] Function
-<ul>
-<li>[x] Function Declaration</li>
-<li>[x] Function Expression</li>
-<li>[x] Named Function Expression</li>
+<li><strong>Global Scope</strong>(함수 외부에 정의)</li>
+<li><strong>Local Scope</strong>(함수 안에서 정의)</li>
 </ul>
-</li>
-<li>[x] IIFE(Immediately Invoked Function Expression)</li>
-</ul>
-<p>Function에 대해서 자세히 알아보기 전에 우리는 자바스크립트의 Scope에 대해서 알아보자
-자바스크립트에서의 Scope는 크게 2가지이다.</p>
-<ul>
-<li><strong>Global Scope</strong></li>
-<li><strong>Local Scope</strong></li>
-</ul>
-<p>함수 안에서 정의가 된 변수들은 기본적으로 <strong>Local Scope</strong> 에서 선언이 되었다고 하면, 함수 외부에 정의된 변수는 <strong>Global Scope</strong> 에서 선언이 되었다고 한다. 함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 <strong>함수 1개가 있다는 기준에서의 외부</strong> 이다. 이렇게 완전한 외부를 우리는 <strong>Window</strong> 라고 하자.</p>
-<p>또한 각각의 함수들은 실행이 되면 내부적으로 New Scope를 생성하고 가지게 된다.
-<br/></p>
-<a class="header" href="#global-scope" id="global-scope"><h2><strong>Global Scope</strong></h2></a>
-<p>우리가 자바스크립트를 실행하게 되면 이미 <strong>Global Scope</strong> 안에 있는 것이다. 그래서 우리가 Function 안쪽에서 선언하지 않고 기본적으로 선언하는 것들은 <strong>Global Scope</strong> 에서 선언하는 것이다.</p>
-<pre><code class="language-javascript">// 이 부분이 바로 기본값인 Global Scope이다.
-const name = 'sseon';
+<p>각각의 함수들은 실행이 되면 내부적으로 <strong>새로운 Scope</strong>를 생성하고 가지게 된다.</p>
+<a class="header" href="#global-scope" id="global-scope"><h2>Global Scope</h2></a>
+<p>우리는 자바스크립트를 실행하게 되면 이미 <strong>Global Scope</strong>안에 있다. 그래서 Function 안쪽에서 선언하지 않는 것들은 <strong>Global Scope</strong>에서 선언하는 것이다.</p>
+<pre><code class="language-js">// Global Scope
+const name = 'snyung';
 const age = '27';
 </code></pre>
-<p>Global로 선언한 변수는 다른 Scope 어디에서든 접근이 가능하다.</p>
-<pre><code class="language-javascript">const name = 'sseon';
-    
-console.log(name); // 같은 Scope에서의 호출은 된다. =&gt; logs 'sseon'
+<p>Global로 선언한 변수는 다른 Scope 어디든 접근이 가능하다.</p>
+<pre><code class="language-js">const name = 'snyung';
+
+// 같은 Scope에서의 호출은 된다.
+console.log(name);  // snyung
     
 function logName() {
-    console.log(name); // 'name' 이라는 변수가 어디서든 접근이 가능하다.
+    console.log(name); // name이라는 변수는 어디서든 접근이 가능하다.
 }
     
-logName(); // logs 'sseon'
+logName(); // snyung
 </code></pre>
-<p><br/></p>
-<a class="header" href="#local-scope" id="local-scope"><h2><strong>Local Scope</strong></h2></a>
-<p>함수안에 선언한 변수는 <strong>Local Scope</strong> 안에 있는 것이다. 우리는 같은 변수의 이름을 다른 함수안에서 각각 정의를 할 수 있는데, 해당 변수가 서로 다른 Scope에 바인딩이 되어 각각의 함수에서는 접근이 불가능하게 된다.</p>
-<pre><code class="language-javascript">// Global Scope
+<a class="header" href="#local-scope" id="local-scope"><h2>Local Scope</h2></a>
+<p>함수 안에서 선언한 변수는 <strong>Local Scope</strong>안에 있는 것이다. 우리는 같은 변수의 이름을 다른 함수 안에서 각각 정의를 할 수 있는데, 해당 변수는 서로 다른 Scope에 바인딩 되어 각각의 함수에서는 접근이 불가능하다.</p>
+<pre><code class="language-js">// Global Scope
 function someFunction() {
     // Local Scope #1
     function someOtherFunction() {
@@ -237,47 +220,44 @@ function anotherFunction() {
 }
 // Global Scope
 </code></pre>
-<p>위와 같이 코드가 짜였다고 한다면 <strong>Local Scope#1</strong> 에서 선언한 변수는 <strong>Local Scope#2</strong> 에서는 접근이 가능하지만 <strong>Local Scope#3</strong> 에서는 접근이 불가하다. 마찬가지로 <strong>Local Scope#3</strong> 에서 선언된 변수는 <strong>Local Scope#1</strong>, <strong>Local Scope#2</strong> 에서 접근이 불가하다. <strong>Local Scope#2</strong> 에서 <strong>Local Scope#1</strong> 접근이 가능한 이유는 뒤에서 다룰 것이다.
-<br/></p>
-<a class="header" href="#functional-scope" id="functional-scope"><h2><strong>Functional Scope</strong></h2></a>
-<p>자바스크립트는 위에서 본 것과 같이 <strong>함수를 단위로 Scope를 구분한다.</strong> 즉 같은 함수안에서 선언된 변수들은 같은 Level의 Scope를 가지게 되는 것이다. 각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근을 할 수 없다.</p>
-<pre><code class="language-javascript">// Global Scope
+<p>위와 같이 코드가 있다면, <strong>Local Scope#1</strong>에 선언한 변수는 <strong>Local Scope#2</strong>에서는 접근이 가능하지만 <strong>Local Scope#3</strong>에서는 접근이 불가하다. 마찬가지로 <strong>Local Scope#3</strong>에 선언된 변수는 <strong>Local Scope#1</strong>, <strong>Local Scope#2</strong>에서 접근이 불가하다. <strong>Local Scope#2</strong> 에서 <strong>Local Scope#1</strong> 접근이 가능한 이유는 뒤에서 다룰 것이다.</p>
+<a class="header" href="#functional-scope" id="functional-scope"><h2>Functional Scope</h2></a>
+<p>자바스크립트는 위에서 본 것과 같이 <strong>함수 단위로 Scope를 구분한다.</strong> 즉, 같은 함수 안에서 선언된 변수들은 같은 Level의 Scope를 가지게 되는 것이다. 각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근을 할 수 없다.</p>
+<pre><code class="language-js">// Global Scope
 function someFunction() {
     if (true) {
-        var name = 'sseon'; 
+        var name = 'snyung'; 
     }
 }
 </code></pre>
-<p>위와 같이 Global Scope에 <code>someFunction()</code> 을 선언하고 내부에 if문 괄호 안에 선언한 변수는 <strong>someFunction function Scope</strong> 에 붙게 되는 것이다.
-<br/></p>
-<a class="header" href="#block-scope" id="block-scope"><h2><strong>Block Scope</strong></h2></a>
+<p>위와 같이 Global Scope에 <code>someFunction()</code>을 선언하고 내부에 if문 괄호 안에 선언한 변수는 <strong>someFunction function Scope</strong>에 붙게 되는 것이다. <strong>즉, block 단위가 아닌 function 단위의 scope가 정의되는 것을 볼 수 있다.</strong></p>
+<a class="header" href="#block-scope" id="block-scope"><h2>Block Scope</h2></a>
 <p>Block Statement는 우리가 많이 보는 if문, switch문, for, while문이다. 이러한 문장들은 괄호로 감싸진 부분이 존재하지만 새로운 Scope를 만들지는 않는다. Block Statement 안에서 정의한 변수는 가장 가까운 함수의 Scope에 붙게 된다.</p>
-<pre><code class="language-javascript">if (true) {
+<pre><code class="language-js">if (true) {
     // this 'if' conditional block doesn't create a new scope
-    var name = 'sseon'; // name is still in the global scope
+    var name = 'snyung'; // name is still in the global scope
 }
     
-console.log(name); // logs 'sseon'
+console.log(name); // logs 'snyung'
 </code></pre>
-<p>ECMAScript6에서 <code>let</code>, <code>const</code>가 추가 되었다. 이 2개는 <code>var</code> 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 들어간다. 바로 <strong>Block Level Scope</strong> 라는 것이다. 기존의 자바스크립트는 위에서 본 것처럼 <strong>Functional Scope</strong> 이다. 그러나 <code>let</code>, <code>const</code> 를 사용하게 되면 <strong>Block Level Scope</strong> 지원이 가능하다. 아래의 예제를 보자</p>
-<pre><code class="language-javascript">if (true) {
+<p>ECMAScript6에서 <code>let</code>, <code>const</code>가 추가되었다. 이 2개는 <code>var</code> 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 들어간다. 바로 <strong>Block Level Scope</strong>라는 것이다. 기존의 자바스크립트는 위에서 본 것처럼 <strong>Functional Scope</strong> 이다. 그러나 <code>let</code>, <code>const</code> 를 사용하게 되면 <strong>Block Level Scope</strong> 지원이 가능하다. 아래의 예제를 보자</p>
+<pre><code class="language-js">if (true) {
     // this 'if' conditional block doesn't create a new scope
-    var name = 'sseon'; // name is still in the global scope
+    var name = 'snyung'; // name is still in the global scope
     let likes = 'Coding';
-    const skills = 'Javascript';
+    const skills = 'js';
 }
     
-console.log(name); // logs 'sseon'
+console.log(name); // logs 'snyung'
 console.log(likes); // Uncaught ReferenceError: likes is not defined
 console.log(skills); // Uncaught ReferenceError: skills is not defined
 </code></pre>
-<p><code>var</code>와는 다르게 <code>let</code>, <code>const</code>는 Block Statement내에서 <strong>Local Scope</strong> 를 지원한다. 즉 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block에 붙게 되는 것이다.</p>
-<p><strong>Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Local Scope은 함수가 호출되고 실행되는한 유지가 된다.</strong>
-<br/></p>
-<a class="header" href="#lexical-scope" id="lexical-scope"><h2><strong>Lexical Scope</strong></h2></a>
-<p><strong>Lexical Scope</strong> 는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩된다. <strong>Lexical scope</strong> 는 때때로 <strong>Static Scope</strong> 라고도 불린다.</p>
-<pre><code class="language-javascript">function grandfather() {
-    var name = 'sseon';
+<p><code>var</code>와는 다르게 <code>let</code>, <code>const</code>는 Block Statement내에서 <strong>Local Scope</strong> 를 지원한다. 즉, 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block에 붙게되는  것이다.</p>
+<p><strong>Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Local Scope은 함수가 호출되고 실행되는 한 유지된다.</strong></p>
+<a class="header" href="#lexical-scope" id="lexical-scope"><h2>Lexical Scope</h2></a>
+<p><strong>Lexical Scope</strong>는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩된다. <strong>Lexical scope</strong>는 <strong>Static Scope</strong>라고도 불린다.</p>
+<pre><code class="language-js">function grandfather() {
+    var name = 'snyung';
         // likes is not accessible here
     function parent() {
             // name is accessible here
@@ -290,24 +270,22 @@ console.log(skills); // Uncaught ReferenceError: skills is not defined
     }
 }
 </code></pre>
-<p><br/></p>
-<a class="header" href="#function-1" id="function-1"><h2><strong>Function</strong></h2></a>
-<p>함수는 자바스크립트에서 중요한 컨셉이다. 자바스크립트에서 함수는 1급 객체이다.</p>
+<a class="header" href="#function-1" id="function-1"><h2>Function</h2></a>
+<p>함수는 자바스크립트에서 중요한 컨셉이다. 자바스크립트에서 함수는 <strong>1급 객체</strong>이다.</p>
 <ol>
 <li><strong>Function Declaration(함수 선언식)</strong></li>
 <li><strong>Function Expression(함수 표현식)</strong></li>
 <li><strong>Named Function Expression(이름이 있는 함수 표현식)</strong></li>
 </ol>
-<p><br/></p>
-<a class="header" href="#함수-선언식" id="함수-선언식"><h2><strong>함수 선언식</strong></h2></a>
-<pre><code class="language-javascript">function [name](param1, param2, ...param3) {
+<a class="header" href="#함수-선언식" id="함수-선언식"><h3>함수 선언식</h3></a>
+<pre><code class="language-js">function [name](param1, param2, ...param3) {
     // Function Body &amp; Logic
 }
 </code></pre>
-<p><code>[function name]</code> 앞에 <code>[function keyword]</code> 를 붙인다. 항상 앞에 function으로 시작하며 함수의 이름을 지어주어야 한다. 그리고 선언식의 주요한 개념은 전체 기능이 <strong>호이스팅</strong> 이 된다는 것이다.</p>
-<p><strong>이러한 호이스팅으로 인해서 함수를 선언하기전에 함수를 실행하는 코드를 넣어도 작동하는 것이다.</strong></p>
-<p>이러한 선언 방법은 일부 논리를 함수 본문으로 추상화를 하고 나중에 실제 구현이 완료될때 유용하다.</p>
-<pre><code class="language-javascript">var num1 = 10;
+<p><code>[function name]</code> 앞에 <code>[function keyword]</code>를 붙인다. 항상 앞에 function으로 시작하며 함수의 이름을 지어주어야 한다. 선언식의 주요한 개념은 **호이스팅(Hoisting)**이 된다는 것이다.</p>
+<p><strong>호이스팅으로 인해서 함수를 선언하기 전에 함수를 실행하는 코드를 넣어도 작동하는 것이다.</strong></p>
+<p>이러한 선언 방법은 일부 논리를 함수 본문으로 추상화를 하고 나중에 실제 구현이 완료될 때 유용하다.</p>
+<pre><code class="language-js">var num1 = 10;
 var num2 = 20;
 var result = add(num1, num2); // ==&gt; 30 [Executing before declaring]
 
@@ -315,22 +293,21 @@ function add(param1, param2) {
     return param1 + param2 ;
 }
 </code></pre>
-<p>그러나 이러한 코드는 좋지 못하다. 항상 호이스팅을 이용하는 것이 아닌 함수를 먼저 선언을 하고 실행하는 습관을 들이는 것이 좋다.
-<br/></p>
-<a class="header" href="#함수-표현식" id="함수-표현식"><h2><strong>함수 표현식</strong></h2></a>
-<p>어떤 값을 다른 변수에 할당하는 명령문은 표현식으로 간주된다.</p>
-<pre><code class="language-javascript">var a = 100;
+<p>위와 같은 코드는 좋지 못하다. 항상 호이스팅을 이용하는 것이 아닌 함수를 먼저 선언을 하고 실행하는 습관을 들이는 것이 좋다.</p>
+<a class="header" href="#함수-표현식" id="함수-표현식"><h3>함수 표현식</h3></a>
+<p>어떤 값을 다른 변수에 할당하는 명령문은 표현식으로 간주한다.</p>
+<pre><code class="language-js">var a = 100;
 var b = 'Hello World';
 </code></pre>
-<p>함수 표현식의 경우 이름이 없이 함수를 작성을 하며 변수에 할당을 한다.</p>
-<pre><code class="language-javascript">var [name] = function(param1, param2, ...param3) {
+<p>함수 표현식의 경우 이름이 없이 함수를 작성하며 변수에 할당한다.</p>
+<pre><code class="language-js">var [name] = function(param1, param2, ...param3) {
     // Function Body &amp; Logic
 }
 
 foo(1,3,4);
 </code></pre>
-<p>함수 선언식과 다르게 정의될 때까지 함수를 사용할 수 없다. 즉 호이스팅이 일어나지 않는다는 것을 의미한다. 정확하게 보면 변수는 호이스팅이 일어나지만 할당이 이루어지는 행위는 호이스팅이 안된다고 보는 것이 좋을 듯 하다.</p>
-<pre><code class="language-javascript">var num1 = 10;
+<p>함수 선언식과 다르게 정의될 때까지 함수를 사용할 수 없다. 즉, 호이스팅이 일어나지 않는다는 것을 의미한다. 정확하게 보면 변수는 호이스팅이 일어나지만, 할당이 이루어지는 행위는 호이스팅이 안 된다고 보는 것이 좋을 듯 하다.</p>
+<pre><code class="language-js">var num1 = 10;
 var num2 = 20;
 var result = add(num1, num2);  
 // Uncaught TypeError: add is not a function
@@ -339,40 +316,38 @@ var add = function(param1, param2) {
 }
 </code></pre>
 <p>위와 같은 코드는 작동하지 않는다. 아래와 같이 작성을 하여야한다.</p>
-<pre><code class="language-javascript">var num1 = 10;
+<pre><code class="language-js">var num1 = 10;
 var num2 = 20;
 var add = function(param1, param2) {
     return param1 + param2 ;
 }
 var result = add(num1, num2); // ==&gt; 30
 </code></pre>
-<p><br/></p>
 <a class="header" href="#함수-표현식의-장점" id="함수-표현식의-장점"><h3>함수 표현식의 장점</h3></a>
-<p>선언식보다 표현식이 더 유용하게 사용되는 몇가지 이유</p>
+<p>선언식보다 표현식이 더 유용하게 사용되는 몇 가지 이유가 있다.</p>
 <ul>
 <li>As closures</li>
 <li>As arguments to other functions</li>
 <li><strong>As Immediately Invoked Function Expressions (IIFE)</strong></li>
 </ul>
-<p><br/></p>
-<a class="header" href="#이름이-있는-함수-표현식---두-가지-접근-방식의-결합" id="이름이-있는-함수-표현식---두-가지-접근-방식의-결합"><h2><strong>이름이 있는 함수 표현식 - 두 가지 접근 방식의 결합</strong></h2></a>
+<a class="header" href="#이름이-있는-함수-표현식---두-가지-접근-방식의-결합" id="이름이-있는-함수-표현식---두-가지-접근-방식의-결합"><h2>이름이 있는 함수 표현식 - 두 가지 접근 방식의 결합</h2></a>
 <p>선언식과 표현식의 차이점을 보고 두가지를 섞으면 어떻게 되는지 살펴보자.</p>
-<pre><code class="language-javascript">var num1 = 10;
+<pre><code class="language-js">var num1 = 10;
 var num2 = 20;
 var addVariable = function addFunction(param1, param2) {
     return param1 + param2 ;
 }
 </code></pre>
-<p>위에 코드를 보게 되면 표현식이 더이상 익명이 아니고 <code>addFunction</code> 이라는 이름을 가지고 있다. 또한 <code>addVariable</code> 이라는 변수명에 할당을 하였다.</p>
-<p>우리가 함수의 이름으로 <code>addFunction</code> 을 추가했다고 실행할 수 있는 것은 아니다.</p>
-<pre><code class="language-javascript">var result = addFunction(num1, num2); 
+<p>위에 코드를 보게 되면 표현식이 더이상 익명이 아니고 <code>addFunction</code> 이라는 이름을 가지고 있다. 또한 <code>addVariable</code> 이라는 변수명에 할당하였다.</p>
+<p>우리가 함수의 이름으로 <code>addFunction</code>을 추가했다고 실행할 수 있는 것은 아니다.</p>
+<pre><code class="language-js">var result = addFunction(num1, num2); 
 // ==&gt; Uncaught ReferenceError: addFunction is not defined
 </code></pre>
 <p>우리가 할당한 <code>addVariable</code> 변수로만 사용이 가능하다.</p>
-<pre><code class="language-javascript">var result = addVariable(num1, num2); 
+<pre><code class="language-js">var result = addVariable(num1, num2); 
 // ==&gt; 30
 </code></pre>
-<p><strong>고려해야할 사항</strong></p>
+<p><strong>고려해야 할 사항</strong></p>
 <ol>
 <li><code>addFunction</code> 이 <code>addVariable</code> 보다 콜스택상 먼저 나오게 된다.</li>
 <li>외부에서 <code>addFunction</code> 을 호출하게 되면 에러가 나오게 된다.
@@ -381,7 +356,7 @@ var addVariable = function addFunction(param1, param2) {
 </ol>
 </li>
 </ol>
-<pre><code class="language-javascript">var num1 = 10;
+<pre><code class="language-js">var num1 = 10;
 var num2 = 20;
 var addVariable = function addFunction(param1, param2) {
     var res = param1 + param2;
@@ -397,10 +372,10 @@ var result = addVariable(num1, num2); // ==&gt; 40
 <li>IE8이하에서는 이름이 있는 함수 표현식을 사용하게 되면 심각한 이슈가 발생하게 되는데, 바로 완전히 다른 두개의 함수객체를 생성한다는 것이다.(<strong>Double take</strong>).</li>
 </ol>
 <p><strong>IE8을 지원해야하는 일이 있으면 익명의 표현식을 사용하는 것을 추천한다.</strong></p>
-<p><br/></p>
-<a class="header" href="#statements-expressions" id="statements-expressions"><h2><strong>Statements, Expressions</strong></h2></a>
-<p><strong>Expressions</strong> 는 단일 값이 되는 자바스크립트 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일 값이다.</p>
-<pre><code class="language-javascript">2 + 2 * 3 / 2
+<a class="header" href="#statements-expressions" id="statements-expressions"><h2>Statements, Expressions</h2></a>
+<a class="header" href="#expressions" id="expressions"><h3>Expressions</h3></a>
+<p><strong>Expressions</strong>는 단일값이 되는 자바스크립트 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일값이다.</p>
+<pre><code class="language-js">2 + 2 * 3 / 2
     
 (Math.random() * (100 - 20)) + 20
     
@@ -417,10 +392,10 @@ true &amp;&amp; functionCall()
 true &amp;&amp; declaredVariable
 </code></pre>
 <p>위의 예제들은 모두 표현식이다. 흔히 값을 원할때 어디서든 사용하는 방법이다. 그래서 아래의 예제에서도 값이 단일값으로 나오게 된다.</p>
-<pre><code class="language-javascript">console.log(true &amp;&amp; 2 * 9) // 18
+<pre><code class="language-js">console.log(true &amp;&amp; 2 * 9) // 18
 </code></pre>
 <p><strong>표현식은 상태를 변경하지 않는다.</strong></p>
-<pre><code class="language-javascript">var assignedVariable = 2; //this is a statement, assignedVariable is state
+<pre><code class="language-js">var assignedVariable = 2; //this is a statement, assignedVariable is state
 
 assignedVariable + 4 // expression
 assignedVariable * 10 // expression
@@ -429,36 +404,29 @@ assignedVariable - 10 // expression
 console.log(assignedVariable) // 2
 </code></pre>
 <p>위의 예제들은 표현식임에도 할당된 값은 마지막까지 2로 남는다. 함수 호출은 표현식이지만 함수 상태를 변경할 수 있는 문장은 필수적이다.</p>
-<pre><code class="language-javascript">const foo = () =&gt; {
+<pre><code class="language-js">const foo = () =&gt; {
     assignedVariable = 14
 }
 </code></pre>
-<p><code>foo()</code> 는 표현식이지만 undefined나 다른 값을 반환한다. 그러나 이렇게 사용하게 됨으로써 상태를 변화시킬 수 있다.</p>
-<pre><code class="language-javascript">const foo = () =&gt; {
+<p><code>foo()</code>는 표현식이지만 <code>undefined</code>나 다른 값을 반환한다. 그러나 이렇게 사용하게 됨으로써 상태를 변화시킬 수 있다.</p>
+<pre><code class="language-js">const foo = () =&gt; {
   return 14 //explicit return for readability
 }
 
 assignedVariable = foo()
 </code></pre>
 <p>더 좋은 방법은 아래와 같이 작성하는 것이다.</p>
-<pre><code class="language-javascript">const foo = () =&gt; {
-  return 14 //explicit return for readability
-}
-    
-assignedVariable = foo()
-</code></pre>
-<pre><code class="language-javascript">const foo = (n) =&gt; {
+<pre><code class="language-js">const foo = (n) =&gt; {
     return n//explicit return for readability
 }
 
 assignedVariable = foo(14)
 </code></pre>
-<p>이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 자바스크립트의 근본이다.
-<br/></p>
-<a class="header" href="#statements" id="statements"><h2><strong>Statements</strong></h2></a>
+<p>이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 자바스크립트의 근본이다.</p>
+<a class="header" href="#statements" id="statements"><h3>Statements</h3></a>
 <p>기본적으로 문장은 행동을 수행한다.</p>
 <p>자바스크립트에서 값이 필요한 곳에서는 명령문을 사용할 수 없다. 그래서 함수의 인수, 할당의 오른쪽, 연산자, 피연산자, 반환값으로 사용할 수 없다.</p>
-<pre><code class="language-javascript">foo(if () {return 2}) 
+<pre><code class="language-js">foo(if () {return 2}) 
 </code></pre>
 <p>명령문의 종류</p>
 <ol>
@@ -474,14 +442,13 @@ assignedVariable = foo(14)
 <li>variable declaration</li>
 </ol>
 <p>브라우저 콘솔창에서 아래와 같이 입력을 치게 되면,</p>
-<pre><code class="language-javascript">if (true) { 9+9 }
+<pre><code class="language-js">if (true) { 9+9 }
 </code></pre>
-<p>18을 반환한다. 그러나 원하는 곳에 사용은 할 수 없다. 명령문은 아무것도 반환하지 않기를 바란다. 우리가 그것을 사용할 수 없다면 반환된 값은 쓸모가 없어지기 때문이다.
-<br/></p>
+<p>18을 반환한다. 그러나 원하는 곳에 사용할 수 없다. 명령문은 아무것도 반환하지 않기를 바란다. 우리가 그것을 사용할 수 없다면 반환된 값은 쓸모가 없어지기 때문이다.</p>
 <a class="header" href="#iifeimmediately-invoked-function-expression" id="iifeimmediately-invoked-function-expression"><h2><strong>IIFE(Immediately Invoked Function Expression)</strong></h2></a>
-<p>우리가 흔히 <strong>즉각 실행함수</strong> 라 부르는 패턴이다. 이것을 사용하면 함수는 새로운 Scope를 만들게 된다. <strong>IIFE</strong> 는 단순하게 함수 표현식이다. 인터프리터가 즉각적으로 실행한다.</p>
+<p>우리가 흔히 <strong>즉각 실행함수</strong>라 부르는 패턴이다. 이것을 사용하면 함수는 새로운 Scope를 만들게 된다. <strong>IIFE</strong> 는 단순하게 함수 표현식이다. 인터프리터가 즉각적으로 실행한다.</p>
 <p>익명함수의 표현식과 비슷하게 생겼다.</p>
-<pre><code class="language-javascript">var foo = 'foo';
+<pre><code class="language-js">var foo = 'foo';
     
 (function bar () {
   console.log('in function bar');
@@ -489,20 +456,20 @@ assignedVariable = foo(14)
     
 console.log(foo);
 </code></pre>
-<p>위에서 간단하게 보면 <code>foo</code> 가 출력되기 전에 <code>bar()</code> 를 호출하지 않았는데 <strong>in function bar</strong> 가 출력이 되었다.</p>
+<p>위에서 간단하게 보면 <code>foo</code>가 출력되기 전에 <code>bar()</code>를 호출하지 않았는데 <strong>in function bar</strong> 가 출력이 되었다.</p>
 <ul>
 <li><code>(</code> 괄호를 사용해서 함수를 감싸서 선언식이 아닌 표현식이 된다.</li>
 <li>마지막에 <code>()</code> 괄호를 다시 써서 표현식을 즉시 실행하는 구문이 된다.</li>
 </ul>
 <p>ES6 이전에는 IIFE를 사용해서 외부에서 접근하지 못하도록 변수를 숨기고 제한하는데 사용이 되었다. 또한 비동기 작업을 실행하고 IIFE 범위에서 변수상태를 보존하려는 경우에도 매우 유용하다.</p>
-<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+<pre><code class="language-js">for (var i = 0; i &lt; 5; i++) {
     setTimeout(function () {
         console.log('index: ' + i);
     }, 1000);
 }
 </code></pre>
 <p>위에 코드는 흔히 발생하는 잘못된 코드이다. 이와 같은 코드를 IIFE를 사용해서 해결할 수 있다.</p>
-<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+<pre><code class="language-js">for (var i = 0; i &lt; 5; i++) {
     (function logIndex(index) {
         setTimeout(function () {
             console.log('index: ' + index);
@@ -510,12 +477,11 @@ console.log(foo);
     })(i)
 }
 </code></pre>
-<p>그러나 ES6+를 사용한다면 <strong>Block Level Scope</strong> 를 지원하는 <code>let</code> 또는 <code>const</code> 를 사용하면 된다.
-<br/></p>
-<a class="header" href="#부록" id="부록"><h2><strong>부록</strong></h2></a>
-<a class="header" href="#semi-colon-vs-comma-operator" id="semi-colon-vs-comma-operator"><h3><strong>Semi-colon vs Comma operator</strong></h3></a>
+<p>그러나 ES6+를 사용한다면 <strong>Block Level Scope</strong> 를 지원하는 <code>let</code> 또는 <code>const</code> 를 사용하면 된다.</p>
+<a class="header" href="#부록" id="부록"><h2>부록</h2></a>
+<a class="header" href="#semi-colon-vs-comma-operator" id="semi-colon-vs-comma-operator"><h3>Semi-colon vs Comma operator**</h3></a>
 <p>세미콜론을 사용함으로써 표현식을 표현식 문장으로 변환 시킬 수 있다. <code>2+2</code> 자체는 표현식이지만 완전한 라인은 문장이다.</p>
-<pre><code class="language-javascript">2+2 // on its own is an opposition
+<pre><code class="language-js">2+2 // on its own is an opposition
     
 foo(2+2) //so you can use it anywhere a value is expected
     
@@ -527,15 +493,14 @@ function foo () {return 2+2}
 foo(2+2;) //syntaxError
 </code></pre>
 <p>세미콜론을 사용하면 여러 줄을 한 줄로 표현이 가능하다.</p>
-<pre><code class="language-javascript">const a; function foo () {}; const b = 2
+<pre><code class="language-js">const a; function foo () {}; const b = 2
 </code></pre>
 <p>쉼표 연산자를 사용하면 여러 표현식을 연결하여 마지막 표현식만 반환이 가능하다.</p>
-<pre><code class="language-javascript">console.log( (1+2,3,4) ) //4
+<pre><code class="language-js">console.log( (1+2,3,4) ) //4
 console.log( (2, 9/3, function () {}) ) // function (){}
 console.log( (3, true ? 2+2 : 1+1) ) // 4
 </code></pre>
-<p>모든 표현식은 왼쪽에서 오른쪽으로 계산이 되고 마지막 표현식이 반환된다.
-<br/></p>
+<p>모든 표현식은 왼쪽에서 오른쪽으로 계산이 되고 마지막 표현식이 반환된다.</p>
 <hr />
 <a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
 <ul>
