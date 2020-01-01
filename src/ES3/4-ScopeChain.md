@@ -1,4 +1,4 @@
-# [ES3]ECMA-262-3 ScopeChain
+# ECMA-262-3 ScopeChain
 
 ## 소개
 

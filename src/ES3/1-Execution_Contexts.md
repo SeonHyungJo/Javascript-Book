@@ -1,4 +1,4 @@
-# [ES3] Execution Contexts
+# ECMA-262-3 Execution Contexts
 
 ## 도입
 
