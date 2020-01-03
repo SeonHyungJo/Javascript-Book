@@ -179,72 +179,67 @@
                     <main>
                         <a class="header" href="#ecma-262-3-function" id="ecma-262-3-function"><h1>ECMA-262-3 Function</h1></a>
 <a class="header" href="#도입" id="도입"><h2>도입</h2></a>
-<p>일반적인 ECMAScript 객체 중 하나 인 함수에 대해 알아보자. 특히 다양한 유형의 함수를 살펴보면서 각 유형이 컨텍스트의 Variables Object(VO)에 미치는 영향과 각 함수의 Scope Chain에 포함된 내용을 알아보자.</p>
-<p>우리는 다음과 같은 질문을 받을 수 있다. <strong>다음과 같이 생성 된 함수간에 차이가 있나요? (있는 경우 무엇이 있습니까?)</strong></p>
+<p>함수가 컨텍스트의 변수 객체(VO)에 어떠한 영향을 미치며, 각 함수의 스코프 체인에는 무엇이 들어가는지도 알아보자.</p>
 <pre><code class="language-js">var foo = function () {...};
 
 function foo() {...}
 
-(function () {...})(); // 다음과 같은 함수는 왜 괄호로 묶어주어야하나?
+(function () {...})();
 </code></pre>
 <p>위와 같이 함수의 경우는 3가지가 있다.</p>
 <p><strong>선언식, 표현식, 즉시실행</strong></p>
-<p>이 3가지의 차이점과 특징은 무엇인가에 대해서 자세히 알아볼 필요가 있다.</p>
-<blockquote>
-<p><a href="">Variable object</a>과 <a href="./4-ScopeChain.html">Scope chain</a>이 선행되어야 한다.</p>
-</blockquote>
+<p>이 3가지의 차이점과 특징은 무엇인가에 대해서 자세히 알아보자.</p>
 <a class="header" href="#함수의-종류" id="함수의-종류"><h2>함수의 종류</h2></a>
-<p><code>ECMAScript</code>에는 세 종류의 함수 타입이 있고, 각각은 고유한 특징을 가진다.</p>
-<a class="header" href="#function-declaration함수-선언식" id="function-declaration함수-선언식"><h3>Function Declaration(함수 선언식)</h3></a>
-<p>함수 선언식(줄여서 FD)은 아래와 같은 특징을 가진다.</p>
+<p><code>ECMAScript</code>에는 세가지 종류의 함수가 있고, 각각의 고유한 특징을 갖는다.</p>
+<a class="header" href="#함수-선언식" id="함수-선언식"><h3>함수 선언식</h3></a>
+<p>함수 선언식(FD)은 아래와 같은 특징을 가진다.</p>
 <ul>
 <li>반드시 이름을 가진다.</li>
-<li>해당 코드 위치에 존재: 프로그램 레벨이나 다른 함수의 body안에 직접 위치한다.</li>
-<li>컨텍스트 <em>진입 시점에 생성</em>된다.</li>
-<li><em>변수 객체(VO)에 영향을 준다.</em></li>
+<li>소스 코드 위치에 자리한다. 프로그램 레벨이나 다른 함수의 몸체안에 직접 위치한다.</li>
+<li>컨텍스트 <strong>진입 시점에 생성</strong> 한다.</li>
+<li>변수 객체에 영향을 준다.</li>
 </ul>
 <pre><code class="language-js">function exampleFunc() {...}
 </code></pre>
-<p>가장 중요한 특징은 <strong>변수 객체(VO)에 영향을 미친다는 것이다(이것들은 컨텍스트의 변수 객체(VO)에 저장).</strong></p>
-<p>위의 의미는 코드 실행 단계에서 이미 사용 가능한 코드 실행 단계(컨텍스트 단계 진입시 FD는 VO에 저장되어 있음)의 두 번째 중요한 포인트로 정의된다는 것이다.</p>
+<p>가장 중요한 특징은 <strong>변수 객체에 영향을 미친다는 것이다.</strong>
+이 함수는 컨텍스트의 변수 객체에 들어간다.</p>
+<p>코드 실행 단계에서 이미 사용가능하다(FD가 컨텍스트 단계 시작시 VO에 저장되므로 실행이 시작되기 전).</p>
 <pre><code class="language-js">foo(); // 작동함
 
 function foo() {
     alert('foo');
 } 
 </code></pre>
-<p>그렇다면 위의 예제에서 <code>Global</code>의 <code>VO</code>에 <code>foo</code>가  들어있을 것이다(흔히 <em>Hoisting(호이스팅)</em> 라 불린다).</p>
-<p>코드 내 함수를 정의하는 위치는 중요하다.</p>
+<p>위의 소스는 그렇다면 <code>Global</code>의 <code>VO</code>에 들어가 있을 것이다.(흔히 호이스팅이라 불리는 것)</p>
+<p>소스 코드 내에 함수를 정의하는 위치는 중요하다.</p>
 <pre><code class="language-js">// 함수를 다음 2가지 방법으로 선언할 수 있다.
 // 1) 전역 컨텍스트에 직접.
 function globalFD() {
 
-    // 2) 또는 다른 함수의 body 내 선언.
+    // 2) 또는 다른 함수의 몸체 내에서 선언.
     function innerFD() {}
 }
 </code></pre>
-<p>함수를 선언할 수 있는 위치는 결국 두 군데이다.</p>
-<a class="header" href="#function-expression함수-표현식" id="function-expression함수-표현식"><h3>Function Expression(함수 표현식)</h3></a>
-<p>함수 표현식(줄여서 FE)은 아래와 같은 특징을 가진다.</p>
+<p>함수를 선언할 수 있는 위치는 결국 두 군데가 있는 것이다.</p>
+<p>함수를 선언하는 다른 방법이 있다.</p>
+<a class="header" href="#함수-표현식" id="함수-표현식"><h3>함수 표현식</h3></a>
+<p>함수 표현식(FE)은 아래와 같은 특징을 가진다.</p>
 <ul>
-<li><em>표현식 위치</em>에만 정의할 수 있다.</li>
-<li>선택적으로 이름을 가질 수 있다(없을 수도 있음).</li>
+<li><strong>표현식 위치</strong>에만 정의할 수 있다.</li>
+<li>선택적으로 이름을 가질 수 있다.(없을 수도 있다.)</li>
 <li>함수 표현은 변수 객체에 영향을 주지 않는다.</li>
-<li><em>코드 실행 시점에 만들어진다.</em></li>
+<li><strong>코드 실행 시점에 생성</strong> 한다.</li>
 </ul>
-<p>이 유형의 함수의 주요 특징은 <strong>코드에서 항상 표현식 위치에 있다는 것</strong>이다.</p>
-<pre><code class="language-js">var foo = function () {
-    ...
-};
+<p>이 함수 타입의 주요 특징은 항상 표현식 위치에 있다는 것이다.</p>
+<pre><code class="language-js">var foo = function () {...};
 </code></pre>
-<p>위의 경우는 익명함수 표현식을 <code>foo</code> 변수에 할당하는 것이다.</p>
-<p>할당이 끝나면 <code>foo</code>를 호출할 수 있다 - <code>foo()</code>. 선택적으로 이름을 줄 수 있다.</p>
-<pre><code class="language-js">var foo = function _foo() {.
-    ..
-};
+<p>위의 경우는 익명함수 표현식을 <code>foo</code>변수에 할당하는 것이다.
+할당이 끝나면 <code>foo</code> 를 호출할 수 있다.</p>
+<p>선택적으로 이름을 줄 수 있다.</p>
+<pre><code class="language-js">var foo = function _foo() {...};
 </code></pre>
-<p>여기에서 주목해야 할 것은 함수 내부에서 <code>_foo</code> 라는 이름을 사용할 수 있을 뿐만 아니라(외부는 사용불가), FE의 바깥에서는 식별자 <code>foo</code>으로 접근할 수 있다는 사실이다.</p>
-<p><code>FE</code>를 식별자에 할당하면 <code>FD</code>와 구분하기 어려워진다. 하지만 <code>FE</code>가 <strong>항상 표현식 위치에</strong> 있다는 사실을 알고 있다면, 둘을 쉽게 구분할 수 있다.</p>
+<p>여기에서 주목해야 할 것은 함수 내부에서 <code>_foo</code> 라는 이름을 사용할 수 있다.(외부는 사용불가)</p>
+<p><code>FE</code>를 식별자에 할당하면 <code>FD</code>와 구분하기 어려워진다. 하지만 <code>FE</code>가 <strong>항상 표현식에 위치</strong> 한다는 사실을 알고 있다면, 둘을 쉽게 구분할 수 있다.</p>
 <p>다음 예제에는 다양한 <code>ECMAScript</code> 표현식이 나와있는데, 모든 함수는 함수 표현식이다.</p>
 <pre><code class="language-js">// 괄호(그룹화 연산자) 안에서는 표현식이 된다.
 (function foo() {});
@@ -263,7 +258,7 @@ function globalFD() {
 foo(function bar() {alert('foo.bar');});
 foo(function baz() {alert('foo.baz');});
 </code></pre>
-<p><code>FE</code>를 변수에 할당하면, 함수는 메모리에 계속 존재한다. 따라서 나중에 변수명으로 접근할 수 있다(알고 있듯이 변수가 변수 객체(VO)에 영향을 주기 때문).</p>
+<p><code>FE</code>를 변수에 할당하면, 함수는 메모리에 계속 존재한다. 따라서 나중에 변수명으로 접근할 수 있다(알고 있듯이 변수가 변수 객체(VO)에 영향을 주기 때문). Global VO에 존재하기 때문에 접근이 가능하다.</p>
 <pre><code class="language-js">var foo = function () {
     alert('foo');
 };
@@ -284,9 +279,9 @@ foo.bar(); // 10;
 
 alert(x); // &quot;x&quot; is not defined
 </code></pre>
-<p>함수 <code>foo.bar</code> (<code>foo</code> 의 <code>[[Scope]]</code> 프로퍼티에 있는)는 <code>initialize</code> 함수의 내부에 있는 변수 <code>x</code>에 접근할 수 있다. 그리고 <code>x</code>는 외부에서 직접 접근할 수 없다.</p>
-<p>많은 라이브러리가 <code>private</code> 데이터를 만들어서 보조 개체를 감추는데 이 전략을 이용한다.</p>
-<p>초기화하는 <code>FE</code>의 이름을 종종 생략하기도 한다.</p>
+<p>함수 <code>foo.bar</code> ( <code>foo</code> 의 <code>[[Scope]]</code> 프로퍼티에 있는)는 <code>initialize</code> 함수의 내부에 있는 변수 <code>x</code>에 접근할 수 있다. 그러나 외부에서 <code>x</code>를 직접 접근할 수 없다.</p>
+<p>많은 라이브러리가 <code>private</code> 데이터를 만들어서 보조 개체를 감추는데 이용한다.</p>
+<p>초기화하는 <code>FE</code> 의 이름을 종종 생략하기도 한다.</p>
 <pre><code class="language-js">(function () {
     // 초기화 스코프
 })();
@@ -303,16 +298,17 @@ var bar = (
 bar(); // 0
 </code></pre>
 <a class="header" href="#감싸는-괄호에-대한-질문" id="감싸는-괄호에-대한-질문"><h2>감싸는 괄호에 대한 질문</h2></a>
-<p><strong>그 답은 바로 표현식 구문이 가지는 제약 때문이다.</strong></p>
-<p>표준에 따라 표현식 구문은 여는 중괄호, <code>{</code> 로 시작할 수 없다. 블럭과 구분할 수 없기 때문이다. 그리고 함수 선언과 구분하기 힘들기 때문에 함수 키워드로 시작해서도 안된다.</p>
-<p>다시 말해서, 즉시 실행 함수(function 키워드로 시작하는)를 만들기 위해서 아래와 같이 함수 선언식을 작성한다면,</p>
+<p>왜 괄호로 함수를 감싸야 선언과 동시에 호출할 수 있지?</p>
+<p><strong>그 답은 바로 표현식 구문이 가지는 제약 때문이었다.</strong></p>
+<p>표준에 따라서, 표현식 구문은 여는 중괄호, <code>{</code> 로 시작할 수 없다. 블럭과 구분할 수 없기 때문이다. 그리고 함수 선언과 구분하기 힘들기 때문에 함수 키워드로 시작해서도 안 된다.</p>
+<p>다시 말해서, 즉시 실행 함수(function 키워드로 시작하는)를 만들기 위해서 아래와 같이 함수 선언식을 작성했다면,</p>
 <pre><code class="language-js">function () {...}();// 또는 아래와 같이 이름이 있는.
 function foo() {...}();
 </code></pre>
 <p>두 경우 모두 파서가 해석 에러를 보고할 것이다.</p>
 <p>이 에러의 원인은 다양하겠지만, 전역 코드에 이렇게 선언을 하면(즉, 프로그램 레벨에), <code>function</code> 키워드로 시작하기 때문에 파서는 코드를 함수 선언식으로 이해한다.</p>
 <p>첫번째 경우는 함수의 이름이 없기 때문에 <code>SyntaxError</code> 를 보고한다.</p>
-<p>두 번째의 경우는 함수에 이름(<code>foo</code>)이 존재하기 때문에 파서가 정상적인 함수 선언으로 처리한다. 하지만 내부에 표현식이 없는 <strong>그룹화 연산자</strong>를 사용하고 있음을 알리는 문법 에러가 발생한다. 이 경우에 함수 선언 뒤에 오는 것은 함수 호출을 위한 괄호가 아니라 <strong>그룹화 연산자일 뿐이다.</strong> 만약 코드를 다음과 같이 작성했다면,</p>
+<p>두 번째의 경우는 함수에 이름(<code>foo</code>)이 존재하기 때문에 파서가 정상적인 함수 선언으로 처리한다. 하지만 내부에 표현식이 없는 <strong>그룹화 연산자</strong> 를 사용하고 있음을 알리는 문법 에러가 발생한다. 이 경우에 함수 선언 뒤에 오는 것은 함수 호출을 위한 괄호가 아니라 <strong>그룹화 연산자일 뿐이다.</strong> 만약 코드를 다음과 같이 작성했다면,</p>
 <pre><code class="language-js">// &quot;foo&quot;는 함수 선언이다
 // 그리고 실행 컨텍스트 진입 시점에 생성한다.
 alert(foo); 
@@ -340,7 +336,7 @@ function foo(x) {
 (&quot;foo&quot;);
 </code></pre>
 <p><code>ECMA</code> 스펙상으로 볼 때, 위의 코드는 잘못된 구문이다(표현식 구문은 <code>function</code> 키워드로 시작할 수 없다). 하지만 아래에 나와있는 것처럼, 문법 에러를 제공하는 <code>ECMAScript</code> 구현체는 하나도 없으며 모두 이를 각자 나름의 방식으로 처리한다.</p>
-<p>지금까지 설명한 내용을 가지고, 어떻게 파서에게 함수를 생성과 동시에 실행할 수 있을까?</p>
+<p>지금까지 설명한 내용을 가지고, 어떻게 파서에게 함수를 생성과 동시에 실행하고 싶다고 할 수 있을까?</p>
 <p><strong>함수 선언식이 아닌 함수 표현식을 사용하면 된다.</strong></p>
 <p>표현식을 만드는 가장 간단한 방법은 위에서 이야기 했듯이 <strong>그룹화 연산자를 사용한다.</strong> 그룹화 연산자 안에 표현식을 두면, 파서는 함수 표현식(<code>FE</code>)인 코드를 구분할 수 있으며 이에 따라 모호함도 사라진다. 이러한 함수는 코드 실행 단계 동안에 만들어지고, 함수 실행이 끝난 후에는 사라진다(함수를 참조하고 있는 곳이 없다면).</p>
 <pre><code class="language-js">(function foo(x) {
@@ -357,14 +353,12 @@ function foo(x) {
 
 alert(foo.bar); // 'yes'
 </code></pre>
-<p>얼핏보면 <code>foo.bar</code>는 함수가 아니라 문자열처럼 보인다. 여기에 있는 함수는 프로퍼티를 초기화할 때만 사용하는데, 조건 매개변수 값에 따라서 값을 돌려주는 함수를 만들고 바로 실행한다. 따라서, <code>괄호</code>를 묻는 질문에 완벽한 대답은 다음과 같다.</p>
+<p>얼핏보면 <code>foo.bar</code>는 함수가 아니라 문자열처럼 보인다. 여기에 있는 함수는 프로퍼티를 초기화할 때만 사용하는데, 조건 매개변수 값에 따라서 값을 돌려주는 함수를 만들고 바로 실행한다. 따라서, <code>괄호</code> 를 묻는 질문에 완벽한 대답은 다음과 같다.</p>
+<p>:star: <strong>제일 중요한 부분</strong> :star:</p>
 <blockquote>
 <p><strong>그룹화 괄호는 함수가 표현식의 위치에 있지 않을 때 필요하고, 함수를 생성 후 즉시 실행하고 싶은 경우에는 직접 함수를 FE로 변환한다.</strong></p>
 </blockquote>
-<blockquote>
-<p><strong>파서가 <code>FE</code>로 처리해야 한다는 것을 아는 경우, 즉 함수가 이미 표현식의 위치에 있는 경우에는 괄호가 필요없다.</strong></p>
-</blockquote>
-<p>괄호를 감싸는 방법 외에 함수를 FE타입으로 변경할 수 있는 다른 방법이 있다.</p>
+<p>괄호를 감싸는 방법 외에 함수를 FE 타입으로 변경할 수 있는 다른 방법이 있다. 예를 들어,</p>
 <pre><code class="language-js">1, function () { 
     alert('익명함수를 호출합니다.');
 }();// 또는 이렇게,
@@ -373,8 +367,7 @@ alert(foo.bar); // 'yes'
     alert('ECMAScript');
 }();// 그리고 수동적으로 변경하는 다른 방법들...
 </code></pre>
-<p>그룹 괄호는 가장 광범위하고 우아한 방법이다.</p>
-<p>그런데 그룹화 연산자는 호출 괄호없이 호출 설명을 포함하여 함수 설명을 둘러쌀 수 있다. 즉 아래의 두 표현식 모두 올바른 FE다.</p>
+<p>올바른 표현식</p>
 <pre><code class="language-js">(function () {})();
 (function () {}());
 </code></pre>
@@ -392,7 +385,7 @@ alert(foo.bar); // 'yes'
     
 foo(); // 1 또는 0? 다른 ECMAScript 엔진에서 테스트 해보자.
 </code></pre>
-<p>표준에 비춰볼 때 이 구조는 문제가 있다. 코드 블럭 안에 함수 선언식(<code>FD</code>)을 둘 수 없기 때문이다(지금은 <code>if</code>와 <code>else</code>가 <code>FD</code>를 가지고 있음). 위에서 이야기 했듯이, <code>FD</code>는 프로그램 레벨이나 다른 함수의 body안에 직접 위치해야 한다.</p>
+<p>표준에 비춰볼 때 이 구조는 문제가 있다. 코드 블럭 안에 함수 선언식(<code>FD</code>)을 둘 수 없기 때문이다(지금은 <code>if</code>와 <code>else</code>가 <code>FD</code>를 가지고 있음). 위에서 이야기 했듯이, <code>FD</code>는 프로그램 레벨이나 다른 함수의 몸체 안에 직접 위치해야 한다.</p>
 <p>코드 블럭은 오직 구문만 가질 수 있기 때문에 위의 예제는 잘못되었다. 블럭 내에 함수는 표현식의 위치에만 나올 수 있으며, 함수를 정의할 때는 여는 중괄호(코드 블럭과 구분할 수 없음)나 함수 키워드로 시작할 수 없다(<code>FD</code>와 구분할 수 없음).</p>
 <p>하지만 표준 문서의 <code>error processing</code> 섹션은 <code>ECMAScript</code> 구현체가 프로그램 구문을 확장할 수 있도록 허용하고 있다. 그리고 블럭 안에 등장하는 함수 처리가 이러한 확장 중에 하나다. 오늘날 존재하는 모든 구현체는 이 경우에 예외를 던지지 않고 각자 고유의 방식으로 처리한다.</p>
 <p>위 예제의 <code>if-else</code> 분기문은 두 함수 중 어떤 것을 정의할지 선택할 수 있다고 가정한다. 이 결정은 런타임에 이루어지기 때문에, 함수 표현식(<code>FE</code>)을 사용해야 한다. 하지만 대부분의 구현체는 단순하게 컨텍스트 진입 시점에 두 개의 함수 선언식(<code>FD</code>)을 모두 생성한다. 두 함수 모두 같은 이름을 사용하기 때문에, 마지막에 선언한 함수만 호출할 수 있다. 이런 이유로 이 예제를 실행하면 <code>else</code> 로 코드 제어가 이동할 수 없음에도 불구하고 <code>foo</code> 함수는 1을 출력한다.</p>
@@ -412,7 +405,7 @@ foo(); // 1 또는 0? 다른 ECMAScript 엔진에서 테스트 해보자.
 // 하지만 외부에서는 &quot;foo&quot;를 이용할 수 없다.  
 foo(); // &quot;foo&quot; is not defined
 </code></pre>
-<p><code>foo</code> 를 어디에 보관하는 걸까? <code>foo</code>의 활성화 객체 안도 아니다. <code>foo</code> 함수 내부에서 <code>foo</code>라는 이름을 정의한 적이 없다. 그렇다면 <code>foo</code> 를 생성하는 컨텍스트의 변수객체 안도 역시 아니다. <code>FE</code>는 <code>VO</code>에 영향을 주지 않는다는 사실을 외부에서 <code>foo</code>를 호출하면서 확인했다.  그렇다면 어디일까?</p>
+<p><code>foo</code> 를 어디에 보관하는 걸까? <code>foo</code>의 활성화 객체 안도 아니다. <code>foo</code> 함수 내부에서 <code>foo</code>라는 이름을 정의한 적이 없다. 그렇다면 <code>foo</code> 를 생성하는 컨텍스트의 변수객체 안도 역시 아니다. <code>FE</code>는 <code>VO</code>에 영향을 주지 않는다는 사실을 외부에서 <code>foo</code> 를 호출하면서 확인했다.  그렇다면 어디일까?</p>
 <p>코드 실행 시점에 인터프리터가 기명 함수 표현식(<code>NFE</code>)을 만나면. 함수 표현식을 만들기 전에 <strong>보조 특수 객체(auxiliary specilal object)</strong> 를 만들고 스코프 체인의 <strong>가장 앞에 이 특수 객체를 추가</strong> 한다. 그런 다음에  함수 표현식을 만드는데, 이 때 함수에 <code>[[Scope]]</code> 프로퍼티(Scope chain에서 배웠듯이)가 생긴다. 여기에는 함수를 생성하는 컨텍스트의 스코프 체인이 들어있다(즉, <code>[[Scope]]</code> 안에 특수 객체가 위치한다). 다음으로, 기명 함수 표현식을 특수 객체에 고유 프로퍼티로 추가한다. 이 프로퍼티의 값은 함수 표현식을 참조한다. 그리고 마지막으로 부모의 스코프 체인에서 특수 객체를 제거한다.</p>
 <pre><code class="language-js">specialObject = {};
 
@@ -425,6 +418,8 @@ specialObject.foo = foo; // {DontDelete}, {ReadOnly}
 delete Scope[0]; // 스코프 체인의 가장 앞에 있는 specialObject를 삭제한다.
 </code></pre>
 <p>따라서, 외부에서는 이 함수의 이름을 사용할 수 없다. 함수의 <code>[[Scope]]</code> 안에 특수 객체가 저장되어 있기 때문에, 내부에서는 이 함수의 이름을 사용할 수 있다.</p>
+<a class="header" href="#마무리" id="마무리"><h2>마무리</h2></a>
+<p>생각보다 내용이 많아졌다. 나도 선언식, 표현식을 비교하면서 보여주는 블로그들은 많이 봤지만 정확히 왜 그렇게 되고 즉시실행은 왜 저렇게 될 수 밖에 없는 것인가에 대해서 정리를 해보았다. 자꾸자꾸 보면서 쉬운말로 고쳐봐야겠다.</p>
 <hr />
 <a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
 <ul>
