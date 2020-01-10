@@ -75,7 +75,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="basic/index.html"><strong aria-hidden="true">2.14.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li><a href="basic/index.html"><strong aria-hidden="true">2.15.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -2943,6 +2943,142 @@ console.log(a, b, rest)
 <li><a href="https://github.com/wonism/TIL/blob/master/front-end/javascript/object-create.md">object-create.md - wonism</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign() = MDN</a></li>
 </ul>
+<a class="header" href="#map-filter-reduce" id="map-filter-reduce"><h1>Map Filter Reduce</h1></a>
+<p>함수형 프로그래밍의 주요 기능 중 하나는 리스트와 리스트 연산자의 사용이다.</p>
+<p>Javascript에는 초기 리스트에서 제공하는 모든 함수를 map, filter, reduce를 사용하여 원본 리스트는 그대로 유지하면서 다른 것으로 변환가능하다.</p>
+<a class="header" href="#map" id="map"><h2>Map</h2></a>
+<a class="header" href="#구문" id="구문"><h3>구문</h3></a>
+<pre><code class="language-js">arr.map(callback(currentValue[, index[, array]])[, thisArg])
+</code></pre>
+<p><code>map()</code> 메서드는 콜백함수를 적용하고 나오는 결과물을 가지고 새로운 배열로 반환한다.</p>
+<p>객체 리스트에서 우리가 원하는 속성을 추가, 수정하는데 사용한다.</p>
+<p>map은 callback을 인자로 받는다. 이 calllback은 iteration의 현재 값을 받으며 인덱스와 원본 배열도 같이 불린다.</p>
+<p>optional하게 두 번째 인자로는 callback 내부에서 사용될 this를 바인딩한다.</p>
+<blockquote>
+<p><a href="https://github.com/v8/v8/blob/288aaef9ae15605383eb49f38b1df6e1f5d50ffb/src/builtins/array-map.tq#L79">V8 엔진</a> 내부적으로 두번째 인자를 가지고 <code>fn.call(secondArg, ...)</code>를 사용하여 바인딩하고 있다.</p>
+</blockquote>
+<a class="header" href="#example" id="example"><h3>Example</h3></a>
+<pre><code class="language-js">const numbers = [2, 4, 8, 10];
+const halves = numbers.map(x =&gt; x / 2);
+// halves is [1, 2, 4, 5]
+</code></pre>
+<a class="header" href="#pollyfill-만들어보기" id="pollyfill-만들어보기"><h3>pollyfill 만들어보기</h3></a>
+<pre><code class="language-js">Array.prototype.map = function (fn) {
+  var args
+  if(this == null){
+    return new TypeError(&quot;this is null or not defined&quot;)
+  }
+  var o = Object(this)
+  var len = o.length &gt;&gt;&gt; 0;
+  if(typeof fn !== 'function'){
+    return new TypeError(fn, &quot; is not a functions&quot;)
+  }
+  var arr = new Array(len)
+  /* 추가적으로 들어오는 argument 처리 */
+  if (arguments.length &gt; 1) {
+    args = arguments[1];
+  }
+  var n = 0;
+  while (n &lt; len){
+    if (n in o) {
+      arr[n] = fn.call(args, o[n], n, o)
+      n++
+    }
+  }
+  return arr
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/71173584-79b45b80-22a6-11ea-813b-ace66fa11bc7.png" alt="Map" /></p>
+<a class="header" href="#filter" id="filter"><h2>Filter</h2></a>
+<pre><code class="language-js">arr.filter(callback(element[, index[, array]])[, thisArg])
+</code></pre>
+<p>주어진 함수에 대해서 조건을 통과한 요소들을 가지고 새로운 배열을 만들어서 반환하는 메서드.</p>
+<p>filter는 map과 같은 arguments를 받는다. filter에서는 return 값으로 <code>true</code>나 <code>false</code>를 반환하면 된다. <code>true</code>를 반환하면 배열에 추가하며, <code>false</code>를 반환하면 추가하지 않는다.</p>
+<p>결국, 새로운 배열이 나오되 <code>true</code>로 반환된 요소만 담겨서 나오게 된다.</p>
+<pre><code class="language-js">const words = [&quot;spray&quot;, &quot;limit&quot;, &quot;elite&quot;, &quot;exuberant&quot;, &quot;destruction&quot;, &quot;present&quot;];
+const longWords = words.filter(word =&gt; word.length &gt; 6);
+// longWords is [&quot;exuberant&quot;, &quot;destruction&quot;, &quot;present&quot;]
+</code></pre>
+<a class="header" href="#pollyfill-만들어보기-1" id="pollyfill-만들어보기-1"><h3>pollyfill 만들어보기</h3></a>
+<pre><code class="language-js">Array.prototype.filter = function (fn) {
+  var args
+  if(this == null){
+    return new TypeError(&quot;this is null or not defined&quot;)
+  }
+  var o = Object(this)
+  var len = o.length &gt;&gt;&gt; 0;
+  if(typeof fn !== 'function'){
+    return new TypeError(fn, &quot; is not a functions&quot;)
+  }
+  var arr = new Array(len)
+  if (arguments.length &gt; 1) {
+    args = arguments[1];
+  }
+  var n = 0;
+  var i = -1;
+  while (++i !== len){
+    if (n in o) {
+      if(fn.call(args, o[i], i, o)){
+        arr[n++] = o[i]
+      }
+    }
+  }
+  arr.length = n
+  return arr
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/71173596-820c9680-22a6-11ea-93af-46b528439e9f.png" alt="Filter" /></p>
+<a class="header" href="#reduce" id="reduce"><h2>Reduce</h2></a>
+<pre><code class="language-js">arr.reduce(callback[, initialValue])
+</code></pre>
+<p><code>reduce()</code> 메서드는 accumulator와 배열의 각 요소(왼쪽에서 오른쪽으로)에 대해 함수를 적용하여 단일 값으로 반환한다.</p>
+<p>map, filter와 비슷하지만, callback argument가 다르다. callback은 accumulator를 받는다. 이 값은 이전에 누적된 반환값으로 현재 값, 현재 인덱스, 원본 배열을 같이 받는다.</p>
+<pre><code class="language-js">const total = [0, 1, 2, 3].reduce((sum, value) =&gt; sum + value, 1);
+// total is 7
+</code></pre>
+<a class="header" href="#pollyfill-만들어보기-2" id="pollyfill-만들어보기-2"><h3>pollyfill 만들어보기</h3></a>
+<pre><code class="language-js">Array.prototype.reduce = function (fn) {
+  var args;
+  if(this == null){
+    return new TypeError(&quot;this is null or not defined&quot;);
+  }
+  var o = Object(this);
+  var len = o.length &gt;&gt;&gt; 0; 
+  if(typeof fn !== 'function'){
+    return new TypeError(fn, &quot; is not a functions&quot;);
+  }
+  var n = 0;
+  var value;
+  /* 추가적으로 들어오는 argument 처리 */
+  if (arguments.length &gt; 1) {
+    value = arguments[1];
+  }else{
+    while (n &lt; len &amp;&amp; !(n in o)) {
+      n++; 
+    }
+    if (n &gt;= len) {
+      throw new TypeError( 'Reduce of empty array with no initial value' );
+    }
+    value = o[n++];
+  }
+  
+  while (n &lt; len){
+    if (n in o) {
+      value = fn(value, o[n], n, o);
+    }
+    n++;    
+  }
+  return value
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/24274424/71173608-8769e100-22a6-11ea-964b-eb9a113761d6.png" alt="Reduce" /></p>
+<hr />
+<a class="header" href="#reference-12" id="reference-12"><h4>Reference</h4></a>
+<ul>
+<li><a href="https://medium.com/jsguru/javascript-functional-programming-map-filter-and-reduce-846ff9ba492d">JavaScript Functional Programming</a></li>
+<li><a href="https://medium.com/@joomiguelcunha/learn-map-filter-and-reduce-in-javascript-ea59009593c4">Learn map, filter and reduce in Javascript</a></li>
+<li><a href="https://github.com/v8/v8/blob/master/src/builtins/array-map.tq#L79">V8.array-map</a></li>
+</ul>
 <a class="header" href="#javascript란-1" id="javascript란-1"><h1>JavaScript란?</h1></a>
 <p><code>JavaScript(JS)</code>는 <strong>가벼운 인터프리터형</strong>, <strong>JIT-컴파일형 프로그래밍 언어</strong>, <code>first-class functions</code>를 지원한다.</p>
 <p>주로 웹 페이지를 위한 스크립팅 언어로 알려졌지만, <code>Node.js, Apache CouchDB, Adobe Acrobat</code>처럼 많은 비 브라우저 환경에서도 사용된다.</p>
@@ -2956,7 +3092,7 @@ console.log(a, b, rest)
 <a class="header" href="#javascript를-java-프로그래밍-언어와-혼동해서는-안된다-1" id="javascript를-java-프로그래밍-언어와-혼동해서는-안된다-1"><h2><code>JavaScript</code>를 <code>Java</code> 프로그래밍 언어와 혼동해서는 안된다.</h2></a>
 <p>&quot;Java&quot;와 &quot;JavaScript&quot; 두 가지 모두 Oracle이 미국 및 기타 국가에 등록한 상표이다. 하지만, 두 언어는 문법 체계와 사용방법이 전혀 다릅니다.</p>
 <hr />
-<a class="header" href="#reference-12" id="reference-12"><h4>Reference</h4></a>
+<a class="header" href="#reference-13" id="reference-13"><h4>Reference</h4></a>
 <ul>
 <li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript">MDN-javascript</a></li>
 </ul>
@@ -3083,7 +3219,7 @@ eval('x = 2', bar); // pass context, influence internal var &quot;x&quot;
 <p>하지만 최신 엔진에서는 보안상의 이유로 수정되어 더 이상 중요하지 않다.</p>
 </blockquote>
 <hr />
-<a class="header" href="#reference-13" id="reference-13"><h4>Reference</h4></a>
+<a class="header" href="#reference-14" id="reference-14"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/">ECMA-262-3 in detail. Chapter 1. Execution Contexts</a></li>
 </ul>
@@ -3455,7 +3591,7 @@ a.call({b: 20}, 30); // this === {b: 20}, this.b == 20, c == 30
 a.apply({b: 30}, [40]) // this === {b: 30}, this.b == 30, c == 40
 </code></pre>
 <p><br/></p>
-<a class="header" href="#reference-14" id="reference-14"><h4>Reference</h4></a>
+<a class="header" href="#reference-15" id="reference-15"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/">Dmitry Soshnikov  in ECMAScript</a></li>
 <li><a href="http://huns.me/development/258">김코딩님이 코딩 잘하고 싶어서 만든 블로그</a></li>
@@ -3768,7 +3904,7 @@ Scope = catchObject + AO|VO + [[Scope]]
 </code></pre>
 <p><code>catch</code>절 내의 작업이 종료된 후에, 스코프 체인은 이전 상태로 돌아온다.</p>
 <hr />
-<a class="header" href="#reference-15" id="reference-15"><h4>Reference</h4></a>
+<a class="header" href="#reference-16" id="reference-16"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/">scope-chain</a></li>
 </ul>
@@ -4016,7 +4152,7 @@ delete Scope[0]; // 스코프 체인의 가장 앞에 있는 specialObject를 �
 <a class="header" href="#마무리" id="마무리"><h2>마무리</h2></a>
 <p>생각보다 내용이 많아졌다. 나도 선언식, 표현식을 비교하면서 보여주는 블로그들은 많이 봤지만 정확히 왜 그렇게 되고 즉시실행은 왜 저렇게 될 수 밖에 없는 것인가에 대해서 정리를 해보았다. 자꾸자꾸 보면서 쉬운말로 고쳐봐야겠다.</p>
 <hr />
-<a class="header" href="#reference-16" id="reference-16"><h4>Reference</h4></a>
+<a class="header" href="#reference-17" id="reference-17"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/">chapter-5-functions</a></li>
 </ul>
@@ -4354,7 +4490,7 @@ xmlHttpRequestObject.onreadystatechange = function () {
 alert(foo.getX()); // 클로저 변수 &quot;x&quot;의 값은 10
 </code></pre>
 <hr />
-<a class="header" href="#reference-17" id="reference-17"><h4>Reference</h4></a>
+<a class="header" href="#reference-18" id="reference-18"><h4>Reference</h4></a>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-6-Closure/">chapter-6-closure</a></li>
 </ul>
