@@ -16,6 +16,7 @@
   - [Call, Apply, Bind](basic/11-Call-Apply-Bind.md)
   - [Prototype](basic/12-Prototype.md)
   - [Object.create, Object.assign](basic/13-Object.create_Object.assign.md)
+  - [Map, Filter, Reduce](basic/14-Map-Filter-Reduce.md)
   - [To be continue](basic/index.md)
 --------------------------------------------------------------------------------
 - [ES3 in Detail](ES3/index.md)
