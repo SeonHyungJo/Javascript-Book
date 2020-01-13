@@ -17,6 +17,7 @@
   - [Prototype](basic/12-Prototype.md)
   - [Object.create, Object.assign](basic/13-Object.create_Object.assign.md)
   - [Map, Filter, Reduce](basic/14-Map-Filter-Reduce.md)
+  - [Pure Functions, Side Effects, State Mutation](basic/15-Pure-Functions-Side-Effects-State-Mutation.md)
   - [To be continue](basic/index.md)
 --------------------------------------------------------------------------------
 - [ES3 in Detail](ES3/index.md)
