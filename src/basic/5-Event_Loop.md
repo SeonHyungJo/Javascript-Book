@@ -57,7 +57,7 @@ main();
 //  B
 ```
 
-![event_loop](/assets/image/basic_event_loop.png)
+![event_loop](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/basic_event_loop.png)
 
 1. main함수가 실행이 되어서 처음에 들어가게 된다. main함수 안에 있는 `console.log` 가 스택에 쌓이게 된다. 함수가 실행이 되면 알파벳이 콘솔창에 출력이 된다.
 2. 다음으로 `setTimeout` 이 들어오면서 실행이 된다. `setTimeout` 은 `browserAPI` 의 콜백을 지연하는 함수를 사용한다. 

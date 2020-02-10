@@ -53,11 +53,11 @@ JS코드를 실행하는 **프로그램(가령 브라우저) 또는 인터프리
 
 그러나 정확하지 않은 결과가 나왔다면 다시 `deoptimizes`하여 바이트코드로 되돌린다.
 
-![B_Engine_1.png](/assets/image/B_Engine_1.png)
+![B_Engine_1.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_1.png)
 
 위의 파이프라인 작동하는 방식은 Chrome 및 Node.js에서 사용되는 JavaScript 엔진이 작동하는 방식과 거의 동일하다.
 
-![B_Engine_2.png](/assets/image/B_Engine_2.png)
+![B_Engine_2.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_2.png)
 
 V8의 인터프린터 **Ignition** 이라고 불리며, **bytecode** 를 생성하고 실행하는 역할을 한다. **Bytecode** 를 실행하는 동안, 실행 속도를 높이기 위해서 **profiling data** 를 수집한다. 예를 들어, 종종 실행되는 기능에 부하가 걸리면, 생성된 **bytecode** 와 **profiling data** 는 **TurboFan**(최적화된 컴파일러)으로 전달되어 **profiling data** 를 기반으로 최적화 머신 코드( **optimized code** )를 생성합니다.
 
@@ -75,7 +75,7 @@ V8의 인터프린터 **Ignition** 이라고 불리며, **bytecode** 를 생성
 
 객체는 JavaScript 명세에 따르면 String으로 된 키와 이것으로 접근할 수 있는 값들을 가지고 있는 딕셔너리(Key-Value)이다. 키는 단순히 `[[value]]` 에 맵핑되는 것 뿐만 아니라 속성 값(property attributes) 이라고 하는 스펙에도 매핑이된다.
 
-![B_Engine_3.png](/assets/image/B_Engine_3.png)
+![B_Engine_3.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_3.png)
 
 객체는 기본적인 속성 값으로 `[[Writable]]`, `[[Enumerable]]`, `[[Configurable]]` 상태가 있다.
 
@@ -118,11 +118,11 @@ const array = ['a', 'b'];
 
 객체와 비슷하다. 배열은 인덱스를 포함하여 모두 `string` 키를 가진다. 아래 그림을 보면 인덱스인 `0` 은 `a` 라는 값을 가지며, 값을 바꿀 수 있고(Writable), 열거 가능하고(Enumerable), 삭제 가능(Configurable) 하다. 또 다른 프로퍼티인 `length` 의 값은 1이며, 값을 바꿀 수 있지만 열거와 삭제가 불가능 하다.
 
-![B_Engine_4.png](/assets/image/B_Engine_4.png)
+![B_Engine_4.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_4.png)
 
 배열에 Item을 추가하게 되면, JavaScript 엔진은 `length`의 속성 값 중 `[[value]]`를 자동으로 증가시킨다.
 
-![B_Engine_5.png](/assets/image/B_Engine_5.png)
+![B_Engine_5.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_5.png)
 
 <br/>
 
@@ -144,7 +144,7 @@ logX(obj2);
 
 함수 `logX`를 통해 두 객체 각각에서 같은 프로퍼티 `x` 에 접근한다. JavaScript 엔진은 프로퍼티 접근 시에 모양이 같은 점을 이용하여 최적화를 한다.
 
-![B_Engine_6.png](/assets/image/B_Engine_6.png)
+![B_Engine_6.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_6.png)
 
 객체의 키 `x`, `y`는 각각의 속성 값(property attributes)을 가리킨다. 예를 들어 `x` 프로퍼티에 접근하게 되면 엔진은 `Object` 에서 `x` 키를 찾은 다음, 해당하는 속성 값을 불러오고 `[[Value]]` 값을 반환한다.
 
@@ -154,11 +154,11 @@ logX(obj2);
 
 그래서 엔진은 직접 값을 저장하는 방법 아래와 같은 방법을 사용하게 된다.
 
-![B_Engine_7.png](/assets/image/B_Engine_7.png)
+![B_Engine_7.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_7.png)
 
 우선 엔진은 따로 `Shape` 라는 곳에 프로퍼티 이름과 속성 값들을 저장한다. 여기에 `[[value]]` 값 대신 `JSObject` 의 어디에 값이 저장되어 있는지에 대한 정보인 `Offset` 을 `Property information`으로 가지고 있는다.
 
-![B_Engine_8.png](/assets/image/B_Engine_8.png)
+![B_Engine_8.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_8.png)
 
 즉, 같은 모양을 가진 모든 JSObject는 동일한 `Shape` 인스턴스를 가리키게 되고, 각 객체에는 고유한 값만 저장되므로, 더 이상 중복되지 않는 것이다. 같은 모양으로 생긴 더 많은 오브젝트가 있다 하더라도 오로지 하나의 `Shape` 만 존재하게 된다.
 
@@ -178,15 +178,15 @@ o.y = 6;
 
 먼저, 비어있는 객체인 `o`가 있으며, 이는 비어있는 Shape를 가리킨다.
 
-![B_Engine_9.png](/assets/image/B_Engine_9.png)
+![B_Engine_9.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_9.png)
 
 여기에 5라는 값을 가진 `x` 라는 프로퍼티를 추가하게 되면, 비어있던 Shape에서 `x` 를 프로퍼티로 가지고 있는 새로운 Shape로 **이동**(transition)하게 된다. 다음과 같이 `JSObject` 의 값이 추가되고, `offset` 은 0이다.
 
-![B_Engine_10.png](/assets/image/B_Engine_10.png)
+![B_Engine_10.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_10.png)
 
 새로운 프로퍼티 y를 추가해도 똑같이 작동하게 된다. `Shape(x,y)` 로 이동한 다음 값을 추가한다.
 
-![B_Engine_11.png](/assets/image/B_Engine_11.png)
+![B_Engine_11.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_11.png)
 
 하지만 이런 방법을 모든 테이블에 항상 적용했다가는 많은 메모리 낭비를 일으키겠지요. 그래서 실제로 엔진은 이렇게 동작하지 않습니다.
 
@@ -196,7 +196,7 @@ o.y = 6;
 
 엔진은 추가되는 새로운 프로퍼티 정보를 저장하고, 이전 Shape로 가는 **링크**를 제공한다. 만약 `o.x`를 찾을 때 값이 `Shape(x,y)` 에 없다면 이전의 `Shape(x)`에 가서 찾는 것이다.
 
-![B_Engine_12.png](/assets/image/B_Engine_12.png)
+![B_Engine_12.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_12.png)
 
 <br/>
 
@@ -204,11 +204,11 @@ o.y = 6;
 
 만약에 두 객체에서 동일한 Shape를 사용한다면 어떻게 될까? 먼저 하나의 객체 `a` 에 `x = 5` 라는 값을 가진 프로퍼티가 있다고 하면
 
-![B_Engine_13.png](/assets/image/B_Engine_13.png)
+![B_Engine_13.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_13.png)
 
 이번엔 객체 `b` 에서 `y` 라는 프로퍼티를 추가할 경우 `Shape(empty)`에서 가지를 뻗어 새로운 `Shape(y)`를 만든다. 결국 2개의 체인에 3개의 Shape를 가진 트리 체인이 생성되는 것이다.
 
-![B_Engine_14.png](/assets/image/B_Engine_14.png)
+![B_Engine_14.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_14.png)
 
 java의 Object처럼 모든 객체의 트리를 거슬러 올라가면 무조건 `Shape(empty)`에 도달하게 되는 것은 아니다.
 
@@ -221,7 +221,7 @@ const ob2 = {x: 6};
 
 `ojb2` 와 같이, JS에서는 **Object Literal** 을 사용하여 시작부터 프로퍼티를 가지고 생성하도록 할 수 있기 때문이다. 따라서 `Shape(empty)`가 아닌, 서로 다른 **Root Shape**가 생성된다.
 
-![B_Engine_15.png](/assets/image/B_Engine_15.png)
+![B_Engine_15.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_15.png)
 
 이 방법은 **transition chain** 을 짧게 하고, 객체를 리터럴로부터 생성하여 더욱 효율적이다. point는 `x,y,z` 를 3차원 공간의 좌표로 가지는 객체이다.
 
@@ -235,7 +235,7 @@ point.z = 6;
 
 앞서 배운 것에 따르면, 총 3개의 Shape가 메모리에 생성 될 것입니다. (empty Shape 제외)
 
-![B_Engine_16.png](/assets/image/B_Engine_16.png)
+![B_Engine_16.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_16.png)
 
 만약 이걸 사용하는 프로그램에서 `x` 프로퍼티에 접근한다고 하면, 엔진은 가장 마지막에 생성된 `Shape(x,y,z)` 부터 링크드 리스트를 따라올라가 맨 위에 있을 `x` 를 찾는다.
 
@@ -243,7 +243,7 @@ point.z = 6;
 
 그래서 엔진은 탐색 속도를 높이기 위해 내부적으로 `ShapeTable` 이라는 자료구조를 추가한다. 이는 딕셔너리 형태로, 각각의 Shape를 가리키는 프로퍼티 키를 저장하고 있다.
 
-![B_Engine_17.png](/assets/image/B_Engine_17.png)
+![B_Engine_17.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_17.png)
 
 그렇다면 기껏 Shape가 나온 이유가 없어지는 것인가? 사실 엔진은 최적화를 위해 또 다른 방법인 `Inline Cache`(IC) 라는 것을 Shape에 적용한다. 
 
@@ -286,7 +286,7 @@ function getX(o) {
 
 위의 함수를 `JSC` 에서 실행한다면, 아래의 그림과 같은 `bytecode` 를 생성할 것이다.
 
-![B_Engine_18.png](/assets/image/B_Engine_18.png)
+![B_Engine_18.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_18.png)
 
 첫 번째 명령문 `get_by_id`는 첫 번째 `argument (arg1)` 에서 `property 'x'` 를 로드하여 결과를 `loc0` 에 저장한다. 
 
@@ -294,15 +294,15 @@ function getX(o) {
 
 또한 `JSC` 는 `get_by_id` 명령문에 초기화되지 않은 두 개의 슬롯으로 구성된 `Inline Cache` 를 포함한다.
 
-![B_Engine_19.png](/assets/image/B_Engine_19.png)
+![B_Engine_19.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_19.png)
 
 이제 위의 그림과 같이 `{x: 'a'} object` 가 `getX` 함수에서 실행될 때를 보게 되면, `object` 는 `property 'x'` 가 있는 shape를 가지며, 이 Shape는 `property x` 에 대한 `offset` 과 `attribute` 들을 가집니다. 이 함수를 처음 실행하면, `get_by_id 함수` 는 `property 'x'` 를 검색하고 value는 `offset 0` 에 저장되어 있다는 것도 찾게된다.
 
-![B_Engine_20.png](/assets/image/B_Engine_20.png)
+![B_Engine_20.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_20.png)
 
 위의 그림에서 처럼 `get_by_id` 명령문에 포함된 IC는 `property` 가 발견된 shape와 offset을 기억하게 된다.
 
-![B_Engine_21.png](/assets/image/B_Engine_21.png)
+![B_Engine_21.png](https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_21.png)
 
 위의 그림을 보게되면, 다음 명령문을 실행할 때, IC는 shape만 비교하면 되며, 이전과 같다면 저장되어있는 offset을 보고 value를 가져오면 된다. 구체적으로 말하면, 엔진이 IC가 이전에 기록한 shape의 object를 볼 경우, 더 이상 property 정보에 접근할 필요가 없다. 그리고 비용이 많이 들어가는 property 정보 조회를 완전히 생략하게 된다. 이 방법은 매번 property를 조회하는 것 보다 훨씬 더 빠르다.
 
