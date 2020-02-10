@@ -221,9 +221,9 @@
 <p>바이트 코드  + 프로파일된 데이터 =&gt; 최적의 기계어</p>
 </blockquote>
 <p>그러나 정확하지 않은 결과가 나왔다면 다시 <code>deoptimizes</code>하여 바이트코드로 되돌린다.</p>
-<p><img src="/assets/image/B_Engine_1.png" alt="B_Engine_1.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_1.png" alt="B_Engine_1.png" /></p>
 <p>위의 파이프라인 작동하는 방식은 Chrome 및 Node.js에서 사용되는 JavaScript 엔진이 작동하는 방식과 거의 동일하다.</p>
-<p><img src="/assets/image/B_Engine_2.png" alt="B_Engine_2.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_2.png" alt="B_Engine_2.png" /></p>
 <p>V8의 인터프린터 <strong>Ignition</strong> 이라고 불리며, <strong>bytecode</strong> 를 생성하고 실행하는 역할을 한다. <strong>Bytecode</strong> 를 실행하는 동안, 실행 속도를 높이기 위해서 <strong>profiling data</strong> 를 수집한다. 예를 들어, 종종 실행되는 기능에 부하가 걸리면, 생성된 <strong>bytecode</strong> 와 <strong>profiling data</strong> 는 <strong>TurboFan</strong>(최적화된 컴파일러)으로 전달되어 <strong>profiling data</strong> 를 기반으로 최적화 머신 코드( <strong>optimized code</strong> )를 생성합니다.</p>
 <a class="header" href="#v8-살펴보기" id="v8-살펴보기"><h2>V8 살펴보기</h2></a>
 <a class="header" href="#v859-이전" id="v859-이전"><h3>V8.5.9 이전</h3></a>
@@ -234,7 +234,7 @@
 <p><br/></p>
 <a class="header" href="#javascript-engine이-객체-모델을-구현하는-방법" id="javascript-engine이-객체-모델을-구현하는-방법"><h2>JavaScript Engine이 객체 모델을 구현하는 방법</h2></a>
 <p>객체는 JavaScript 명세에 따르면 String으로 된 키와 이것으로 접근할 수 있는 값들을 가지고 있는 딕셔너리(Key-Value)이다. 키는 단순히 <code>[[value]]</code> 에 맵핑되는 것 뿐만 아니라 속성 값(property attributes) 이라고 하는 스펙에도 매핑이된다.</p>
-<p><img src="/assets/image/B_Engine_3.png" alt="B_Engine_3.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_3.png" alt="B_Engine_3.png" /></p>
 <p>객체는 기본적인 속성 값으로 <code>[[Writable]]</code>, <code>[[Enumerable]]</code>, <code>[[Configurable]]</code> 상태가 있다.</p>
 <ul>
 <li><strong>Writable</strong> : 할당연산자를 통해 값을 <strong>바꿀</strong> 수 있는지</li>
@@ -265,9 +265,9 @@
 <p><br/></p>
 <a class="header" href="#javascript-엔진에서-배열을-다루기" id="javascript-엔진에서-배열을-다루기"><h3>JavaScript 엔진에서 배열을 다루기</h3></a>
 <p>객체와 비슷하다. 배열은 인덱스를 포함하여 모두 <code>string</code> 키를 가진다. 아래 그림을 보면 인덱스인 <code>0</code> 은 <code>a</code> 라는 값을 가지며, 값을 바꿀 수 있고(Writable), 열거 가능하고(Enumerable), 삭제 가능(Configurable) 하다. 또 다른 프로퍼티인 <code>length</code> 의 값은 1이며, 값을 바꿀 수 있지만 열거와 삭제가 불가능 하다.</p>
-<p><img src="/assets/image/B_Engine_4.png" alt="B_Engine_4.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_4.png" alt="B_Engine_4.png" /></p>
 <p>배열에 Item을 추가하게 되면, JavaScript 엔진은 <code>length</code>의 속성 값 중 <code>[[value]]</code>를 자동으로 증가시킨다.</p>
-<p><img src="/assets/image/B_Engine_5.png" alt="B_Engine_5.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_5.png" alt="B_Engine_5.png" /></p>
 <p><br/></p>
 <a class="header" href="#hidden-classshape" id="hidden-classshape"><h2>Hidden Class(Shape)</h2></a>
 <pre><code class="language-javascript">function logX(obj){
@@ -282,14 +282,14 @@ logX(obj2);
 </code></pre>
 <p>동일한 프로퍼티 <code>x</code>와 <code>y</code>를 <code>string</code> 키로 가지는 두 객체가 있다면. 이 두 객체의 <code>모양(shapes)</code>은 똑같다.</p>
 <p>함수 <code>logX</code>를 통해 두 객체 각각에서 같은 프로퍼티 <code>x</code> 에 접근한다. JavaScript 엔진은 프로퍼티 접근 시에 모양이 같은 점을 이용하여 최적화를 한다.</p>
-<p><img src="/assets/image/B_Engine_6.png" alt="B_Engine_6.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_6.png" alt="B_Engine_6.png" /></p>
 <p>객체의 키 <code>x</code>, <code>y</code>는 각각의 속성 값(property attributes)을 가리킨다. 예를 들어 <code>x</code> 프로퍼티에 접근하게 되면 엔진은 <code>Object</code> 에서 <code>x</code> 키를 찾은 다음, 해당하는 속성 값을 불러오고 <code>[[Value]]</code> 값을 반환한다.</p>
 <p>여기서 5와 6 같은 데이터는 어디에 저장되나?</p>
 <p>모든 객체 별로 정보를 저장하게 되면 낭비가 된다. 비슷한 모양의 객체가 더 많이 생긴다면, 그만큼의 중복할 발생할 것이고 필요없는 메모리 사용이 늘어나게 되는 것이다.</p>
 <p>그래서 엔진은 직접 값을 저장하는 방법 아래와 같은 방법을 사용하게 된다.</p>
-<p><img src="/assets/image/B_Engine_7.png" alt="B_Engine_7.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_7.png" alt="B_Engine_7.png" /></p>
 <p>우선 엔진은 따로 <code>Shape</code> 라는 곳에 프로퍼티 이름과 속성 값들을 저장한다. 여기에 <code>[[value]]</code> 값 대신 <code>JSObject</code> 의 어디에 값이 저장되어 있는지에 대한 정보인 <code>Offset</code> 을 <code>Property information</code>으로 가지고 있는다.</p>
-<p><img src="/assets/image/B_Engine_8.png" alt="B_Engine_8.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_8.png" alt="B_Engine_8.png" /></p>
 <p>즉, 같은 모양을 가진 모든 JSObject는 동일한 <code>Shape</code> 인스턴스를 가리키게 되고, 각 객체에는 고유한 값만 저장되므로, 더 이상 중복되지 않는 것이다. 같은 모양으로 생긴 더 많은 오브젝트가 있다 하더라도 오로지 하나의 <code>Shape</code> 만 존재하게 된다.</p>
 <p><br/></p>
 <a class="header" href="#shape에-새로운-객체를-추가하기-transition-chains" id="shape에-새로운-객체를-추가하기-transition-chains"><h3>Shape에 새로운 객체를 추가하기 (Transition chains)</h3></a>
@@ -300,22 +300,22 @@ o.y = 6;
 </code></pre>
 <p>새로운 프로퍼티를 추가할 때, 엔진은 어떻게 새로운 Shape를 찾을수 있는 것일까? 엔진은 내부에 <code>transition chains</code>라고 하는 Shape를 만든다.</p>
 <p>먼저, 비어있는 객체인 <code>o</code>가 있으며, 이는 비어있는 Shape를 가리킨다.</p>
-<p><img src="/assets/image/B_Engine_9.png" alt="B_Engine_9.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_9.png" alt="B_Engine_9.png" /></p>
 <p>여기에 5라는 값을 가진 <code>x</code> 라는 프로퍼티를 추가하게 되면, 비어있던 Shape에서 <code>x</code> 를 프로퍼티로 가지고 있는 새로운 Shape로 <strong>이동</strong>(transition)하게 된다. 다음과 같이 <code>JSObject</code> 의 값이 추가되고, <code>offset</code> 은 0이다.</p>
-<p><img src="/assets/image/B_Engine_10.png" alt="B_Engine_10.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_10.png" alt="B_Engine_10.png" /></p>
 <p>새로운 프로퍼티 y를 추가해도 똑같이 작동하게 된다. <code>Shape(x,y)</code> 로 이동한 다음 값을 추가한다.</p>
-<p><img src="/assets/image/B_Engine_11.png" alt="B_Engine_11.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_11.png" alt="B_Engine_11.png" /></p>
 <p>하지만 이런 방법을 모든 테이블에 항상 적용했다가는 많은 메모리 낭비를 일으키겠지요. 그래서 실제로 엔진은 이렇게 동작하지 않습니다.</p>
 <p><br/></p>
 <a class="header" href="#실제로-엔진에서-동작하는-방법" id="실제로-엔진에서-동작하는-방법"><h3>실제로 엔진에서 동작하는 방법</h3></a>
 <p>엔진은 추가되는 새로운 프로퍼티 정보를 저장하고, 이전 Shape로 가는 <strong>링크</strong>를 제공한다. 만약 <code>o.x</code>를 찾을 때 값이 <code>Shape(x,y)</code> 에 없다면 이전의 <code>Shape(x)</code>에 가서 찾는 것이다.</p>
-<p><img src="/assets/image/B_Engine_12.png" alt="B_Engine_12.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_12.png" alt="B_Engine_12.png" /></p>
 <p><br/></p>
 <a class="header" href="#두-객체에서-동일한-shape를-사용하는-경우-transition-tree" id="두-객체에서-동일한-shape를-사용하는-경우-transition-tree"><h3>두 객체에서 동일한 Shape를 사용하는 경우 (Transition Tree)</h3></a>
 <p>만약에 두 객체에서 동일한 Shape를 사용한다면 어떻게 될까? 먼저 하나의 객체 <code>a</code> 에 <code>x = 5</code> 라는 값을 가진 프로퍼티가 있다고 하면</p>
-<p><img src="/assets/image/B_Engine_13.png" alt="B_Engine_13.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_13.png" alt="B_Engine_13.png" /></p>
 <p>이번엔 객체 <code>b</code> 에서 <code>y</code> 라는 프로퍼티를 추가할 경우 <code>Shape(empty)</code>에서 가지를 뻗어 새로운 <code>Shape(y)</code>를 만든다. 결국 2개의 체인에 3개의 Shape를 가진 트리 체인이 생성되는 것이다.</p>
-<p><img src="/assets/image/B_Engine_14.png" alt="B_Engine_14.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_14.png" alt="B_Engine_14.png" /></p>
 <p>java의 Object처럼 모든 객체의 트리를 거슬러 올라가면 무조건 <code>Shape(empty)</code>에 도달하게 되는 것은 아니다.</p>
 <pre><code class="language-javascript">const obj1 = {};
 obj1.x = 6;
@@ -323,7 +323,7 @@ obj1.x = 6;
 const ob2 = {x: 6};
 </code></pre>
 <p><code>ojb2</code> 와 같이, JS에서는 <strong>Object Literal</strong> 을 사용하여 시작부터 프로퍼티를 가지고 생성하도록 할 수 있기 때문이다. 따라서 <code>Shape(empty)</code>가 아닌, 서로 다른 <strong>Root Shape</strong>가 생성된다.</p>
-<p><img src="/assets/image/B_Engine_15.png" alt="B_Engine_15.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_15.png" alt="B_Engine_15.png" /></p>
 <p>이 방법은 <strong>transition chain</strong> 을 짧게 하고, 객체를 리터럴로부터 생성하여 더욱 효율적이다. point는 <code>x,y,z</code> 를 3차원 공간의 좌표로 가지는 객체이다.</p>
 <pre><code class="language-javascript">const point = {};
 
@@ -332,11 +332,11 @@ point.y = 5;
 point.z = 6;
 </code></pre>
 <p>앞서 배운 것에 따르면, 총 3개의 Shape가 메모리에 생성 될 것입니다. (empty Shape 제외)</p>
-<p><img src="/assets/image/B_Engine_16.png" alt="B_Engine_16.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_16.png" alt="B_Engine_16.png" /></p>
 <p>만약 이걸 사용하는 프로그램에서 <code>x</code> 프로퍼티에 접근한다고 하면, 엔진은 가장 마지막에 생성된 <code>Shape(x,y,z)</code> 부터 링크드 리스트를 따라올라가 맨 위에 있을 <code>x</code> 를 찾는다.</p>
 <p>객체의 프로퍼티가 더 많을수록, 그리고 이 과정을 자주 반복한다면 프로그램은 상당히 느려질 것이다.</p>
 <p>그래서 엔진은 탐색 속도를 높이기 위해 내부적으로 <code>ShapeTable</code> 이라는 자료구조를 추가한다. 이는 딕셔너리 형태로, 각각의 Shape를 가리키는 프로퍼티 키를 저장하고 있다.</p>
-<p><img src="/assets/image/B_Engine_17.png" alt="B_Engine_17.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_17.png" alt="B_Engine_17.png" /></p>
 <p>그렇다면 기껏 Shape가 나온 이유가 없어지는 것인가? 사실 엔진은 최적화를 위해 또 다른 방법인 <code>Inline Cache</code>(IC) 라는 것을 Shape에 적용한다. </p>
 <blockquote>
 <p>Chrome dev_tool Memory Tab에서 예제를 확인해보자!!!</p>
@@ -366,15 +366,15 @@ foo.job = &quot;frontend&quot;;
 }
 </code></pre>
 <p>위의 함수를 <code>JSC</code> 에서 실행한다면, 아래의 그림과 같은 <code>bytecode</code> 를 생성할 것이다.</p>
-<p><img src="/assets/image/B_Engine_18.png" alt="B_Engine_18.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_18.png" alt="B_Engine_18.png" /></p>
 <p>첫 번째 명령문 <code>get_by_id</code>는 첫 번째 <code>argument (arg1)</code> 에서 <code>property 'x'</code> 를 로드하여 결과를 <code>loc0</code> 에 저장한다.</p>
 <p>두 번째 명령문은 <code>loc0</code> 에 저장한 것을 반환한다.</p>
 <p>또한 <code>JSC</code> 는 <code>get_by_id</code> 명령문에 초기화되지 않은 두 개의 슬롯으로 구성된 <code>Inline Cache</code> 를 포함한다.</p>
-<p><img src="/assets/image/B_Engine_19.png" alt="B_Engine_19.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_19.png" alt="B_Engine_19.png" /></p>
 <p>이제 위의 그림과 같이 <code>{x: 'a'} object</code> 가 <code>getX</code> 함수에서 실행될 때를 보게 되면, <code>object</code> 는 <code>property 'x'</code> 가 있는 shape를 가지며, 이 Shape는 <code>property x</code> 에 대한 <code>offset</code> 과 <code>attribute</code> 들을 가집니다. 이 함수를 처음 실행하면, <code>get_by_id 함수</code> 는 <code>property 'x'</code> 를 검색하고 value는 <code>offset 0</code> 에 저장되어 있다는 것도 찾게된다.</p>
-<p><img src="/assets/image/B_Engine_20.png" alt="B_Engine_20.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_20.png" alt="B_Engine_20.png" /></p>
 <p>위의 그림에서 처럼 <code>get_by_id</code> 명령문에 포함된 IC는 <code>property</code> 가 발견된 shape와 offset을 기억하게 된다.</p>
-<p><img src="/assets/image/B_Engine_21.png" alt="B_Engine_21.png" /></p>
+<p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_21.png" alt="B_Engine_21.png" /></p>
 <p>위의 그림을 보게되면, 다음 명령문을 실행할 때, IC는 shape만 비교하면 되며, 이전과 같다면 저장되어있는 offset을 보고 value를 가져오면 된다. 구체적으로 말하면, 엔진이 IC가 이전에 기록한 shape의 object를 볼 경우, 더 이상 property 정보에 접근할 필요가 없다. 그리고 비용이 많이 들어가는 property 정보 조회를 완전히 생략하게 된다. 이 방법은 매번 property를 조회하는 것 보다 훨씬 더 빠르다.</p>
 <p><br/></p>
 <a class="header" href="#어떻게-최적화된-자바스크립트-코드를-작성할-것인가" id="어떻게-최적화된-자바스크립트-코드를-작성할-것인가"><h2><strong>어떻게 최적화된 자바스크립트 코드를 작성할 것인가</strong></h2></a>
