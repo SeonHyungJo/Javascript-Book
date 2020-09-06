@@ -27,3 +27,6 @@
   - [Function](ES3/5-Function.md)
   - [Closure](ES3/6-Closure.md)
   - [To be continue](ES3/index.md)
+--------------------------------------------------------------------------------
+- [코어 자바스크립트](core-javascript/index.md)
+  - [데이터 타입](core-javascript/1-데이터-타입.md)
