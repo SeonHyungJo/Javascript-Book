@@ -179,17 +179,17 @@
                     <main>
                         <a class="header" href="#type" id="type"><h1>Type</h1></a>
 <a class="header" href="#primitive-type원시-타입" id="primitive-type원시-타입"><h2>Primitive Type(원시 타입)</h2></a>
-<p>한국말로 간단하게 말하면 <strong>원시 자료형</strong>이라고 하는 자바스크립트의 타입에 대해서 알아보자.</p>
-<p>자바스크립트는 자바나 C언어와는 다르게 동적 타입언어라 불린다. 동적 타입 언어의 자료형은 컴파일시 자료형을 정하는 것이 아니고 실행시에 결정된다.</p>
-<p>자바스크립트의 타입의 종류와 사용법에 대해서 알아보자.</p>
+<p>간단하게 말하면 <strong>원시 자료형</strong>이라고 하는 Javascript의 타입에 대해서 알아보자.</p>
+<p>Javascript는 자바나 C언어와는 다르게 동적 타입 언어라 불린다. 동적 타입 언어의 자료형은 컴파일 시 자료형을 정하는 것이 아니고 실행 시에 결정된다.</p>
+<p>Javascript의 타입 종류와 사용법에 대해서 알아보자.</p>
 <a class="header" href="#6가지의-기본-type" id="6가지의-기본-type"><h3>6가지의 기본 Type</h3></a>
-<p>ES6 이전에는 기본적으로 5가지의 타입이었으나, ES6에서 <em>Symbol</em> 타입이 추가되었다.</p>
+<p>ES6 이전에는 5가지의 타입이었으나, ES6에서 <em>Symbol</em> 타입이 추가되어 총 6가지가 되었다.</p>
 <ul>
-<li>String : 텍스트를 셋팅할 때 사용하는 타입.</li>
-<li>Number : 숫자를 셋팅할 때 사용하는 타입. 기본적으로 소수점도 가능하다(<code>infinity</code>, <code>-inifinity</code>, <code>NaN</code> 표현이 가능하다.).</li>
+<li>String : 텍스트를 설정할 때 사용하는 타입이다..</li>
+<li>Number : 숫자를 설정할 때 사용하는 타입이다. 소수점도 표현도 가능하다(<code>infinity</code>, <code>-inifinity</code>, <code>NaN</code> 표현이 가능하다.).</li>
 <li>Null : null 타입은 정확히는 1개의 값은 가지고 있지만, 비어있다는 뜻이다.</li>
-<li>Undefined : 값이 할당되지 않은 것을 나타내는 타입.</li>
-<li>Boolean : <code>true</code> 또는 <code>false</code> 로 나타내는 타입.</li>
+<li>Undefined : 값이 할당되지 않은 것을 나타내는 타입이다.</li>
+<li>Boolean : <code>true</code> 또는 <code>false</code>로 나타내는 타입이다.</li>
 <li>Symbol : 새로 추가된 타입으로 <strong>unique하고 immutable한 원시값</strong> 으로 사용된다.</li>
 </ul>
 <p>위에서 보이듯이 기본적으로 6가지의 형태를 가지고 있으며, 나머지는 <strong>Object형</strong>이라고 통칭한다.</p>
@@ -202,7 +202,7 @@
 <ol>
 <li>Literal로 생성하기</li>
 </ol>
-<p>Literal로 생성한다고 하면 우리가 가장 많이 사용하는 방법이다. 단순하게 변수를 초기화 후 할당하는 방법과 초기화를 하고 나중에 할당을 하는 방법으로 구분을 지을 수 있다.</p>
+<p>Literal로 생성한다고 하면 우리가 가장 많이 사용하는 방법이다. 단순하게 변수를 초기화 후 할당하는 방법과 초기화를 하고 나중에 할당하는 방법으로 구분을 지을 수 있다.</p>
 <pre><code class="language-javascript">// 초기화와 할당을 동시에 진행
 var bol = true;
 var str = &quot;hello&quot;;
@@ -216,17 +216,17 @@ var str2;
 bo2 = false
 str2 = &quot;world&quot;
 </code></pre>
-<ol>
+<ol start="2">
 <li>Wrapper Object를 사용해서 만들기</li>
 </ol>
-<p>Wrapper Object를 사용해서 만든다고 하면 Constructor를 사용해서 만드는 것을 말한다. 쉽게 말하자면 <code>new</code>를 사용해서 만드는 것을 말한다.</p>
+<p>Wrapper Object를 사용해서 만든다고 하면 Constructor를 사용해서 만드는 것을 말한다. 쉽게 말하자면 <code>new</code>를 사용해서 만드는 것이다.</p>
 <pre><code class="language-javascript">new Boolean(false);
 new String(&quot;world&quot;);
 new Number(42);
 
 Symbol(&quot;foo&quot;); //Symbol 타입의 생성방법
 </code></pre>
-<p>Literal로 생성하는 방법과 Wrapper Object를 사용해서 만드는 방법은 차이점이 존재한다.</p>
+<p>Literal로 생성하는 방법과 Wrapper Object를 사용해서 만드는 방법은 차이점이 있다.</p>
 <pre><code class="language-javascript">typeof true; //&quot;boolean&quot;
 typeof Boolean(true); //&quot;boolean&quot;
 typeof new Boolean(true); //&quot;object&quot;
@@ -242,14 +242,14 @@ typeof Number(123); //&quot;number&quot;
 typeof new Number(123); //&quot;object&quot;
 typeof (new Number(123)).valueOf(); //&quot;number&quot;
 </code></pre>
-<p>중간중간 이상하게 <code>new</code>를 사용하지 않고 사용하는 것들은 <code>window.Boolean</code>,  <code>window.String</code> 이런것으로 생각하면 되며, 이러한 Function은 해당 타입으로 변환하는 작업을 할 때 사용이 된다.</p>
-<p>위에서 보게 되면 Literal로 생성한 것의 타입은 6가지 중 하나로 나오게 된다. 그런데 <code>new</code>를 사용하여 Wrapper Object로 만들게 되면 Object타입이 나오게 된다. 사용을 하려면 valueOf라는 Function을 사용해야만 입력한 값이 나오게 된다.</p>
+<p>중간중간 <code>new</code>를 사용하지 않은 것은 <code>window.Boolean</code>,  <code>window.String</code>와 같은 형식으로 생각하면 되며, 이러한 Function은 해당 타입으로 변환하는 작업할 때 사용된다.</p>
+<p>위에서 보게 되면 Literal로 생성한 것의 타입은 6가지 중 하나로 나오게 된다. 그런데 <code>new</code>를 사용하여 Wrapper Object로 만들게 되면 Object타입이 나오게 된다. 사용하려면 valueOf라는 Function을 사용해야만 입력한 값이 나오게 된다.</p>
 <p>아래의 예제를 보자. 어떻게 결과가 어떻게 6이 나올 수 있는 것인가?</p>
 <pre><code class="language-javascript">var str = 'string'
 
 str.length // 6
 </code></pre>
-<p>위의 예제는 단순하게 str 변수안에 'string'이라는 String 타입의 값을 할당을 했다. 그런데 해당 변수는 Wrapper 객체가 아닌데 어떻게 갯수를 세는 Method를 사용하고 있는 것인가?</p>
+<p>위의 예제는 단순하게 str 변수 안에 'string'이라는 String 타입의 값을 할당했다. 그런데 해당 변수는 Wrapper 객체가 아닌데 어떻게 개수를 세는 Method를 사용하고 있는 것인가?</p>
 <pre><code class="language-javascript">String.prototype.returnMe= function() {
     return this;
 }
@@ -264,26 +264,26 @@ b; //&quot;abc&quot;
 typeof b; //&quot;object&quot;
 </code></pre>
 <p>위의 예제를 보게 되면 답이 나오게 된다. 우리가 사용하는 <code>var str</code>를 사용하게 되면 Wrapper 객체로 임시변환이 이루어지고 <code>returnMe()</code> 와 같은 함수를 사용하면 다시 Wrapper 객체가 사라지게 된다.</p>
-<a class="header" href="#심화내용" id="심화내용"><h2>심화내용</h2></a>
-<p>자바스크립트에서는 신기하게도 숫자타입을 하나로 사용하고 있다. 어떻게 하나의 타입으로 모든 것을 표현할 수 있는 것일까? <strong>Number타입은 국제 표준 부동 소수점 IEEE 754를 따르고 있다.</strong> 기본적으로 컴퓨터가 실수를 표현하는 방식은 2진법에 따라서</p>
+<a class="header" href="#심화-내용" id="심화-내용"><h2>심화 내용</h2></a>
+<p>Javascript에서는 신기하게 숫자 타입을 하나로 사용하고 있다. 어떻게 하나의 타입으로 모든 것을 표현할 수 있는 것일까? <strong>Number타입은 국제 표준 부동 소수점 IEEE 754를 따르고 있다.</strong> 기본적으로 컴퓨터가 실수를 표현하는 방식은 2진법인 것을 따라</p>
 <ul>
 <li><code>13 = 8 + 4 + 1</code> 이므로 해당 자리 숫자를 1로 표현하고 나머지는 0으로 표현하게 되고 1101이 된다.</li>
-<li><code>0.75 = 0.5 + 0.25</code> 이므로 0.11 로 표현할 수 있다.</li>
+<li><code>0.75 = 0.5 + 0.25</code> 이므로 0.11로 표현할 수 있다.</li>
 </ul>
 <p>일반적으로 소수점을 표현하는 방법은 2가지 방법이 있다.</p>
 <a class="header" href="#고정-소수점" id="고정-소수점"><h3><strong>고정 소수점</strong></h3></a>
 <ul>
-<li>정수를 표현하는 비트수와 소수를 표현하는 비트수를 미리 정해놓고 해당 비트만큼 사용해서 숫자를 표현하는 방식.</li>
-<li>예) 실수 표현에 4byte(32bit)를 사용하고 그 중 <strong>부호1bit, 정수 16bit, 소수 15bit</strong> 를 사용하도록 약속해 놓은 시스템에 있다. 이렇게 약속된 시스템에서 263.3을 표현하면 (0)0000000100000111.010011001100110 이렇게 표현된다.</li>
-<li>정수를 표현하는 비트수를 늘리면 큰 숫자를 표현할 수 있지만 정밀한 숫자를 표현하긴 힘들다. 그래서 소수를 표현하는 bit를 늘릴 경우 정밀한 숫자를 표현할 수 있지만 큰 숫자를 표현하지 못한다.</li>
+<li>정수를 표현하는 비트 수와 소수를 표현하는 비트 수를 미리 정해놓고 해당 비트만큼 사용해서 숫자를 표현하는 방식.</li>
+<li>예) 실수 표현에 4byte(32bit)를 사용하고 그 중 <strong>부호 1bit, 정수 16bit, 소수 15bit</strong> 를 사용하도록 약속해 놓은 시스템에 있다. 이렇게 약속된 시스템에서 263.3을 표현하면 (0)0000000100000111.010011001100110 이렇게 표현된다.</li>
+<li>정수를 표현하는 비트 수를 늘리면 큰 숫자를 표현할 수 있지만 정밀한 숫자를 표현하긴 힘들다. 그래서 소수를 표현하는 bit를 늘리면 정밀한 숫자를 표현할 수 있지만 큰 숫자를 표현하지 못한다.</li>
 </ul>
 <p>이런 문제를 해결하기 위해서 소수점을 고정하지 않고 표현할 수 있는 <strong>부동 소수점(floating point)</strong> 을 사용하게 되었다.</p>
 <a class="header" href="#부동소수점" id="부동소수점"><h3><strong>부동소수점</strong></h3></a>
-<p>부동 소수점을 표현하는 방식도 정하는 방식에 따라 다를 수 있지만 일반적으로 사용하고 있는 방식은 위에서 언급한 IEEE 754에서 표준으로 제안한 방식을 따른다.</p>
+<p>부동 소수점을 표현하는 방식도 정하는 방식에 따라 다를 수 있지만, 일반적으로 사용하고 있는 방식은 위에서 언급한 IEEE 754에서 표준으로 제안한 방식을 따른다.</p>
 <p>우선 고정 소수점으로 나타낸 263.3을 2진수 부동 소수점 방식으로 변환을 해보면, 100000111.010011001100110... 으로 표현되던 것을 맨 앞에 있는 1 바로 뒤로 소수점을 옮겨서 표현하도록 변환하게 되면 1.00000111010011001100110... * 2^8(2의 8승) 으로 표현된다.</p>
 <ul>
-<li>2^8의 8을 지수라고 하고 지수 부분에 기록을 하고(IEEE 754 표현 방식에서는 <strong>127 + 지수를 기록한다.</strong> )</li>
-<li>소수점 이후 숫자열 전체를 가수라고 하고 가수 부분에 기록을 한다.</li>
+<li>2^8의 8을 지수라고 하고 지수 부분에 기록하고(IEEE 754 표현 방식에서는 <strong>127 + 지수를 기록한다.</strong> )</li>
+<li>소수점 이후 숫자열 전체를 가수라고 하고 가수 부분에 기록한다.</li>
 </ul>
 <p>최종적인 모양을 아래와 같다.</p>
 <ul>
@@ -292,13 +292,13 @@ typeof b; //&quot;object&quot;
 <li>가수 비트(23 bit) : 00000111010011001100110</li>
 </ul>
 <p>이렇게 표현하게 된다.</p>
-<p>하지만 여기서도 0.010011001100110은 정확히 0.3을 나타낼 수 없게 된다. 10진수로 나타내 보면 0.29998779296875로 나오게 된다. 그래서 자바스크립트에서 0.1 + 0.2를 하게 되면 0.30000000000000004가 나오는 이유이다.</p>
+<p>하지만 여기서도 0.010011001100110은 정확히 0.3을 나타낼 수 없게 된다. 10진수로 나타내 보면 0.29998779296875로 나오게 된다. 그래서 Javascript에서 0.1 + 0.2를 하게 되면 0.30000000000000004가 나오는 이유이다.</p>
 <blockquote>
 <p>블록체인에서는 부동소수점에서 8자리까지를 사용한다고 한다.</p>
 </blockquote>
-<a class="header" href="#값타입과-참조타입" id="값타입과-참조타입"><h2>값타입과 참조타입</h2></a>
-<p>기본적으로 원시타입을 값타입이라고 한다면 Object를 참조타입이다.</p>
-<a class="header" href="#원시타입은-값타입이다" id="원시타입은-값타입이다"><h3>원시타입은 값타입이다.</h3></a>
+<a class="header" href="#값-타입과-참조-타입" id="값-타입과-참조-타입"><h2>값 타입과 참조 타입</h2></a>
+<p>기본적으로 원시 타입을 값 타입이라고 한다면 Object를 참조 타입이다.</p>
+<a class="header" href="#원시-타입은-값타입이다" id="원시-타입은-값타입이다"><h3>원시 타입은 값타입이다.</h3></a>
 <pre><code class="language-javascript">var a = 13         // assign `13` to `a`
 var b = a          // copy the value of `a` to `b`
 
@@ -306,7 +306,7 @@ b = 37             // assign `37` to `b`
 
 console.log(a)     // =&gt; 13
 </code></pre>
-<p>위에서 b에 a의 값을 복사를 했다. 그리고 b의 값을 변경을 했는데 a에는 영향이 가지 않았다. 이유는 당연하게 2개의 값이 저장된 공간이 다르기 때문이다.</p>
+<p>위에서 b에 a의 값을 복사했다. 그리고 b의 값을 변경했는데 a에는 영향이 가지 않았다. 이유는 당연하게 2개의 값이 저장된 공간이 다르기 때문이다.</p>
 <pre><code class="language-javascript">var a = 5;
 var b = a;
 
@@ -322,7 +322,7 @@ var b = a          // copy the reference of the object inside `a` to new variabl
 b.c = 37           // modify the contents of the object `b` refers to
 console.log(a)     // =&gt; { c: 37 }
 </code></pre>
-<p>원시타입과는 다르게 복사한 것을 변경을 했더니 a에도 영향이 간다. 이유는 당연하게 같은 값의 주소를 복사를 하여서 a에 들어있는 주소의 공간이 바뀌었으므로 a로 바뀐값을 불러오는 것이다.</p>
+<p>원시 타입과는 다르게 복사한 것을 변경했더니 a에도 영향이 간다. 이유는 당연하게 같은 값의 주소를 복사하여 a에 들어있는 주소의 공간이 바뀌었으므로 a로 바뀐 값을 불러오는 것이다.</p>
 <pre><code class="language-javascript">var a = {};
 var b = a;
 
@@ -394,10 +394,10 @@ console.log(personObj2); // -&gt; ?
 <p>👉 <a href="https://codepen.io/seonhyungjo/pen/qwXMNb">답 확인하기</a></p>
 <a class="header" href="#명시적-변환-암시적-변환-덕-타이핑" id="명시적-변환-암시적-변환-덕-타이핑"><h2>명시적 변환, 암시적 변환, 덕 타이핑</h2></a>
 <a class="header" href="#명시적-변환-vs-암묵적-변환" id="명시적-변환-vs-암묵적-변환"><h3>명시적 변환 vs 암묵적 변환</h3></a>
-<p>개발자가 <code>Number(value)</code> 와 같은 코드를 작성하여 변환할 의사를 명확하게 표현하는 것을 <strong>명시적 변환</strong>이라고 한다. JavaScript는 약타입 언어이므로 값을 자동으로 여러 유형간에 변환을 자동으로 한다. 이것을 <strong>암묵적 변환</strong> 이라고 한다.</p>
+<p>개발자가 <code>Number(value)</code>와 같은 코드를 작성하여 변환할 의사를 명확하게 표현하는 것을 <strong>명시적 변환</strong>이라고 한다. JavaScript는 약타입 언어이므로 값을 자동으로 여러 유형간에 변환을 자동으로 한다. 이것을 <strong>암묵적 변환</strong> 이라고 한다.</p>
 <p>예를 들어 일반적으로 연산자를 다양한 유형의 값에 적용하면 <code>1 == null</code>, <code>2 / '5'</code>, <code>null + new Date ()</code> 또는 <code>if (value) {...}</code> 와 같이 문법에 의해 발생할 수 있다.</p>
-<p>우리가 가장 많이 사용하는 암시적 타입 변환을 하지 않는 연산자는 <code>===</code> 이며, <strong>완전 항등 연산자</strong> 라고 한다. 반면에 <strong>느슨한 항등 연산자</strong> <code>==</code> 는 필요하다면 <strong>비교와 타입 강제 변환을 수행</strong> 합니다.</p>
-<p>암시적 타입 변환으로 <code>==</code> 을 사용하게 되면, 가독성을 잃지 않으면서 적은 코드로 작성할 수있는 유용한 매커니즘이다. 그러나 ES6+를 사용한다면 느슨한 항등 연산자는 사용하지 않는 것을 추천한다. 완전하게 항등연산자를 이해하고 결과값을 예상할 수 있는 경우가 아니라면 내가 생각한 것과 다른 결과가 나올 확률이 매우 높다.</p>
+<p>우리가 가장 많이 사용하는 암시적 타입 변환을 하지 않는 연산자는 <code>===</code> 이며, <strong>완전 항등 연산자</strong> 라고 한다. 반면에 <strong>느슨한 항등 연산자</strong> <code>==</code> 는 필요하다면 <strong>비교와 타입 강제 변환을 수행한다.</strong></p>
+<p>암시적 타입 변환으로 <code>==</code> 을 사용하게 되면, 가독성을 잃지 않으면서 적은 코드로 작성할 수있는 유용한 매커니즘이다. 그러나 ES6+를 사용한다면 느슨한 항등 연산자는 사용하지 않는 것을 추천한다. 완전하게 항등연산자를 이해하고 결괏값을 예상할 수 있는 경우가 아니라면 내가 생각한 것과 다른 결과가 나올 확률이 매우 높다.</p>
 <p>기본적으로 변환은 3가지 유형의 전환이 있다.</p>
 <ul>
 <li><strong>to string</strong></li>
@@ -405,7 +405,7 @@ console.log(personObj2); // -&gt; ?
 <li><strong>to number</strong></li>
 </ul>
 <a class="header" href="#string-변환" id="string-변환"><h3>String 변환</h3></a>
-<p>명시적으로 값을 문자열로 변환하려면 <code>String()</code> 함수를 사용하면 된다. 암시적 강제 변환은 <code>binary</code> 연산자가 아닌것에 <code>+</code> 연산자를 사용하면 변환이 이루어진다.</p>
+<p>명시적으로 값을 문자열로 변환하려면 <code>String()</code> 함수를 사용하면 된다. 암시적 강제 변환은 <code>binary</code> 연산자가 아닌 것에 <code>+</code> 연산자를 사용하면 변환이 이루어진다.</p>
 <pre><code class="language-javascript">String(123) // 명시적
 
 123 + ''    // 암시적
@@ -418,7 +418,7 @@ String(undefined)             // 'undefined'
 String(true)                  // 'true'
 String(false)                 // 'false'
 </code></pre>
-<p>Symbol에 대해서는 생각과는 다르게 나온다.</p>
+<p>Symbol은 생각과 다르게 나온다.</p>
 <pre><code class="language-javascript">String(Symbol('my symbol'))   // 'Symbol(my symbol)'
 '' + Symbol('my symbol')      // TypeError is thrown
 </code></pre>
@@ -511,22 +511,21 @@ null == undefined       // true
 <a class="header" href="#object-강제-변환" id="object-강제-변환"><h2>Object 강제 변환</h2></a>
 <p>참고: <a href="https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839">JavaScript type coercion explained</a></p>
 <hr />
-<a class="header" href="#심화" id="심화"><h2>심화</h2></a>
 <a class="header" href="#덕-타이핑duck-typing이란" id="덕-타이핑duck-typing이란"><h3><strong>덕 타이핑(Duck Typing)이란?</strong></h3></a>
-<p>쉽게 정의를 하자면 사람이 오리처럼 행동하면 오리로 봐도 무방하다라는게 덕 타이핑(Duck Typing)이다.</p>
-<p>이것은 타입을 미리 정하는게 아니라 실행이 되었을 때 해당 Method들을 확인하여 타입을 정한다는 것으로 타입의 변화가 느슨하다.</p>
+<p>쉽게 정의를 하자면 사람이 오리처럼 행동하면 오리로 봐도 무방하다는게 <strong>덕 타이핑(Duck Typing)</strong> 이다.</p>
+<p>타입을 미리 정하는게 아니라 실행이 되었을 때 해당 Method들을 확인하여 타입을 정한다는 것으로 타입 변화가 느슨하다.</p>
 <ul>
 <li>장점
 <ul>
 <li>타입에 대해 매우 자유롭다.</li>
-<li>런타임 데이터를 기반으로 한 기능과 자료형을 만들어 내는 것</li>
+<li>런타임 데이터를 기반으로 한 기능과 자료형을 만들어 내는 것이다.</li>
 </ul>
 </li>
 <li>단점
 <ul>
 <li>런타임 자료형 오류가 발생할 수 있다. 런타임에서, 값은 예상치 못한 유형이 있을 수 있고, 그 자료형에 대한 무의미한 작업이 적용된다.</li>
-<li>이런 오류가 프로그래밍 실수 구문에서 오랜 시간 후에 발생할 수 있다</li>
-<li>데이터의 잘못된 자료형의 장소로 전달되는 구문은 작성하지 않아야 한다. 이것은 버그를 찾기 어려울 수도 있다.</li>
+<li>이런 오류가 프로그래밍 실수 구문에서 오랜 시간 후에 발생할 수 있다.</li>
+<li>데이터의 잘못된 자료형의 장소로 전달되는 구문은 작성하지 않아야 한다. 버그를 찾기 어려울 수도 있다.</li>
 </ul>
 </li>
 </ul>
