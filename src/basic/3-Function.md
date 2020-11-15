@@ -1,18 +1,24 @@
 # Function
 
-Function에 대해 알아보기 전, 자바스크립트의 Scope를 배워보자.
-자바스크립트에서의 Scope는 그게 나누면 2개로 나뉘게 된다.
+Function에 대해 알아보기 전에 Javascript의 Scope를 알아보자.
+Javascript에서의 Scope는 크게 나누면 2개로 나뉘게 된다.
 
-함수 안에서 정의가 된 변수들은 기본적으로 **Local Scope**에서 선언되었다고 하며, 함수 외부에 정의된 변수는 **Global Scope**에서 선언되었다고 한다. 함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 함수 1개가 있다는 기준에서의 외부이다. 이렇게 완전한 외부를 **Window(Global)**라고 하자.
+함수 안에서 정의가 된 변수들은 **Local Scope**에서 선언되었다고 하며, 함수 외부에 정의된 변수는 **Global Scope**에서 선언되었다고 한다. 
+
+함수 외부라고 하면 단순하게 중첩된 함수에서의 외부가 아닌 함수 1개가 있다는 기준에서의 외부이다. 
+
+이렇게 완전한 외부를 **Window(Global)** 라고 한다.
 
 - **Global Scope**(함수 외부에 정의)
 - **Local Scope**(함수 안에서 정의)
 
-각각의 함수들은 실행이 되면 내부적으로 **새로운 Scope**를 생성하고 가지게 된다.
+각각의 함수가 실행되면 내부적으로 **새로운 Scope**를 생성된다.
 
 ## Global Scope
 
-우리는 자바스크립트를 실행하게 되면 이미 **Global Scope**안에 있다. 그래서 Function 안쪽에서 선언하지 않는 것들은 **Global Scope**에서 선언하는 것이다.
+체감하지 못할 수 있지만, Javascript를 실행되는 순간부터 우리는 이미 **Global Scope**안에 있다.
+
+Function 안쪽에서 선언하지 않는 것들은 **Global Scope**에서 선언된 것이다.
 
 ```js
 // Global Scope
@@ -20,7 +26,7 @@ const name = 'snyung';
 const age = '27';
 ```
 
-Global로 선언한 변수는 다른 Scope 어디든 접근이 가능하다.
+Global로 선언한 변수는 다른 Scope에서 접근이 가능하다.
 
 ```js
 const name = 'snyung';
@@ -29,7 +35,7 @@ const name = 'snyung';
 console.log(name);  // snyung
     
 function logName() {
-    console.log(name); // name이라는 변수는 어디서든 접근이 가능하다.
+  console.log(name); // name이라는 변수는 어디서든 접근이 가능하다.
 }
     
 logName(); // snyung
@@ -37,40 +43,53 @@ logName(); // snyung
 
 ## Local Scope
 
-함수 안에서 선언한 변수는 **Local Scope**안에 있는 것이다. 우리는 같은 변수의 이름을 다른 함수 안에서 각각 정의를 할 수 있는데, 해당 변수는 서로 다른 Scope에 바인딩 되어 각각의 함수에서는 접근이 불가능하다.
+함수 안에서 선언한 변수는 **Local Scope**안에 있게 된다. 우리는 같은 변수의 이름을 다른 함수 내에서 정의할 수 있다. 
+
+해당 변수는 서로 다른 Scope에 바인딩 되며 같은 Level의 다른 함수에서는 접근할 수 없다.
 
 ```js
 // Global Scope
 function someFunction() {
-    // Local Scope #1
-    function someOtherFunction() {
-        // Local Scope #2
-    }
+  // Local Scope #1
+  function someOtherFunction() {
+      // Local Scope #2
+  }
 }
     
 // Global Scope
 function anotherFunction() {
-    // Local Scope #3
+  // Local Scope #3
 }
 // Global Scope
 ```
 
-위와 같이 코드가 있다면, **Local Scope#1**에 선언한 변수는 **Local Scope#2**에서는 접근이 가능하지만 **Local Scope#3**에서는 접근이 불가하다. 마찬가지로 **Local Scope#3**에 선언된 변수는 **Local Scope#1**, **Local Scope#2**에서 접근이 불가하다. **Local Scope#2** 에서 **Local Scope#1** 접근이 가능한 이유는 뒤에서 다룰 것이다.
+위와 같이 코드가 있다면, **Local Scope#1**에 선언한 변수는 **Local Scope#2**에서는 접근이 가능하지만, **Local Scope#3**에서는 접근이 불가하다. 
 
-## Functional Scope
+마찬가지로 **Local Scope#3**에 선언된 변수는 **Local Scope#1**, **Local Scope#2**에서 접근이 불가하다. 
 
-자바스크립트는 위에서 본 것과 같이 **함수 단위로 Scope를 구분한다.** 즉, 같은 함수 안에서 선언된 변수들은 같은 Level의 Scope를 가지게 되는 것이다. 각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근을 할 수 없다.
+**Local Scope#2** 에서 **Local Scope#1** 접근이 가능한 이유는 뒤에서 다룰 것이다.
+
+## Function Scope
+
+Javascript는 위에서 본 것과 같이 **함수 단위로 Scope를 구분한다.** 즉, 같은 함수 안에서 선언된 변수들은 같은 Level의 Scope를 가지게 된다. 
+
+각각의 함수는 독립적인 Scope를 가지게 되어 다른 함수의 Scope에 접근할 수 없다.
 
 ```js
-// Global Scope
 function someFunction() {
-    if (true) {
-        var name = 'snyung'; 
-    }
+  if (true) {
+    var name = 'snyung' 
+  }
+
+  console.log(name)
 }
+
+someFunction()
 ```
 
-위와 같이 Global Scope에 `someFunction()`을 선언하고 내부에 if문 괄호 안에 선언한 변수는 **someFunction function Scope**에 붙게 되는 것이다. **즉, block 단위가 아닌 function 단위의 scope가 정의되는 것을 볼 수 있다.**
+위와 같이 Global Scope에 `someFunction()`을 선언하고 내부에 if문 괄호 안에 선언한 변수는 **someFunction Function Scope**에 붙게 된다. 
+
+**즉, block 단위가 아닌 function 단위의 scope가 정의된다.**
 
 ## Block Scope
 
@@ -78,21 +97,26 @@ Block Statement는 우리가 많이 보는 if문, switch문, for, while문이다
 
 ```js
 if (true) {
-    // this 'if' conditional block doesn't create a new scope
-    var name = 'snyung'; // name is still in the global scope
+  // 'if'문은 별도의 scope를 만들지 않는다.
+  var name = 'snyung' // name은 global scope에 만들어진다.
 }
     
-console.log(name); // logs 'snyung'
+console.log(name) // logs 'snyung'
 ```
 
-ECMAScript6에서 `let`, `const`가 추가되었다. 이 2개는 `var` 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 들어간다. 바로 **Block Level Scope**라는 것이다. 기존의 자바스크립트는 위에서 본 것처럼 **Functional Scope** 이다. 그러나 `let`, `const` 를 사용하게 되면 **Block Level Scope** 지원이 가능하다. 아래의 예제를 보자
+ECMAScript6에서 `let`, `const`가 추가되었다. 
+
+이는 `var` 대용으로 사용된다. 그러나 그보다 더 중요한 개념이 있다. 바로 **Block Level Scope**라는 것이다. 
+
+기존의 Javascript는 위에서 본 것처럼 **Functional Scope** 이다. 그러나 `let`, `const` 를 사용하게 되면 **Block Level Scope** 지원이 가능하다. 
+
+아래의 예제를 보자.
 
 ```js
 if (true) {
-    // this 'if' conditional block doesn't create a new scope
-    var name = 'snyung'; // name is still in the global scope
-    let likes = 'Coding';
-    const skills = 'js';
+  var name = 'snyung';
+  let likes = 'Coding';
+  const skills = 'Javascript';
 }
     
 console.log(name); // logs 'snyung'
@@ -100,33 +124,44 @@ console.log(likes); // Uncaught ReferenceError: likes is not defined
 console.log(skills); // Uncaught ReferenceError: skills is not defined
 ```
 
-`var`와는 다르게 `let`, `const`는 Block Statement내에서 **Local Scope** 를 지원한다. 즉, 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block에 붙게되는  것이다.
+`var`와는 다르게 `let`, `const`는 Block Statement내에서 **Local Scope** 를 지원한다. 즉, 이제 Scope가 가장 가까운 function에 붙는 것이 아닌 해당 Block Scope에 생성이 된다.
 
-**Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Local Scope은 함수가 호출되고 실행되는 한 유지된다.**
+**Global Scope는 응용 프로그램이 살아있을 때까지 유효하며, Block Scope는 함수가 호출되고 실행되는 동안 유지된다.**
 
 ## Lexical Scope
 
-**Lexical Scope**는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩된다. **Lexical scope**는 **Static Scope**라고도 불린다.
+**Lexical Scope**는 중첩된 함수에서 내부 함수는 부모 Scope의 변수와 다른 자원에 접근이 가능하다. 즉, 하위 함수는 부모의 실행 컨텍스트에 바인딩 된다. 
+
+**Lexical scope**는 **Static Scope**라고도 불린다.
 
 ```js
 function grandfather() {
-    var name = 'snyung';
-        // likes is not accessible here
-    function parent() {
-            // name is accessible here
-            // likes is not accessible here
-        function child() {
-            // Innermost level of the scope chain
-            // name is also accessible here
-            var likes = 'Coding';
-        }
+  var name = 'snyung'
+    // likes is not accessible here
+  function parent() {
+      // name is accessible here
+      // likes is not accessible here
+    function child() {
+      // Innermost level of the scope chain
+      // name is also accessible here
+      var likes = 'Coding'
+
+      console.log(name)
+      console.log(likes)
     }
+
+    child()
+  }
+
+  parent()
 }
+
+grandfather()
 ```
 
 ## Function
 
-함수는 자바스크립트에서 중요한 컨셉이다. 자바스크립트에서 함수는 **1급 객체**이다. 
+함수는 Javascript에서 중요한 컨셉이다. Javascript에서 함수는 **1급 객체**이다. 
 
 1. **Function Declaration(함수 선언식)**
 2. **Function Expression(함수 표현식)**
@@ -265,7 +300,7 @@ var result = addVariable(num1, num2); // ==> 40
 
 ### Expressions
 
-**Expressions**는 단일값이 되는 자바스크립트 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일값이다.
+**Expressions**는 단일값이 되는 Javascript 코드 Snippets이다. 표현식은 원하는만큼 길게 사용이 가능하지만 단일값이다.
 
 ```js
 2 + 2 * 3 / 2
@@ -331,13 +366,13 @@ const foo = (n) => {
 assignedVariable = foo(14)
 ```
 
-이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 자바스크립트의 근본이다.
+이렇게 작성을 하면 코드가 읽기 쉽게 구성이 가능하며 표현식과 명령문을 명확하게 구분할 수 있다. 이런 것이 선언적 Javascript의 근본이다.
 
 ### Statements
 
 기본적으로 문장은 행동을 수행한다. 
 
-자바스크립트에서 값이 필요한 곳에서는 명령문을 사용할 수 없다. 그래서 함수의 인수, 할당의 오른쪽, 연산자, 피연산자, 반환값으로 사용할 수 없다.
+Javascript에서 값이 필요한 곳에서는 명령문을 사용할 수 없다. 그래서 함수의 인수, 할당의 오른쪽, 연산자, 피연산자, 반환값으로 사용할 수 없다.
 
 ```js
 foo(if () {return 2}) 
