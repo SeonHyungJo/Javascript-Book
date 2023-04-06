@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>콜백 함수 - Javascript Basic &amp; Detail</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li class="chapter-item expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="chapter-item expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="chapter-item expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="chapter-item expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="chapter-item expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="chapter-item expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="chapter-item expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="chapter-item expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="chapter-item expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li class="chapter-item expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="chapter-item expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li class="chapter-item expanded "><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li class="chapter-item expanded "><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="chapter-item expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="chapter-item expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="chapter-item expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="chapter-item expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li class="chapter-item expanded "><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li class="chapter-item expanded "><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li class="chapter-item expanded "><a href="../core-javascript/4-콜백-함수.html" class="active"><strong aria-hidden="true">4.4.</strong> 콜백 함수</a></li><li class="chapter-item expanded "><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.5.</strong> 클로저</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="콜백-함수"><a class="header" href="#콜백-함수">콜백 함수</a></h1>
+<blockquote>
+<p>모든 내용은 책을 기반으로 작성되었습니다.</p>
+</blockquote>
+<p>콜백 함수는 다른 코드의 인자로 넘겨주는 함수다. 콜백 함수를 넘겨받은 코드는 콜백 함수를 필요에 따라 적절한 시점에 실행할 것이다.</p>
+<p>콜백 함수는 <strong>제어권</strong>과 관련이 깊다.</p>
+<p><strong>콜백 함수는 다른 코드(함수 또는 메서드)에게 인자로 넘겨줌으로써 그 제어권도 함께 위임한 함수다.</strong> </p>
+<p>콜백 함수를 위임받은 코드는 자체적으로 내부 로직에 의해 콜백 함수를 적절한 시점에 실행할 것이다.</p>
+<p>이전 글에서 '콜백함수도 함수이기 때문에 기존적으로는 this가 전역객체를 참조하지만, 제어권을 넘겨받은 코드에서 콜백 함수에 별도로 this가 될 대상을 지정한 경우에는 그 대상을 참조하게 된다'고 했다.</p>
+<h2 id="제어권"><a class="header" href="#제어권">제어권</a></h2>
+<h3 id="호출-시점"><a class="header" href="#호출-시점">호출 시점</a></h3>
+<pre><code class="language-js">var count = 0;
+var cdFunc = function () {
+  console.log(count);
+  if(++count &gt; 4) clearInterval(timer);
+}
+
+var timer = setInterval(cdFunc, 300)
+</code></pre>
+<p>이처럼 콜백 함수의 제어권을 넘겨받은 코드는 콜백 함수 호출 시점에 대한 제어권을 가진다.</p>
+<h3 id="인자"><a class="header" href="#인자">인자</a></h3>
+<p>map 메서드를 호출해서 원하는 배열을 얻으려면 map 메서드에 정의된 규칙에 따라 함수를 작성해야한다.</p>
+<p>콜백 함수를 호출하는 주체가 사용자가 아닌 map 메서드이므로 map 메서드가 콜백 함수를 호출할 때 인자에 어떤 순서로 넘길 것인지가 전적으로 map 메서드에게 달렸다. </p>
+<h3 id="this"><a class="header" href="#this">this</a></h3>
+<p>this에 다른 값이 담기는 이유를 정확히 알 수 있다. 바로 제어권을 넘겨받을 코드에서 call/apply 메서드의 첫 번째 이자에 콜백 함수 내부에서의 this가 될 대상을 명시적으로 바인딩하기 때문이다.</p>
+<pre><code class="language-js">setTimeout(function () { console.log(this) }, 300); // window
+
+[1,2,3,4,5].forEach(function (x) {
+  console.log(this)
+}) //  window
+
+document.body.innerHTML += '&lt;button id=&quot;a&quot;&gt;클릭&lt;/button&gt;';
+document.body.querySelectore('#a').addEventListener('click', function () {
+  console.log(this, e); // &lt;button id=&quot;a&quot;&gt;클릭&lt;/button&gt;, MouseEvent
+});
+</code></pre>
+<p>각각 콜백 함수 내에서의 this를 살펴보면, 우선 첫 번째 setTimeout은 내부에서 콜백 함수를 호출할 때 call 메서드의 첫 번째 인자에 전역객체를 넘기기 때문에 콜백 함수 내부에서의 this가 전역객체를 가리킨다. 두 번째 forEach는 별도의 인자로 this를 받는 경우에 해당하지만 별도의 인자로 this를 넘겨주지 않았기 때문에 전역객체를 가리키게 된다. 세 번째 addEventListener는 내부에서 콜백 함수를 호출할 때 call 메서드의 첫 번째 인자에 addEventListener 메서드의 this를 그대로 넘기도록 정의돼 있기 때문에 콜백 함수 내부에서의 this가 addEventListener를 호출한 주체인 HTML 엘리먼트를 가리키게 된다.</p>
+<h2 id="콜백-함수는-함수다"><a class="header" href="#콜백-함수는-함수다">콜백 함수는 함수다.</a></h2>
+<p>콜백 함수로 어떤 객체의 메서드를 전달하더라도 그 메서드는 메서드가 아닌 함수로서 호출된다.</p>
+<h2 id="콜백-함수-내부의-this에-다른-값-바인딩하기"><a class="header" href="#콜백-함수-내부의-this에-다른-값-바인딩하기">콜백 함수 내부의 this에 다른 값 바인딩하기</a></h2>
+<p>객체의 메서드를 콜백 함수로 전달하면 해당 객체를 this로 바라볼 수 없게 된다는 것은 위에서 알게 되었다. 
+그럼에도 콜백 함수 내부에서 this가 객체를 바라보게 하고 싶으면 어떻게 해야할까? 
+별도의 인자로 this를 받는 함수의 경우에는 여기에 원하는 값을 넘겨주면 되지만, 그렇지 않은 경우에는 this의 제어권도 넘겨주게 되므로 사용자가 임의로 값을 바꿀 수 없다. </p>
+<p>그래서 전통적으로는 this를 다른 변수에 담아 콜백 함수로 활용할 함수에서는 this 대신 그 변수를 사용하게 하고, 이에 클로저로 만드는 방식이 많이 사용되었다.</p>
+<p>다행히 이제는 전통적인 방식의 아쉬움을 보완하는 방법으로 <code>bind</code> 메서드가 있다.</p>
+<h2 id="콜백-지옥과-비동기-제어"><a class="header" href="#콜백-지옥과-비동기-제어">콜백 지옥과 비동기 제어</a></h2>
+<p>콜백 지옥은 콜백 함수를 기명함수로 전달하는 과정이 반복되어 코드의 들여쓰기 수준이 감당하기 힘들 정도로 깊어지는 현상으로, 자바스크립트에서 흔히 발생하는 문제이다. 
+주로 이벤트 처리나 서버 통신과 같이 비동기적인 작업을 수행하기 위해 이런 형태가 자주 등장하곤 하는데, 가독성이 떨어질뿐더러 코드를 수정하기도 어렵다.</p>
+<p>동기적인 코드는 현재 실행중인 코드가 완료된 후에야 다음 코드를 실행하는 방식이다. 
+반대로 비동기적인 코드는 현재 실행 중인 코드의 완료 여부와 무관하게 즉시 다음 코드로 넘어간다. 
+CPU의 계산에 의해 즉시 처리가 가능한 대부분의 코드는 동기적인 코드이다. </p>
+<p>계산식이 복잡해서 CPU가 계산하는 데 시간이 많이 필요한 경우라 하더라도 이는 동기적인 코드다. 
+반면 사용자의 요청에 의해 특정 시간이 경과되기 전까지 어떤 함수의 실행을 보류한다거나 사용자의 직접적인 개입이 있을 때 비로소 어떤 함수를 실행하도록 대기한다거나,
+웨브라우저 자체가 아닌 별도의 대상에 무언가를 요청하고 그에 대한 응답이 왔을 때 비로소 어떤 함수를 실행하도록 대기하는 등, <strong>별도의 요청, 실행 대기, 보류</strong> 등과 관련된 코드는 비동적인 코드이다.</p>
+<p>현대의 자바스크립트는 웹의 복잡도가 높아진 만큼 비동기적인 코드의 비중이 예전보다 훨씬 높아진 상황이다. 
+그와 동시에 콜백 지옥에 빠지기도 훨씬 쉬어진 셈이다. </p>
+<p>콜백 지옥 예시를 보자.</p>
+<pre><code class="language-js">setTimeout(function (name) {
+
+  var coffeeList = name;
+  console.log(coffeeList);
+
+  setTimeout(function (name){
+    coffeeList += ', ' + name;
+    console.log(coffeeList);
+
+    setTimeout(function (name){
+      coffeeList += ', ' + name;
+      console.log(coffeeList);
+
+    }, 500, '카페라떼');
+  }, 500, '카페모카');
+}, 500, '아메리카노')
+</code></pre>
+<p>가독성 문제와 어색함을 동시에 해경하는 가장 간단한 방법은 익명의 콜백 함수를 모두 기명함수로 전환하는 것이다.</p>
+<pre><code class="language-js">var coffeeList = '';
+
+var addEspresso = function (name) {
+  coffeeList = name;
+  console.log(coffeeList);
+  setTimeout(addAmericano, 500, '아메리카노')
+}
+
+var addAmericano = function (name) {
+  coffeeList += ', ' + name;
+  console.log(coffeeList);
+  setTimeout(addMocha, 500, '카페모카')
+}
+
+var addMocha = function (name) {
+  coffeeList += ', ' + name;
+  console.log(coffeeList);
+  setTimeout(addLatte, 500, '카페라떼')
+}
+
+var addLatte = function (name) {
+  coffeeList += ', ' + name;
+  console.log(coffeeList);
+}
+</code></pre>
+<p>ES6에서는 Promise, Generator 등이 도입됐고, ES2017에서는 async/await가 도입되었다. 이들을 이용해 위코드를 수정한 내용을 각각 간략하게 알아보자.</p>
+<pre><code class="language-js">new Promise(function (resolve) {
+  setTimeout(function () {
+    var name = '에스프레소';
+    console.log(name);
+    resolve(name)
+  }, 500)
+}).then(function(prevName){
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var name = prevName + ', 아메리카노';
+      console.log(name);
+      resolve(name)
+    }, 500)
+  })
+}).then(function(prevName){
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var name = prevName + ', 카페모카';
+      console.log(name);
+      resolve(name)
+    }, 500)
+  })
+}).then(function(prevName){
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var name = prevName + ', 카페라떼';
+      console.log(name);
+      resolve(name)
+    }, 500)
+  })
+})
+</code></pre>
+<p>한편 ES2017에서는 가독성이 뛰어나면서 작성법도 간단한 새로운 기능이 추가됐는데, 바로 async/await이다. 
+비동기 작업을 수행하고자 하는 함수 앞에 async를 표기하고, 함수 내부에서 실질적인 비동기 작업이 필요한 위치마다 await를 쵸기하는 것만으로 뒤의 내용을 Promise로 자동 전환하고, 해당 내용이 resolve된 이유에야 다음으로 진행한다. 
+즉 Promise의 then과 흡사한 효과를 얻을 수 있다.</p>
+<h2 id="정리"><a class="header" href="#정리">정리</a></h2>
+<ul>
+<li>콜백 함수는 다른 코드에 인자로 넘겨줌으로써 그 제어권도 함께 위임한 함수다.</li>
+<li>제어권을 넘겨받은 코드는 다음과 같은 제어권을 가진다.
+<ul>
+<li>콜백 함수를 호추하는 시점을 스스로 판단해서 실행한다.</li>
+<li>콜백 함수를 호출할 때 인자로 넘겨줄 값들 및 그 순서가 정해져 있다. 이 순서를 따르지 않고 코드를 작성하면 이상한 결과가 나온다.</li>
+<li>콜백 함수의 this가 무엇을 바라보도록 할지가 정해져 있는 경우도 있다. 정하지 않은 경우에는 전역객체를 바라본다. 사용자 임의로 this를 바꾸고 싶은 경우 bind 메서드를 사용하면 된다.</li>
+</ul>
+</li>
+<li>어떤 함수에 인자로 메서드를 전달하더라도 이는 결국 함수로서 실행한다(this가 전역이라는 걸 알려주려고 하는 듯)</li>
+<li>비동기 제어를 위해 콜백 함수를 사용하다 보면 콜백 지옥에 빠지기 쉽다. 최근의 ECMAScript에는 Promise, Generator, async/await 등 콜백 지옥에서 벗어날 수 있는 훌륭한 방법들이 있다.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../core-javascript/3-this.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../core-javascript/5-Closure(클로저).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../core-javascript/3-this.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../core-javascript/5-Closure(클로저).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
