@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>this - Javascript Basic &amp; Detail</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
@@ -17,8 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -26,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
-    <body class="light">
+    <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -54,109 +56,75 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li><a href="../core-javascript/3-this.html" class="active"><strong aria-hidden="true">4.3.</strong> this</a></li><li><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li class="chapter-item expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="chapter-item expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="chapter-item expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="chapter-item expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="chapter-item expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="chapter-item expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="chapter-item expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="chapter-item expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="chapter-item expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li class="chapter-item expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="chapter-item expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li class="chapter-item expanded "><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li class="chapter-item expanded "><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="chapter-item expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="chapter-item expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="chapter-item expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="chapter-item expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li class="chapter-item expanded "><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li class="chapter-item expanded "><a href="../core-javascript/3-this.html" class="active"><strong aria-hidden="true">4.3.</strong> this</a></li><li class="chapter-item expanded "><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
+                    <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
-
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -164,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -177,34 +144,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#this" id="this"><h1>this</h1></a>
+                        <h1 id="this"><a class="header" href="#this">this</a></h1>
 <blockquote>
 <p>모든 내용은 책을 기반으로 작성되었습니다.</p>
 </blockquote>
 <p>이번에는 누구나 한 번쯤 헷갈려 했을 듯한 this에 대해서 알아보자.</p>
-<a class="header" href="#상황에-따라-달라지는-this" id="상황에-따라-달라지는-this"><h2>상황에 따라 달라지는 this</h2></a>
-<p>this는 우리가 앞에서 선행한 실행컨텍스트 안에 있는 정보 중 하나이다. 이를 토대로 우리가 알 수 있는 것은 this도 실행컨테스트와 함께 지정된다는 것을 알 수 있다.</p>
+<h2 id="상황에-따라-달라지는-this"><a class="header" href="#상황에-따라-달라지는-this">상황에 따라 달라지는 this</a></h2>
+<p>this는 우리가 앞에서 선행한 실행컨텍스트 안에 있는 정보 중 하나이다. 이를 토대로 우리가 알 수 있는 것은 this도 실행컨테스트와 함께 지정된다는 것을 알 수 있다. </p>
 <p>실제로 실행컨텍스트가 생성될 때 함께 결정된다.</p>
 <p>실행컨텍스트는 함수가 호출될 때 생성되므로, this도 함수가 호출될 때 결정된다.</p>
-<a class="header" href="#전역공간에서의-this" id="전역공간에서의-this"><h3>전역공간에서의 this</h3></a>
+<h3 id="전역공간에서의-this"><a class="header" href="#전역공간에서의-this">전역공간에서의 this</a></h3>
 <p>전역 공간에서 this는 전역 객체이다. 전역 컨텍스트를 생성하는 주체는 전역객체이기 때문에 이는 당연하다.</p>
 <blockquote>
 <p>JS 에서 window의 프로퍼티로 변수를 만드는 것과 var로 변수를 생성하는 경우에 있어 delete의 작동이 다른 것을 알 수 있다. 이는 사용자가 의도치 않게 삭제하는 것을 방지하는 차원에서 마련한 나름의 방어 전략이라고 한다.(configurable 속성의 차이)</p>
 </blockquote>
-<a class="header" href="#메서드로서-호출할-때-메서드-내부에서의-this" id="메서드로서-호출할-때-메서드-내부에서의-this"><h3>메서드로서 호출할 때 메서드 내부에서의 this</h3></a>
+<h3 id="메서드로서-호출할-때-메서드-내부에서의-this"><a class="header" href="#메서드로서-호출할-때-메서드-내부에서의-this">메서드로서 호출할 때 메서드 내부에서의 this</a></h3>
 <p>함수를 실행하는 방법은 여러가지가 있다. 함수로서 호출하는 경우, 메서드로서 호출하는 경우이다.</p>
 <p>이 둘을 구분하는 유일한 차이는 독립성이다.</p>
-<p>함수는 그 자체로 독립적인 기능을 수행하는 반면, 메서드는 자신을 호출한 대상 객체에 관한 동작을 수행한다.</p>
+<p>함수는 그 자체로 독립적인 기능을 수행하는 반면, 메서드는 자신을 호출한 대상 객체에 관한 동작을 수행한다. </p>
 <p>흔히 JS에서 메서드를 객체의 프롶퍼티에 할당된 함수로 이해한다. 이는 반만 맞은 것인데, 할당한다고 해서 무조건 메서드가 되는 것이 아니라 객체의 메서드로 호출이 될 경우 비로소 메서드로 동작하는 것이 그렇지 않는 것은 함수로 동작하는 것이다.</p>
 <p>그렇다면 '함수로서 호출'과 '메서드로서 호출'을 어떻게 구분할까? 함수 앞에 점(.)이 있는지 여부만으로 간단하게 구분할 수 있다.</p>
 <p>점 표기법이든 대괄호 표기법이든 어떤 함수를 호출할 때 그 함수 이름(프로퍼티명) 앞에 객체가 명시돼 있는 경우에는 메서드로 호출한 것이며, 그렇지 않은 것은 함수로 호출한 것이다.</p>
-<a class="header" href="#매서드-내부에서의-this" id="매서드-내부에서의-this"><h3>매서드 내부에서의 this</h3></a>
+<h3 id="매서드-내부에서의-this"><a class="header" href="#매서드-내부에서의-this">매서드 내부에서의 this</a></h3>
 <p>this에는 호출한 주체에 대한 정보가 담긴다. 어떤 함수를 메서드로서 호출하는 경우 호출 주체는 바로 함수명(프로퍼티명) 앞의 객체이다. 점 표기법의 경우 마지막 점 앞에 명시된 객체가 곧 this가 되는 것이다.</p>
-<a class="header" href="#함수-내부에서의-this" id="함수-내부에서의-this"><h3>함수 내부에서의 this</h3></a>
+<h3 id="함수-내부에서의-this"><a class="header" href="#함수-내부에서의-this">함수 내부에서의 this</a></h3>
 <p>어떤 함수를 함수로서 호출할 경우에는 this가 지정되지 않는다. 2장에서 실행 컨텍스트를 활성화할 당시에 this가 지정되지 않는 경우 this는 전역객체를 바라본다고 했다. 따라서 함수에서의 this는 전역객체이다.</p>
-<a class="header" href="#메서드의-내부함수에서의-this" id="메서드의-내부함수에서의-this"><h3>메서드의 내부함수에서의 this</h3></a>
+<h3 id="메서드의-내부함수에서의-this"><a class="header" href="#메서드의-내부함수에서의-this">메서드의 내부함수에서의 this</a></h3>
 <p>결국 함수를 실행하는 당시의 주변 환경(메서드 내부인지, 함수내부인지 등)은 중요하지 않고, 오직 해당 함수를 호출하는 구문 앞에 점 또는 대괄호 표기가 있는지 없는지가 관건이다.</p>
-<a class="header" href="#메서드의-내부-함수에서의-this를-우회하는-방법" id="메서드의-내부-함수에서의-this를-우회하는-방법"><h3>메서드의 내부 함수에서의 this를 우회하는 방법</h3></a>
+<h3 id="메서드의-내부-함수에서의-this를-우회하는-방법"><a class="header" href="#메서드의-내부-함수에서의-this를-우회하는-방법">메서드의 내부 함수에서의 this를 우회하는 방법</a></h3>
 <p>대표적인 방법으로 변수를 활용하는 방법이다.</p>
 <pre><code class="language-js">var obj = {
   outer: function() {
@@ -224,34 +191,34 @@
 }
 obj.outer();
 </code></pre>
-<a class="header" href="#this를-바인딩하지-않는-함수" id="this를-바인딩하지-않는-함수"><h3>this를 바인딩하지 않는 함수</h3></a>
-<p>ES6에서는 함수 내부에서 this가 전역객체를 바라보는 문제를 보완하고자, this를 바인딩하지 않는 화살표 함수를 새로 도입했다. 화살표 함수는 실행컨텍스트를 생성할 때 this 바인딩 과정 자체가 빠지게 되어, 상위 스토프의 this를 그대로 활용할 수 있다. 내부 함수를 화살표 함수로 바꾸면 우회법이 불필요해진다.</p>
+<h3 id="this를-바인딩하지-않는-함수"><a class="header" href="#this를-바인딩하지-않는-함수">this를 바인딩하지 않는 함수</a></h3>
+<p>ES6에서는 함수 내부에서 this가 전역객체를 바라보는 문제를 보완하고자, this를 바인딩하지 않는 화살표 함수를 새로 도입했다. 화살표 함수는 실행컨텍스트를 생성할 때 this 바인딩 과정 자체가 빠지게 되어, 상위 스토프의 this를 그대로 활용할 수 있다. 내부 함수를 화살표 함수로 바꾸면 우회법이 불필요해진다. </p>
 <p>그러나 ES5에서는 사용할 수 없다.</p>
-<a class="header" href="#생성자-함수-내부에서의-this" id="생성자-함수-내부에서의-this"><h2>생성자 함수 내부에서의 this</h2></a>
+<h2 id="생성자-함수-내부에서의-this"><a class="header" href="#생성자-함수-내부에서의-this">생성자 함수 내부에서의 this</a></h2>
 <p>생성자 함수는 어떤 공통된 성질을 지니는 객체들을 생성하는 데 사용하는 함수이다.</p>
 <p>자바스크립트는 함수에 생성자로서의 역할을 함께 부여했다. new 명령어와 함께 함수를 호출하면 해당 함수가 생성자로서 동작하게 된다. 그리고 어떤 함수가 생성자 함수로서 호출된 경우 내부에서의 this는 인스턴스 자신이 된다.</p>
-<a class="header" href="#명시적으로-this를-바인딩하는-방법" id="명시적으로-this를-바인딩하는-방법"><h2>명시적으로 this를 바인딩하는 방법</h2></a>
+<h2 id="명시적으로-this를-바인딩하는-방법"><a class="header" href="#명시적으로-this를-바인딩하는-방법">명시적으로 this를 바인딩하는 방법</a></h2>
 <p>위에서 상황별 this 값이 어떻게 변하는지 살펴봤지만 this에 별도의 대상을 바인딩하는 방법도 있다.</p>
-<a class="header" href="#call-메서드" id="call-메서드"><h3>call 메서드</h3></a>
+<h3 id="call-메서드"><a class="header" href="#call-메서드">call 메서드</a></h3>
 <pre><code class="language-js">Function.prototype.call(thisarg [, arg1[, arg2[, ...]]])
 </code></pre>
 <p>call 메서드는 호출 주체인 함수를 즉시 실행하는 명령이다. 이때 call의 첫 번째 인자를 this로 바인딩하고, 이후의 인자달을 함수의 매개변수로 한다.</p>
-<a class="header" href="#apply-메서드" id="apply-메서드"><h3>apply 메서드</h3></a>
+<h3 id="apply-메서드"><a class="header" href="#apply-메서드">apply 메서드</a></h3>
 <pre><code class="language-js">Function.prototype.apply(thisarg [, argsArray])
 </code></pre>
 <p>apply 메서드는 call 메서드와 기능적으로 완전히 동일하다. call 메서드는 첫 번째 인자를 제외한 나머지 모든 인자들을 호출할 함수의 매개변수로 지정하는 반면, apply 메서드는 두 번째 인자를 배열로 받아 매개변수로 지정한다는 차이가 있다.</p>
-<a class="header" href="#bind-메서드" id="bind-메서드"><h3>bind 메서드</h3></a>
+<h3 id="bind-메서드"><a class="header" href="#bind-메서드">bind 메서드</a></h3>
 <pre><code class="language-js">Function.prototype.bind(thisarg [, arg1[, arg2[, ...]]])
 </code></pre>
 <p>bind 메서드는 ES5에 추가된 기능으로, call과 비슷하지만 즉시 호출하지는 않고 넘겨받은 this 및 인수들을 바탕으로 새로운 함수를 반환하기만 하는 메서드이다.</p>
-<a class="header" href="#name-프로퍼티" id="name-프로퍼티"><h3>name 프로퍼티</h3></a>
+<h3 id="name-프로퍼티"><a class="header" href="#name-프로퍼티">name 프로퍼티</a></h3>
 <p>bind 메서드를 적용해서 새로 만든 함수는 독특한 성질이 있다. 바로 name 프로퍼티에 'bound'라는 접두어가 붙는다는 것이다.</p>
 <blockquote>
 <p>bind된 함수는 다시 bind를 할 수 없다.</p>
 </blockquote>
-<a class="header" href="#화살표-함수의-예외-사항" id="화살표-함수의-예외-사항"><h2>화살표 함수의 예외 사항</h2></a>
+<h2 id="화살표-함수의-예외-사항"><a class="header" href="#화살표-함수의-예외-사항">화살표 함수의 예외 사항</a></h2>
 <p>ES6에 새롭게 도입된 화살표 함수는 실행 컨텍스트 생성 시 this를 바인딩하는 과정이 제외됐다. 즉 이 함수 내부에는 this가 아예 없으며, 접근하고자 하면 스코프체인상 가장 가까운 this에 접근하게 된다.</p>
-<a class="header" href="#정리" id="정리"><h2>정리</h2></a>
+<h2 id="정리"><a class="header" href="#정리">정리</a></h2>
 <ul>
 <li>명시적으로 this를 바인딩 하지 않는다면 아래의 규칙을 따른다.
 <ul>
@@ -275,17 +242,13 @@ obj.outer();
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../core-javascript/2-실행-컨텍스트.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../core-javascript/5-Closure(클로저).html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -293,41 +256,36 @@ obj.outer();
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a href="../core-javascript/2-실행-컨텍스트.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../core-javascript/2-실행-컨텍스트.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a href="../core-javascript/5-Closure(클로저).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../core-javascript/5-Closure(클로저).html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script>
+            window.playground_copyable = true;
+        </script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

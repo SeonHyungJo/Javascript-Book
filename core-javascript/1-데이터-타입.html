@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>데이터 타입 - Javascript Basic &amp; Detail</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
@@ -17,8 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -26,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
-    <body class="light">
+    <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -54,109 +56,75 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li><a href="../core-javascript/1-데이터-타입.html" class="active"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li class="chapter-item expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="chapter-item expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="chapter-item expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="chapter-item expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="chapter-item expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="chapter-item expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="chapter-item expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="chapter-item expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="chapter-item expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li class="chapter-item expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="chapter-item expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li class="chapter-item expanded "><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li class="chapter-item expanded "><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="chapter-item expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="chapter-item expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="chapter-item expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="chapter-item expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../core-javascript/1-데이터-타입.html" class="active"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li class="chapter-item expanded "><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li class="chapter-item expanded "><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li class="chapter-item expanded "><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
+                    <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
-
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -164,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -177,42 +144,48 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#데이터-타입" id="데이터-타입"><h1>데이터 타입</h1></a>
+                        <h1 id="데이터-타입"><a class="header" href="#데이터-타입">데이터 타입</a></h1>
 <blockquote>
 <p>기본형과 참조형 타입이 서로 다르게 동작하는 이유를 중점으로 보자.</p>
 </blockquote>
-<a class="header" href="#데이터-타입의-종류" id="데이터-타입의-종류"><h2>데이터 타입의 종류</h2></a>
+<h2 id="데이터-타입의-종류"><a class="header" href="#데이터-타입의-종류">데이터 타입의 종류</a></h2>
 <p>데이터 타입에는 크게 두 가지가 있다.</p>
 <ol>
 <li>기본형 : Number, String, Boolean, null, undefined, <strong>Symbol</strong></li>
 <li>참조형 : Object, Array, Function, Date, RegExp, <strong>Map, WeakMap, Set, WeakSet</strong></li>
 </ol>
 <p>굵게 칠해진 타입은 ES6에서 추가된 타입이다.</p>
-<a class="header" href="#기본형과-참조형을-구분하는-기준은-무엇인가" id="기본형과-참조형을-구분하는-기준은-무엇인가"><h3>기본형과 참조형을 구분하는 기준은 무엇인가?</h3></a>
+<h3 id="기본형과-참조형을-구분하는-기준은-무엇인가"><a class="header" href="#기본형과-참조형을-구분하는-기준은-무엇인가">기본형과 참조형을 구분하는 기준은 무엇인가?</a></h3>
 <p>기본형은 값이 담긴 <strong>주솟값을 바로 복제</strong>하지만, 참조형은 값이 담긴 주솟값들로 이루어진 <strong>묶음을 가리키는 주솟값을 복제</strong>한다는 점이 다르다.</p>
 <p>개발자분들이 기본형은 불변성을 띄지 않는다고 생각하는 경우도 있다. 그러나 <strong>기본형 타입은 불변성을 띈다.</strong></p>
-<a class="header" href="#데이터-타입에-관한-배경지식" id="데이터-타입에-관한-배경지식"><h2>데이터 타입에 관한 배경지식</h2></a>
+<h2 id="데이터-타입에-관한-배경지식"><a class="header" href="#데이터-타입에-관한-배경지식">데이터 타입에 관한 배경지식</a></h2>
 <ul>
 <li>변수 : 변할 수 있는 무언가.</li>
 <li>식별자 : 어떤 데이터를 식별하는 데 사용하는 이름(변수명).</li>
 </ul>
-<a class="header" href="#변수-선언과-데이터-할당" id="변수-선언과-데이터-할당"><h2>변수 선언과 데이터 할당</h2></a>
-<a class="header" href="#변수-선언" id="변수-선언"><h3>변수 선언</h3></a>
+<h2 id="변수-선언과-데이터-할당"><a class="header" href="#변수-선언과-데이터-할당">변수 선언과 데이터 할당</a></h2>
+<h3 id="변수-선언"><a class="header" href="#변수-선언">변수 선언</a></h3>
 <pre><code class="language-js">var a;
 </code></pre>
 <p>위의 코드를 해석하게 되면 <code>변할 수 있는 데이터를 만들었다. 이 데이터의 식별자는 a로 한다.</code>이다. 이렇게 보면 변수는 변경 가능한 데이터가 담길 수 있는 공간 또는 그릇이다.</p>
-<a class="header" href="#데이터-할당" id="데이터-할당"><h3>데이터 할당</h3></a>
+<h3 id="데이터-할당"><a class="header" href="#데이터-할당">데이터 할당</a></h3>
 <pre><code class="language-js">var a; // 변수 선언
 a = 'abc'; // 변수 a에 데이터 할당
 
 var a = 'abc'; // 변수 선언과 할당을 한 문장으로 표현
 </code></pre>
-<a class="header" href="#기본형-데이터와-참조형-데이터" id="기본형-데이터와-참조형-데이터"><h2>기본형 데이터와 참조형 데이터</h2></a>
-<a class="header" href="#불변값" id="불변값"><h3>불변값</h3></a>
+<p>왜 변수 영역에 값을 직접 대입하지 않고 굳이 번거롭게 한 단계를 더 거치는 이유는?
+데이터 변환으르 자유롭게 할 수 있게 함과 동시에 메모리를 더욱 효율적으로 관리하기 위한 고민의 결과이다.</p>
+<p>변수 영역과 데이터 영역을 분리하면 중복된 데이터에 대한 처리 효율이 높아진다.</p>
+<blockquote>
+<p>예시) 500개의 변수 공간에 동일한 값인 5를 넣을때</p>
+</blockquote>
+<h2 id="기본형-데이터와-참조형-데이터"><a class="header" href="#기본형-데이터와-참조형-데이터">기본형 데이터와 참조형 데이터</a></h2>
+<h3 id="불변값"><a class="header" href="#불변값">불변값</a></h3>
 <p>변수와 상수를 구분하는 성질은 <em>변경 가능성</em>이다. 바꿀 수 있으면 변수, 바꿀 수 없으면 상수라는 것이다.</p>
-<p>상수와 불변성은 같은 개념이 아니다.</p>
+<p><strong>상수와 불변성은 같은 개념이 아니다.</strong></p>
 <p>변수와 상수를 구분 짓는 변경 가능성의 대상은 <strong>변수 영역 메모리</strong>다. 한 번 데이터 할당이 이루어진 변수 공간에 다른 데이터를 재할당할 수 있는지가 관건이다. 반면, 불변성 여부를 구분할 때의 변경 가능성의 대상은 <strong>데이터 영역 메모리</strong>다.</p>
-<p>결국, 기본형 데이터인 Number, Strubg, Boolean, null, undefined, Symbol 모두 불변값이다.</p>
+<p>결국, 기본형 데이터인 Number, String, Boolean, null, undefined, Symbol 모두 불변값이다.</p>
 <pre><code class="language-js">var a = 'abc';
 a = a + 'def';
 
@@ -222,7 +195,7 @@ b = 7
 </code></pre>
 <p>변수 <code>a</code>에 문자열 <code>abc</code>를 할당했다가 뒤에 <code>def</code>를 추가하면 기존의 <code>abc</code>가 <code>abcdef</code>로 바뀌는 것이 아니라 새로운 문자열 <code>abcdef</code>를 만들어 그 주소를 변수 a에 저장한다.</p>
 <p>즉 <code>abc</code>와 <code>abcdef</code>는 완전히 별개의 데이터다.</p>
-<a class="header" href="#가변값" id="가변값"><h3>가변값</h3></a>
+<h3 id="가변값"><a class="header" href="#가변값">가변값</a></h3>
 <p>참조형 데이터는 가변값이다.</p>
 <pre><code class="language-js">var obj1 = {
   a: 1,
@@ -239,7 +212,8 @@ obj1.a = 2;
 </code></pre>
 <p>위와 같이 <code>obj1</code>의 <code>a</code>에 값을 재할당하게 되면 <code>2</code>가 들어갈 공간을 새로 만들어서 데이터를 넣어주고, 식별자 <code>a</code> 값에 새로 만든 <code>2</code>가 들어가 있는 공간의 주솟값을 넣게 된다. 이렇게 되면 <code>a</code>는 값만 바뀌는 것이다.</p>
 <p>참조 카운트가 <code>0</code>이 되는 메모리 주소는 가비지 컬렉션의 수거 대상이 된다. 가비지 컬렉터는 런타임 환경에 따라 특정 시점이나 메모리 사용량이 포화 상태에 임박할 때마다 자동으로 수거 대상들을 수거한다. 수거된 메모리는 다시 새로운 값을 할당할 수 있는 빈 공간이 된다.</p>
-<a class="header" href="#변수-복사-비교" id="변수-복사-비교"><h3>변수 복사 비교</h3></a>
+<p>데이터 영역은 기본형과 동일하게 불변값이다. 그러나 변수에는 다른 값을 얼마든지 대입할 수 있다. 이 부분 때문에 흔히 참조형 데이터는 불변하지 않다(가변값이다)라고 하는 것이다.</p>
+<h3 id="변수-복사-비교"><a class="header" href="#변수-복사-비교">변수 복사 비교</a></h3>
 <p>기본형과 참조형의 복사를 비교해보자.</p>
 <pre><code class="language-js">var a = 10;
 var b = a;
@@ -271,10 +245,8 @@ obj2.c = 20;
 <pre><code class="language-js">console.log(a !== b) // true
 console.log(obj1 === obj2) // true
 </code></pre>
-<blockquote>
-<p>일반적으로 '기본형도 결국 주솟값을 참조한다'</p>
-</blockquote>
-<a class="header" href="#객체-자체를-변경하는-경우" id="객체-자체를-변경하는-경우"><h3>객체 자체를 변경하는 경우</h3></a>
+<p>'일반적으로 기본형도 결국 주솟값을 참조한다' 라고 말하지 않는다. 이는 이해하기 어려워서라고 생각된다.</p>
+<h3 id="객체-자체를-변경하는-경우"><a class="header" href="#객체-자체를-변경하는-경우">객체 자체를 변경하는 경우</a></h3>
 <pre><code class="language-js">var a = 10;
 var b = a;
 
@@ -291,8 +263,9 @@ obj2 = {
   d: 'ddd'
 }
 </code></pre>
-<p>위와 같이 <code>obj2</code>의 새로운 객체를 할당했다. 이렇게 되었을 경우 <code>obj1</code>과 <code>obj2</code>를 비교하게 되면 같지 않다고 나온다.</p>
-<a class="header" href="#불변-객체" id="불변-객체"><h2>불변 객체</h2></a>
+<p><code>obj2</code>의 새로운 객체를 할당했다. 이렇게 하는 경우 <code>obj1</code>과 <code>obj2</code>를 비교하면 같지 않다고 나온다.
+데이터 영역의 새로운 공간에 새 객체가 저장되고 그 주소를 변수 영역의 <code>obj2</code>에 저장하기 때문이다.</p>
+<h2 id="불변-객체"><a class="header" href="#불변-객체">불변 객체</a></h2>
 <p>객체의 가변성에 따른 문제점이 있다.</p>
 <pre><code class="language-js">var user = {
   name: 'josh',
@@ -363,9 +336,9 @@ console.log(user.name, user2.name); // josh snyung
 console.log(user === user2) // false
 </code></pre>
 <p>우리가 만든 함수는 위와 같은 예제에서는 제대로 작동하고 있다. 그러나 <strong>얕은 복사</strong>만 수행한다는 점이 아쉽다.</p>
-<a class="header" href="#얕은-복사와-깊은-복사" id="얕은-복사와-깊은-복사"><h3>얕은 복사와 깊은 복사</h3></a>
-<p>얕은 복사는 바로 아래 단계의 값만 복사하는 방법이며, 깊은 복사는 내부의 모든 값을 하나하나 찾아서 전부 복사하는 방법이다.</p>
-<p>얕은 복사를 하게 되면 한 단계 아래의 값들은 새로 만들어지기 때문에 불변성을 보장한다. 그러나 2단계 이상으로 들어가게 되면 기존의 데이터를 그대로 참조하고 있게 된다.</p>
+<h3 id="얕은-복사와-깊은-복사"><a class="header" href="#얕은-복사와-깊은-복사">얕은 복사와 깊은 복사</a></h3>
+<p>얕은 복사는 바로 아래 단계의 값만 복사하는 방법이며, 깊은 복사는 내부의 모든 값을 하나하나 찾아서 전부 복사하는 방법이다. </p>
+<p>얕은 복사를 하게 되면 한 단계 아래의 값들은 새로 만들어지기 때문에 불변성을 보장한다. 그러나 2단계 이상으로 들어가게 되면 기존의 데이터를 그대로 참조하고 있게 된다. </p>
 <pre><code class="language-js">var user2 = copyObject(user);
 user2.urls = copyObject(user.urls);
 
@@ -395,9 +368,9 @@ console.log(user.urls.blog === user2.urls.blog); // false
   return JSON.parse(JSON.stringify(target))
 }
 </code></pre>
-<a class="header" href="#undefined와-null" id="undefined와-null"><h2>undefined와 null</h2></a>
+<h2 id="undefined와-null"><a class="header" href="#undefined와-null">undefined와 null</a></h2>
 <p>자바스크립트에서, 없음을 나타내는 값은 두 가지가 있다.</p>
-<p><code>undefined</code>는 사용자가 명시적으로 지정할 수도 있지만, 값이 존재하지 않을 때 자바스크립트 엔진이 자동으로 부여하는 경우도 있다.</p>
+<p><code>undefined</code>는 사용자가 명시적으로 지정할 수도 있지만, 값이 존재하지 않을 때 자바스크립트 엔진이 자동으로 부여하는 경우도 있다. </p>
 <p>자바스크립트 엔진이 <code>undefined</code>를 반환하는 경우는 아래와 같이 세 가지 경우다.</p>
 <ul>
 <li>값을 대입하지 않는 변수. 즉 데이터 영역의 메모리 주소를 지정하지 않는 식별자에 접근할 때</li>
@@ -446,7 +419,12 @@ arr1.reduce(function (p, c, i) { return p + c + i;}, '');
 arr2.reduce(function (p, c, i) { return p + c + i;}, '');
 </code></pre>
 <p>위의 결과가 다르게 나온다. 직접 <code>undefined</code>를 할당한 <code>arr1</code>에 대해서는 일반적으로 알고 있는 배열의 모든 요소를 순회해서 결과를 출력한다. 그러나 <code>arr2</code>에 대한 결과를 보면, 각 메서드들이 비어있는 요소에 대해서는 어떠한 처리도 하지 않고 건너뛰었다.</p>
-<p><code>null</code>은 주의해야 할 점이 있다. <code>typeof null</code>이 <code>Object</code>라는 것이다. 이는 자바스크립트 자체 버그이다. 따라서 어떤 변수의 값이 <code>null</code>인지 여부를 판별하기 위해서는 typeof 대신 다른 방식으로 접근해야 한다.</p>
+<blockquote>
+<p>결국, 값으로써 어딘가에 할당된 undefined는 실존하는 데이터다. 그러나 자바스크립트 엔진이 반환해주는 undefined는 문자 그래도 값이 없을을 나타내는 것이다. </p>
+</blockquote>
+<p>undefined는 할당하지 않는게 좋다. 같은 의미를 가진 null이라는 값이 있는데 굳이 undefined를 사용할 이유가 없다.</p>
+<h3 id="null"><a class="header" href="#null">null</a></h3>
+<p><code>null</code>은 주의해야 할 점이 있다. <code>typeof null</code>이 <code>Object</code>라는 것이다. 이는 자바스크립트 자체 버그이다. 따라서 어떤 변수의 값이 <code>null</code>인지 여부를 판별하기 위해서는 typeof 대신 다른 방식으로 접근해야 한다. </p>
 <pre><code class="language-js">var n = null;
 console.log(typeof n); // object
 
@@ -457,7 +435,7 @@ console.log(n === undefined) // false
 console.log(n === null) // true
 </code></pre>
 <p>동등 연산자로 비교할 경우 <code>null</code>과 <code>undefined</code>가 서로 같다고 판단한다. 따라서 어떤 변수가 실제로 <code>null</code>인지 아니면 <code>undefined</code>인지는 동등 연산자(<code>==</code>)로 비교해서는 알 수 없다. 일치 연산자(<code>===</code>)를 써야만 정확히 판별할 수 있다.</p>
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<h4 id="reference"><a class="header" href="#reference">Reference</a></h4>
 <ul>
 <li><a href="http://www.yes24.com/Product/Goods/78586788">코어 자바스크립트 - 데이터 타입</a></li>
 </ul>
@@ -466,17 +444,13 @@ console.log(n === null) // true
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../core-javascript/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../core-javascript/2-실행-컨텍스트.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -484,41 +458,36 @@ console.log(n === null) // true
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a href="../core-javascript/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../core-javascript/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a href="../core-javascript/2-실행-컨텍스트.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../core-javascript/2-실행-컨텍스트.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script>
+            window.playground_copyable = true;
+        </script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

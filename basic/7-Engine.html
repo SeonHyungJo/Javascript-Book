@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Engine - Javascript Basic &amp; Detail</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
@@ -17,8 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -26,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
-    <body class="light">
+    <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -54,109 +56,75 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html" class="active"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li class="chapter-item expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="chapter-item expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="chapter-item expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="chapter-item expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="chapter-item expanded "><a href="../basic/7-Engine.html" class="active"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="chapter-item expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="chapter-item expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="chapter-item expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="chapter-item expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li class="chapter-item expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="chapter-item expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li class="chapter-item expanded "><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li class="chapter-item expanded "><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="chapter-item expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="chapter-item expanded "><a href="../ES3/4-ScopeChain.html"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="chapter-item expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="chapter-item expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li class="chapter-item expanded "><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li class="chapter-item expanded "><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li class="chapter-item expanded "><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
+                    <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
-
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -164,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -177,40 +144,48 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#javascript-engine" id="javascript-engine"><h1>JavaScript Engine</h1></a>
-<a class="header" href="#목차" id="목차"><h2>목차</h2></a>
+                        <h1 id="javascript-engine"><a class="header" href="#javascript-engine">JavaScript Engine</a></h1>
+<h2 id="목차"><a class="header" href="#목차">목차</a></h2>
 <ul>
-<li>[x] 자바스크립트 엔진 파이프라인</li>
-<li>[x] V8
+<li><input disabled="" type="checkbox" checked=""/>
+자바스크립트 엔진 파이프라인</li>
+<li><input disabled="" type="checkbox" checked=""/>
+V8
 <ul>
-<li>[x] 이그니션</li>
-<li>[x] 터보팬</li>
-<li>[x] 이전의 엔진</li>
+<li><input disabled="" type="checkbox" checked=""/>
+이그니션</li>
+<li><input disabled="" type="checkbox" checked=""/>
+터보팬</li>
+<li><input disabled="" type="checkbox" checked=""/>
+이전의 엔진</li>
 </ul>
 </li>
-<li>[x] 히든 클래스</li>
-<li>[x] 인라인 캐싱</li>
-<li>[x] 최적화</li>
+<li><input disabled="" type="checkbox" checked=""/>
+히든 클래스</li>
+<li><input disabled="" type="checkbox" checked=""/>
+인라인 캐싱</li>
+<li><input disabled="" type="checkbox" checked=""/>
+최적화</li>
 </ul>
-<a class="header" href="#javascript-engine이란" id="javascript-engine이란"><h2>JavaScript Engine이란?</h2></a>
+<h2 id="javascript-engine이란"><a class="header" href="#javascript-engine이란">JavaScript Engine이란?</a></h2>
 <p>JS코드를 실행하는 <strong>프로그램(가령 브라우저) 또는 인터프리터</strong> 를 말한다.
 <br/></p>
-<a class="header" href="#v8" id="v8"><h3>V8</h3></a>
+<h3 id="v8"><a class="header" href="#v8">V8</a></h3>
 <p>제일 유명하고 사람들이 많이 사용하는 크롬에 들어가있는 <code>V8</code> 이 있다. 현재 <code>Electron, Nodejs</code> 에서도 사용이 되고 있고 CEF의 안에도 들어있다.
 <br/></p>
-<a class="header" href="#spidermonkey" id="spidermonkey"><h3>SpiderMonkey</h3></a>
+<h3 id="spidermonkey"><a class="header" href="#spidermonkey">SpiderMonkey</a></h3>
 <p><strong>최초의 자바스크립트 엔진</strong> 으로, JS의 창시자인 브랜던 아이크가 넷스케이프 브라우저를 위해 개발이 되었다. 지금은 <code>Mozilla</code> 재단에서 관리하며, <code>FireFox</code> 에서 사용되는 엔진이다.
 <br/></p>
-<a class="header" href="#chakra" id="chakra"><h3>Chakra</h3></a>
+<h3 id="chakra"><a class="header" href="#chakra">Chakra</a></h3>
 <p><strong>마이크로소프트가 개발한 엔진</strong> 이며, <code>Edge</code> 브라우저에 사용되고 있고 앞으로는 V8로 바꾼다는 말이 있다.
 <br/></p>
 <p><code>Chakra</code> 엔진의 중요 부분은 <code>Chakra Core</code> 라는 오픈 소스로 구성되어있다.
 <br/></p>
-<a class="header" href="#javascript-core" id="javascript-core"><h3>Javascript Core</h3></a>
+<h3 id="javascript-core"><a class="header" href="#javascript-core">Javascript Core</a></h3>
 <p>애플에서 개발한 JavaScriptCore는 처음에 <strong>WebKit 프레임워크</strong> 를 위해 개발. 최근에는 <code>Safari와 React Native App</code>에서 사용된다고 한다.
 <br/></p>
-<a class="header" href="#자바스크립트-엔진-파이프라인" id="자바스크립트-엔진-파이프라인"><h2>자바스크립트 엔진 파이프라인</h2></a>
-<p>소스코드를 기계어로 만드는 과정에 대해서 알아보려고 한다.
+<h2 id="자바스크립트-엔진-파이프라인"><a class="header" href="#자바스크립트-엔진-파이프라인">자바스크립트 엔진 파이프라인</a></h2>
+<p>소스코드를 기계어로 만드는 과정에 대해서 알아보려고 한다. 
 <br/></p>
 <ol>
 <li>자바스크립트 <strong>소스를 파싱해서 AST로 만든다.</strong></li>
@@ -225,14 +200,14 @@
 <p>위의 파이프라인 작동하는 방식은 Chrome 및 Node.js에서 사용되는 JavaScript 엔진이 작동하는 방식과 거의 동일하다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_2.png" alt="B_Engine_2.png" /></p>
 <p>V8의 인터프린터 <strong>Ignition</strong> 이라고 불리며, <strong>bytecode</strong> 를 생성하고 실행하는 역할을 한다. <strong>Bytecode</strong> 를 실행하는 동안, 실행 속도를 높이기 위해서 <strong>profiling data</strong> 를 수집한다. 예를 들어, 종종 실행되는 기능에 부하가 걸리면, 생성된 <strong>bytecode</strong> 와 <strong>profiling data</strong> 는 <strong>TurboFan</strong>(최적화된 컴파일러)으로 전달되어 <strong>profiling data</strong> 를 기반으로 최적화 머신 코드( <strong>optimized code</strong> )를 생성합니다.</p>
-<a class="header" href="#v8-살펴보기" id="v8-살펴보기"><h2>V8 살펴보기</h2></a>
-<a class="header" href="#v859-이전" id="v859-이전"><h3>V8.5.9 이전</h3></a>
+<h2 id="v8-살펴보기"><a class="header" href="#v8-살펴보기">V8 살펴보기</a></h2>
+<h3 id="v859-이전"><a class="header" href="#v859-이전">V8.5.9 이전</a></h3>
 <p>내용이 많아 자세히 설명해주신 블로그 링크를 넣었습니다.</p>
 <blockquote>
 <p><a href="https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-v8-%EC%97%94%EC%A7%84%EC%9D%98-%EB%82%B4%EB%B6%80-%EC%B5%9C%EC%A0%81%ED%99%94%EB%90%9C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8B%A4%EC%84%AF-%EA%B0%80%EC%A7%80-%ED%8C%81-6c6f9832c1d9">https://engineering.huiseoul.com/자바스크립트는-어떻게-작동하는가-v8-엔진의-내부-최적화된-코드를-작성을-위한-다섯-가지-팁-6c6f9832c1d9</a></p>
 </blockquote>
-<p><br/></p>
-<a class="header" href="#javascript-engine이-객체-모델을-구현하는-방법" id="javascript-engine이-객체-모델을-구현하는-방법"><h2>JavaScript Engine이 객체 모델을 구현하는 방법</h2></a>
+<br/>
+<h2 id="javascript-engine이-객체-모델을-구현하는-방법"><a class="header" href="#javascript-engine이-객체-모델을-구현하는-방법">JavaScript Engine이 객체 모델을 구현하는 방법</a></h2>
 <p>객체는 JavaScript 명세에 따르면 String으로 된 키와 이것으로 접근할 수 있는 값들을 가지고 있는 딕셔너리(Key-Value)이다. 키는 단순히 <code>[[value]]</code> 에 맵핑되는 것 뿐만 아니라 속성 값(property attributes) 이라고 하는 스펙에도 매핑이된다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_3.png" alt="B_Engine_3.png" /></p>
 <p>객체는 기본적인 속성 값으로 <code>[[Writable]]</code>, <code>[[Enumerable]]</code>, <code>[[Configurable]]</code> 상태가 있다.</p>
@@ -246,11 +221,11 @@
     Object.getOwnPropertyDescriptor(object, 'foo');
     // =&gt; {value: 42, writable: true, enumerable: true, configurable: true}
 </code></pre>
-<p><br/></p>
-<a class="header" href="#javascript-배열" id="javascript-배열"><h2>JavaScript 배열</h2></a>
+<br/>
+<h2 id="javascript-배열"><a class="header" href="#javascript-배열">JavaScript 배열</a></h2>
 <p>배열은 조금 다르게 처리하는 특별한 객체라고 생각하면 됩니다.객체와 다른 배열만의 특징은 다음과 같습니다.</p>
 <ol>
-<li><strong>인덱스(index)가 존재한다.</strong></li>
+<li><strong>인덱스(index)가 존재한다.</strong> </li>
 </ol>
 <p>인덱스는 제한된 범위가 있는 정수로. JavaScript 명세에 따르면, 배열은 <code>2³²−1</code> 개 까지의 아이템을 가질 수 있다. 따라서 배열 인덱스는 <code>0</code> 부터 <code>2³²−2</code> 까지의 범위에서만 인덱스로 유요한 정수라는 것이다.</p>
 <ol start="2">
@@ -262,14 +237,14 @@
     array[2] = 'c';
     array.length; // 3
 </code></pre>
-<p><br/></p>
-<a class="header" href="#javascript-엔진에서-배열을-다루기" id="javascript-엔진에서-배열을-다루기"><h3>JavaScript 엔진에서 배열을 다루기</h3></a>
+<br/>
+<h3 id="javascript-엔진에서-배열을-다루기"><a class="header" href="#javascript-엔진에서-배열을-다루기">JavaScript 엔진에서 배열을 다루기</a></h3>
 <p>객체와 비슷하다. 배열은 인덱스를 포함하여 모두 <code>string</code> 키를 가진다. 아래 그림을 보면 인덱스인 <code>0</code> 은 <code>a</code> 라는 값을 가지며, 값을 바꿀 수 있고(Writable), 열거 가능하고(Enumerable), 삭제 가능(Configurable) 하다. 또 다른 프로퍼티인 <code>length</code> 의 값은 1이며, 값을 바꿀 수 있지만 열거와 삭제가 불가능 하다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_4.png" alt="B_Engine_4.png" /></p>
 <p>배열에 Item을 추가하게 되면, JavaScript 엔진은 <code>length</code>의 속성 값 중 <code>[[value]]</code>를 자동으로 증가시킨다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_5.png" alt="B_Engine_5.png" /></p>
-<p><br/></p>
-<a class="header" href="#hidden-classshape" id="hidden-classshape"><h2>Hidden Class(Shape)</h2></a>
+<br/>
+<h2 id="hidden-classshape"><a class="header" href="#hidden-classshape">Hidden Class(Shape)</a></h2>
 <pre><code class="language-javascript">function logX(obj){
         console.log(obj.x);
 }
@@ -291,8 +266,8 @@ logX(obj2);
 <p>우선 엔진은 따로 <code>Shape</code> 라는 곳에 프로퍼티 이름과 속성 값들을 저장한다. 여기에 <code>[[value]]</code> 값 대신 <code>JSObject</code> 의 어디에 값이 저장되어 있는지에 대한 정보인 <code>Offset</code> 을 <code>Property information</code>으로 가지고 있는다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_8.png" alt="B_Engine_8.png" /></p>
 <p>즉, 같은 모양을 가진 모든 JSObject는 동일한 <code>Shape</code> 인스턴스를 가리키게 되고, 각 객체에는 고유한 값만 저장되므로, 더 이상 중복되지 않는 것이다. 같은 모양으로 생긴 더 많은 오브젝트가 있다 하더라도 오로지 하나의 <code>Shape</code> 만 존재하게 된다.</p>
-<p><br/></p>
-<a class="header" href="#shape에-새로운-객체를-추가하기-transition-chains" id="shape에-새로운-객체를-추가하기-transition-chains"><h3>Shape에 새로운 객체를 추가하기 (Transition chains)</h3></a>
+<br/>
+<h3 id="shape에-새로운-객체를-추가하기-transition-chains"><a class="header" href="#shape에-새로운-객체를-추가하기-transition-chains">Shape에 새로운 객체를 추가하기 (Transition chains)</a></h3>
 <p>이런 Shape가 있다고 합시다.</p>
 <pre><code class="language-javascript">const o = {};
 o.x = 5;
@@ -306,12 +281,12 @@ o.y = 6;
 <p>새로운 프로퍼티 y를 추가해도 똑같이 작동하게 된다. <code>Shape(x,y)</code> 로 이동한 다음 값을 추가한다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_11.png" alt="B_Engine_11.png" /></p>
 <p>하지만 이런 방법을 모든 테이블에 항상 적용했다가는 많은 메모리 낭비를 일으키겠지요. 그래서 실제로 엔진은 이렇게 동작하지 않습니다.</p>
-<p><br/></p>
-<a class="header" href="#실제로-엔진에서-동작하는-방법" id="실제로-엔진에서-동작하는-방법"><h3>실제로 엔진에서 동작하는 방법</h3></a>
+<br/>
+<h3 id="실제로-엔진에서-동작하는-방법"><a class="header" href="#실제로-엔진에서-동작하는-방법">실제로 엔진에서 동작하는 방법</a></h3>
 <p>엔진은 추가되는 새로운 프로퍼티 정보를 저장하고, 이전 Shape로 가는 <strong>링크</strong>를 제공한다. 만약 <code>o.x</code>를 찾을 때 값이 <code>Shape(x,y)</code> 에 없다면 이전의 <code>Shape(x)</code>에 가서 찾는 것이다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_12.png" alt="B_Engine_12.png" /></p>
-<p><br/></p>
-<a class="header" href="#두-객체에서-동일한-shape를-사용하는-경우-transition-tree" id="두-객체에서-동일한-shape를-사용하는-경우-transition-tree"><h3>두 객체에서 동일한 Shape를 사용하는 경우 (Transition Tree)</h3></a>
+<br/>
+<h3 id="두-객체에서-동일한-shape를-사용하는-경우-transition-tree"><a class="header" href="#두-객체에서-동일한-shape를-사용하는-경우-transition-tree">두 객체에서 동일한 Shape를 사용하는 경우 (Transition Tree)</a></h3>
 <p>만약에 두 객체에서 동일한 Shape를 사용한다면 어떻게 될까? 먼저 하나의 객체 <code>a</code> 에 <code>x = 5</code> 라는 값을 가진 프로퍼티가 있다고 하면</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_13.png" alt="B_Engine_13.png" /></p>
 <p>이번엔 객체 <code>b</code> 에서 <code>y</code> 라는 프로퍼티를 추가할 경우 <code>Shape(empty)</code>에서 가지를 뻗어 새로운 <code>Shape(y)</code>를 만든다. 결국 2개의 체인에 3개의 Shape를 가진 트리 체인이 생성되는 것이다.</p>
@@ -358,8 +333,8 @@ var foo = new Person(&quot;yonehara&quot;);
 var bar = new Person(&quot;suzuki&quot;);
 foo.job = &quot;frontend&quot;;
 </code></pre>
-<p><br/></p>
-<a class="header" href="#inline-cacheics" id="inline-cacheics"><h2>Inline Cache(ICs)</h2></a>
+<br/>
+<h2 id="inline-cacheics"><a class="header" href="#inline-cacheics">Inline Cache(ICs)</a></h2>
 <p>Shape를 사용하는 주된 이유는 <strong>Inline Caches(ICs)</strong> 때문이다. ICs 는 JavaScript를 신속하게 실행할 수 있게하는 핵심 요소이다. JavaScript 엔진은 ICs를 사용하여 object에서 property를 찾을 수 있는 위치에 대한 정보를 암기하여, 높은 cost를 가지는 조회 횟수를 줄인다.</p>
 <pre><code class="language-javascript">function getX(o) {	
     return o.x;
@@ -367,7 +342,7 @@ foo.job = &quot;frontend&quot;;
 </code></pre>
 <p>위의 함수를 <code>JSC</code> 에서 실행한다면, 아래의 그림과 같은 <code>bytecode</code> 를 생성할 것이다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_18.png" alt="B_Engine_18.png" /></p>
-<p>첫 번째 명령문 <code>get_by_id</code>는 첫 번째 <code>argument (arg1)</code> 에서 <code>property 'x'</code> 를 로드하여 결과를 <code>loc0</code> 에 저장한다.</p>
+<p>첫 번째 명령문 <code>get_by_id</code>는 첫 번째 <code>argument (arg1)</code> 에서 <code>property 'x'</code> 를 로드하여 결과를 <code>loc0</code> 에 저장한다. </p>
 <p>두 번째 명령문은 <code>loc0</code> 에 저장한 것을 반환한다.</p>
 <p>또한 <code>JSC</code> 는 <code>get_by_id</code> 명령문에 초기화되지 않은 두 개의 슬롯으로 구성된 <code>Inline Cache</code> 를 포함한다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_19.png" alt="B_Engine_19.png" /></p>
@@ -376,8 +351,8 @@ foo.job = &quot;frontend&quot;;
 <p>위의 그림에서 처럼 <code>get_by_id</code> 명령문에 포함된 IC는 <code>property</code> 가 발견된 shape와 offset을 기억하게 된다.</p>
 <p><img src="https://github.com/SeonHyungJo/FE-Dev-Note/blob/master/assets/image/B_Engine_21.png" alt="B_Engine_21.png" /></p>
 <p>위의 그림을 보게되면, 다음 명령문을 실행할 때, IC는 shape만 비교하면 되며, 이전과 같다면 저장되어있는 offset을 보고 value를 가져오면 된다. 구체적으로 말하면, 엔진이 IC가 이전에 기록한 shape의 object를 볼 경우, 더 이상 property 정보에 접근할 필요가 없다. 그리고 비용이 많이 들어가는 property 정보 조회를 완전히 생략하게 된다. 이 방법은 매번 property를 조회하는 것 보다 훨씬 더 빠르다.</p>
-<p><br/></p>
-<a class="header" href="#어떻게-최적화된-자바스크립트-코드를-작성할-것인가" id="어떻게-최적화된-자바스크립트-코드를-작성할-것인가"><h2><strong>어떻게 최적화된 자바스크립트 코드를 작성할 것인가</strong></h2></a>
+<br/>
+<h2 id="어떻게-최적화된-자바스크립트-코드를-작성할-것인가"><a class="header" href="#어떻게-최적화된-자바스크립트-코드를-작성할-것인가"><strong>어떻게 최적화된 자바스크립트 코드를 작성할 것인가</strong></a></h2>
 <ol>
 <li><strong>객체 속성의 순서</strong> : 객체 속성을 항상 같은 순서로 초기화해서 히든클래스 및 이후에 생성되는 최적화 코드가 공유될 수 있도록 한다.</li>
 <li><strong>동적 속성</strong>: 객체 생성 이후에 속성을 추가하는 것은 히든 클래스가 변하도록 강제하고 이전의 히든클래스를 대상으로 최적화되었던 모든 메소드를 느리게 만든다. 대신에 모든 객체의 속성을 생성자에서 할당한다.</li>
@@ -386,7 +361,7 @@ foo.job = &quot;frontend&quot;;
 <li><strong>태깅된 값</strong> : V8은 객체와 숫자를 32비트로 표현한다. 어떤 값이 오브젝트(flag = 1)인지 혹은 정수(flag = 0)인지는 <code>SMI(Small Integer)</code> 라는 하나의 비트에 저장하고 이 때문에 31비트가 남는다. 따라서 어떤 숫자가 31비트 보다 크면 V8은 이 숫자를 분리해서 더블 타입으로 전환한 다음 이 숫자를 넣을 새로운 객체를 생성한다. 이러한 동작은 비용이 높으므로 가능한한 31비트의 숫자를 사용하자.</li>
 </ol>
 <hr />
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<h4 id="reference"><a class="header" href="#reference">Reference</a></h4>
 <ul>
 <li><a href="https://medium.freecodecamp.org/javascript-essentials-why-you-should-know-how-the-engine-works-c2cc0d321553">JavaScript essentials: why you should know how the engine works</a></li>
 <li><a href="https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-v8-%EC%97%94%EC%A7%84%EC%9D%98-%EB%82%B4%EB%B6%80-%EC%B5%9C%EC%A0%81%ED%99%94%EB%90%9C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%8B%A4%EC%84%AF-%EA%B0%80%EC%A7%80-%ED%8C%81-6c6f9832c1d9">자바스크립트는 어떻게 작동하는가: V8 엔진의 내부 + 최적화된 코드를 작성을 위한 다섯 가지 팁</a></li>
@@ -400,17 +375,13 @@ foo.job = &quot;frontend&quot;;
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../basic/6-Async.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../basic/8-Bitwise_Operator.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -418,41 +389,36 @@ foo.job = &quot;frontend&quot;;
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a href="../basic/6-Async.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../basic/6-Async.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a href="../basic/8-Bitwise_Operator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../basic/8-Bitwise_Operator.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script>
+            window.playground_copyable = true;
+        </script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>

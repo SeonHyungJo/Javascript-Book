@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Scope Chain - Javascript Basic &amp; Detail</title>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+        <!-- Custom HTML head -->
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
@@ -17,8 +21,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -26,19 +29,18 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
-    <body class="light">
+    <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -54,109 +56,75 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li><a href="../ES3/4-ScopeChain.html" class="active"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.</strong> Basic</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/1-CallStack.html"><strong aria-hidden="true">2.1.</strong> Call Stack</a></li><li class="chapter-item expanded "><a href="../basic/2-Type.html"><strong aria-hidden="true">2.2.</strong> Type</a></li><li class="chapter-item expanded "><a href="../basic/3-Function.html"><strong aria-hidden="true">2.3.</strong> Function</a></li><li class="chapter-item expanded "><a href="../basic/4-Module.html"><strong aria-hidden="true">2.4.</strong> Module</a></li><li class="chapter-item expanded "><a href="../basic/5-Event_Loop.html"><strong aria-hidden="true">2.5.</strong> Event Loop</a></li><li class="chapter-item expanded "><a href="../basic/6-Async.html"><strong aria-hidden="true">2.6.</strong> Async</a></li><li class="chapter-item expanded "><a href="../basic/7-Engine.html"><strong aria-hidden="true">2.7.</strong> Engine</a></li><li class="chapter-item expanded "><a href="../basic/8-Bitwise_Operator.html"><strong aria-hidden="true">2.8.</strong> Bitwise Operator</a></li><li class="chapter-item expanded "><a href="../basic/9-DOM.html"><strong aria-hidden="true">2.9.</strong> DOM</a></li><li class="chapter-item expanded "><a href="../basic/10-Class.html"><strong aria-hidden="true">2.10.</strong> Class</a></li><li class="chapter-item expanded "><a href="../basic/11-Call-Apply-Bind.html"><strong aria-hidden="true">2.11.</strong> Call, Apply, Bind</a></li><li class="chapter-item expanded "><a href="../basic/12-Prototype.html"><strong aria-hidden="true">2.12.</strong> Prototype</a></li><li class="chapter-item expanded "><a href="../basic/13-Object.create_Object.assign.html"><strong aria-hidden="true">2.13.</strong> Object.create, Object.assign</a></li><li class="chapter-item expanded "><a href="../basic/14-Map-Filter-Reduce.html"><strong aria-hidden="true">2.14.</strong> Map, Filter, Reduce</a></li><li class="chapter-item expanded "><a href="../basic/15-Pure-Functions-Side-Effects-State-Mutation.html"><strong aria-hidden="true">2.15.</strong> Pure Functions, Side Effects, State Mutation</a></li><li class="chapter-item expanded "><a href="../basic/index.html"><strong aria-hidden="true">2.16.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.</strong> ES3 in Detail</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ES3/1-Execution_Contexts.html"><strong aria-hidden="true">3.1.</strong> Execution Contexts</a></li><li class="chapter-item expanded "><a href="../ES3/3-This.html"><strong aria-hidden="true">3.2.</strong> This</a></li><li class="chapter-item expanded "><a href="../ES3/4-ScopeChain.html" class="active"><strong aria-hidden="true">3.3.</strong> Scope Chain</a></li><li class="chapter-item expanded "><a href="../ES3/5-Function.html"><strong aria-hidden="true">3.4.</strong> Function</a></li><li class="chapter-item expanded "><a href="../ES3/6-Closure.html"><strong aria-hidden="true">3.5.</strong> Closure</a></li><li class="chapter-item expanded "><a href="../ES3/index.html"><strong aria-hidden="true">3.6.</strong> To be continue</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../core-javascript/index.html"><strong aria-hidden="true">4.</strong> 코어 자바스크립트</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../core-javascript/1-데이터-타입.html"><strong aria-hidden="true">4.1.</strong> 데이터 타입</a></li><li class="chapter-item expanded "><a href="../core-javascript/2-실행-컨텍스트.html"><strong aria-hidden="true">4.2.</strong> 실행 컨텍스트</a></li><li class="chapter-item expanded "><a href="../core-javascript/3-this.html"><strong aria-hidden="true">4.3.</strong> this</a></li><li class="chapter-item expanded "><a href="../core-javascript/5-Closure(클로저).html"><strong aria-hidden="true">4.4.</strong> 클로저</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <style>
-  header.warning {
-    background-color: rgb(242, 222, 222);
-    border-bottom-color: rgb(238, 211, 215);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-style: solid;
-    border-bottom-width: 0.666667px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color: rgb(238, 211, 215);
-    border-left-style: solid;
-    border-left-width: 0.666667px;
-    border-right-color: rgb(238, 211, 215);
-    border-right-style: solid;
-    border-right-width: 0.666667px;
-    border-top-color: rgb(238, 211, 215);
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-top-style: solid;
-    border-top-width: 0.666667px;
-    color: rgb(185, 74, 72);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 30px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 35px;
-    padding-top: 8px;
-    text-align: center;
-  }
-</style>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
 
+                    <h1 class="menu-title">Javascript Basic &amp; Detail</h1>
 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
 
-                        <h1 class="menu-title">Javascript Basic &amp; Detail</h1> 
-
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -164,10 +132,9 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -177,8 +144,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#ecma-262-3-scopechain" id="ecma-262-3-scopechain"><h1>ECMA-262-3 ScopeChain</h1></a>
-<a class="header" href="#소개" id="소개"><h2>소개</h2></a>
+                        <h1 id="ecma-262-3-scopechain"><a class="header" href="#ecma-262-3-scopechain">ECMA-262-3 ScopeChain</a></h1>
+<h2 id="소개"><a class="header" href="#소개">소개</a></h2>
 <ul>
 <li>실행 컨텍스트의 데이터(<strong>변수, 함수 선언 그리고 함수의 매개변수</strong>)는 변수 객체의 프로퍼티( <strong>VO</strong> )로 저장된다.
 <ul>
@@ -188,7 +155,7 @@
 <li>컨텍스트로 <strong>진입</strong> 할 때 매번 초깃값을 갖는 변수 객체를 생성하며(선언 + 초기화 == 호이스팅(Hoisting)), 코드 실행할 때 값을 갱신(할당)한다.</li>
 </ul>
 <p>이번에는 ScopeChain에 대해서 알아보자.</p>
-<a class="header" href="#정의" id="정의"><h2>정의</h2></a>
+<h2 id="정의"><a class="header" href="#정의">정의</a></h2>
 <p>ScopeChain은 중첩 함수와 관련이 있다.</p>
 <blockquote>
 <p>중첩함수란 함수 안에 함수가 있는 것을 말한다.</p>
@@ -213,7 +180,7 @@ foo()(); // 30
 <li>전역 컨텍스트 = <code>VO + SC + this</code></li>
 <li>함수 컨텍스트 = <code>AO + SC + this</code></li>
 </ul>
-<p>ScopeChain은 내부 컨텍스트가 이용하는 모든(부모) 변수 객체의 <strong>리스트다</strong>.
+<p>ScopeChain은 내부 컨텍스트가 이용하는 모든(부모) 변수 객체의 <strong>리스트다</strong>. 
 변수를 검색할 때 이 체인을 이용한다.</p>
 <p>위의 경우에서는 <code>bar</code> 컨텍스트의 ScopeChain은 <code>AO(bar)</code>, <code>AO(foo)</code>, <code>VO(global)</code>를 갖는다.
 순서 또한 위와 같다. 즉 처음에 위치한 것은 자기 자신이라는 것이다.</p>
@@ -225,7 +192,7 @@ foo()(); // 30
 <li>ScopeChain은 함수를 호출할 때 생성된다.(실행 X)</li>
 <li>활성화 객체와 함수의 내부 <code>[[scope]]</code> 프로퍼티를 가진다.</li>
 </ul>
-<a class="header" href="#내부의-모습" id="내부의-모습"><h3>내부의 모습</h3></a>
+<h3 id="내부의-모습"><a class="header" href="#내부의-모습">내부의 모습</a></h3>
 <pre><code class="language-js">activeExecutionContext = {
    VO: {...}, // or AO
    this: thisValue,
@@ -234,7 +201,7 @@ foo()(); // 30
    ]
 };
 </code></pre>
-<a class="header" href="#scope의-정의" id="scope의-정의"><h4><strong>Scope의 정의</strong></h4></a>
+<h4 id="scope의-정의"><a class="header" href="#scope의-정의"><strong>Scope의 정의</strong></a></h4>
 <pre><code class="language-js">Scope = AO + [[scope]]
 </code></pre>
 <p>예를 들기 위해서 스코프와 <code>[[Scope]]</code> 를 <code>ECMAScript</code> 의 일반 배열로 나타낼 수 있다.</p>
@@ -244,9 +211,9 @@ foo()(); // 30
 var VO2 = {__parent__: VO1, ... other data};
 ...
 </code></pre>
-<a class="header" href="#함수-라이프-사이클function-life-cycle" id="함수-라이프-사이클function-life-cycle"><h2>함수 라이프 사이클(Function life cycle)</h2></a>
-<p>함수의 라이프 사이클은 <strong>생성 단계</strong>, <strong>활성화 단계(call)</strong> 의 2가지로 나뉜다.</p>
-<a class="header" href="#함수-생성" id="함수-생성"><h3>함수 생성</h3></a>
+<h2 id="함수-라이프-사이클function-life-cycle"><a class="header" href="#함수-라이프-사이클function-life-cycle">함수 라이프 사이클(Function life cycle)</a></h2>
+<p>함수의 라이프 사이클은 <strong>생성 단계</strong>, <strong>활성화 단계(call)</strong> 의 2가지로 나뉜다. </p>
+<h3 id="함수-생성"><a class="header" href="#함수-생성">함수 생성</a></h3>
 <p>컨텍스트 단계로 들어갈 때 <strong>변수/활성화 객체(VO/AO)가 함수 선언으로 들어간다.</strong></p>
 <pre><code class="language-js">var x = 10;
 
@@ -271,7 +238,7 @@ foo(); // 30
   globalContext.VO // === Global
 ];
 </code></pre>
-<a class="header" href="#함수-활성화" id="함수-활성화"><h2>함수 활성화</h2></a>
+<h2 id="함수-활성화"><a class="header" href="#함수-활성화">함수 활성화</a></h2>
 <p>컨텍스트로 진입하고 <code>AO/VO</code>가 만들어진 후에, 컨텍스트의 <code>scope</code> 프로퍼티는 다음과 같이 정의된다.</p>
 <pre><code class="language-js">Scope = AO|VO + [[Scope]]
 </code></pre>
@@ -341,8 +308,8 @@ barContext.Scope = [
   globalContext.VO
 ];
 </code></pre>
-<a class="header" href="#스코프의-특징scope-features" id="스코프의-특징scope-features"><h2>스코프의 특징(Scope features)</h2></a>
-<a class="header" href="#클로저" id="클로저"><h2>클로저</h2></a>
+<h2 id="스코프의-특징scope-features"><a class="header" href="#스코프의-특징scope-features">스코프의 특징(Scope features)</a></h2>
+<h2 id="클로저"><a class="header" href="#클로저">클로저</a></h2>
 <p><code>ECMAScript</code>의 클로저는 <code>[[Scope]]</code> 프로퍼티와 직접적으로 관련이 있다. <code>[[Scope]]</code> 는 함수를 생성할 때 함수에 저장되어서, 함수 객체가 사라질 때까지 존재한다. 실제로, 클로저는 정확하게 함수 코드와 <code>[[Scope]]</code> 프로퍼티의 조합이다</p>
 <pre><code class="language-js">var x = 10;
 
@@ -371,7 +338,7 @@ var bar = foo(); // 익명 함수를 반환한다.
 bar(); // [10, 20]
 </code></pre>
 <p>위이 예제에서도 역시 식별자 해석에 함수 생성 시점에 정의된 어휘적 ScopeChain을 이용했다. 변수 <code>x</code>를 30이 아닌 10으로 해석했다. 게다가, 이 예제는 함수의 <code>[[Scope]]</code> (함수 <code>foo</code>가 반환한 익명 함수의 경우에)가 심지어 생성된 함수의 컨텍스트가 이미 종료되고 난 이후에도 존재하고 있음을 명확하게 보여준다.</p>
-<a class="header" href="#function-생성자로-생성한-함수의-scope" id="function-생성자로-생성한-함수의-scope"><h3>Function 생성자로 생성한 함수의 <code>[[Scope]]</code></h3></a>
+<h3 id="function-생성자로-생성한-함수의-scope"><a class="header" href="#function-생성자로-생성한-함수의-scope">Function 생성자로 생성한 함수의 <code>[[Scope]]</code></a></h3>
 <p>위의 예제에서 함수 생성시에 [[Scope]] 프로퍼티를 가져오고 이 프로퍼티를 통해서 모든 부모 컨텍스트의 변수에 접근한다는 것을 보았다. 그러나, 이 규칙에는 한 가지 중요한 예외가 있는데, Function 생성자를 이용해서 함수를 생성하는 경우는 다르다.</p>
 <pre><code class="language-js">var x = 10;
 
@@ -397,7 +364,7 @@ function foo() {
 foo();
 </code></pre>
 <p>위에 보이듯이 생성자로 만든 함수는 <code>Scope</code>가 다르다. 그러나 <code>x</code>에는 접근을 한다. 이것은 <code>[[Scope]]</code>로 <code>global</code>은 가진다는 것이다.</p>
-<a class="header" href="#2차원-scopechain-검색" id="2차원-scopechain-검색"><h3>2차원 ScopeChain 검색</h3></a>
+<h3 id="2차원-scopechain-검색"><a class="header" href="#2차원-scopechain-검색">2차원 ScopeChain 검색</a></h3>
 <p>ScopeChain 검색의 중요한 포인트는 <code>ECMAScript</code> 의 프로토타입적인 성격 때문에 변수 객체의 프토토타입 또한 고려해야 한다는 점이다. 객체 내에서 직접적으로 프로퍼티를 찾지 못한다면, <strong>프로토타입 체인까지 검색한다.</strong> 즉, 일종의 2차원 체인 검색이다. <strong>(1) ScopeChain 연결, (2) 그리고 깊은 프로토타입 체인 연결에 있는 모든 ScopeChain 연결을 검색</strong> 한다.</p>
 <pre><code class="language-js">function foo() {
   alert(x);
@@ -407,7 +374,7 @@ Object.prototype.x = 10;
 foo(); // 10
 </code></pre>
 <p>쉽게 말하면 역시 <code>scope</code>를 검색했는데, 없다면 <code>protptype chain</code>까지 검색한다는 것이다.</p>
-<a class="header" href="#전역-컨텍스트와-eval-컨텍스트의-scopechain" id="전역-컨텍스트와-eval-컨텍스트의-scopechain"><h3>전역 컨텍스트와 <code>eval</code> 컨텍스트의 ScopeChain</h3></a>
+<h3 id="전역-컨텍스트와-eval-컨텍스트의-scopechain"><a class="header" href="#전역-컨텍스트와-eval-컨텍스트의-scopechain">전역 컨텍스트와 <code>eval</code> 컨텍스트의 ScopeChain</a></h3>
 <p>전역 컨텍스트의 ScopeChain은 오직 전역 객체만을 갖는다. 그리고 <code>eval</code> 코드의 컨텍스트는 호출 컨텍스트와 같은 ScopeChain을 갖는다.</p>
 <p><strong>무조건 글로벌이라고 생각하면 된다.</strong></p>
 <pre><code class="language-js">globalContext.Scope = [
@@ -415,9 +382,9 @@ foo(); // 10
 ];
 evalContext.Scope === callingContext.Scope;
 </code></pre>
-<a class="header" href="#코드-실행-중-scopechain에-영향을-미치기" id="코드-실행-중-scopechain에-영향을-미치기"><h3>코드 실행 중 ScopeChain에 영향을 미치기</h3></a>
-<p><code>ECMAScript</code>에는 코드 실행 런타임에 ScopeChain을 변경할 수 있는 두 가지 구문이 있다.</p>
-<p><code>with</code>문과 <code>catch</code>절이다.</p>
+<h3 id="코드-실행-중-scopechain에-영향을-미치기"><a class="header" href="#코드-실행-중-scopechain에-영향을-미치기">코드 실행 중 ScopeChain에 영향을 미치기</a></h3>
+<p><code>ECMAScript</code>에는 코드 실행 런타임에 ScopeChain을 변경할 수 있는 두 가지 구문이 있다. </p>
+<p><code>with</code>문과 <code>catch</code>절이다. </p>
 <p>구문 내에 나타나는 식별자를 찾기 위한 객체를 <strong>ScopeChain의 가장 앞에 추가한다.</strong> 이 중에 하나를 코드에 적용하면, ScopeChain은 아래와 같이 변경된다.</p>
 <pre><code class="language-js">Scope = withObject|catchObject + AO|VO + [[Scope]]
 </code></pre>
@@ -466,7 +433,7 @@ Scope = catchObject + AO|VO + [[Scope]]
 </code></pre>
 <p><code>catch</code>절 내의 작업이 종료된 후에, ScopeChain은 이전 상태로 돌아온다.</p>
 <hr />
-<a class="header" href="#reference" id="reference"><h4>Reference</h4></a>
+<h4 id="reference"><a class="header" href="#reference">Reference</a></h4>
 <ul>
 <li><a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/">scope-chain</a></li>
 </ul>
@@ -475,17 +442,13 @@ Scope = catchObject + AO|VO + [[Scope]]
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../ES3/3-This.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../ES3/5-Function.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -493,41 +456,36 @@ Scope = catchObject + AO|VO + [[Scope]]
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a href="../ES3/3-This.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ES3/3-This.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
-                    <a href="../ES3/5-Function.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../ES3/5-Function.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
+        <script>
+            window.playground_copyable = true;
+        </script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
+    </div>
     </body>
 </html>
