@@ -5443,8 +5443,8 @@ var addLatte = function (name) {
 - 로컬 변수를 참조하고 있는 함수 내의 함수
 - 자신이 생성될 때의 스코프에서 알 수 있었던 변수들 중 언젠가 자신이 실행될 때 사용할 변수들만을 기억하여 유지하는 함수
 </code></pre>
-<p>MDN은 클로저에 대해서 &quot;클로저는 함수와 그 함수가 선언될 당시의 lexical environment의 상호관계에 따른 현상&quot;이라고 적혀있다. </p>
-<p>'선언될 당시의 lexical environment'는 이전에 2장에서 소개한 실행 컨테스트의 구성 요소 중 하나인 outerEnvironmentReference에 해당한다.</p>
+<p>MDN은 클로저에 대해서 &quot;클로저는 함수와 그 함수가 선언될 당시의 Lexical Environment의 상호관계에 따른 현상&quot;이라고 적혀있다. </p>
+<p>'선언될 당시의 Lexical Environment'는 이전에 2장에서 소개한 실행 컨테스트의 구성 요소 중 하나인 outerEnvironmentReferences에 해당한다.</p>
 <p>위에서의 의미만 조합해 본다면, '어떤 함수에서 선언한 변수를 참조하는 내부함수에서만 발생하는 현상`이라고 볼 수 있다.</p>
 <pre><code class="language-js">var outer = function() {
   var a = 1;
@@ -5459,14 +5459,15 @@ outer();
 </code></pre>
 <p>위의 예제에서 outer함수에서 변수 a를 선언했고, outer의 내부함수인 inner에서 a의 값을 1만큼 증가시킨 다음 출력한다.</p>
 <p>inner 함수 내부에서는 a를 선언하지 않아서 environmenRecord에서 값을 찾지 못하므로 outerEnvironmentReference에 지정된 상위 컨텍스트인 outer의 outerEnvironment에 접근해서 다시 a를 찾는다. </p>
-<p>outer 함수의 실행 컨텍스트가 종료되면 LexicalEnvironment에 저장된 식별자들에 대한 참조를 지운다 그렇게 되면 자신을 참조하는 변수가 하나도 없게 되므로 가비지 컬렉터의 수집대상이 된다.</p>
+<p>outer 함수의 실행 컨텍스트가 종료되면 Lexical Environment에 저장된 식별자들에 대한 참조를 지운다. 
+그렇게 되면 자신을 참조하는 변수가 하나도 없게 되므로 가비지 컬렉터의 수집대상이 된다.</p>
 <pre><code class="language-js">var outer = function() {
   var a = 1;
   var inner = function () {
     console.log(++a);
   };
 
-  return inner;
+  return inner; // 여기가 바뀜
 }
 
 var outer2 = outer();
@@ -5474,11 +5475,16 @@ console.log(outer2()); // 2
 console.log(outer2()); // 3
 </code></pre>
 <p>이번에는 inner 함수를 반환했다.</p>
-<p>그러면 outer함수의 실행 컨텍스트가 종료될 때 outer2 변수는 outer의 실행 결과인 innter 함수를 참조하게 된다. 이후 outer2를 함수로 호출하게 되면 inner가 실행되게 된다.</p>
-<p>inner 함수의 실행 컨텍스트의 environmentRecord에는 수집할 정보가 없다. outerEnvironmentReference에는 innter 함수가 선언된 위치의 LexicalEnvironment가 참조 복사된다. inner함수는 outer함수 내부에서 선언되었으므로, outer 함수의 LexicalEnvironment가 담기게 된다. 이제 스코프체이닝에 따라 outer에서 선언한 변수 a에 접근해서 1만큼 증가시킨 후 결과를 찍는다.</p>
-<p><strong>그런데 inner함수의 실행 시점에는 outer함수는 이미 실행이 종료된 상태인데 outer함수의 LexicalEnvrionment에 어떻게 접근할 수 있을까?</strong> 이는 가비지 컬렉터의 동작 방식 때문이다. 가비지 컬렉터는 어떤 값을 참조하는 변수가 하나라도 있다면 그 값은 수집 대상에 포함되지 않는다. </p>
-<p>이 때문에 inner함수가 a에 접근이 가능한 것이다.</p>
-<p>이때까지 내용을 보게 되면 클로저는 '어떤 함수 A에서 선언한 변수 a를 참조하는 내부함수 B를 외부로 전달할 경우 A의 실행 컨텍스트가 종료된 이후에도 변수 a가 사라지지 않는 현상'이다.</p>
+<p>그러면 outer함수의 실행 컨텍스트가 종료될 때 outer2 변수는 outer의 실행 결과인 innter 함수를 참조하게 된다. 
+이후 outer2를 함수로 호출하게 되면 inner가 실행되게 된다.</p>
+<p>inner 함수의 실행 컨텍스트의 environmentRecord에는 수집할 정보가 없다. 
+outerEnvironmentReference에는 innter 함수가 선언된 위치의 Lexical Environment가 참조 복사된다. 
+inner 함수는 outer 함수 내부에서 선언되었으므로, outer 함수의 Lexical Environment가 담기게 된다. 
+이제 스코프체이닝에 따라 outer에서 선언한 변수 a에 접근해서 1만큼 증가시킨 후 결과를 찍는다.</p>
+<p>그런데 inner함수의 실행 시점에는 outer함수는 이미 실행이 종료된 상태인데 outer함수의 LexicalEnvrionment에 어떻게 접근할 수 있을까? </p>
+<p>이는 가비지 컬렉터의 동작 방식 때문이다. <strong>가비지 컬렉터는 어떤 값을 참조하는 변수가 하나라도 있다면 그 값은 수집 대상에 포함되지 않는다.</strong> </p>
+<p>위와 같은 이유론 inner함수가 a에 접근이 가능한 것이다.</p>
+<p>이때까지 내용을 보게 되면 클로저는 <code>어떤 함수 A에서 선언한 변수 a를 참조하는 내부함수 B를 외부로 전달할 경우 A의 실행 컨텍스트가 종료된 이후에도 변수 a가 사라지지 않는 현상</code>이다.</p>
 <h2 id="return-없이도-클로저가-발생하는-다양한-경우"><a class="header" href="#return-없이도-클로저가-발생하는-다양한-경우">return 없이도 클로저가 발생하는 다양한 경우</a></h2>
 <pre><code class="language-js">(function () {
   var a = 0;
@@ -5503,11 +5509,16 @@ console.log(outer2()); // 3
   document.body.appendChild(button)
 })()
 </code></pre>
-<p>첫 번째는 별도의 외부 객체인 window의 메서드(setTimeout 또는 setInterval)에 전달할 콜백 함수 내부에서 지역변수를 참조한다. 두 번째는 별도의 외부 객체인 DOM의 메서드(addEventListener)에 등록할 handler 함수 내부에서 지역변수를 참조한다. </p>
-<p>두 경우 모두 지역변수를 참조하는 내부함수를 외부에 전달했기 때문에 클로저이다.</p>
+<p>첫 번째는 별도의 외부 객체인 window의 메서드(setTimeout 또는 setInterval)에 전달할 콜백 함수 내부에서 지역변수를 참조한다.</p>
+<p>두 번째는 별도의 외부 객체인 DOM의 메서드(addEventListener)에 등록할 handler 함수 내부에서 지역변수를 참조한다. </p>
+<p><strong>두 경우 모두 지역변수를 참조하는 내부함수를 외부에 전달</strong>했기 때문에 클로저다.</p>
 <h2 id="클로저와-메모리-관리"><a class="header" href="#클로저와-메모리-관리">클로저와 메모리 관리</a></h2>
-<p>메모리 누수의 위험 이유로 클로저 사용을 조심해야 한다거나 심지어 지양해야 한다고 주장하는 사람들도 있지만, 메모리 소모는 클로저의 본질적인 특성일 뿐이다. 오히려 이러한 특성을 정확히 이해하고 잘 활용하도록 노력해야 한다.</p>
-<p>관리 방법은 간단하다. 클로저는 어떤 필요 때문에 의도적으로 함수의 지역변수를 메모리를 소모하도록 함으로써 발생한다. 그렇다면 그 필요성이 사라진 시점에는 더는 메모리를 소모하지 않게 해주면 된다. </p>
+<p>메모리 누수의 위험 이유로 클로저 사용을 조심해야 한다거나 심지어 지양해야 한다고 주장하는 사람들도 있지만, 메모리 소모는 클로저의 본질적인 특성일 뿐이다. </p>
+<p>오히려 이러한 특성을 정확히 이해하고 잘 활용하도록 노력해야 한다.</p>
+<p>관리 방법은 간단하다. 클로저는 어떤 필요 때문에 의도적으로 함수의 지역변수를 메모리를 소모하도록 함으로써 발생한다. 그렇다면 그 필요성이 사라진 시점에는 더는 메모리를 소모하지 않게 해주면 된다.</p>
+<blockquote>
+<p>식별자에 참조형이 아닌 기본형 데이터(보통 null이나 undefined)를 할당하면 된다.</p>
+</blockquote>
 <pre><code class="language-js">var outer = (function () {
   var a = a;
   var inner = function () {
@@ -5584,7 +5595,7 @@ fruits.forEach(function(fruit) {
 document.body.appendChild($ul);
 alertFruit(fruits[1]);
 </code></pre>
-<p>공통함수로 쓰고자 콜백함수를 외부로 꺼내서 alertFruit 변수에 담았다. 이제 함수를 직접 실행할 수 있다. 그런데 각 li를 클릭하면 클맇가 대상의 과일명이 아닌<code>[object MouseEvent]</code>라는 값이 출력된다. 콜백 함수의 인자에 대한 제어권을 addEvnetListener가 가진 상태이며, addEventListener는 콜백 함수를 호출할 때 첫 번째 인자에 '이벤트 객체'를 주입하기 때문이다. 이를 bind로 해결할 수 있다.</p>
+<p>공통함수로 쓰고자 콜백함수를 외부로 꺼내서 alertFruit 변수에 담았다. 이제 함수를 직접 실행할 수 있다. 그런데 각 li를 클릭하면 클릭한 대상의 과일명이 아닌<code>[object MouseEvent]</code>라는 값이 출력된다. 콜백 함수의 인자에 대한 제어권을 addEvnetListener가 가진 상태이며, addEventListener는 콜백 함수를 호출할 때 첫 번째 인자에 '이벤트 객체'를 주입하기 때문이다. 이를 bind로 해결할 수 있다.</p>
 <pre><code class="language-js">var fruits = ['apple', 'banana', 'peach'];
 var $ul = document.createElement('ul');
 
@@ -5599,7 +5610,9 @@ fruits.forEach(function(fruit) {
 });
 document.body.appendChild($ul);
 </code></pre>
-<p>이렇게 하면 이벤트 객체가 인자로 넘어오는 순서가 바뀌는 점과 함수 내부에서의 this가 원래의 값과 달라지는 점을 감안해야한다. 이를 해결하기 위햇 다른방식으로 고차함수를 활용하는 것이다. 함수형 프로그래밍에서 자주 쓰이는 방식이다.</p>
+<p>이렇게 하면 이벤트 객체가 인자로 넘어오는 순서가 바뀌는 점과 함수 내부에서의 this가 원래의 값과 달라지는 점을 감안해야한다. 
+이를 해결하기 위햇 다른방식으로 고차함수를 활용하는 것이다. 
+함수형 프로그래밍에서 자주 쓰이는 방식이다.</p>
 <pre><code class="language-js">var fruits = ['apple', 'banana', 'peach'];
 var $ul = document.createElement('ul');
 
@@ -5617,10 +5630,10 @@ fruits.forEach(function(fruit) {
 document.body.appendChild($ul);
 </code></pre>
 <p>alertFruitBuilder라는 함수를 만들었다.</p>
-<p>이 함수는 내부에서 익명함수를 반환하는데, 이 익명함수가 바로 기존의 alertFruit함수이다. alertFruitBuilder함수를 실행하면서 fruit값을 인자로 전달하고, 그러면 이 함수의 실행 결과가 다시 함수가 되며, 이렇게 반환된 함수를 리스너에 콜백 함수로써 전달할 것이다.</p>
+<p>이 함수는 내부에서 익명함수를 반환하는데, 이 익명함수가 바로 기존의 alertFruit 함수다. alertFruitBuilder함수를 실행하면서 fruit값을 인자로 전달하고, 그러면 이 함수의 실행 결과가 다시 함수가 되며, 이렇게 반환된 함수를 리스너에 콜백 함수로써 전달할 것이다.</p>
 <h3 id="접근-권한-제어정보-은닉"><a class="header" href="#접근-권한-제어정보-은닉">접근 권한 제어(정보 은닉)</a></h3>
 <p>정보 은닉이란 어떤 모듈의 내부 로직에 대해 외부로의 노출을 최소화해서 모듈 간의 결합도를 낮추고 유연성을 높이고자 하는 현대 프로그래밍 언어의 중요한 개념 중 하나이다. </p>
-<p>JS는 기본적으로 변수 자체에 이러한 접근 권한을 직접 부여하도록 설계되어 있지 않다. 그렇다고 접근 권한 제어가 불가능한 건 아니다. 클로저를 이용하면 된다.</p>
+<p>자바스크립트는 기본적으로 변수 자체에 이러한 접근 권한을 직접 부여하도록 설계되어 있지 않다. 그렇다고 접근 권한 제어가 불가능한 건 아니다. 클로저를 이용하면 된다.</p>
 <pre><code class="language-js">var car = {
   fuel: Math.ceil(Math.random() * 10 + 10), // 연료(L)
   power: Math.ceil(Math.random() * 3 + 2), // 연비(km/L)
@@ -5638,12 +5651,12 @@ document.body.appendChild($ul);
   },
 };
 </code></pre>
-<p>이렇게 하면 run 메서드만 호출한다는 가정하에는 충분하다. 그러나 JS는 값을 변경할 수 있다.</p>
+<p>이렇게 하면 <code>run</code> 메서드만 호출한다는 가정하에는 충분하다. 그러나 자바스크립트는 값을 변경할 수 있다.</p>
 <pre><code class="language-js">car.fuel = 10000;
 car.power = 100;
 car.moved = 1000;
 </code></pre>
-<p>아래와 같이 바꾸지 못하도록 클로저로 방어가 가능하다. 필요한 멤버만 return 하는 것이다.</p>
+<p>아래와 같이 바꾸지 못하도록 클로저로 방어가 가능하다. 필요한 멤버만 <code>return</code> 하는 것이다.</p>
 <pre><code class="language-js">var createCar = function() {
   var fuel = Math.ceil(Math.random() * 10 + 10); // 연료(L)
   var power = Math.ceil(Math.random() * 3 + 2); // 연비(km / L)
@@ -5689,13 +5702,14 @@ var car = createCar();
       console.log(km + 'km 이동 (총 ' + moved + 'km). 남은 연료: ' + fuel);
     },
   };
-  Object.freeze(publicMembers);
+  Object.freeze(publicMembers); // 추가
   return publicMembers;
 };
 var car = createCar();
 </code></pre>
 <h3 id="부분-적용-함수"><a class="header" href="#부분-적용-함수">부분 적용 함수</a></h3>
-<p>부분 적용 함수란 n개의 인자를 받는 함수에 미리 m개의 인자만 넘겨 기억시켰다가, 나중에 (n-m) 개의 인자를 넘기면 비로소 원래 함수의 실행 결과를 얻을 수 있게끔 하는 함수이다. this를 바인딩해야 하는 점을 제외하면 앞서 살펴본 bind 메서드의 실행 결과가 바로 부분 적용 함수이다.</p>
+<p>부분 적용 함수란 n개의 인자를 받는 함수에 미리 m개의 인자만 넘겨 기억시켰다가, 나중에 (n-m) 개의 인자를 넘기면 비로소 원래 함수의 실행 결과를 얻을 수 있게하는 함수다. 
+this를 바인딩해야 하는 점을 제외하면 앞서 살펴본 bind 메서드의 실행 결과가 바로 부분 적용 함수다.</p>
 <pre><code class="language-js">var add = function() {
   var result = 0;
   for (var i = 0; i &lt; arguments.length; i++) {
@@ -5781,8 +5795,18 @@ var getMinWith10 = curry3(Math.min)(10);
 console.log(getMinWith10(8)); // 8
 console.log(getMinWith10(25)); // 10
 </code></pre>
-<p>커링함수는 당장 필요한 정보만 받아서 전달하고 또 필요한 정보가 들어오면 전달하는 식으로 하면 결국 마지막 인자가 넘어갈 때까지 함수 실행을 미루는 셈이다. 이를 함수형 프로그래밍에서는 지연실행이라고 칭한다. 원하는 시점까지 지연시켰다가 실행하는 것이 용이한 상황이라면 커링을 쓰기에 적합하다.</p>
-<p>최근 여러 프레임워크나 라이브러리 등에서 커링을 상당히 광범위하게 사용하고 있다. Flux 아키텍처의 구현체 중 하나인 Redux의 미들웨어를 예로 들면 logger와 thunk 둘 다 공통적으로 store, next, action 순서로 인자를 받는다. 이 중 store는 프로젝트 내에서 한 번 생성된 이후로는 바뀌지 않는 속성이고, dispatch의 의미를 가지는 next 역시 마찬가지이다. action의 경우 매번 달라진다. 결국, store와 next값이 결정되면 Redux 내부에서 logger 또는 thunk에 store, next를 미리 넘겨서 반환된 함수를 저장시켜놓고, 이후에는 action만 받아서 처리할 수 있게 한 것이다.</p>
+<p>커링함수는 당장 필요한 정보만 받아서 전달하고 또 필요한 정보가 들어오면 전달하는 식으로 하면 결국 마지막 인자가 넘어갈 때까지 함수 실행을 미루는 셈이다. 
+이를 함수형 프로그래밍에서는 지연실행이라고 칭한다. 
+원하는 시점까지 지연시켰다가 실행하는 것이 용이한 상황이라면 커링을 쓰기에 적합하다.</p>
+<p>최근 여러 프레임워크나 라이브러리 등에서 커링을 상당히 광범위하게 사용하고 있다. </p>
+<p>Flux 아키텍처의 구현체 중 하나인 Redux의 미들웨어를 예로 들면 logger와 thunk 둘 다 공통적으로 store, next, action 순서로 인자를 받는다. 
+이 중 store는 프로젝트 내에서 한 번 생성된 이후로는 바뀌지 않는 속성이고, dispatch의 의미를 가지는 next 역시 마찬가지이다. 
+action의 경우 매번 달라진다. </p>
+<p>결국, store와 next값이 결정되면 Redux 내부에서 logger 또는 thunk에 store, next를 미리 넘겨서 반환된 함수를 저장시켜놓고, 이후에는 action만 받아서 처리할 수 있게 한 것이다.</p>
+<h2 id="정리-3"><a class="header" href="#정리-3">정리</a></h2>
+<p>클로저란 어떤 함수에서 선언한 변수를 참조하는 내부함수를 외부로 전달할 경우, 함수의 실행컨텍스트가 종료된 후에도 해당 변수가 사라지지 않는 현상.</p>
+<p>내부함수를 외부로 전달하는 방법에는 함수를 return하는 경우만 아니라 콜백으로 전달하는 경우도 포함이다.</p>
+<p>클로저는 그 본질이 메모리를 계속 차지하는 개념으로 더이상 사용하지 않게 된 클로저에 대해서는 메모리를 관리해주어야한다.</p>
 
                     </main>
 
