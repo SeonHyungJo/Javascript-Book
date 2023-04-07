@@ -5811,6 +5811,86 @@ action의 경우 매번 달라진다. </p>
 <blockquote>
 <p>모든 내용은 책을 기반으로 작성되었습니다.</p>
 </blockquote>
+<p>자바스크립트는 프로토타입기반 언어이다. </p>
+<p>클래스 기반 언어에서는 '상속'을 사용하지만, 프로토타입 기반 언어에서는 어떤 객체를 원형으로 삼고 이를 복제(참조)함으로써 상속과 비슷한 효과를 얻는다.</p>
+<h2 id="프로토타입의-개념-이해"><a class="header" href="#프로토타입의-개념-이해">프로토타입의 개념 이해</a></h2>
+<h3 id="constructor-prototype-instance"><a class="header" href="#constructor-prototype-instance">constructor, prototype, instance</a></h3>
+<pre><code class="language-js">var instance = new Constructor();
+</code></pre>
+<ul>
+<li>어떤 생성자 함수를 new 연산자와 함께 호출하면</li>
+<li>Constructor에서 정의된 내용을 바탕으로 새로운 인스턴스가 생성된다.</li>
+<li>이때 instance에는 __proto__라는 프로퍼티가 자동으로 부여된다.</li>
+<li>이 프로퍼티는 Constructor의 prototype이라는 프로퍼티를 참조한다.</li>
+</ul>
+<p>prototype이라는 프로퍼티와 __proto__라는 프로퍼티가 새로 등장했는데, 이 둘의 관계가 프로토타입 개념의 핵심이다.</p>
+<pre><code class="language-js">var Person = function(name){
+  this._name = name;
+}
+
+Person.prototype.getName = function () {
+  return this._name;
+}
+</code></pre>
+<p>이제 Person의 인스턴스는 <strong>proto</strong> 프로퍼티를 통해 getName을 호출 할 수 있다.</p>
+<pre><code class="language-js">var suzi = new Person('Suzi');
+suzi.__proto__.getName(); //undefined
+
+Person.prototype === suzi.__proto__ // true
+</code></pre>
+<p>메서드 호출 결과로 undefined가 나온 점에 주목해 보면, Suzi라는 값이 안나오지도 했지만 에러가 나지 않았다는 것이다.</p>
+<p>이를 통해서 this 바인딩이 잘못됐다는 것을 알 수 있었고, this가 suzi.__proto__가 된 것이다.</p>
+<p>__proto__는 <strong>생략 가능한</strong> 프로퍼티이기 때문에 생략해서 사용하면 정상적으로 나온다.</p>
+<p>프로토타입의 개념을 좀 더 상세히 설명하면, 자바스크립트는 함수에 지동으로 객체인 prototype 프로퍼티를 생성해 놓는ㄴ데, 해당 하마수를 생성자 함수로서 사용할 경우, 즉 new 연산자와 함께 호출할 경우, 그로부터 생성된 인스턴스에는 숨겨진 프로퍼티 __proto__가 자동으로 생성되며, 
+이 프로퍼티는 생성자 함수의 prototype 프로퍼티를 참조한다.</p>
+<p><strong>proto</strong> 프로퍼티는 생략 가능하도록 구현돼 있기 때문에 <strong>생성자 함수의 prototype에 어떤 메서드나 프로퍼티가 있다면 인스턴스에서도 마치 자신의 것처럼 메서드나 프로퍼티에 접근할 수 있게 된다.</strong></p>
+<h3 id="constructor-프로퍼티"><a class="header" href="#constructor-프로퍼티">constructor 프로퍼티</a></h3>
+<p>생성자 함수의 프롶퍼티인 prototype 객체 내부에는 constructor라는 프로퍼티가 있다.</p>
+<p>인스턴스로부터 그 원형이 무엇인지를 알 수 있는 수단이기도 하다.</p>
+<pre><code class="language-js">var arr = [1,2];
+Array.prototype.constructor === Array // true
+arr.__proto__.constructor === Array // true
+arr.constructor === Array // true
+</code></pre>
+<p>contructor를 변경하더라도 참조하는 대상이 변경될 뿐 이미 만들어진 인스턴스의 원형이 바뀐다거나 데이터 타입이 변하는 것은 아니다.</p>
+<p>어떤 인스턴스의 생성자 정보를 알아내기 위해 constructor 프로퍼티에 의존하는 건 안전하지 않다.</p>
+<h2 id="프로토타입-체인"><a class="header" href="#프로토타입-체인">프로토타입 체인</a></h2>
+<p>prototype 객체를 참조하는 __proto__를 생략하면 인스턴스는 prototype에 정의된 프로퍼티나 메서드를 마치 자신의 것처럼 사용할 수 있다.</p>
+<p>만약 인스턴스가 동일한 이름의 프로퍼티나 메서드를 가지고 있는 상황이라면 어떻게 될까?</p>
+<pre><code class="language-js">var Person = function (hane) {
+  this.name = name;
+}
+Person.prototype.getName = function () {
+  return this.name;
+}
+
+var iu = new Person('지금');
+iu.getName = function () {
+  return '바로 ' + this.name;
+};
+console.log(iu.getName()); // 바로 지금
+</code></pre>
+<p>이러한 현상을 <strong>메서드 오버라이드</strong>라고 한다.</p>
+<p>메서드 위에 메서드를 덮어씌웠다는 표현으로 원본을 제거하고 다른 대상으로 교체하는 것이 아니라 원본이 그대로 있는 상태에서 다른 대상을 얹는다고 생각하면 된다.</p>
+<p>prototype 객체는 '객체'이다. 기본적으로 모든 객체의 __proto__에는 Object.prototype이 연결된다. prototype 객체도 예외가 아니다.</p>
+<p><strong>어떤 데이터의 <strong>proto</strong> 프로퍼티 내부에 다시 <strong>proto</strong> 프로퍼티가 연쇄적으로 이어진 것을 프로토타입 체인이라 하고, 이 체인을 따라가며 검색하는 것을 프로토타입 체이닝이라고 한다.</strong></p>
+<h3 id="객체-전용-메서드의-예외사항"><a class="header" href="#객체-전용-메서드의-예외사항">객체 전용 메서드의 예외사항</a></h3>
+<p>어떤 생성자 함수이든 prototype은 반드시 객체이기 때문에 Object.prototype이 언제나 프로토타입 체인의 최상단에 존재하게 된다.</p>
+<blockquote>
+<p>프로토타입 체인상 가장 마지막에는 언제나 Object.prototype이 있다고 했는데, 예외적으로 Object.create를 이용하면 Object.prototype의 메서드에 접근할 수 없는 경우가 있다. 즉 __proto__가 없는 것이다.</p>
+</blockquote>
+<h3 id="다중-프로토타입-체인"><a class="header" href="#다중-프로토타입-체인">다중 프로토타입 체인</a></h3>
+<p>자바스크립트의 기본 내장 데이터 타입들은 모두 프로토타입 체인이 1단계(객체)이거나 2단계(나머지)로 끝나는 경우만 있었지만 사용자가 새롭게 만드는 경우에는 그 이상도 가능하다.</p>
+<p>이 방법으로 클래스와 비슷하게 동작하는 구조를 만들 수 있다.</p>
+<h2 id="정리-4"><a class="header" href="#정리-4">정리</a></h2>
+<p>어떤 생성자 함수를 new 연산자와 함께 호출하면 constructor에서 정의된 내용을 바탕으로 새로운 인스턴스가 생성되는데, 이 인스턴스에는__proto__라는, Constructor의 prototype 프로퍼티를 참조하는 프로퍼티가 자동으로 부여된다.</p>
+<p>__proto__는 생략 가능한 속성이라서, 인스턴스는 Constrictor. prototype의 메서드를 자신의 메서드인 것처럼 호출할 수 있다.</p>
+<p>Constructor.prototype에는 constructor라는 프로퍼티가 있는데, 이는 다시 생성자 함수 자신을 가리킵니다. 이 프로퍼티는 인스턴스가 자신의 생성자 함수가 무엇인지를 알고자 할 때 필요한 수단입니다.</p>
+<p>직각삼각형의 대각선 방향. 즉 <strong>proto</strong> 방향을 계속 찾아가면 최종적으로는 Object.prototype에 당도하게 된다. 
+이런 식으로 <strong>proto</strong> 안에 다시 __proto__를 찾아가는 과정을 프로토타입 체이닝이라고 하며, 이 프로토타입 체이닝을 통해 각 프로토타입 메서드를 자신의 것처럼 호출할 수 있습니다. 
+이때 접근 방식은 자신으로부터 가장 가까운 대상에서 먼 대상으로 나아가며, 원하는 값을 찾으면 검색을 중단한다.</p>
+<p>Object.prototype에는 모든 데이터 타입에서 사용할 수 있는 범용적인 메서드만이 존재하며, 객체 전용 메서드는 여느 데이터 타입과 달리 Object 생성자 함수에 스태틱하게 담겨있다.
+프로토타입 체인은 반드시 2단계로만 이뤄지는 것이 아니라 무한대의 단계를 생성할 수도 있다.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="클래스"><a class="header" href="#클래스">클래스</a></h1>
 <blockquote>
 <p>모든 내용은 책을 기반으로 작성되었습니다.</p>
