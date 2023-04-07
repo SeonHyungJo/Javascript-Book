@@ -34,3 +34,5 @@
   - [this](core-javascript/3-this.md)
   - [콜백 함수](core-javascript/4-콜백-함수.md)
   - [클로저](core-javascript/5-Closure(클로저).md)
+  - [프로토타입](core-javascript/6-프로토타입.md)
+  - [클래스](core-javascript/7-클래스.md)
